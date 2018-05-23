@@ -56,3 +56,6 @@ object_database/*
 
 *.pyc
 *.pyo
+
+.vscode/
+*.cbp

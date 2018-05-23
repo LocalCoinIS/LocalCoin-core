@@ -2770,7 +2770,7 @@ namespace graphene { namespace wallet {
         result.brain_priv_key = brain_key;
         result.wif_priv_key = key_to_wif( priv_key );
         result.pub_key = priv_key.get_public_key();
-
+        result.address = graphene::chain::address(result.pub_key);
         results.push_back(result);
       }
 
@@ -2982,6 +2982,7 @@ brain_key_info wallet_api::suggest_brain_key()const
    result.brain_priv_key = brain_key;
    result.wif_priv_key = key_to_wif( priv_key );
    result.pub_key = priv_key.get_public_key();
+   result.address = graphene::chain::address(result.pub_key);
    return result;
 }
 
