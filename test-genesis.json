@@ -280,43 +280,43 @@
   },
   "initial_accounts": [{
       "name": "notteler",
-      "owner_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
-      "active_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
   }, {
       "name": "germut",
-      "owner_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
-      "active_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
   }, {
       "name": "localcoin-ico",
-      "owner_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
-      "active_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
   }, {
       "name": "localcoin",
-      "owner_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
-      "active_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
   }, {
       "name": "localcoin-wallet",
-      "owner_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
-      "active_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
   }, {
       "name": "localcoin-fiat",
-      "owner_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
-      "active_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
   }, {
       "name": "localcoin-otc",
-      "owner_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
-      "active_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
   }, {
       "name": "localcoin-feed",
-      "owner_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
-      "active_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+      "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
   }],
   "initial_assets": [{
@@ -550,7 +550,7 @@
           "issuer_name": "localcoin-wallet",
           "max_supply": "1000000000000000",
           "precision": 8,
-          "symbol": "BTSS"
+          "symbol": "BTS"
       },
       {
           "description": "1 wanchain",
@@ -1155,23 +1155,23 @@
   ],
 
   "initial_balances": [{
-          "owner": "BTSJBqPxC8R6H4KdRPSxbs999XyobsZXTyPa",
-          "asset_symbol": "BTS",
+          "owner": "LLCJBqPxC8R6H4KdRPSxbs999XyobsZXTyPa",
+          "asset_symbol": "LLC",
           "amount": "80000000000000"
       },
       {
-          "owner": "BTSHnjug7KJG84jg8qoG5SVa9XDqfDm8cBkx",
-          "asset_symbol": "BTS",
+          "owner": "LLCHnjug7KJG84jg8qoG5SVa9XDqfDm8cBkx",
+          "asset_symbol": "LLC",
           "amount": "20000000000000"
       },
       {
-          "owner": "BTS6f3FN251kWo8gQKrTwtSb1R8Tvt6w2B3H",
-          "asset_symbol": "BTS",
+          "owner": "LLC6f3FN251kWo8gQKrTwtSb1R8Tvt6w2B3H",
+          "asset_symbol": "LLC",
           "amount": "10000000000000"
       },
       {
-        "owner": "BTSFAbAx7yuxt725qSZvfwWqkdCwp9ZnUama",
-        "asset_symbol": "BTS",
+        "owner": "LLCFAbAx7yuxt725qSZvfwWqkdCwp9ZnUama",
+        "asset_symbol": "LLC",
         "amount": "1000000000000000"
       }
   ],
@@ -1180,28 +1180,28 @@
   "initial_witness_candidates": [
   {
       "owner_name": "notteler",
-      "block_signing_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
+      "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
   }, {
       "owner_name": "germut",
-      "block_signing_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
+      "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
   }, {
       "owner_name": "localcoin-ico",
-      "block_signing_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
+      "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
   }, {
       "owner_name": "localcoin",
-      "block_signing_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
+      "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
   }, {
       "owner_name": "localcoin-wallet",
-      "block_signing_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
+      "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
   }, {
       "owner_name": "localcoin-fiat",
-      "block_signing_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
+      "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
   }, {
       "owner_name": "localcoin-otc",
-      "block_signing_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
+      "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
   }, {
       "owner_name": "localcoin-feed",
-      "block_signing_key": "BTS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
+      "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
   }],
   "initial_committee_candidates": [{
       "owner_name": "notteler"
