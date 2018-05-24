@@ -280,43 +280,43 @@
     },
     "initial_accounts": [{
         "name": "notteler",
-        "owner_key": "BTS78dAhdTGLacNRTJzfXUnF5qdJiWBNkWukzYHqauirGftjuBD4d",
-        "active_key": "BTS78dAhdTGLacNRTJzfXUnF5qdJiWBNkWukzYHqauirGftjuBD4d",
+        "owner_key": "LLC78dAhdTGLacNRTJzfXUnF5qdJiWBNkWukzYHqauirGftjuBD4d",
+        "active_key": "LLC78dAhdTGLacNRTJzfXUnF5qdJiWBNkWukzYHqauirGftjuBD4d",
         "is_lifetime_member": true
     }, {
         "name": "germut",
-        "owner_key": "BTS5xhgVsG4hgXDQ4bwSBiwqD78jczBv5VxHpGzShQRgBiStPivzN",
-        "active_key": "BTS5xhgVsG4hgXDQ4bwSBiwqD78jczBv5VxHpGzShQRgBiStPivzN",
+        "owner_key": "LLC5xhgVsG4hgXDQ4bwSBiwqD78jczBv5VxHpGzShQRgBiStPivzN",
+        "active_key": "LLC5xhgVsG4hgXDQ4bwSBiwqD78jczBv5VxHpGzShQRgBiStPivzN",
         "is_lifetime_member": true
     }, {
         "name": "localcoin-ico",
-        "owner_key": "BTS5gVwdbDbTpRioxqBaDreLF33pptE7QSqNZ1scQBsnvPFCXQYjn",
-        "active_key": "BTS5gVwdbDbTpRioxqBaDreLF33pptE7QSqNZ1scQBsnvPFCXQYjn",
+        "owner_key": "LLC5gVwdbDbTpRioxqBaDreLF33pptE7QSqNZ1scQBsnvPFCXQYjn",
+        "active_key": "LLC5gVwdbDbTpRioxqBaDreLF33pptE7QSqNZ1scQBsnvPFCXQYjn",
         "is_lifetime_member": true
     }, {
         "name": "localcoin",
-        "owner_key": "BTS5E1EEvKb2jtqR8smjkWHMubbQcih1VqTPG2TP5RwrzeUjkGHyY",
-        "active_key": "BTS5E1EEvKb2jtqR8smjkWHMubbQcih1VqTPG2TP5RwrzeUjkGHyY",
+        "owner_key": "LLC5E1EEvKb2jtqR8smjkWHMubbQcih1VqTPG2TP5RwrzeUjkGHyY",
+        "active_key": "LLC5E1EEvKb2jtqR8smjkWHMubbQcih1VqTPG2TP5RwrzeUjkGHyY",
         "is_lifetime_member": true
     }, {
         "name": "localcoin-wallet",
-        "owner_key": "BTS6crqygKbdqTNiU3Vai8RtweM7w5RnWwtDqdKy7277UytxffhCK",
-        "active_key": "BTS6crqygKbdqTNiU3Vai8RtweM7w5RnWwtDqdKy7277UytxffhCK",
+        "owner_key": "LLC6crqygKbdqTNiU3Vai8RtweM7w5RnWwtDqdKy7277UytxffhCK",
+        "active_key": "LLC6crqygKbdqTNiU3Vai8RtweM7w5RnWwtDqdKy7277UytxffhCK",
         "is_lifetime_member": true
     }, {
         "name": "localcoin-fiat",
-        "owner_key": "BTS7ZVK91ku6a5jYUYR8FfnFeipbBBUcuBGjimeaCnhjpwsp4PDLG",
-        "active_key": "BTS7ZVK91ku6a5jYUYR8FfnFeipbBBUcuBGjimeaCnhjpwsp4PDLG",
+        "owner_key": "LLC7ZVK91ku6a5jYUYR8FfnFeipbBBUcuBGjimeaCnhjpwsp4PDLG",
+        "active_key": "LLC7ZVK91ku6a5jYUYR8FfnFeipbBBUcuBGjimeaCnhjpwsp4PDLG",
         "is_lifetime_member": true
     }, {
         "name": "localcoin-otc",
-        "owner_key": "BTS5NGpou9nB1LS2X9sSRyawVtZZNaGZpf22EvbgDLs1LYoswNy6H",
-        "active_key": "BTS5NGpou9nB1LS2X9sSRyawVtZZNaGZpf22EvbgDLs1LYoswNy6H",
+        "owner_key": "LLC5NGpou9nB1LS2X9sSRyawVtZZNaGZpf22EvbgDLs1LYoswNy6H",
+        "active_key": "LLC5NGpou9nB1LS2X9sSRyawVtZZNaGZpf22EvbgDLs1LYoswNy6H",
         "is_lifetime_member": true
     }, {
         "name": "localcoin-feed",
-        "owner_key": "BTS7xfPUpkr5jfyYaMkhHEZurSEn87jqZNgcxsqEgApkXSzUrek23",
-        "active_key": "BTS7xfPUpkr5jfyYaMkhHEZurSEn87jqZNgcxsqEgApkXSzUrek23",
+        "owner_key": "LLC7xfPUpkr5jfyYaMkhHEZurSEn87jqZNgcxsqEgApkXSzUrek23",
+        "active_key": "LLC7xfPUpkr5jfyYaMkhHEZurSEn87jqZNgcxsqEgApkXSzUrek23",
         "is_lifetime_member": true
     }],
     "initial_assets": [{
@@ -550,7 +550,7 @@
             "issuer_name": "localcoin-wallet",
             "max_supply": "1000000000000000",
             "precision": 8,
-            "symbol": "BTSS"
+            "symbol": "BTS"
         },
         {
             "description": "1 wanchain",
@@ -1151,22 +1151,810 @@
             "max_supply": "1000000000000000",
             "precision": 8,
             "symbol": "MNX"
+        },
+
+
+
+
+        {
+            "description": "1 Tether",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "USDT"
+        },
+        {
+            "description": "1 EOS",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "EOS"
+        },
+        {
+            "description": "1 TRON",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "TRX"
+        },
+        {
+            "description": "1 True Chain",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "TRUE"
+        },
+        {
+            "description": "1 0x",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "ZRX"
+        },
+        {
+            "description": "1 Bibox Token",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "BIX"
+        },
+        {
+            "description": "1 Ontology",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "ONT"
+        },
+        {
+            "description": "1 CyberMiles",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "CMT"
+        },
+        {
+            "description": "1 Zilliqa",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "ZIL"
+        },
+        {
+            "description": "1 IOSToken",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "IOST"
+        },
+        {
+            "description": "1 VeChain",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "VEN"
+        },
+        {
+            "description": "1 Cortex",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "CTXC"
+        },
+        {
+            "description": "1 Binance Coin",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "BNB"
+        },
+        {
+            "description": "1 Bytom",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "BTM"
+        },
+        {
+            "description": "1 aelf",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "ELF"
+        },
+        {
+            "description": "1 OmiseGO",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "OMG"
+        },
+        {
+            "description": "1 Nebulas",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "NAS"
+        },
+        {
+            "description": "1 ICON",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "ICX"
+        },
+        {
+            "description": "1 Status",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "SNT"
+        },
+        {
+            "description": "1 Storm",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "STORM"
+        },
+        {
+            "description": "1 Populous",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "PPT"
+        },
+        {
+            "description": "1 Aeternity",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "AE"
+        },
+        {
+            "description": "1 Loopring",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "LRC"
+        },
+        {
+            "description": "1 Mithril",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "MITH"
+        },
+        {
+            "description": "1 Nexo",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "NEXO"
+        },
+        {
+            "description": "1 Monaco",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "MCO"
+        },
+        {
+            "description": "1 Arcblock",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "ABT"
+        },
+        {
+            "description": "1 Golem",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "GNT"
+        },
+        {
+            "description": "1 Kyber Network",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "KNC"
+        },
+        {
+            "description": "1 IHT Real Estate Protocol",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "IHT"
+        },
+        {
+            "description": "1 All Sports",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "SOC"
+        },
+        {
+            "description": "1 Time New Bank",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "TNB"
+        },
+        {
+            "description": "1 Bancor",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "BNT"
+        },
+        {
+            "description": "1 eosDAC",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "EOSDAC"
+        },
+        {
+            "description": "1 Nucleus Vision",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "NCASH"
+        },
+        {
+            "description": "1 Theta Token",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "THETA"
+        },
+        {
+            "description": "1 Loom Network",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "LOOM"
+        },
+        {
+            "description": "1 Civic",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "CVC"
+        },
+        {
+            "description": "1 Gifto",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "GTO"
+        },
+        {
+            "description": "1 Enigma",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "ENG"
+        },
+        {
+            "description": "1 Game.com",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "GTC"
+        },
+        {
+            "description": "1 Fusion",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "FSN"
+        },
+        {
+            "description": "1 Basic Attention Token",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "BAT"
+        },
+        {
+            "description": "1 Power Ledger",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "POWR"
+        },
+        {
+            "description": "1 Waltonchain",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "WTC"
+        },
+        {
+            "description": "1 FunFair",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "FUN"
+        },
+        {
+            "description": "1 TenX",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "PAY"
+        },
+        {
+            "description": "1 Storj",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "STORJ"
+        },
+        {
+            "description": "1 Nuls",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "NULS"
+        },
+        {
+            "description": "1 Polymath",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "POLY"
+        },
+        {
+            "description": "1 Ethos",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "ETHOS"
+        },
+        {
+            "description": "1 High Performance Blockchain",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "HPB"
+        },
+        {
+            "description": "1 Augur",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "REP"
+        },
+        {
+            "description": "1 Ink",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "INK"
+        },
+        {
+            "description": "1 Ruff",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "RUFF"
+        },
+        {
+            "description": "1 Gas",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "GAS"
+        },
+        {
+            "description": "1 SALT",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "SALT"
+        },
+        {
+            "description": "1 Substratum",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "SUB"
+        },
+        {
+            "description": "1 Bluzelle",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "BLZ"
+        },
+        {
+            "description": "1 Decentraland",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "MANA"
+        },
+        {
+            "description": "1 Aion",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "AION"
+        },
+        {
+            "description": "1 Bottos",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "BTO"
+        },
+        {
+            "description": "1 Holo",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "HOT"
+        },
+        {
+            "description": "1 Credits",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "CS"
+        },
+        {
+            "description": "1 DeepBrain Chain",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "DBC"
+        },
+        {
+            "description": "1 Quantstamp",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "QSP"
+        },
+        {
+            "description": "1 BnkToTheFuture",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "BFT"
+        },
+        {
+            "description": "1 Enjin Coin",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "ENJ"
+        },
+        {
+            "description": "1 MaidSafeCoin",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "SAFE"
+        },
+        {
+            "description": "1 WAX",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "WAX"
+        },
+        {
+            "description": "1 iExec RLC",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "RLC"
+        },
+        {
+            "description": "1 Dent",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "DENT"
+        },
+        {
+            "description": "1 Dragonchain",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "DRGN"
+        },
+        {
+            "description": "1 SmartMesh",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "SMT"
+        },
+        {
+            "description": "1 Matrix AI Network",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "MAN"
+        },
+        {
+            "description": "1 Delphy",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "DPY"
+        },
+        {
+            "description": "1 Revain",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "R"
+        },
+        {
+            "description": "1 DigixDAO",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "DGD"
+        },
+        {
+            "description": "1 QASH",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "QASH"
+        },
+        {
+            "description": "1 Crypterium",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "CRPT"
+        },
+        {
+            "description": "1 SONM",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "SNM"
+        },
+        {
+            "description": "1 Request Network",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "REQ"
+        },
+        {
+            "description": "1 Ignis",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "IGNIS"
+        },
+        {
+            "description": "1 Scry.info",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "DDD"
+        },
+        {
+            "description": "1 ChainLink",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "LINK"
+        },
+        {
+            "description": "1 Veritaseum",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "VERI"
+        },
+        {
+            "description": "1 Maker",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "MKR"
+        },
+        {
+            "description": "1 Kin",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "KIN"
+        },
+        {
+            "description": "1 Cindicator",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "CND"
+        },
+        {
+            "description": "1 MediBloc",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "MED"
+        },
+        {
+            "description": "1 SophiaTX",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "SPHTX"
+        },
+        {
+            "description": "1 Gnosis",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "GNO"
+        },
+        {
+            "description": "1 RChain",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "RHOC"
+        },
+        {
+            "description": "1 Iconomi",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "ICN"
+        },
+        {
+            "description": "1 Mixin",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "XIN"
+        },
+        {
+            "description": "1 Aragon",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "ANT"
+        },
+        {
+            "description": "1 Dentacoin",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "DCN"
+        },
+        {
+            "description": "1 Centrality",
+            "is_bitasset": true,
+            "issuer_name": "localcoin-wallet",
+            "max_supply": "1000000000000000",
+            "precision": 8,
+            "symbol": "CENNZ"
         }
     ],
 
     "initial_balances": [{
-            "owner": "BTSJBqPxC8R6H4KdRPSxbs999XyobsZXTyPa",
-            "asset_symbol": "BTS",
+            "owner": "LLCJBqPxC8R6H4KdRPSxbs999XyobsZXTyPa",
+            "asset_symbol": "LLC",
             "amount": "80000000000000"
         },
         {
-            "owner": "BTSHnjug7KJG84jg8qoG5SVa9XDqfDm8cBkx",
-            "asset_symbol": "BTS",
+            "owner": "LLCHnjug7KJG84jg8qoG5SVa9XDqfDm8cBkx",
+            "asset_symbol": "LLC",
             "amount": "20000000000000"
         },
         {
-            "owner": "BTS6f3FN251kWo8gQKrTwtSb1R8Tvt6w2B3H",
-            "asset_symbol": "BTS",
+            "owner": "LLC6f3FN251kWo8gQKrTwtSb1R8Tvt6w2B3H",
+            "asset_symbol": "LLC",
             "amount": "10000000000000"
         }
     ],
@@ -1175,28 +1963,28 @@
     "initial_witness_candidates": [
     {
         "owner_name": "notteler",
-        "block_signing_key": "BTS78dAhdTGLacNRTJzfXUnF5qdJiWBNkWukzYHqauirGftjuBD4d"
+        "block_signing_key": "LLC78dAhdTGLacNRTJzfXUnF5qdJiWBNkWukzYHqauirGftjuBD4d"
     }, {
         "owner_name": "germut",
-        "block_signing_key": "BTS5xhgVsG4hgXDQ4bwSBiwqD78jczBv5VxHpGzShQRgBiStPivzN"
+        "block_signing_key": "LLC5xhgVsG4hgXDQ4bwSBiwqD78jczBv5VxHpGzShQRgBiStPivzN"
     }, {
         "owner_name": "localcoin-ico",
-        "block_signing_key": "BTS5gVwdbDbTpRioxqBaDreLF33pptE7QSqNZ1scQBsnvPFCXQYjn"
+        "block_signing_key": "LLC5gVwdbDbTpRioxqBaDreLF33pptE7QSqNZ1scQBsnvPFCXQYjn"
     }, {
         "owner_name": "localcoin",
-        "block_signing_key": "BTS5E1EEvKb2jtqR8smjkWHMubbQcih1VqTPG2TP5RwrzeUjkGHyY"
+        "block_signing_key": "LLC5E1EEvKb2jtqR8smjkWHMubbQcih1VqTPG2TP5RwrzeUjkGHyY"
     }, {
         "owner_name": "localcoin-wallet",
-        "block_signing_key": "BTS6crqygKbdqTNiU3Vai8RtweM7w5RnWwtDqdKy7277UytxffhCK"
+        "block_signing_key": "LLC6crqygKbdqTNiU3Vai8RtweM7w5RnWwtDqdKy7277UytxffhCK"
     }, {
         "owner_name": "localcoin-fiat",
-        "block_signing_key": "BTS7ZVK91ku6a5jYUYR8FfnFeipbBBUcuBGjimeaCnhjpwsp4PDLG"
+        "block_signing_key": "LLC7ZVK91ku6a5jYUYR8FfnFeipbBBUcuBGjimeaCnhjpwsp4PDLG"
     }, {
         "owner_name": "localcoin-otc",
-        "block_signing_key": "BTS5NGpou9nB1LS2X9sSRyawVtZZNaGZpf22EvbgDLs1LYoswNy6H"
+        "block_signing_key": "LLC5NGpou9nB1LS2X9sSRyawVtZZNaGZpf22EvbgDLs1LYoswNy6H"
     }, {
         "owner_name": "localcoin-feed",
-        "block_signing_key": "BTS7xfPUpkr5jfyYaMkhHEZurSEn87jqZNgcxsqEgApkXSzUrek23"
+        "block_signing_key": "LLC7xfPUpkr5jfyYaMkhHEZurSEn87jqZNgcxsqEgApkXSzUrek23"
     }],
     "initial_committee_candidates": [{
         "owner_name": "notteler"
