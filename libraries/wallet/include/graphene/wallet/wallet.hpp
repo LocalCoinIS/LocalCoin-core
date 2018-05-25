@@ -60,7 +60,7 @@ struct brain_key_info
    string brain_priv_key;
    string wif_priv_key;
    public_key_type pub_key;
-   address address;
+   address key_addr;
 };
 
 
@@ -1596,7 +1596,7 @@ FC_REFLECT( graphene::wallet::brain_key_info,
             (brain_priv_key)
             (wif_priv_key)
             (pub_key)
-            (address)
+            (key_addr)
           )
 
 FC_REFLECT( graphene::wallet::exported_account_keys, (account_name)(encrypted_private_keys)(public_keys) )
