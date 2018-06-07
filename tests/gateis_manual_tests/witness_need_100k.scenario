@@ -1,0 +1,99 @@
+//scenario 1: localcoin has no money. It has more votes than germut, but it shouldn't become witness
+
+// prerequisites: set "maintenance_interval" in genesis.json to 10 sec
+
+// wallet cli:
+// check active witnesses with> get_global_properties
+// get all witnesses with> list_witnesses "" 1000
+########### COPY AFTER THIS LINE AND INSERT IN cli_wallet (wallet.json should be removed) #############
+
+set_password testpass
+unlock testpass
+
+import_key notteler "5KCNzYJAi6oDwq18EXzwJYn65xRzFVz5JYr3EYh9QevgxwuX1Ad" true
+import_balance notteler ["5KCNzYJAi6oDwq18EXzwJYn65xRzFVz5JYr3EYh9QevgxwuX1Ad"] true true
+
+import_key germut "5KKinpDPHAe519pZ1joHbZNpQrNskjgpAA9dr8Myj1LyXvmqwnb" true
+import_balance germut ["5KKinpDPHAe519pZ1joHbZNpQrNskjgpAA9dr8Myj1LyXvmqwnb"] true true
+
+import_key localcoin-ico "5JuZjge7gZhkm32kuWuY5rFs6sU5YZJa9dRhbbmyyZkgqWcHbRi" true
+import_balance localcoin-ico ["5JuZjge7gZhkm32kuWuY5rFs6sU5YZJa9dRhbbmyyZkgqWcHbRi"] true true
+
+import_key localcoin "5JLYsHKwujWcjshtkfaR1AcLshgf1Xo6tgehcZtsXzRjrrLXDqd" true
+import_balance localcoin ["5JLYsHKwujWcjshtkfaR1AcLshgf1Xo6tgehcZtsXzRjrrLXDqd"] true true
+
+import_key localcoin-wallet "5JoSGd8QVoSy2bayYf1xVKK4y8bfjpyd4mLEXeJM3dZ79LiYx7s" true
+import_balance localcoin-wallet ["5JoSGd8QVoSy2bayYf1xVKK4y8bfjpyd4mLEXeJM3dZ79LiYx7s"] true true
+
+import_key localcoin-fiat "5KJgab4NcbBXqAo6eFktvDaJfMQBmwD6LGeVJ26R2XB584zShhZ" true
+import_balance localcoin-fiat ["5KJgab4NcbBXqAo6eFktvDaJfMQBmwD6LGeVJ26R2XB584zShhZ"] true true
+
+import_key localcoin-otc "5Hz2oKGJKbmDC5Bp7ARFHdS8tFL2o4wm8DybFtmr3w97pAX4KM7" true
+import_balance localcoin-otc ["5Hz2oKGJKbmDC5Bp7ARFHdS8tFL2o4wm8DybFtmr3w97pAX4KM7"] true true
+
+import_key localcoin-feed "5JjKPDzqw9DWPPhatkM7jo3PBoAMYDnUrCcLJQXYdw9eHRLad6k" true
+import_balance localcoin-feed ["5JjKPDzqw9DWPPhatkM7jo3PBoAMYDnUrCcLJQXYdw9eHRLad6k"] true true
+
+transfer germut localcoin-fiat 5010000 LLC "" true
+transfer germut localcoin-wallet 5010000 LLC "" true
+transfer germut localcoin-otc 5010000 LLC "" true
+transfer germut localcoin-feed 5010000 LLC "" true
+
+vote_for_witness notteler           germut true true
+vote_for_witness localcoin-ico      germut true true
+
+vote_for_witness germut             localcoin true true
+vote_for_witness notteler           localcoin true true
+vote_for_witness localcoin-fiat     localcoin true true
+vote_for_witness localcoin-wallet   localcoin true true
+vote_for_witness localcoin-feed     localcoin true true
+vote_for_witness localcoin-otc      localcoin true true
+vote_for_witness localcoin-ico      localcoin true true
+
+vote_for_witness germut             notteler true true
+vote_for_witness notteler           notteler true true
+vote_for_witness localcoin-fiat     notteler true true
+vote_for_witness localcoin-wallet   notteler true true
+vote_for_witness localcoin-feed     notteler true true
+vote_for_witness localcoin-otc      notteler true true
+vote_for_witness localcoin-ico      notteler true true
+
+vote_for_witness germut             localcoin-fiat true true
+vote_for_witness notteler           localcoin-fiat true true
+vote_for_witness localcoin-fiat     localcoin-fiat true true
+vote_for_witness localcoin-wallet   localcoin-fiat true true
+vote_for_witness localcoin-feed     localcoin-fiat true true
+vote_for_witness localcoin-otc      localcoin-fiat true true
+vote_for_witness localcoin-ico      localcoin-fiat true true
+
+vote_for_witness germut             localcoin-wallet true true
+vote_for_witness notteler           localcoin-wallet true true
+vote_for_witness localcoin-fiat     localcoin-wallet true true
+vote_for_witness localcoin-wallet   localcoin-wallet true true
+vote_for_witness localcoin-feed     localcoin-wallet true true
+vote_for_witness localcoin-otc      localcoin-wallet true true
+vote_for_witness localcoin-ico      localcoin-wallet true true
+
+vote_for_witness germut             localcoin-otc true true
+vote_for_witness notteler           localcoin-otc true true
+vote_for_witness localcoin-fiat     localcoin-otc true true
+vote_for_witness localcoin-wallet   localcoin-otc true true
+vote_for_witness localcoin-feed     localcoin-otc true true
+vote_for_witness localcoin-otc      localcoin-otc true true
+vote_for_witness localcoin-ico      localcoin-otc true true
+
+vote_for_witness germut             localcoin-ico true true
+vote_for_witness notteler           localcoin-ico true true
+vote_for_witness localcoin-fiat     localcoin-ico true true
+vote_for_witness localcoin-wallet   localcoin-ico true true
+vote_for_witness localcoin-feed     localcoin-ico true true
+vote_for_witness localcoin-otc      localcoin-ico true true
+vote_for_witness localcoin-ico      localcoin-ico true true
+
+vote_for_witness germut             localcoin-feed  true true
+vote_for_witness notteler           localcoin-feed  true true
+vote_for_witness localcoin-fiat     localcoin-feed  true true
+vote_for_witness localcoin-wallet   localcoin-feed  true true
+vote_for_witness localcoin-feed     localcoin-feed  true true
+vote_for_witness localcoin-otc      localcoin-feed  true true
+vote_for_witness localcoin-ico      localcoin-feed  true true

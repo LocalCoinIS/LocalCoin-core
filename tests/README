@@ -1,0 +1,4 @@
+# gateis manual tests
+
+to run tests - read corresponding scenario file
+everything should be done with clean blockchain and without wallet.json

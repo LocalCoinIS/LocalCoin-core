@@ -422,6 +422,9 @@ namespace graphene { namespace chain {
 
          template<class Index>
          vector<std::reference_wrapper<const typename Index::object_type>> sort_votable_objects(size_t count)const;
+         template<class Index>
+         vector<std::reference_wrapper<const typename Index::object_type>> sort_votable_objects_gateis(size_t count)const;
+         bool witness_can_be_active(const witness_object& witness)const;
 
          //////////////////// db_block.cpp ////////////////////
 
