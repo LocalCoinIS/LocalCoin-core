@@ -280,43 +280,43 @@
     },
     "initial_accounts": [{
         "name": "notteler",
-        "owner_key": "LLC78dAhdTGLacNRTJzfXUnF5qdJiWBNkWukzYHqauirGftjuBD4d",
-        "active_key": "LLC78dAhdTGLacNRTJzfXUnF5qdJiWBNkWukzYHqauirGftjuBD4d",
+        "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+        "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
         "is_lifetime_member": true
     }, {
         "name": "germut",
-        "owner_key": "LLC5xhgVsG4hgXDQ4bwSBiwqD78jczBv5VxHpGzShQRgBiStPivzN",
-        "active_key": "LLC5xhgVsG4hgXDQ4bwSBiwqD78jczBv5VxHpGzShQRgBiStPivzN",
+        "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+        "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
         "is_lifetime_member": true
     }, {
         "name": "localcoin-ico",
-        "owner_key": "LLC5gVwdbDbTpRioxqBaDreLF33pptE7QSqNZ1scQBsnvPFCXQYjn",
-        "active_key": "LLC5gVwdbDbTpRioxqBaDreLF33pptE7QSqNZ1scQBsnvPFCXQYjn",
+        "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+        "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
         "is_lifetime_member": true
     }, {
         "name": "localcoin",
-        "owner_key": "LLC5E1EEvKb2jtqR8smjkWHMubbQcih1VqTPG2TP5RwrzeUjkGHyY",
-        "active_key": "LLC5E1EEvKb2jtqR8smjkWHMubbQcih1VqTPG2TP5RwrzeUjkGHyY",
+        "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+        "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
         "is_lifetime_member": true
     }, {
         "name": "localcoin-wallet",
-        "owner_key": "LLC6crqygKbdqTNiU3Vai8RtweM7w5RnWwtDqdKy7277UytxffhCK",
-        "active_key": "LLC6crqygKbdqTNiU3Vai8RtweM7w5RnWwtDqdKy7277UytxffhCK",
+        "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+        "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
         "is_lifetime_member": true
     }, {
         "name": "localcoin-fiat",
-        "owner_key": "LLC7ZVK91ku6a5jYUYR8FfnFeipbBBUcuBGjimeaCnhjpwsp4PDLG",
-        "active_key": "LLC7ZVK91ku6a5jYUYR8FfnFeipbBBUcuBGjimeaCnhjpwsp4PDLG",
+        "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+        "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
         "is_lifetime_member": true
     }, {
         "name": "localcoin-otc",
-        "owner_key": "LLC5NGpou9nB1LS2X9sSRyawVtZZNaGZpf22EvbgDLs1LYoswNy6H",
-        "active_key": "LLC5NGpou9nB1LS2X9sSRyawVtZZNaGZpf22EvbgDLs1LYoswNy6H",
+        "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+        "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
         "is_lifetime_member": true
     }, {
         "name": "localcoin-feed",
-        "owner_key": "LLC7xfPUpkr5jfyYaMkhHEZurSEn87jqZNgcxsqEgApkXSzUrek23",
-        "active_key": "LLC7xfPUpkr5jfyYaMkhHEZurSEn87jqZNgcxsqEgApkXSzUrek23",
+        "owner_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+        "active_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
         "is_lifetime_member": true
     }],
     "initial_assets": [{
@@ -1960,31 +1960,30 @@
     ],
     "initial_vesting_balances": [],
     "initial_active_witnesses": 8,
-    "initial_witness_candidates": [
-    {
+    "initial_witness_candidates": [{
         "owner_name": "notteler",
-        "block_signing_key": "LLC78dAhdTGLacNRTJzfXUnF5qdJiWBNkWukzYHqauirGftjuBD4d"
+        "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     }, {
         "owner_name": "germut",
-        "block_signing_key": "LLC5xhgVsG4hgXDQ4bwSBiwqD78jczBv5VxHpGzShQRgBiStPivzN"
+        "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     }, {
         "owner_name": "localcoin-ico",
-        "block_signing_key": "LLC5gVwdbDbTpRioxqBaDreLF33pptE7QSqNZ1scQBsnvPFCXQYjn"
+        "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     }, {
         "owner_name": "localcoin",
-        "block_signing_key": "LLC5E1EEvKb2jtqR8smjkWHMubbQcih1VqTPG2TP5RwrzeUjkGHyY"
+        "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     }, {
         "owner_name": "localcoin-wallet",
-        "block_signing_key": "LLC6crqygKbdqTNiU3Vai8RtweM7w5RnWwtDqdKy7277UytxffhCK"
+        "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     }, {
         "owner_name": "localcoin-fiat",
-        "block_signing_key": "LLC7ZVK91ku6a5jYUYR8FfnFeipbBBUcuBGjimeaCnhjpwsp4PDLG"
+        "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     }, {
         "owner_name": "localcoin-otc",
-        "block_signing_key": "LLC5NGpou9nB1LS2X9sSRyawVtZZNaGZpf22EvbgDLs1LYoswNy6H"
+        "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     }, {
         "owner_name": "localcoin-feed",
-        "block_signing_key": "LLC7xfPUpkr5jfyYaMkhHEZurSEn87jqZNgcxsqEgApkXSzUrek23"
+        "block_signing_key": "LLC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
     }],
     "initial_committee_candidates": [{
         "owner_name": "notteler"
