@@ -76,14 +76,11 @@ bool database::witness_can_be_active(const witness_object& witness) const
 {
    const account_balance_index& balance_index = get_index_type<account_balance_index>();
    auto range = balance_index.indices().get<by_account_asset>().equal_range(boost::make_tuple(witness.witness_account));
-   share_type total_balance = 0;
 
-   auto& acc_idx = get_index_type<account_index>();
-   auto& account = acc_idx.indices().get<by_id>().equal_range(boost::make_typle(witness.witness_account));
-
-   const auto& stats = account.statistics(d);
-   uint64_t total_balance = stats.total_core_in_orders.value
-         + (account.cashback_vb.valid() ? (*account.cashback_vb)(this).balance.amount.value: 0)
+   auto& account = witness.witness_account(*this);
+   const auto& stats = account.statistics(*this);
+   share_type total_balance = stats.total_core_in_orders.value
+         + (account.cashback_vb.valid() ? (*account.cashback_vb)(*this).balance.amount.value: 0)
          + get_balance(account.get_id(), asset_id_type()).amount.value;
          
    bool enough_balance = (total_balance >= LLC_WITNESS_MINIMAL_BALANCE);
