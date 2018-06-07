@@ -58,3 +58,7 @@ object_database/*
 
 .vscode/
 *.cbp
+
+#private
+prod_conf.ini
+wallet_quickstart.md
