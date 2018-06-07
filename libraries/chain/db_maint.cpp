@@ -72,6 +72,58 @@ vector<std::reference_wrapper<const typename Index::object_type>> database::sort
    return refs;
 }
 
+bool database::witness_can_be_active(const witness_object& witness) const
+{
+   const account_balance_index& balance_index = get_index_type<account_balance_index>();
+   auto range = balance_index.indices().get<by_account_asset>().equal_range(boost::make_tuple(witness.witness_account));
+   share_type total_balance = 0;
+
+   auto& acc_idx = get_index_type<account_index>();
+   auto& account = acc_idx.indices().get<by_id>().equal_range(boost::make_typle(witness.witness_account));
+
+   const auto& stats = account.statistics(d);
+   uint64_t total_balance = stats.total_core_in_orders.value
+         + (account.cashback_vb.valid() ? (*account.cashback_vb)(this).balance.amount.value: 0)
+         + get_balance(account.get_id(), asset_id_type()).amount.value;
+         
+   bool enough_balance = (total_balance >= LLC_WITNESS_MINIMAL_BALANCE);
+   return enough_balance;
+}
+
+template<class Index>
+vector<std::reference_wrapper<const typename Index::object_type>> database::sort_votable_objects_gateis(size_t count) const
+{
+   using ObjectType = typename Index::object_type;
+   const auto& all_objects = get_index_type<Index>().indices();
+   count = std::min(count, all_objects.size());
+   vector<std::reference_wrapper<const ObjectType>> refs;
+   refs.reserve(all_objects.size());
+   std::transform(all_objects.begin(), all_objects.end(),
+                  std::back_inserter(refs),
+                  [](const ObjectType& o) { return std::cref(o); });
+   std::partial_sort(refs.begin(), refs.begin() + count, refs.end(),
+                   [this](const ObjectType& a, const ObjectType& b)->bool {
+      share_type oa_vote = _vote_tally_buffer[a.vote_id];
+      share_type ob_vote = _vote_tally_buffer[b.vote_id];
+      bool a_can_be_active = witness_can_be_active(a);
+      bool b_can_be_active = witness_can_be_active(b);
+
+      if (a_can_be_active  && !b_can_be_active)
+         return true;
+
+      if (!a_can_be_active && b_can_be_active)
+         return false;
+
+      if( oa_vote != ob_vote )
+         return oa_vote > ob_vote;
+
+      return a.vote_id < b.vote_id;
+   });
+
+   refs.resize(count, refs.front());
+   return refs;
+}
+
 template<class... Types>
 void database::perform_account_maintenance(std::tuple<Types...> helpers)
 {
@@ -177,7 +229,7 @@ void database::update_active_witnesses()
    }
 
    const chain_property_object& cpo = get_chain_properties();
-   auto wits = sort_votable_objects<witness_index>(std::max(witness_count*2+1, (size_t)cpo.immutable_parameters.min_witness_count));
+   auto wits = sort_votable_objects_gateis<witness_index>(std::max(witness_count*2+1, (size_t)cpo.immutable_parameters.min_witness_count));
 
    const global_property_object& gpo = get_global_properties();
 
@@ -185,9 +237,11 @@ void database::update_active_witnesses()
 
    for( const witness_object& wit : all_witnesses )
    {
-      modify( wit, [&]( witness_object& obj ){
+
+      modify( wit, [&]( witness_object& obj ) {
               obj.total_votes = _vote_tally_buffer[wit.vote_id];
-              });
+      });
+
    }
 
    // Update witness authority
@@ -223,8 +277,9 @@ void database::update_active_witnesses()
       else
       {
          vote_counter vc;
-         for( const witness_object& wit : wits )
+         for( const witness_object& wit : wits ) {
             vc.add( wit.witness_account, _vote_tally_buffer[wit.vote_id] );
+         }
          vc.finish( a.active );
       }
    } );
