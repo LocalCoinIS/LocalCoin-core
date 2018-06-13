@@ -1,0 +1,29 @@
+set_password testpass
+unlock testpass
+
+import_key notteler "5KCNzYJAi6oDwq18EXzwJYn65xRzFVz5JYr3EYh9QevgxwuX1Ad" true
+import_balance notteler ["5KCNzYJAi6oDwq18EXzwJYn65xRzFVz5JYr3EYh9QevgxwuX1Ad"] true true
+
+import_key germut "5KKinpDPHAe519pZ1joHbZNpQrNskjgpAA9dr8Myj1LyXvmqwnb" true
+import_balance germut ["5KKinpDPHAe519pZ1joHbZNpQrNskjgpAA9dr8Myj1LyXvmqwnb"] true true
+
+import_key localcoin-ico "5JuZjge7gZhkm32kuWuY5rFs6sU5YZJa9dRhbbmyyZkgqWcHbRi" true
+import_balance localcoin-ico ["5JuZjge7gZhkm32kuWuY5rFs6sU5YZJa9dRhbbmyyZkgqWcHbRi"] true true
+
+import_key localcoin "5JLYsHKwujWcjshtkfaR1AcLshgf1Xo6tgehcZtsXzRjrrLXDqd" true
+import_balance localcoin ["5JLYsHKwujWcjshtkfaR1AcLshgf1Xo6tgehcZtsXzRjrrLXDqd"] true true
+
+import_key localcoin-wallet "5JoSGd8QVoSy2bayYf1xVKK4y8bfjpyd4mLEXeJM3dZ79LiYx7s" true
+import_balance localcoin-wallet ["5JoSGd8QVoSy2bayYf1xVKK4y8bfjpyd4mLEXeJM3dZ79LiYx7s"] true true
+
+import_key localcoin-fiat "5KJgab4NcbBXqAo6eFktvDaJfMQBmwD6LGeVJ26R2XB584zShhZ" true
+import_balance localcoin-fiat ["5KJgab4NcbBXqAo6eFktvDaJfMQBmwD6LGeVJ26R2XB584zShhZ"] true true
+
+import_key localcoin-otc "5Hz2oKGJKbmDC5Bp7ARFHdS8tFL2o4wm8DybFtmr3w97pAX4KM7" true
+import_balance localcoin-otc ["5Hz2oKGJKbmDC5Bp7ARFHdS8tFL2o4wm8DybFtmr3w97pAX4KM7"] true true
+
+import_key localcoin-feed "5JjKPDzqw9DWPPhatkM7jo3PBoAMYDnUrCcLJQXYdw9eHRLad6k" true
+import_balance localcoin-feed ["5JjKPDzqw9DWPPhatkM7jo3PBoAMYDnUrCcLJQXYdw9eHRLad6k"] true true
+
+import_key llc-igorbiliba "5KAPZxRBf3pQTHSNVEQUyH4gncUu82TMT3mFXTr9G3wpFNAu8Zn" true
+import_balance llc-igorbiliba ["5KAPZxRBf3pQTHSNVEQUyH4gncUu82TMT3mFXTr9G3wpFNAu8Zn"] true true
