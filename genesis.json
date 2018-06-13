@@ -1967,6 +1967,8 @@
             "asset_symbol": "LLC",
             "amount": "10000000000000"
         },
+
+
         {
             "owner": "LLC7tKsrEe2hfsPTs88ecG7EgH9ivHp3a4ay",
             "amount": "1000000000000000",
@@ -1987,7 +1989,10 @@
             "owner": "LLC7tKsrEe2hfsPTs88ecG7EgH9ivHp3a4ay",
             "amount": "1000000000000000",
             "asset_symbol": "CNY"
-        }, {
+        },
+        
+
+        {
             "owner": "LLC5upDqvcRoFVS4RZvtjy6WEmSUr1BejB1H",
             "amount": "1000000000000000",
             "asset_symbol": "BTC"
@@ -2775,6 +2780,16 @@
             "owner": "LLC5upDqvcRoFVS4RZvtjy6WEmSUr1BejB1H",
             "amount": "1000000000000000",
             "asset_symbol": "CENNZ"
+        },
+        
+        {
+            "owner": "LLCBqFF59PazwtmFF1BALEmkuZgmyChtvj3X",
+            "amount": "1000000000000000",
+            "asset_symbol": "BTC"
+        }, {
+            "owner": "LLCBqFF59PazwtmFF1BALEmkuZgmyChtvj3X",
+            "amount": "1000000000000000",
+            "asset_symbol": "XMR"
         }
     ],
     "initial_vesting_balances": [],
