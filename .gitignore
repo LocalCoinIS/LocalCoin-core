@@ -62,3 +62,7 @@ object_database/*
 #private
 prod_conf.ini
 wallet_quickstart.md
+
+.idea
+.project
+nbproject
