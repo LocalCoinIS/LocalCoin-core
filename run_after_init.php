@@ -5,7 +5,7 @@ const RPC = 'http://194.63.142.61:8091/rpc';
 $json = file_get_contents('initial_data.json');
 $data = json_decode($json, true);
 
-echo "count initial_assets: " . count($data['initial_assets']) . "\n";
+echo "count initial_assets: "   . count($data['initial_assets'])   . "\n";
 echo "count initial_balances: " . count($data['initial_balances']) . "\n";
 
 //выпустим ассеты
