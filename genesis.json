@@ -1222,7 +1222,7 @@
             "issuer_name":"localcoin-wallet",
             "max_supply":10000000000000000000,
             "precision":8,
-            "symbol":"LBTC"
+            "symbol":"LBTC1"
             },
         {
             "description":"LCC is a derivative that tracks the real value of 1 Litecoin Cash. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
@@ -2545,16 +2545,6 @@
             "collateral_records":[]
         },
         {
-            "description":"BSD is a derivative that tracks the real value of 1 Bahamian Dollar - official currency of BAHAMAS (THE). It is 100% decentralized, trustless and backed by the collateral held by the blockchain in smart contract",
-            "is_bitasset":true,
-            "issuer_name":"localcoin-fiat",
-            "max_supply":1000000000000000,
-            "precision":4,
-            "symbol":"BSD",
-            "accumulated_fees":0,
-            "collateral_records":[]
-        },
-        {
             "description":"BTN is a derivative that tracks the real value of 1 Ngultrum - official currency of BHUTAN. It is 100% decentralized, trustless and backed by the collateral held by the blockchain in smart contract",
             "is_bitasset":true,
             "issuer_name":"localcoin-fiat",
@@ -3511,16 +3501,6 @@
             "max_supply":1000000000000000,
             "precision":4,
             "symbol":"SAR",
-            "accumulated_fees":0,
-            "collateral_records":[]
-        },
-        {
-            "description":"SBD is a derivative that tracks the real value of 1 Solomon Islands Dollar - official currency of SOLOMON ISLANDS. It is 100% decentralized, trustless and backed by the collateral held by the blockchain in smart contract",
-            "is_bitasset":true,
-            "issuer_name":"localcoin-fiat",
-            "max_supply":1000000000000000,
-            "precision":4,
-            "symbol":"SBD",
             "accumulated_fees":0,
             "collateral_records":[]
         },
