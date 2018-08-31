@@ -3668,17 +3668,14 @@
   "initial_balances": [
     {
         "owner": "germut",
-        "asset_symbol": "LLC",
         "amount": "80000000000000"
     },
     {
         "owner": "notteler",
-        "asset_symbol": "LLC",
         "amount": "20000000000000"
     },
     {
         "owner": "localcoin-wallet",
-        "asset_symbol": "LLC",
         "amount": "10000000000000"
     }
   ]
