@@ -323,7 +323,7 @@
         {
           "symbol": "BTC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "BTC is a derivative that tracks the real value of 1 Bitcoin - https://bitcoin.org. It is 100% decentralized asset, backed 1:1 by real BTC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -333,7 +333,7 @@
         {
           "symbol": "LTC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 84000000,
+          "max_supply": "84000000,000000",
           "precision": 6,
           "description": "LTC is a derivative that tracks the real value of 1 Litecoin - https://litecoin.com It is 100% decentralized asset, backed 1:1 by real LTC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -353,7 +353,7 @@
         {
           "symbol": "TRC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 42000000,
+          "max_supply": "42000000,000000",
           "precision": 6,
           "description": "TRC is a derivative that tracks the real value of 1 Terracoin - http://www.terracoin.io. It is 100% decentralized asset, backed 1:1 by real TRC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -383,7 +383,7 @@
         {
           "symbol": "FTC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 336000000,
+          "max_supply": "336000000,000000",
           "precision": 6,
           "description": "FTC is a derivative that tracks the real value of 1 Feathercoin - http://feathercoin.com It is 100% decentralized asset, backed 1:1 by real FTC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -443,7 +443,7 @@
         {
           "symbol": "DGC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 48166000,
+          "max_supply": "48166000,000000",
           "precision": 6,
           "description": "DGC is a derivative that tracks the real value of 1 Digitalcoin - http://digitalcoin.co It is 100% decentralized asset, backed 1:1 by real DGC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -453,7 +453,7 @@
         {
           "symbol": "GLD",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 72245700,
+          "max_supply": "72245700,000000",
           "precision": 6,
           "description": "GLD is a derivative that tracks the real value of 1 GoldCoin - https://www.goldcoin.org. It is 100% decentralized asset, backed 1:1 by real GLD and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -473,7 +473,7 @@
         {
           "symbol": "FST",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 165888000,
+          "max_supply": "165888000,000000",
           "precision": 6,
           "description": "FST is a derivative that tracks the real value of 1 Fastcoin - http://www.fastcoin.ca. It is 100% decentralized asset, backed 1:1 by real FST and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -543,7 +543,7 @@
         {
           "symbol": "XRP",
           "issuer_name": "localcoin-wallet",
-          "max_supply": "1,00E+11",
+          "max_supply": "100000000000,000000",
           "precision": 6,
           "description": "XRP is a derivative that tracks the real value of 1 XRP - https://ripple.com/xrp. It is 100% decentralized asset, backed 1:1 by real XRP and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -593,7 +593,7 @@
         {
           "symbol": "FLO",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 160000000,
+          "max_supply": "160000000,000000",
           "precision": 6,
           "description": "FLO is a derivative that tracks the real value of 1 FLO - http://flo.cash. It is 100% decentralized asset, backed 1:1 by real FLO and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -603,7 +603,7 @@
         {
           "symbol": "NXT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "NXT is a derivative that tracks the real value of 1 Nxt - https://nxt.org. It is 100% decentralized asset, backed 1:1 by real NXT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -673,7 +673,7 @@
         {
           "symbol": "DMD",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 4380000,
+          "max_supply": "4380000,000000",
           "precision": 6,
           "description": "DMD is a derivative that tracks the real value of 1 Diamond - http://bit.diamonds It is 100% decentralized asset, backed 1:1 by real DMD and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -683,7 +683,7 @@
         {
           "symbol": "HBN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 120000000,
+          "max_supply": "120000000,000000",
           "precision": 6,
           "description": "HBN is a derivative that tracks the real value of 1 HoboNickels - http://hobonickels.info. It is 100% decentralized asset, backed 1:1 by real HBN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -783,7 +783,7 @@
         {
           "symbol": "VTC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 84000000,
+          "max_supply": "84000000,000000",
           "precision": 6,
           "description": "VTC is a derivative that tracks the real value of 1 Vertcoin - http://vertcoin.org. It is 100% decentralized asset, backed 1:1 by real VTC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -813,7 +813,7 @@
         {
           "symbol": "DGB",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000000,
+          "max_supply": "21000000000,000000",
           "precision": 6,
           "description": "DGB is a derivative that tracks the real value of 1 DigiByte - http://www.digibyte.io. It is 100% decentralized asset, backed 1:1 by real DGB and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -873,7 +873,7 @@
         {
           "symbol": "POT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 420000000,
+          "max_supply": "420000000,000000",
           "precision": 6,
           "description": "POT is a derivative that tracks the real value of 1 PotCoin - http://www.potcoin.com. It is 100% decentralized asset, backed 1:1 by real POT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -893,7 +893,7 @@
         {
           "symbol": "MAX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "MAX is a derivative that tracks the real value of 1 MaxCoin - https://www.maxcoinproject.org. It is 100% decentralized asset, backed 1:1 by real MAX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -923,7 +923,7 @@
         {
           "symbol": "DASH",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 18900000,
+          "max_supply": "18900000,000000",
           "precision": 6,
           "description": "DASH is a derivative that tracks the real value of 1 Dash - https://www.dash.org. It is 100% decentralized asset, backed 1:1 by real DASH and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -943,7 +943,7 @@
         {
           "symbol": "CACH",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 10000000,
+          "max_supply": "10000000,000000",
           "precision": 6,
           "description": "CACH is a derivative that tracks the real value of 1 CacheCoin - https://www.cachecoin.cc. It is 100% decentralized asset, backed 1:1 by real CACH and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1063,7 +1063,7 @@
         {
           "symbol": "UFO",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 4000000000,
+          "max_supply": "4000000000,000000",
           "precision": 6,
           "description": "UFO is a derivative that tracks the real value of 1 Uniform Fiscal Object - https://ufocoin.net. It is 100% decentralized asset, backed 1:1 by real UFO and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1173,7 +1173,7 @@
         {
           "symbol": "ECC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 25000000000,
+          "max_supply": "25000000000,000000",
           "precision": 6,
           "description": "ECC is a derivative that tracks the real value of 1 ECC - https://ecc.network. It is 100% decentralized asset, backed 1:1 by real ECC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1243,7 +1243,7 @@
         {
           "symbol": "EFL",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "EFL is a derivative that tracks the real value of 1 e-Gulden - http://www.e-gulden.org It is 100% decentralized asset, backed 1:1 by real EFL and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1263,7 +1263,7 @@
         {
           "symbol": "PLC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 218500000,
+          "max_supply": "218500000,000000",
           "precision": 6,
           "description": "PLC is a derivative that tracks the real value of 1 Polcoin - https://polcoin.pl. It is 100% decentralized asset, backed 1:1 by real PLC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1273,7 +1273,7 @@
         {
           "symbol": "GRS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 105000000,
+          "max_supply": "105000000,000000",
           "precision": 6,
           "description": "GRS is a derivative that tracks the real value of 1 Groestlcoin - http://www.groestlcoin.org. It is 100% decentralized asset, backed 1:1 by real GRS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1303,7 +1303,7 @@
         {
           "symbol": "POP",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 4999999999,
+          "max_supply": "4999999999,000000",
           "precision": 6,
           "description": "POP is a derivative that tracks the real value of 1 PopularCoin - https://www.popularcoin.com. It is 100% decentralized asset, backed 1:1 by real POP and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1323,7 +1323,7 @@
         {
           "symbol": "QBC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 42000000,
+          "max_supply": "42000000,000000",
           "precision": 6,
           "description": "QBC is a derivative that tracks the real value of 1 Quebecoin - https://www.quebecoin.org. It is 100% decentralized asset, backed 1:1 by real QBC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1343,7 +1343,7 @@
         {
           "symbol": "SLOTH",
           "issuer_name": "localcoin-wallet",
-          "max_supply": "1,00E+11",
+          "max_supply": "100000000000,000000",
           "precision": 6,
           "description": "SLOTH is a derivative that tracks the real value of 1 Slothcoin - http://www.slothcoin.org. It is 100% decentralized asset, backed 1:1 by real SLOTH and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1373,7 +1373,7 @@
         {
           "symbol": "XBC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000,
+          "max_supply": "1000000,000000",
           "precision": 6,
           "description": "XBC is a derivative that tracks the real value of 1 Bitcoin Plus - http://www.bitcoinplus.org It is 100% decentralized asset, backed 1:1 by real XBC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1413,7 +1413,7 @@
         {
           "symbol": "GUN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 500000000,
+          "max_supply": "500000000,000000",
           "precision": 6,
           "description": "GUN is a derivative that tracks the real value of 1 Guncoin - http://www.guncoin.info. It is 100% decentralized asset, backed 1:1 by real GUN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1423,7 +1423,7 @@
         {
           "symbol": "PINK",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 500000000,
+          "max_supply": "500000000,000000",
           "precision": 6,
           "description": "PINK is a derivative that tracks the real value of 1 PinkCoin - http://getstarted.with.pink. It is 100% decentralized asset, backed 1:1 by real PINK and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1483,7 +1483,7 @@
         {
           "symbol": "LCP",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 4000000,
+          "max_supply": "4000000,000000",
           "precision": 6,
           "description": "LCP is a derivative that tracks the real value of 1 Litecoin Plus - http://litecoinplus.co It is 100% decentralized asset, backed 1:1 by real LCP and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1593,7 +1593,7 @@
         {
           "symbol": "GRN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 65000000,
+          "max_supply": "65000000,000000",
           "precision": 6,
           "description": "GRN is a derivative that tracks the real value of 1 Granite - http://www.granitecoin.com. It is 100% decentralized asset, backed 1:1 by real GRN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1623,7 +1623,7 @@
         {
           "symbol": "KORE",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 12000000,
+          "max_supply": "12000000,000000",
           "precision": 6,
           "description": "KORE is a derivative that tracks the real value of 1 Kore - http://kore.life. It is 100% decentralized asset, backed 1:1 by real KORE and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1633,7 +1633,7 @@
         {
           "symbol": "XDN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 8589869056,
+          "max_supply": "8589869056,000000",
           "precision": 6,
           "description": "XDN is a derivative that tracks the real value of 1 DigitalNote - http://www.digitalnote.biz. It is 100% decentralized asset, backed 1:1 by real XDN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1643,7 +1643,7 @@
         {
           "symbol": "BBR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 18450000,
+          "max_supply": "18450000,000000",
           "precision": 6,
           "description": "BBR is a derivative that tracks the real value of 1 Boolberry - http://boolberry.com. It is 100% decentralized asset, backed 1:1 by real BBR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1673,7 +1673,7 @@
         {
           "symbol": "THC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 300000000,
+          "max_supply": "300000000,000000",
           "precision": 6,
           "description": "THC is a derivative that tracks the real value of 1 HempCoin - http://hempcoin.org. It is 100% decentralized asset, backed 1:1 by real THC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1723,7 +1723,7 @@
         {
           "symbol": "BTS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 3600570502,
+          "max_supply": "3600570502,000000",
           "precision": 6,
           "description": "BTS is a derivative that tracks the real value of 1 BitShares - https://bitshares.org It is 100% decentralized asset, backed 1:1 by real BTS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1753,7 +1753,7 @@
         {
           "symbol": "VIA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 23176392,
+          "max_supply": "23176392,000000",
           "precision": 6,
           "description": "VIA is a derivative that tracks the real value of 1 Viacoin - http://viacoin.org It is 100% decentralized asset, backed 1:1 by real VIA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1833,7 +1833,7 @@
         {
           "symbol": "VTA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000000,
+          "max_supply": "21000000000,000000",
           "precision": 6,
           "description": "VTA is a derivative that tracks the real value of 1 Virtacoin - https://www.virtacoin.world. It is 100% decentralized asset, backed 1:1 by real VTA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1853,7 +1853,7 @@
         {
           "symbol": "SYS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 888000000,
+          "max_supply": "888000000,000000",
           "precision": 6,
           "description": "SYS is a derivative that tracks the real value of 1 Syscoin - http://syscoin.org It is 100% decentralized asset, backed 1:1 by real SYS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1923,7 +1923,7 @@
         {
           "symbol": "BURST",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 2158812800,
+          "max_supply": "2158812800,000000",
           "precision": 6,
           "description": "BURST is a derivative that tracks the real value of 1 Burst - https://www.burst-coin.org It is 100% decentralized asset, backed 1:1 by real BURST and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -1933,7 +1933,7 @@
         {
           "symbol": "GAME",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 84000000,
+          "max_supply": "84000000,000000",
           "precision": 6,
           "description": "GAME is a derivative that tracks the real value of 1 GameCredits - http://gamecredits.com It is 100% decentralized asset, backed 1:1 by real GAME and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2093,7 +2093,7 @@
         {
           "symbol": "AU",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 300000,
+          "max_supply": "300000,000000",
           "precision": 6,
           "description": "AU is a derivative that tracks the real value of 1 AurumCoin - http://www.aurumcoin.com. It is 100% decentralized asset, backed 1:1 by real AU and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2113,7 +2113,7 @@
         {
           "symbol": "XVG",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 16555000000,
+          "max_supply": "16555000000,000000",
           "precision": 6,
           "description": "XVG is a derivative that tracks the real value of 1 Verge - http://vergecurrency.com. It is 100% decentralized asset, backed 1:1 by real XVG and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2153,7 +2153,7 @@
         {
           "symbol": "MUE",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 4000000000,
+          "max_supply": "4000000000,000000",
           "precision": 6,
           "description": "MUE is a derivative that tracks the real value of 1 MonetaryUnit - http://www.monetaryunit.org It is 100% decentralized asset, backed 1:1 by real MUE and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2193,7 +2193,7 @@
         {
           "symbol": "CRW",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 42000000,
+          "max_supply": "42000000,000000",
           "precision": 6,
           "description": "CRW is a derivative that tracks the real value of 1 Crown - http://crown.tech. It is 100% decentralized asset, backed 1:1 by real CRW and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2243,7 +2243,7 @@
         {
           "symbol": "BCF",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 2500000000,
+          "max_supply": "2500000000,000000",
           "precision": 6,
           "description": "BCF is a derivative that tracks the real value of 1 Bitcoin Fast - http://bitcoinfast.co. It is 100% decentralized asset, backed 1:1 by real BCF and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2253,7 +2253,7 @@
         {
           "symbol": "OK",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 105000000,
+          "max_supply": "105000000,000000",
           "precision": 6,
           "description": "OK is a derivative that tracks the real value of 1 OKCash - http://okcash.co It is 100% decentralized asset, backed 1:1 by real OK and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2353,7 +2353,7 @@
         {
           "symbol": "DOT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 890000000,
+          "max_supply": "890000000,000000",
           "precision": 6,
           "description": "DOT is a derivative that tracks the real value of 1 Dotcoin - https://www.cryptopia.co.nz. It is 100% decentralized asset, backed 1:1 by real DOT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2373,7 +2373,7 @@
         {
           "symbol": "BITB",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 50000000000,
+          "max_supply": "50000000000,000000",
           "precision": 6,
           "description": "BITB is a derivative that tracks the real value of 1 Bean Cash - http://beancash.org. It is 100% decentralized asset, backed 1:1 by real BITB and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2463,7 +2463,7 @@
         {
           "symbol": "PURA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 350000000,
+          "max_supply": "350000000,000000",
           "precision": 6,
           "description": "PURA is a derivative that tracks the real value of 1 Pura - http://mypura.io It is 100% decentralized asset, backed 1:1 by real PURA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2493,7 +2493,7 @@
         {
           "symbol": "LEA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 2000000000,
+          "max_supply": "2000000000,000000",
           "precision": 6,
           "description": "LEA is a derivative that tracks the real value of 1 LeaCoin - It is 100% decentralized asset, backed 1:1 by real LEA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2503,7 +2503,7 @@
         {
           "symbol": "NTRN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 68000000,
+          "max_supply": "68000000,000000",
           "precision": 6,
           "description": "NTRN is a derivative that tracks the real value of 1 Neutron - http://www.neutroncoin.com. It is 100% decentralized asset, backed 1:1 by real NTRN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2583,7 +2583,7 @@
         {
           "symbol": "UNIT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 210000000,
+          "max_supply": "210000000,000000",
           "precision": 6,
           "description": "UNIT is a derivative that tracks the real value of 1 Universal Currency - http://www.u-currency.com. It is 100% decentralized asset, backed 1:1 by real UNIT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2623,7 +2623,7 @@
         {
           "symbol": "BTA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 10000000,
+          "max_supply": "10000000,000000",
           "precision": 6,
           "description": "BTA is a derivative that tracks the real value of 1 Bata - http://www.bata.io. It is 100% decentralized asset, backed 1:1 by real BTA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2653,7 +2653,7 @@
         {
           "symbol": "FJC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 10000000000,
+          "max_supply": "10000000000,000000",
           "precision": 6,
           "description": "FJC is a derivative that tracks the real value of 1 FujiCoin - http://www.fujicoin.org. It is 100% decentralized asset, backed 1:1 by real FJC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2663,7 +2663,7 @@
         {
           "symbol": "ERC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 32000000,
+          "max_supply": "32000000,000000",
           "precision": 6,
           "description": "ERC is a derivative that tracks the real value of 1 EuropeCoin - https://www.europecoin.eu.org It is 100% decentralized asset, backed 1:1 by real ERC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2683,7 +2683,7 @@
         {
           "symbol": "HXX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 9999999,
+          "max_supply": "9999999,000000",
           "precision": 6,
           "description": "HXX is a derivative that tracks the real value of 1 Hexx - https://hexxcoin.net. It is 100% decentralized asset, backed 1:1 by real HXX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2713,7 +2713,7 @@
         {
           "symbol": "ZNY",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 250000000,
+          "max_supply": "250000000,000000",
           "precision": 6,
           "description": "ZNY is a derivative that tracks the real value of 1 Bitzeny - http://bitzeny.org. It is 100% decentralized asset, backed 1:1 by real ZNY and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2743,7 +2743,7 @@
         {
           "symbol": "CHC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 23000000,
+          "max_supply": "23000000,000000",
           "precision": 6,
           "description": "CHC is a derivative that tracks the real value of 1 ChainCoin - http://www.chaincoin.org. It is 100% decentralized asset, backed 1:1 by real CHC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2763,7 +2763,7 @@
         {
           "symbol": "HNC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "HNC is a derivative that tracks the real value of 1 Helleniccoin - http://www.helleniccoin.gr. It is 100% decentralized asset, backed 1:1 by real HNC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2773,7 +2773,7 @@
         {
           "symbol": "CPC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 205000000,
+          "max_supply": "205000000,000000",
           "precision": 6,
           "description": "CPC is a derivative that tracks the real value of 1 Capricoin - http://capricoin.org. It is 100% decentralized asset, backed 1:1 by real CPC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2813,7 +2813,7 @@
         {
           "symbol": "LEO",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "LEO is a derivative that tracks the real value of 1 LEOcoin - http://www.leocoin.org. It is 100% decentralized asset, backed 1:1 by real LEO and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2913,7 +2913,7 @@
         {
           "symbol": "BOLI",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 25000000,
+          "max_supply": "25000000,000000",
           "precision": 6,
           "description": "BOLI is a derivative that tracks the real value of 1 Bolivarcoin - http://bolicoin.com. It is 100% decentralized asset, backed 1:1 by real BOLI and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2943,7 +2943,7 @@
         {
           "symbol": "PAK",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 182000000,
+          "max_supply": "182000000,000000",
           "precision": 6,
           "description": "PAK is a derivative that tracks the real value of 1 Pakcoin - http://www.pakcoin.io. It is 100% decentralized asset, backed 1:1 by real PAK and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -2963,7 +2963,7 @@
         {
           "symbol": "EXP",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "EXP is a derivative that tracks the real value of 1 Expanse - http://www.expanse.tech. It is 100% decentralized asset, backed 1:1 by real EXP and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3043,7 +3043,7 @@
         {
           "symbol": "$PAC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": "1,00E+11",
+          "max_supply": "100000000000,000000",
           "precision": 6,
           "description": "$PAC is a derivative that tracks the real value of 1 PACcoin - http://paccoin.net. It is 100% decentralized asset, backed 1:1 by real $PAC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3113,7 +3113,7 @@
         {
           "symbol": "CLUB",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 160000000,
+          "max_supply": "160000000,000000",
           "precision": 6,
           "description": "CLUB is a derivative that tracks the real value of 1 ClubCoin - http://clubcoin.co. It is 100% decentralized asset, backed 1:1 by real CLUB and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3123,7 +3123,7 @@
         {
           "symbol": "ADZ",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 84000000,
+          "max_supply": "84000000,000000",
           "precision": 6,
           "description": "ADZ is a derivative that tracks the real value of 1 Adzcoin - https://adzcoin.org. It is 100% decentralized asset, backed 1:1 by real ADZ and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3193,7 +3193,7 @@
         {
           "symbol": "YOC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 336000000,
+          "max_supply": "336000000,000000",
           "precision": 6,
           "description": "YOC is a derivative that tracks the real value of 1 Yocoin - http://www.yocoin.org. It is 100% decentralized asset, backed 1:1 by real YOC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3233,7 +3233,7 @@
         {
           "symbol": "DCR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "DCR is a derivative that tracks the real value of 1 Decred - https://www.decred.org. It is 100% decentralized asset, backed 1:1 by real DCR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3253,7 +3253,7 @@
         {
           "symbol": "SAFEX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 2147483647,
+          "max_supply": "2147483647,000000",
           "precision": 6,
           "description": "SAFEX is a derivative that tracks the real value of 1 Safe Exchange Coin - http://safex.io. It is 100% decentralized asset, backed 1:1 by real SAFEX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3353,7 +3353,7 @@
         {
           "symbol": "RVR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 210000000,
+          "max_supply": "210000000,000000",
           "precision": 6,
           "description": "RVR is a derivative that tracks the real value of 1 RevolutionVR - http://revolutionvr.live. It is 100% decentralized asset, backed 1:1 by real RVR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3473,7 +3473,7 @@
         {
           "symbol": "ESP",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 50000000000,
+          "max_supply": "50000000000,000000",
           "precision": 6,
           "description": "ESP is a derivative that tracks the real value of 1 Espers - http://espers.io. It is 100% decentralized asset, backed 1:1 by real ESP and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3583,7 +3583,7 @@
         {
           "symbol": "MXT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 5000000,
+          "max_supply": "5000000,000000",
           "precision": 6,
           "description": "MXT is a derivative that tracks the real value of 1 MarteXcoin - http://martexcoin.org. It is 100% decentralized asset, backed 1:1 by real MXT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3723,7 +3723,7 @@
         {
           "symbol": "PutinCoin",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 2000000000,
+          "max_supply": "2000000000,000000",
           "precision": 6,
           "description": "PutinCoin is a derivative that tracks the real value of 1 PutinCoin - https://putincoin.org It is 100% decentralized asset, backed 1:1 by real PutinCoin and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3733,7 +3733,7 @@
         {
           "symbol": "BRX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 6268082,
+          "max_supply": "6268082,000000",
           "precision": 6,
           "description": "BRX is a derivative that tracks the real value of 1 Breakout Stake - http://www.breakoutcoin.com. It is 100% decentralized asset, backed 1:1 by real BRX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3783,7 +3783,7 @@
         {
           "symbol": "ARDR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 998999495,
+          "max_supply": "998999495,000000",
           "precision": 6,
           "description": "ARDR is a derivative that tracks the real value of 1 Ardor - https://www.ardorplatform.org. It is 100% decentralized asset, backed 1:1 by real ARDR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3883,7 +3883,7 @@
         {
           "symbol": "EDR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": "1,00E+15",
+          "max_supply": "1000000000000000,000000",
           "precision": 6,
           "description": "EDR is a derivative that tracks the real value of 1 E-Dinar Coin - https://edinarcoin.com. It is 100% decentralized asset, backed 1:1 by real EDR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3913,7 +3913,7 @@
         {
           "symbol": "GOLF",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1800000000,
+          "max_supply": "1800000000,000000",
           "precision": 6,
           "description": "GOLF is a derivative that tracks the real value of 1 Golfcoin - https://golfcoin.biz. It is 100% decentralized asset, backed 1:1 by real GOLF and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3923,7 +3923,7 @@
         {
           "symbol": "NEO",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "NEO is a derivative that tracks the real value of 1 NEO - https://neo.org. It is 100% decentralized asset, backed 1:1 by real NEO and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3943,7 +3943,7 @@
         {
           "symbol": "BTDX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 43800000,
+          "max_supply": "43800000,000000",
           "precision": 6,
           "description": "BTDX is a derivative that tracks the real value of 1 Bitcloud - https://bit-cloud.info. It is 100% decentralized asset, backed 1:1 by real BTDX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -3983,7 +3983,7 @@
         {
           "symbol": "JIN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 9960595,
+          "max_supply": "9960595,000000",
           "precision": 6,
           "description": "JIN is a derivative that tracks the real value of 1 Jin Coin - https://www.jin-coin.com It is 100% decentralized asset, backed 1:1 by real JIN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4023,7 +4023,7 @@
         {
           "symbol": "MST",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 3000000,
+          "max_supply": "3000000,000000",
           "precision": 6,
           "description": "MST is a derivative that tracks the real value of 1 MustangCoin - http://mustangcoin.xyz. It is 100% decentralized asset, backed 1:1 by real MST and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4093,7 +4093,7 @@
         {
           "symbol": "XZC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21400000,
+          "max_supply": "21400000,000000",
           "precision": 6,
           "description": "XZC is a derivative that tracks the real value of 1 ZCoin - https://zcoin.io It is 100% decentralized asset, backed 1:1 by real XZC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4103,7 +4103,7 @@
         {
           "symbol": "ATOM",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 252000000,
+          "max_supply": "252000000,000000",
           "precision": 6,
           "description": "ATOM is a derivative that tracks the real value of 1 Atomic Coin - https://www.atomicproject.org. It is 100% decentralized asset, backed 1:1 by real ATOM and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4133,7 +4133,7 @@
         {
           "symbol": "SKR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 105100000,
+          "max_supply": "105100000,000000",
           "precision": 6,
           "description": "SKR is a derivative that tracks the real value of 1 Sakuracoin - http://sakuracoin.com. It is 100% decentralized asset, backed 1:1 by real SKR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4153,7 +4153,7 @@
         {
           "symbol": "Cubits",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 300000000,
+          "max_supply": "300000000,000000",
           "precision": 6,
           "description": "Cubits is a derivative that tracks the real value of 1 Cubits - http://qbt.scificrypto.info. It is 100% decentralized asset, backed 1:1 by real Cubits and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4183,7 +4183,7 @@
         {
           "symbol": "ASAFE2",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 15000000,
+          "max_supply": "15000000,000000",
           "precision": 6,
           "description": "ASAFE2 is a derivative that tracks the real value of 1 AllSafe - https://allsafetoken.pw. It is 100% decentralized asset, backed 1:1 by real ASAFE2 and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4193,7 +4193,7 @@
         {
           "symbol": "ZCL",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "ZCL is a derivative that tracks the real value of 1 ZClassic - http://zclassic.org. It is 100% decentralized asset, backed 1:1 by real ZCL and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4203,7 +4203,7 @@
         {
           "symbol": "ZOI",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "ZOI is a derivative that tracks the real value of 1 Zoin - https://www.zoinofficial.io. It is 100% decentralized asset, backed 1:1 by real ZOI and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4243,7 +4243,7 @@
         {
           "symbol": "IOP",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "IOP is a derivative that tracks the real value of 1 Internet of People - http://iop.global. It is 100% decentralized asset, backed 1:1 by real IOP and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4263,7 +4263,7 @@
         {
           "symbol": "HUSH",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "HUSH is a derivative that tracks the real value of 1 Hush - https://myhush.org. It is 100% decentralized asset, backed 1:1 by real HUSH and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4343,7 +4343,7 @@
         {
           "symbol": "VLTC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "VLTC is a derivative that tracks the real value of 1 Vault Coin - http://vltcoin.org. It is 100% decentralized asset, backed 1:1 by real VLTC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4533,7 +4533,7 @@
         {
           "symbol": "GCC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 2400000000,
+          "max_supply": "2400000000,000000",
           "precision": 6,
           "description": "GCC is a derivative that tracks the real value of 1 Global Cryptocurrency - https://www.thegcccoin.com. It is 100% decentralized asset, backed 1:1 by real GCC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4543,7 +4543,7 @@
         {
           "symbol": "ERY",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "ERY is a derivative that tracks the real value of 1 Eryllium - https://eryllium.com. It is 100% decentralized asset, backed 1:1 by real ERY and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4563,7 +4563,7 @@
         {
           "symbol": "CNT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 250000000,
+          "max_supply": "250000000,000000",
           "precision": 6,
           "description": "CNT is a derivative that tracks the real value of 1 Centurion - http://www.centurionlab.org. It is 100% decentralized asset, backed 1:1 by real CNT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4663,7 +4663,7 @@
         {
           "symbol": "NANO",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 133248290,
+          "max_supply": "133248290,000000",
           "precision": 6,
           "description": "NANO is a derivative that tracks the real value of 1 Nano - http://nano.org/en It is 100% decentralized asset, backed 1:1 by real NANO and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4713,7 +4713,7 @@
         {
           "symbol": "ZER",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 17000000,
+          "max_supply": "17000000,000000",
           "precision": 6,
           "description": "ZER is a derivative that tracks the real value of 1 Zero - https://zerocurrency.io. It is 100% decentralized asset, backed 1:1 by real ZER and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4783,7 +4783,7 @@
         {
           "symbol": "SOAR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 5000000000,
+          "max_supply": "5000000000,000000",
           "precision": 6,
           "description": "SOAR is a derivative that tracks the real value of 1 Soarcoin - http://soarlabs.org. It is 100% decentralized asset, backed 1:1 by real SOAR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4873,7 +4873,7 @@
         {
           "symbol": "USC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 200084200,
+          "max_supply": "200084200,000000",
           "precision": 6,
           "description": "USC is a derivative that tracks the real value of 1 Ultimate Secure Cash - http://ultimatesecurecash.info. It is 100% decentralized asset, backed 1:1 by real USC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4883,7 +4883,7 @@
         {
           "symbol": "SKY",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "SKY is a derivative that tracks the real value of 1 Skycoin - http://skycoin.net. It is 100% decentralized asset, backed 1:1 by real SKY and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4913,7 +4913,7 @@
         {
           "symbol": "HPC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "HPC is a derivative that tracks the real value of 1 Happycoin - http://happycointech.org. It is 100% decentralized asset, backed 1:1 by real HPC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4943,7 +4943,7 @@
         {
           "symbol": "XOT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "XOT is a derivative that tracks the real value of 1 Internet of Things - http://iotcoin.io. It is 100% decentralized asset, backed 1:1 by real XOT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4953,7 +4953,7 @@
         {
           "symbol": "XBY",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 650000000,
+          "max_supply": "650000000,000000",
           "precision": 6,
           "description": "XBY is a derivative that tracks the real value of 1 XTRABYTES - https://www.xtrabytes.global. It is 100% decentralized asset, backed 1:1 by real XBY and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -4973,7 +4973,7 @@
         {
           "symbol": "TRST",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "TRST is a derivative that tracks the real value of 1 WeTrust - https://www.wetrust.io. It is 100% decentralized asset, backed 1:1 by real TRST and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5043,7 +5043,7 @@
         {
           "symbol": "BTX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "BTX is a derivative that tracks the real value of 1 Bitcore - http://bitcore.cc. It is 100% decentralized asset, backed 1:1 by real BTX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5083,7 +5083,7 @@
         {
           "symbol": "RAIN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 500000000,
+          "max_supply": "500000000,000000",
           "precision": 6,
           "description": "RAIN is a derivative that tracks the real value of 1 Condensate - http://condensate.co It is 100% decentralized asset, backed 1:1 by real RAIN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5093,7 +5093,7 @@
         {
           "symbol": "GPL",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000,
+          "max_supply": "1000000,000000",
           "precision": 6,
           "description": "GPL is a derivative that tracks the real value of 1 Gold Pressed Latinum - http://www.scificrypto.info/gpl/index.htm It is 100% decentralized asset, backed 1:1 by real GPL and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5103,7 +5103,7 @@
         {
           "symbol": "HMQ",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 920952070,
+          "max_supply": "920952070,000000",
           "precision": 6,
           "description": "HMQ is a derivative that tracks the real value of 1 Humaniq - https://humaniq.com. It is 100% decentralized asset, backed 1:1 by real HMQ and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5123,7 +5123,7 @@
         {
           "symbol": "CREA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 115000000,
+          "max_supply": "115000000,000000",
           "precision": 6,
           "description": "CREA is a derivative that tracks the real value of 1 Creativecoin - https://www.creativechain.org. It is 100% decentralized asset, backed 1:1 by real CREA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5133,7 +5133,7 @@
         {
           "symbol": "DICE",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 7001622,
+          "max_supply": "7001622,000000",
           "precision": 6,
           "description": "DICE is a derivative that tracks the real value of 1 Etheroll - https://etheroll.com. It is 100% decentralized asset, backed 1:1 by real DICE and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5143,7 +5143,7 @@
         {
           "symbol": "INSN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 30000000,
+          "max_supply": "30000000,000000",
           "precision": 6,
           "description": "INSN is a derivative that tracks the real value of 1 InsaneCoin - https://insane.network It is 100% decentralized asset, backed 1:1 by real INSN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5163,7 +5163,7 @@
         {
           "symbol": "PZM",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 6000000000,
+          "max_supply": "6000000000,000000",
           "precision": 6,
           "description": "PZM is a derivative that tracks the real value of 1 PRIZM - http://en.prizm.club. It is 100% decentralized asset, backed 1:1 by real PZM and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5213,7 +5213,7 @@
         {
           "symbol": "DMB",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 131250000,
+          "max_supply": "131250000,000000",
           "precision": 6,
           "description": "DMB is a derivative that tracks the real value of 1 Digital Money Bits - https://dmb-currency.com. It is 100% decentralized asset, backed 1:1 by real DMB and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5253,7 +5253,7 @@
         {
           "symbol": "MAY",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "MAY is a derivative that tracks the real value of 1 Theresa May Coin - http://www.theresamaycoin.com. It is 100% decentralized asset, backed 1:1 by real MAY and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5263,7 +5263,7 @@
         {
           "symbol": "SUMO",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 88888888,
+          "max_supply": "88888888,000000",
           "precision": 6,
           "description": "SUMO is a derivative that tracks the real value of 1 Sumokoin - https://www.sumokoin.org. It is 100% decentralized asset, backed 1:1 by real SUMO and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5293,7 +5293,7 @@
         {
           "symbol": "ZEN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "ZEN is a derivative that tracks the real value of 1 Horizen - https://horizen.global. It is 100% decentralized asset, backed 1:1 by real ZEN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5333,7 +5333,7 @@
         {
           "symbol": "ETP",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "ETP is a derivative that tracks the real value of 1 Metaverse ETP - https://mvs.org. It is 100% decentralized asset, backed 1:1 by real ETP and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5343,7 +5343,7 @@
         {
           "symbol": "EBST",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 99990000,
+          "max_supply": "99990000,000000",
           "precision": 6,
           "description": "EBST is a derivative that tracks the real value of 1 eBoost - http://www.eboost.fun It is 100% decentralized asset, backed 1:1 by real EBST and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5403,7 +5403,7 @@
         {
           "symbol": "ECA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 30000000000,
+          "max_supply": "30000000000,000000",
           "precision": 6,
           "description": "ECA is a derivative that tracks the real value of 1 Electra - https://electraproject.org. It is 100% decentralized asset, backed 1:1 by real ECA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5413,7 +5413,7 @@
         {
           "symbol": "QRL",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 105000000,
+          "max_supply": "105000000,000000",
           "precision": 6,
           "description": "QRL is a derivative that tracks the real value of 1 Quantum Resistant Ledger - https://theqrl.org. It is 100% decentralized asset, backed 1:1 by real QRL and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5443,7 +5443,7 @@
         {
           "symbol": "MIOTA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 2779530283,
+          "max_supply": "2779530283,000000",
           "precision": 6,
           "description": "MIOTA is a derivative that tracks the real value of 1 IOTA - https://www.iota.org. It is 100% decentralized asset, backed 1:1 by real MIOTA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5483,7 +5483,7 @@
         {
           "symbol": "LINX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "LINX is a derivative that tracks the real value of 1 Linx - https://mylinx.io. It is 100% decentralized asset, backed 1:1 by real LINX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5523,7 +5523,7 @@
         {
           "symbol": "GLT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 168000000,
+          "max_supply": "168000000,000000",
           "precision": 6,
           "description": "GLT is a derivative that tracks the real value of 1 GlobalToken - http://globaltoken.org. It is 100% decentralized asset, backed 1:1 by real GLT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5533,7 +5533,7 @@
         {
           "symbol": "NMR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "NMR is a derivative that tracks the real value of 1 Numeraire - https://numer.ai. It is 100% decentralized asset, backed 1:1 by real NMR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5553,7 +5553,7 @@
         {
           "symbol": "UNIFY",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 19276800,
+          "max_supply": "19276800,000000",
           "precision": 6,
           "description": "UNIFY is a derivative that tracks the real value of 1 Unify - http://www.unify.today. It is 100% decentralized asset, backed 1:1 by real UNIFY and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5613,7 +5613,7 @@
         {
           "symbol": "XLC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 54000000,
+          "max_supply": "54000000,000000",
           "precision": 6,
           "description": "XLC is a derivative that tracks the real value of 1 Leviar - https://leviar.io It is 100% decentralized asset, backed 1:1 by real XLC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5623,7 +5623,7 @@
         {
           "symbol": "ONX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1151920000,
+          "max_supply": "1151920000,000000",
           "precision": 6,
           "description": "ONX is a derivative that tracks the real value of 1 Onix - http://www.onixcoin.com. It is 100% decentralized asset, backed 1:1 by real ONX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5633,7 +5633,7 @@
         {
           "symbol": "GXS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "GXS is a derivative that tracks the real value of 1 GXChain - https://gxs.gxb.io/en. It is 100% decentralized asset, backed 1:1 by real GXS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5643,7 +5643,7 @@
         {
           "symbol": "ATCC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 410000000,
+          "max_supply": "410000000,000000",
           "precision": 6,
           "description": "ATCC is a derivative that tracks the real value of 1 ATC Coin - http://www.atccoin.com. It is 100% decentralized asset, backed 1:1 by real ATCC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5673,7 +5673,7 @@
         {
           "symbol": "FLASH",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 900000000,
+          "max_supply": "900000000,000000",
           "precision": 6,
           "description": "FLASH is a derivative that tracks the real value of 1 Flash - https://flashcoin.io. It is 100% decentralized asset, backed 1:1 by real FLASH and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5713,7 +5713,7 @@
         {
           "symbol": "EFYT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 5000000,
+          "max_supply": "5000000,000000",
           "precision": 6,
           "description": "EFYT is a derivative that tracks the real value of 1 Ergo - http://ergoplatform.org. It is 100% decentralized asset, backed 1:1 by real EFYT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5723,7 +5723,7 @@
         {
           "symbol": "BRIA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 3000000,
+          "max_supply": "3000000,000000",
           "precision": 6,
           "description": "BRIA is a derivative that tracks the real value of 1 BriaCoin - https://briacoin.com It is 100% decentralized asset, backed 1:1 by real BRIA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5743,7 +5743,7 @@
         {
           "symbol": "ADX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "ADX is a derivative that tracks the real value of 1 AdEx - https://www.adex.network. It is 100% decentralized asset, backed 1:1 by real ADX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5753,7 +5753,7 @@
         {
           "symbol": "DNR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 10000000,
+          "max_supply": "10000000,000000",
           "precision": 6,
           "description": "DNR is a derivative that tracks the real value of 1 Denarius - https://denarius.io. It is 100% decentralized asset, backed 1:1 by real DNR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5803,7 +5803,7 @@
         {
           "symbol": "ADT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "ADT is a derivative that tracks the real value of 1 adToken - https://adtoken.com. It is 100% decentralized asset, backed 1:1 by real ADT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5873,7 +5873,7 @@
         {
           "symbol": "GAS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "GAS is a derivative that tracks the real value of 1 Gas - https://neo.org. It is 100% decentralized asset, backed 1:1 by real GAS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5913,7 +5913,7 @@
         {
           "symbol": "PPT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 53252246,
+          "max_supply": "53252246,000000",
           "precision": 6,
           "description": "PPT is a derivative that tracks the real value of 1 Populous - https://populous.world. It is 100% decentralized asset, backed 1:1 by real PPT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5923,7 +5923,7 @@
         {
           "symbol": "WOMEN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 25000000000,
+          "max_supply": "25000000000,000000",
           "precision": 6,
           "description": "WOMEN is a derivative that tracks the real value of 1 WomenCoin - https://www.women-coin.com. It is 100% decentralized asset, backed 1:1 by real WOMEN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5933,7 +5933,7 @@
         {
           "symbol": "BDL",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 300000000,
+          "max_supply": "300000000,000000",
           "precision": 6,
           "description": "BDL is a derivative that tracks the real value of 1 Bitdeal - https://bitdeal.co.in. It is 100% decentralized asset, backed 1:1 by real BDL and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -5963,7 +5963,7 @@
         {
           "symbol": "RUP",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 84000000,
+          "max_supply": "84000000,000000",
           "precision": 6,
           "description": "RUP is a derivative that tracks the real value of 1 Rupee - https://rupeeblockchain.org. It is 100% decentralized asset, backed 1:1 by real RUP and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6053,7 +6053,7 @@
         {
           "symbol": "LINDA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 30000000000,
+          "max_supply": "30000000000,000000",
           "precision": 6,
           "description": "LINDA is a derivative that tracks the real value of 1 Linda - http://lindacoin.com. It is 100% decentralized asset, backed 1:1 by real LINDA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6103,7 +6103,7 @@
         {
           "symbol": "COAL",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 12500000,
+          "max_supply": "12500000,000000",
           "precision": 6,
           "description": "COAL is a derivative that tracks the real value of 1 BitCoal - https://bitcoal.io. It is 100% decentralized asset, backed 1:1 by real COAL and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6113,7 +6113,7 @@
         {
           "symbol": "LITEBTC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "LITEBTC is a derivative that tracks the real value of 1 LiteBitcoin - http://www.lbtc.info. It is 100% decentralized asset, backed 1:1 by real LITEBTC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6133,7 +6133,7 @@
         {
           "symbol": "SMART",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 5000000000,
+          "max_supply": "5000000000,000000",
           "precision": 6,
           "description": "SMART is a derivative that tracks the real value of 1 SmartCash - https://smartcash.cc. It is 100% decentralized asset, backed 1:1 by real SMART and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6153,7 +6153,7 @@
         {
           "symbol": "BCH",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "BCH is a derivative that tracks the real value of 1 Bitcoin Cash - https://www.bitcoincash.org. It is 100% decentralized asset, backed 1:1 by real BCH and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6163,7 +6163,7 @@
         {
           "symbol": "Harmony",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 67130000000,
+          "max_supply": "67130000000,000000",
           "precision": 6,
           "description": "Harmony is a derivative that tracks the real value of 1 HarmonyCoin - https://www.hmc21.co. It is 100% decentralized asset, backed 1:1 by real Harmony and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6213,7 +6213,7 @@
         {
           "symbol": "CTIC2",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 102000000,
+          "max_supply": "102000000,000000",
           "precision": 6,
           "description": "CTIC2 is a derivative that tracks the real value of 1 Coimatic 2.0 - http://coimatic.org. It is 100% decentralized asset, backed 1:1 by real CTIC2 and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6243,7 +6243,7 @@
         {
           "symbol": 300,
           "issuer_name": "localcoin-wallet",
-          "max_supply": 300,
+          "max_supply": "300,000000",
           "precision": 6,
           "description": "300 is a derivative that tracks the real value of 1 300 Token - http://300tokensparta.com. It is 100% decentralized asset, backed 1:1 by real 300 and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6253,7 +6253,7 @@
         {
           "symbol": "PBT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1250,
+          "max_supply": "1250,000000",
           "precision": 6,
           "description": "PBT is a derivative that tracks the real value of 1 Primalbase Token - https://primalbase.com. It is 100% decentralized asset, backed 1:1 by real PBT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6263,7 +6263,7 @@
         {
           "symbol": "CMPCO",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1010000000,
+          "max_supply": "1010000000,000000",
           "precision": 6,
           "description": "CMPCO is a derivative that tracks the real value of 1 CampusCoin - https://www.campuscoinproject.org. It is 100% decentralized asset, backed 1:1 by real CMPCO and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6293,7 +6293,7 @@
         {
           "symbol": "GSR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 4500000,
+          "max_supply": "4500000,000000",
           "precision": 6,
           "description": "GSR is a derivative that tracks the real value of 1 GeyserCoin - http://geysercoin.com. It is 100% decentralized asset, backed 1:1 by real GSR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6323,7 +6323,7 @@
         {
           "symbol": "CRM",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "CRM is a derivative that tracks the real value of 1 Cream - https://creamcoin.com. It is 100% decentralized asset, backed 1:1 by real CRM and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6333,7 +6333,7 @@
         {
           "symbol": "ERA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 240000000,
+          "max_supply": "240000000,000000",
           "precision": 6,
           "description": "ERA is a derivative that tracks the real value of 1 ERA - http://www.eranetwork.net. It is 100% decentralized asset, backed 1:1 by real ERA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6343,7 +6343,7 @@
         {
           "symbol": "KEK",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "KEK is a derivative that tracks the real value of 1 KekCoin - http://kekcoin.co. It is 100% decentralized asset, backed 1:1 by real KEK and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6463,7 +6463,7 @@
         {
           "symbol": "DCN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": "8,00E+12",
+          "max_supply": "8000000000000,000000",
           "precision": 6,
           "description": "DCN is a derivative that tracks the real value of 1 Dentacoin - http://www.dentacoin.com. It is 100% decentralized asset, backed 1:1 by real DCN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6493,7 +6493,7 @@
         {
           "symbol": "ONION",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 25000000,
+          "max_supply": "25000000,000000",
           "precision": 6,
           "description": "ONION is a derivative that tracks the real value of 1 DeepOnion - https://deeponion.org. It is 100% decentralized asset, backed 1:1 by real ONION and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6543,7 +6543,7 @@
         {
           "symbol": "XCXT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 48252000,
+          "max_supply": "48252000,000000",
           "precision": 6,
           "description": "XCXT is a derivative that tracks the real value of 1 CoinonatX - https://community.coinonatx.io. It is 100% decentralized asset, backed 1:1 by real XCXT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6553,7 +6553,7 @@
         {
           "symbol": "TCC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 516085281,
+          "max_supply": "516085281,000000",
           "precision": 6,
           "description": "TCC is a derivative that tracks the real value of 1 The ChampCoin - http://thechampcoin.com. It is 100% decentralized asset, backed 1:1 by real TCC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6583,7 +6583,7 @@
         {
           "symbol": "SMOKE",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 420000000,
+          "max_supply": "420000000,000000",
           "precision": 6,
           "description": "SMOKE is a derivative that tracks the real value of 1 Smoke - https://www.smoke.network. It is 100% decentralized asset, backed 1:1 by real SMOKE and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6593,7 +6593,7 @@
         {
           "symbol": "YOYOW",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "YOYOW is a derivative that tracks the real value of 1 YOYOW - https://yoyow.org. It is 100% decentralized asset, backed 1:1 by real YOYOW and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6623,7 +6623,7 @@
         {
           "symbol": "HSR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 84000000,
+          "max_supply": "84000000,000000",
           "precision": 6,
           "description": "HSR is a derivative that tracks the real value of 1 Hshare - https://h.cash. It is 100% decentralized asset, backed 1:1 by real HSR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6643,7 +6643,7 @@
         {
           "symbol": "NAS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "NAS is a derivative that tracks the real value of 1 Nebulas - https://nebulas.io. It is 100% decentralized asset, backed 1:1 by real NAS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6653,7 +6653,7 @@
         {
           "symbol": "DALC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000,
+          "max_supply": "1000000,000000",
           "precision": 6,
           "description": "DALC is a derivative that tracks the real value of 1 Dalecoin - http://dalecoin.org. It is 100% decentralized asset, backed 1:1 by real DALC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6673,7 +6673,7 @@
         {
           "symbol": "BBP",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 5200000000,
+          "max_supply": "5200000000,000000",
           "precision": 6,
           "description": "BBP is a derivative that tracks the real value of 1 BiblePay - https://biblepay.org. It is 100% decentralized asset, backed 1:1 by real BBP and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6693,7 +6693,7 @@
         {
           "symbol": "ACT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "ACT is a derivative that tracks the real value of 1 Achain - https://www.achain.com. It is 100% decentralized asset, backed 1:1 by real ACT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6703,7 +6703,7 @@
         {
           "symbol": "NAMO",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1200000000,
+          "max_supply": "1200000000,000000",
           "precision": 6,
           "description": "NAMO is a derivative that tracks the real value of 1 NamoCoin - https://namocoin.name It is 100% decentralized asset, backed 1:1 by real NAMO and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6743,7 +6743,7 @@
         {
           "symbol": "WTC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "WTC is a derivative that tracks the real value of 1 Waltonchain - http://www.waltonchain.org. It is 100% decentralized asset, backed 1:1 by real WTC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6763,7 +6763,7 @@
         {
           "symbol": "OPT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 249308531,
+          "max_supply": "249308531,000000",
           "precision": 6,
           "description": "OPT is a derivative that tracks the real value of 1 Opus - http://opus-foundation.org. It is 100% decentralized asset, backed 1:1 by real OPT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6823,7 +6823,7 @@
         {
           "symbol": "KRONE",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 84000000,
+          "max_supply": "84000000,000000",
           "precision": 6,
           "description": "KRONE is a derivative that tracks the real value of 1 Kronecoin - https://www.kronecoin.org. It is 100% decentralized asset, backed 1:1 by real KRONE and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -6973,7 +6973,7 @@
         {
           "symbol": "BUZZ",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 20000000000,
+          "max_supply": "20000000000,000000",
           "precision": 6,
           "description": "BUZZ is a derivative that tracks the real value of 1 BuzzCoin - http://www.buzzcoin.info. It is 100% decentralized asset, backed 1:1 by real BUZZ and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7023,7 +7023,7 @@
         {
           "symbol": "SCL",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 16714020,
+          "max_supply": "16714020,000000",
           "precision": 6,
           "description": "SCL is a derivative that tracks the real value of 1 Sociall - https://sociall.io It is 100% decentralized asset, backed 1:1 by real SCL and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7033,7 +7033,7 @@
         {
           "symbol": "ATB",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 300000000,
+          "max_supply": "300000000,000000",
           "precision": 6,
           "description": "ATB is a derivative that tracks the real value of 1 ATBCoin - https://atbcoin.com. It is 100% decentralized asset, backed 1:1 by real ATB and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7053,7 +7053,7 @@
         {
           "symbol": "ETHD",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 4200000,
+          "max_supply": "4200000,000000",
           "precision": 6,
           "description": "ETHD is a derivative that tracks the real value of 1 Ethereum Dark - https://www.ethereumdark.net. It is 100% decentralized asset, backed 1:1 by real ETHD and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7113,7 +7113,7 @@
         {
           "symbol": "XBL",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 3315372,
+          "max_supply": "3315372,000000",
           "precision": 6,
           "description": "XBL is a derivative that tracks the real value of 1 Billionaire Token - https://billionairetoken.com. It is 100% decentralized asset, backed 1:1 by real XBL and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7153,7 +7153,7 @@
         {
           "symbol": "CHIPS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "CHIPS is a derivative that tracks the real value of 1 CHIPS - It is 100% decentralized asset, backed 1:1 by real CHIPS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7163,7 +7163,7 @@
         {
           "symbol": "PIX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 657154880,
+          "max_supply": "657154880,000000",
           "precision": 6,
           "description": "PIX is a derivative that tracks the real value of 1 Lampix - https://www.lampix.co. It is 100% decentralized asset, backed 1:1 by real PIX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7173,7 +7173,7 @@
         {
           "symbol": "COSS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 200000000,
+          "max_supply": "200000000,000000",
           "precision": 6,
           "description": "COSS is a derivative that tracks the real value of 1 COSS - https://coss.io. It is 100% decentralized asset, backed 1:1 by real COSS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7273,7 +7273,7 @@
         {
           "symbol": "TZC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 400000000,
+          "max_supply": "400000000,000000",
           "precision": 6,
           "description": "TZC is a derivative that tracks the real value of 1 TrezarCoin - http://trezarcoin.com. It is 100% decentralized asset, backed 1:1 by real TZC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7283,7 +7283,7 @@
         {
           "symbol": "HDLB",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 2000000,
+          "max_supply": "2000000,000000",
           "precision": 6,
           "description": "HDLB is a derivative that tracks the real value of 1 HODL Bucks - http://www.hodlbucks.com. It is 100% decentralized asset, backed 1:1 by real HDLB and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7313,7 +7313,7 @@
         {
           "symbol": "REC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 27000000,
+          "max_supply": "27000000,000000",
           "precision": 6,
           "description": "REC is a derivative that tracks the real value of 1 Regalcoin - https://regalcoin.co. It is 100% decentralized asset, backed 1:1 by real REC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7323,7 +7323,7 @@
         {
           "symbol": "MSD",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 30000000000,
+          "max_supply": "30000000000,000000",
           "precision": 6,
           "description": "MSD is a derivative that tracks the real value of 1 MSD - https://mymsdspace.com. It is 100% decentralized asset, backed 1:1 by real MSD and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7333,7 +7333,7 @@
         {
           "symbol": "BIS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 109999978,
+          "max_supply": "109999978,000000",
           "precision": 6,
           "description": "BIS is a derivative that tracks the real value of 1 Bismuth - http://bismuth.cz. It is 100% decentralized asset, backed 1:1 by real BIS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7343,7 +7343,7 @@
         {
           "symbol": "ADA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 45000000000,
+          "max_supply": "45000000000,000000",
           "precision": 6,
           "description": "ADA is a derivative that tracks the real value of 1 Cardano - https://www.cardano.org It is 100% decentralized asset, backed 1:1 by real ADA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7423,7 +7423,7 @@
         {
           "symbol": "RHOC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "RHOC is a derivative that tracks the real value of 1 RChain - https://www.rchain.coop. It is 100% decentralized asset, backed 1:1 by real RHOC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7433,7 +7433,7 @@
         {
           "symbol": "INXT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 629610,
+          "max_supply": "629610,000000",
           "precision": 6,
           "description": "INXT is a derivative that tracks the real value of 1 Internxt - https://internxt.com. It is 100% decentralized asset, backed 1:1 by real INXT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7453,7 +7453,7 @@
         {
           "symbol": "FLIK",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 600000000,
+          "max_supply": "600000000,000000",
           "precision": 6,
           "description": "FLIK is a derivative that tracks the real value of 1 FLiK - http://www.theflik.io. It is 100% decentralized asset, backed 1:1 by real FLIK and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7473,7 +7473,7 @@
         {
           "symbol": "CNX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 210000000,
+          "max_supply": "210000000,000000",
           "precision": 6,
           "description": "CNX is a derivative that tracks the real value of 1 Cryptonex - https://cryptonex.org. It is 100% decentralized asset, backed 1:1 by real CNX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7513,7 +7513,7 @@
         {
           "symbol": "CCT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 10000000,
+          "max_supply": "10000000,000000",
           "precision": 6,
           "description": "CCT is a derivative that tracks the real value of 1 Crystal Clear - http://crystal-clear.io. It is 100% decentralized asset, backed 1:1 by real CCT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7533,7 +7533,7 @@
         {
           "symbol": "PPP",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 165000000,
+          "max_supply": "165000000,000000",
           "precision": 6,
           "description": "PPP is a derivative that tracks the real value of 1 PayPie - https://www.paypie.com. It is 100% decentralized asset, backed 1:1 by real PPP and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7573,7 +7573,7 @@
         {
           "symbol": "BTCZ",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000000,
+          "max_supply": "21000000000,000000",
           "precision": 6,
           "description": "BTCZ is a derivative that tracks the real value of 1 BitcoinZ - https://btcz.rocks/en. It is 100% decentralized asset, backed 1:1 by real BTCZ and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7613,7 +7613,7 @@
         {
           "symbol": "CTIC3",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 102000000,
+          "max_supply": "102000000,000000",
           "precision": 6,
           "description": "CTIC3 is a derivative that tracks the real value of 1 Coimatic 3.0 - http://coimatic.com. It is 100% decentralized asset, backed 1:1 by real CTIC3 and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7693,7 +7693,7 @@
         {
           "symbol": "PIPL",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 7531907537,
+          "max_supply": "7531907537,000000",
           "precision": 6,
           "description": "PIPL is a derivative that tracks the real value of 1 PiplCoin - https://piplcoin.com. It is 100% decentralized asset, backed 1:1 by real PIPL and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7803,7 +7803,7 @@
         {
           "symbol": "OTN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "OTN is a derivative that tracks the real value of 1 Open Trading Network - https://otn.org. It is 100% decentralized asset, backed 1:1 by real OTN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7833,7 +7833,7 @@
         {
           "symbol": "B2X",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "B2X is a derivative that tracks the real value of 1 SegWit2x - http://b2x-segwit.io. It is 100% decentralized asset, backed 1:1 by real B2X and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7853,7 +7853,7 @@
         {
           "symbol": "BLUE",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 42000000,
+          "max_supply": "42000000,000000",
           "precision": 6,
           "description": "BLUE is a derivative that tracks the real value of 1 Blue Protocol - https://www.blueprotocol.com. It is 100% decentralized asset, backed 1:1 by real BLUE and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7863,7 +7863,7 @@
         {
           "symbol": "LIFE",
           "issuer_name": "localcoin-wallet",
-          "max_supply": "1,00E+11",
+          "max_supply": "100000000000,000000",
           "precision": 6,
           "description": "LIFE is a derivative that tracks the real value of 1 LIFE - https://www.lifelabs.io. It is 100% decentralized asset, backed 1:1 by real LIFE and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7873,7 +7873,7 @@
         {
           "symbol": "MOD",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 27266200,
+          "max_supply": "27266200,000000",
           "precision": 6,
           "description": "MOD is a derivative that tracks the real value of 1 Modum - https://modum.io. It is 100% decentralized asset, backed 1:1 by real MOD and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7903,7 +7903,7 @@
         {
           "symbol": "BTG",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "BTG is a derivative that tracks the real value of 1 Bitcoin Gold - https://bitcoingold.org. It is 100% decentralized asset, backed 1:1 by real BTG and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -7943,7 +7943,7 @@
         {
           "symbol": "LA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "LA is a derivative that tracks the real value of 1 LATOKEN - https://latoken.com. It is 100% decentralized asset, backed 1:1 by real LA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8063,7 +8063,7 @@
         {
           "symbol": "LUX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 60000000,
+          "max_supply": "60000000,000000",
           "precision": 6,
           "description": "LUX is a derivative that tracks the real value of 1 LUXCoin - https://luxcore.io. It is 100% decentralized asset, backed 1:1 by real LUX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8133,7 +8133,7 @@
         {
           "symbol": "ELLA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 280000000,
+          "max_supply": "280000000,000000",
           "precision": 6,
           "description": "ELLA is a derivative that tracks the real value of 1 Ellaism - https://ellaism.org. It is 100% decentralized asset, backed 1:1 by real ELLA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8183,7 +8183,7 @@
         {
           "symbol": "BTBc",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "BTBc is a derivative that tracks the real value of 1 Bitbase - https://bitbase.io It is 100% decentralized asset, backed 1:1 by real BTBc and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8223,7 +8223,7 @@
         {
           "symbol": "R",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 484450000,
+          "max_supply": "484450000,000000",
           "precision": 6,
           "description": "R is a derivative that tracks the real value of 1 Revain - https://revain.org. It is 100% decentralized asset, backed 1:1 by real R and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8233,7 +8233,7 @@
         {
           "symbol": "ATL",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 54175041,
+          "max_supply": "54175041,000000",
           "precision": 6,
           "description": "ATL is a derivative that tracks the real value of 1 ATLANT - https://atlant.io. It is 100% decentralized asset, backed 1:1 by real ATL and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8243,7 +8243,7 @@
         {
           "symbol": "ETN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000000,
+          "max_supply": "21000000000,000000",
           "precision": 6,
           "description": "ETN is a derivative that tracks the real value of 1 Electroneum - http://electroneum.com. It is 100% decentralized asset, backed 1:1 by real ETN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8253,7 +8253,7 @@
         {
           "symbol": "MNX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 19000000,
+          "max_supply": "19000000,000000",
           "precision": 6,
           "description": "MNX is a derivative that tracks the real value of 1 MinexCoin - https://minexcoin.com. It is 100% decentralized asset, backed 1:1 by real MNX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8273,7 +8273,7 @@
         {
           "symbol": "FOR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 200000000,
+          "max_supply": "200000000,000000",
           "precision": 6,
           "description": "FOR is a derivative that tracks the real value of 1 FORCE - https://www.forcenetwork.io. It is 100% decentralized asset, backed 1:1 by real FOR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8293,7 +8293,7 @@
         {
           "symbol": "XSH",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 752520000,
+          "max_supply": "752520000,000000",
           "precision": 6,
           "description": "XSH is a derivative that tracks the real value of 1 SHIELD - https://www.shieldx.sh. It is 100% decentralized asset, backed 1:1 by real XSH and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8383,7 +8383,7 @@
         {
           "symbol": "INN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 42000000,
+          "max_supply": "42000000,000000",
           "precision": 6,
           "description": "INN is a derivative that tracks the real value of 1 Innova - http://innovacoin.info. It is 100% decentralized asset, backed 1:1 by real INN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8483,7 +8483,7 @@
         {
           "symbol": "StellarHold",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1500000000,
+          "max_supply": "1500000000,000000",
           "precision": 6,
           "description": "StellarHold is a derivative that tracks the real value of 1 Stellar Holdings - https://stellarhold.io. It is 100% decentralized asset, backed 1:1 by real StellarHold and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8573,7 +8573,7 @@
         {
           "symbol": "EAG",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "EAG is a derivative that tracks the real value of 1 EA Coin - https://www.eacoin.io. It is 100% decentralized asset, backed 1:1 by real EAG and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8593,7 +8593,7 @@
         {
           "symbol": "LTHN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 999481516,
+          "max_supply": "999481516,000000",
           "precision": 6,
           "description": "LTHN is a derivative that tracks the real value of 1 Lethean - https://intensecoin.com. It is 100% decentralized asset, backed 1:1 by real LTHN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8643,7 +8643,7 @@
         {
           "symbol": "XLQ",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 57879300,
+          "max_supply": "57879300,000000",
           "precision": 6,
           "description": "XLQ is a derivative that tracks the real value of 1 ALQO - https://alqo.org. It is 100% decentralized asset, backed 1:1 by real XLQ and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8653,7 +8653,7 @@
         {
           "symbol": "GBX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 31800000,
+          "max_supply": "31800000,000000",
           "precision": 6,
           "description": "GBX is a derivative that tracks the real value of 1 GoByte - https://gobyte.network. It is 100% decentralized asset, backed 1:1 by real GBX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8723,7 +8723,7 @@
         {
           "symbol": "INK",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "INK is a derivative that tracks the real value of 1 Ink - https://ink.one. It is 100% decentralized asset, backed 1:1 by real INK and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8733,7 +8733,7 @@
         {
           "symbol": "BOT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "BOT is a derivative that tracks the real value of 1 Bodhi - http://www.bodhi.network. It is 100% decentralized asset, backed 1:1 by real BOT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8763,7 +8763,7 @@
         {
           "symbol": "ZZC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 27000000,
+          "max_supply": "27000000,000000",
           "precision": 6,
           "description": "ZZC is a derivative that tracks the real value of 1 ZoZoCoin - https://www.zozocoins.com. It is 100% decentralized asset, backed 1:1 by real ZZC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8813,7 +8813,7 @@
         {
           "symbol": "VOT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 220000000,
+          "max_supply": "220000000,000000",
           "precision": 6,
           "description": "VOT is a derivative that tracks the real value of 1 VoteCoin - https://votecoin.site. It is 100% decentralized asset, backed 1:1 by real VOT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8823,7 +8823,7 @@
         {
           "symbol": "BCD",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 210000000,
+          "max_supply": "210000000,000000",
           "precision": 6,
           "description": "BCD is a derivative that tracks the real value of 1 Bitcoin Diamond - http://btcd.io. It is 100% decentralized asset, backed 1:1 by real BCD and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -8983,7 +8983,7 @@
         {
           "symbol": "PRE",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "PRE is a derivative that tracks the real value of 1 Presearch - https://www.presearch.io. It is 100% decentralized asset, backed 1:1 by real PRE and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9053,7 +9053,7 @@
         {
           "symbol": "JIYO",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 40000000,
+          "max_supply": "40000000,000000",
           "precision": 6,
           "description": "JIYO is a derivative that tracks the real value of 1 Jiyo - https://www.jiyo.io. It is 100% decentralized asset, backed 1:1 by real JIYO and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9093,7 +9093,7 @@
         {
           "symbol": "BWK",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 27000000,
+          "max_supply": "27000000,000000",
           "precision": 6,
           "description": "BWK is a derivative that tracks the real value of 1 Bulwark - https://bulwarkcrypto.com. It is 100% decentralized asset, backed 1:1 by real BWK and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9103,7 +9103,7 @@
         {
           "symbol": "SAGA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 42000000,
+          "max_supply": "42000000,000000",
           "precision": 6,
           "description": "SAGA is a derivative that tracks the real value of 1 SagaCoin - https://sagacoin.net. It is 100% decentralized asset, backed 1:1 by real SAGA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9143,7 +9143,7 @@
         {
           "symbol": "PCOIN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 23000000,
+          "max_supply": "23000000,000000",
           "precision": 6,
           "description": "PCOIN is a derivative that tracks the real value of 1 Pioneer Coin - https://pioneercoin.com. It is 100% decentralized asset, backed 1:1 by real PCOIN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9253,7 +9253,7 @@
         {
           "symbol": "IGNIS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 999449694,
+          "max_supply": "999449694,000000",
           "precision": 6,
           "description": "IGNIS is a derivative that tracks the real value of 1 Ignis - https://www.ardorplatform.org/ignis%E2%80%94first-childchain It is 100% decentralized asset, backed 1:1 by real IGNIS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9313,7 +9313,7 @@
         {
           "symbol": "SBTC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21210000,
+          "max_supply": "21210000,000000",
           "precision": 6,
           "description": "SBTC is a derivative that tracks the real value of 1 Super Bitcoin - http://supersmartbitcoin.com. It is 100% decentralized asset, backed 1:1 by real SBTC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9373,7 +9373,7 @@
         {
           "symbol": "YTN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 84000000,
+          "max_supply": "84000000,000000",
           "precision": 6,
           "description": "YTN is a derivative that tracks the real value of 1 YENTEN - https://conan-equal-newone.github.io/yenten. It is 100% decentralized asset, backed 1:1 by real YTN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9393,7 +9393,7 @@
         {
           "symbol": "UBTC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "UBTC is a derivative that tracks the real value of 1 United Bitcoin - http://ub.com. It is 100% decentralized asset, backed 1:1 by real UBTC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9443,7 +9443,7 @@
         {
           "symbol": "ELF",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "ELF is a derivative that tracks the real value of 1 aelf - http://aelf.io. It is 100% decentralized asset, backed 1:1 by real ELF and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9463,7 +9463,7 @@
         {
           "symbol": "MED",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 10000000000,
+          "max_supply": "10000000000,000000",
           "precision": 6,
           "description": "MED is a derivative that tracks the real value of 1 MediBloc [QRC20] - https://medibloc.org/en. It is 100% decentralized asset, backed 1:1 by real MED and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9553,7 +9553,7 @@
         {
           "symbol": "DIM",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 9000000000,
+          "max_supply": "9000000000,000000",
           "precision": 6,
           "description": "DIM is a derivative that tracks the real value of 1 DIMCOIN - https://www.dimcoin.io. It is 100% decentralized asset, backed 1:1 by real DIM and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9593,7 +9593,7 @@
         {
           "symbol": "DBC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 10000000000,
+          "max_supply": "10000000000,000000",
           "precision": 6,
           "description": "DBC is a derivative that tracks the real value of 1 DeepBrain Chain - https://www.deepbrainchain.org. It is 100% decentralized asset, backed 1:1 by real DBC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9603,7 +9603,7 @@
         {
           "symbol": "HBC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 28000000,
+          "max_supply": "28000000,000000",
           "precision": 6,
           "description": "HBC is a derivative that tracks the real value of 1 HomeBlockCoin - https://www.homeblockcoin.com. It is 100% decentralized asset, backed 1:1 by real HBC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9613,7 +9613,7 @@
         {
           "symbol": "NEU",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1500000000,
+          "max_supply": "1500000000,000000",
           "precision": 6,
           "description": "NEU is a derivative that tracks the real value of 1 Neumark - http://neufund.org. It is 100% decentralized asset, backed 1:1 by real NEU and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9693,7 +9693,7 @@
         {
           "symbol": "STAK",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 150000000,
+          "max_supply": "150000000,000000",
           "precision": 6,
           "description": "STAK is a derivative that tracks the real value of 1 STRAKS - https://straks.tech. It is 100% decentralized asset, backed 1:1 by real STAK and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9723,7 +9723,7 @@
         {
           "symbol": "LBTC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "LBTC is a derivative that tracks the real value of 1 Lightning Bitcoin - http://lbtc.io. It is 100% decentralized asset, backed 1:1 by real LBTC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9753,7 +9753,7 @@
         {
           "symbol": "ESC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 3100000,
+          "max_supply": "3100000,000000",
           "precision": 6,
           "description": "ESC is a derivative that tracks the real value of 1 Escroco - https://escroco.co. It is 100% decentralized asset, backed 1:1 by real ESC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9943,7 +9943,7 @@
         {
           "symbol": "POLIS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 25000000,
+          "max_supply": "25000000,000000",
           "precision": 6,
           "description": "POLIS is a derivative that tracks the real value of 1 Polis - https://polispay.org. It is 100% decentralized asset, backed 1:1 by real POLIS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -9973,7 +9973,7 @@
         {
           "symbol": "STN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 20000000,
+          "max_supply": "20000000,000000",
           "precision": 6,
           "description": "STN is a derivative that tracks the real value of 1 Steneum Coin - http://www.steneum.com. It is 100% decentralized asset, backed 1:1 by real STN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -10043,7 +10043,7 @@
         {
           "symbol": "GOD",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "GOD is a derivative that tracks the real value of 1 Bitcoin God - https://www.bitcoingod.org. It is 100% decentralized asset, backed 1:1 by real GOD and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -10173,7 +10173,7 @@
         {
           "symbol": "SWTC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": "1,00E+11",
+          "max_supply": "100000000000,000000",
           "precision": 6,
           "description": "SWTC is a derivative that tracks the real value of 1 Jingtum Tech - https://www.jingtum.com. It is 100% decentralized asset, backed 1:1 by real SWTC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -10193,7 +10193,7 @@
         {
           "symbol": "UCOM",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 18900000,
+          "max_supply": "18900000,000000",
           "precision": 6,
           "description": "UCOM is a derivative that tracks the real value of 1 United Crypto Community - https://unitedcryptocommunity.com. It is 100% decentralized asset, backed 1:1 by real UCOM and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -10203,7 +10203,7 @@
         {
           "symbol": "BCA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "BCA is a derivative that tracks the real value of 1 Bitcoin Atom - https://bitcoinatom.io. It is 100% decentralized asset, backed 1:1 by real BCA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -10273,7 +10273,7 @@
         {
           "symbol": "IC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 5000000,
+          "max_supply": "5000000,000000",
           "precision": 6,
           "description": "IC is a derivative that tracks the real value of 1 Ignition - https://www.ignitioncoin.org. It is 100% decentralized asset, backed 1:1 by real IC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -10413,7 +10413,7 @@
         {
           "symbol": "HC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 10000000,
+          "max_supply": "10000000,000000",
           "precision": 6,
           "description": "HC is a derivative that tracks the real value of 1 Harvest Masternode Coin - https://www.harvestcoin.org. It is 100% decentralized asset, backed 1:1 by real HC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -10723,7 +10723,7 @@
         {
           "symbol": "DTA",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 11500000000,
+          "max_supply": "11500000000,000000",
           "precision": 6,
           "description": "DTA is a derivative that tracks the real value of 1 DATA - http://data.eco. It is 100% decentralized asset, backed 1:1 by real DTA and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -10843,7 +10843,7 @@
         {
           "symbol": "QBIC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 52500000,
+          "max_supply": "52500000,000000",
           "precision": 6,
           "description": "QBIC is a derivative that tracks the real value of 1 Qbic - http://qbic.io. It is 100% decentralized asset, backed 1:1 by real QBIC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -10973,7 +10973,7 @@
         {
           "symbol": "MAN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "MAN is a derivative that tracks the real value of 1 Matrix AI Network - https://www.matrix.io. It is 100% decentralized asset, backed 1:1 by real MAN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -10983,7 +10983,7 @@
         {
           "symbol": "GRLC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 69000000,
+          "max_supply": "69000000,000000",
           "precision": 6,
           "description": "GRLC is a derivative that tracks the real value of 1 Garlicoin - https://garlicoin.io. It is 100% decentralized asset, backed 1:1 by real GRLC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -11123,7 +11123,7 @@
         {
           "symbol": "TRF",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 131500000,
+          "max_supply": "131500000,000000",
           "precision": 6,
           "description": "TRF is a derivative that tracks the real value of 1 Travelflex - https://travelflex.org. It is 100% decentralized asset, backed 1:1 by real TRF and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -11323,7 +11323,7 @@
         {
           "symbol": "UCASH",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000000,
+          "max_supply": "21000000000,000000",
           "precision": 6,
           "description": "UCASH is a derivative that tracks the real value of 1 UNIVERSAL CASH - https://u.cash It is 100% decentralized asset, backed 1:1 by real UCASH and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -11533,7 +11533,7 @@
         {
           "symbol": "MWAT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 500000000,
+          "max_supply": "500000000,000000",
           "precision": 6,
           "description": "MWAT is a derivative that tracks the real value of 1 Restart Energy MWAT - https://restartenergy.io It is 100% decentralized asset, backed 1:1 by real MWAT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -11553,7 +11553,7 @@
         {
           "symbol": "DADI",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "DADI is a derivative that tracks the real value of 1 DADI - https://dadi.cloud/en It is 100% decentralized asset, backed 1:1 by real DADI and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -11603,7 +11603,7 @@
         {
           "symbol": "LCC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 840000000,
+          "max_supply": "840000000,000000",
           "precision": 6,
           "description": "LCC is a derivative that tracks the real value of 1 Litecoin Cash - https://litecoinca.sh. It is 100% decentralized asset, backed 1:1 by real LCC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -11623,7 +11623,7 @@
         {
           "symbol": "TDX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "TDX is a derivative that tracks the real value of 1 Tidex Token - https://tidex.com. It is 100% decentralized asset, backed 1:1 by real TDX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -11913,7 +11913,7 @@
         {
           "symbol": "GRFT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1844674407,
+          "max_supply": "1844674407,000000",
           "precision": 6,
           "description": "GRFT is a derivative that tracks the real value of 1 Graft - https://www.graft.network. It is 100% decentralized asset, backed 1:1 by real GRFT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -11943,7 +11943,7 @@
         {
           "symbol": "BTCP",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "BTCP is a derivative that tracks the real value of 1 Bitcoin Private - https://btcprivate.org It is 100% decentralized asset, backed 1:1 by real BTCP and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -11963,7 +11963,7 @@
         {
           "symbol": "RVN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000000,
+          "max_supply": "21000000000,000000",
           "precision": 6,
           "description": "RVN is a derivative that tracks the real value of 1 Ravencoin - https://ravencoin.org. It is 100% decentralized asset, backed 1:1 by real RVN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -11973,7 +11973,7 @@
         {
           "symbol": "TFD",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "TFD is a derivative that tracks the real value of 1 TE-FOOD - https://ico.tefoodint.com. It is 100% decentralized asset, backed 1:1 by real TFD and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -12233,7 +12233,7 @@
         {
           "symbol": "BITG",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "BITG is a derivative that tracks the real value of 1 Bitcoin Green - https://www.savebitcoin.io. It is 100% decentralized asset, backed 1:1 by real BITG and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -12263,7 +12263,7 @@
         {
           "symbol": "AMLT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 400000000,
+          "max_supply": "400000000,000000",
           "precision": 6,
           "description": "AMLT is a derivative that tracks the real value of 1 AMLT - https://amlt.coinfirm.io. It is 100% decentralized asset, backed 1:1 by real AMLT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -12343,7 +12343,7 @@
         {
           "symbol": "Stipend",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 19340594,
+          "max_supply": "19340594,000000",
           "precision": 6,
           "description": "Stipend is a derivative that tracks the real value of 1 Stipend - https://stipend.me. It is 100% decentralized asset, backed 1:1 by real Stipend and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -12443,7 +12443,7 @@
         {
           "symbol": "TPAY",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 25000000,
+          "max_supply": "25000000,000000",
           "precision": 6,
           "description": "TPAY is a derivative that tracks the real value of 1 TokenPay - https://www.tokenpay.com. It is 100% decentralized asset, backed 1:1 by real TPAY and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -12463,7 +12463,7 @@
         {
           "symbol": "XTL",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000000,
+          "max_supply": "21000000000,000000",
           "precision": 6,
           "description": "XTL is a derivative that tracks the real value of 1 Stellite - https://stellite.cash It is 100% decentralized asset, backed 1:1 by real XTL and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -12703,7 +12703,7 @@
         {
           "symbol": "XMC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 18400000,
+          "max_supply": "18400000,000000",
           "precision": 6,
           "description": "XMC is a derivative that tracks the real value of 1 Monero Classic - http://monero-classic.org. It is 100% decentralized asset, backed 1:1 by real XMC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -12863,7 +12863,7 @@
         {
           "symbol": "CROP",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "CROP is a derivative that tracks the real value of 1 Cropcoin - http://www.cropcoin.net. It is 100% decentralized asset, backed 1:1 by real CROP and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -12893,7 +12893,7 @@
         {
           "symbol": "MSR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 18500000,
+          "max_supply": "18500000,000000",
           "precision": 6,
           "description": "MSR is a derivative that tracks the real value of 1 Masari - https://getmasari.org. It is 100% decentralized asset, backed 1:1 by real MSR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -13003,7 +13003,7 @@
         {
           "symbol": "ZCO",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "ZCO is a derivative that tracks the real value of 1 Zebi - https://www.zebi.io. It is 100% decentralized asset, backed 1:1 by real ZCO and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -13053,7 +13053,7 @@
         {
           "symbol": "PNT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": "1,00E+11",
+          "max_supply": "100000000000,000000",
           "precision": 6,
           "description": "PNT is a derivative that tracks the real value of 1 Penta - https://www.penta.global. It is 100% decentralized asset, backed 1:1 by real PNT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -13123,7 +13123,7 @@
         {
           "symbol": "SS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 500000000,
+          "max_supply": "500000000,000000",
           "precision": 6,
           "description": "SS is a derivative that tracks the real value of 1 Sharder - https://sharder.org. It is 100% decentralized asset, backed 1:1 by real SS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -13143,7 +13143,7 @@
         {
           "symbol": "BCI",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 22300000,
+          "max_supply": "22300000,000000",
           "precision": 6,
           "description": "BCI is a derivative that tracks the real value of 1 Bitcoin Interest - http://bitcoininterest.io. It is 100% decentralized asset, backed 1:1 by real BCI and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -13183,7 +13183,7 @@
         {
           "symbol": "PLAN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 35000000,
+          "max_supply": "35000000,000000",
           "precision": 6,
           "description": "PLAN is a derivative that tracks the real value of 1 Plancoin - https://plancoin.co It is 100% decentralized asset, backed 1:1 by real PLAN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -13333,7 +13333,7 @@
         {
           "symbol": "APR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 25000000,
+          "max_supply": "25000000,000000",
           "precision": 6,
           "description": "APR is a derivative that tracks the real value of 1 APR Coin - https://www.apr-coin.com. It is 100% decentralized asset, backed 1:1 by real APR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -13343,7 +13343,7 @@
         {
           "symbol": "AC3",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "AC3 is a derivative that tracks the real value of 1 AC3 - https://ac3.io. It is 100% decentralized asset, backed 1:1 by real AC3 and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -13363,7 +13363,7 @@
         {
           "symbol": "ZIPT",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "ZIPT is a derivative that tracks the real value of 1 Zippie - https://zippie.org. It is 100% decentralized asset, backed 1:1 by real ZIPT and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -13673,7 +13673,7 @@
         {
           "symbol": "CLO",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 6500000000,
+          "max_supply": "6500000000,000000",
           "precision": 6,
           "description": "CLO is a derivative that tracks the real value of 1 Callisto Network - https://callisto.network. It is 100% decentralized asset, backed 1:1 by real CLO and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -13793,7 +13793,7 @@
         {
           "symbol": "XRH",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 32258830,
+          "max_supply": "32258830,000000",
           "precision": 6,
           "description": "XRH is a derivative that tracks the real value of 1 Rhenium - http://rhenium.org. It is 100% decentralized asset, backed 1:1 by real XRH and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -13903,7 +13903,7 @@
         {
           "symbol": "NKN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "NKN is a derivative that tracks the real value of 1 NKN - https://nkn.org. It is 100% decentralized asset, backed 1:1 by real NKN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -14723,7 +14723,7 @@
         {
           "symbol": "DTX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 225000000,
+          "max_supply": "225000000,000000",
           "precision": 6,
           "description": "DTX is a derivative that tracks the real value of 1 DaTa eXchange - http://databrokerdao.com It is 100% decentralized asset, backed 1:1 by real DTX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -14893,7 +14893,7 @@
         {
           "symbol": "IQ",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 10000000000,
+          "max_supply": "10000000000,000000",
           "precision": 6,
           "description": "IQ is a derivative that tracks the real value of 1 Everipedia - https://everipedia.org. It is 100% decentralized asset, backed 1:1 by real IQ and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -15003,7 +15003,7 @@
         {
           "symbol": "ELY",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "ELY is a derivative that tracks the real value of 1 Elysian - It is 100% decentralized asset, backed 1:1 by real ELY and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -15073,7 +15073,7 @@
         {
           "symbol": "GBC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1000000000,
+          "max_supply": "1000000000,000000",
           "precision": 6,
           "description": "GBC is a derivative that tracks the real value of 1 Gold Bits Coin - https://goldbitscoin.com. It is 100% decentralized asset, backed 1:1 by real GBC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -15133,7 +15133,7 @@
         {
           "symbol": "TRTL",
           "issuer_name": "localcoin-wallet",
-          "max_supply": "1,00E+12",
+          "max_supply": "1000000000000,000000",
           "precision": 6,
           "description": "TRTL is a derivative that tracks the real value of 1 Turtlecoin - https://turtlecoin.lol. It is 100% decentralized asset, backed 1:1 by real TRTL and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -15273,7 +15273,7 @@
         {
           "symbol": "LPC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "LPC is a derivative that tracks the real value of 1 Lightpaycoin - https://lightpaycoin.org. It is 100% decentralized asset, backed 1:1 by real LPC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -15313,7 +15313,7 @@
         {
           "symbol": "ACED",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 25000000,
+          "max_supply": "25000000,000000",
           "precision": 6,
           "description": "ACED is a derivative that tracks the real value of 1 AceD - https://www.acedcoin.com. It is 100% decentralized asset, backed 1:1 by real ACED and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -15433,7 +15433,7 @@
         {
           "symbol": "NIX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 175000000,
+          "max_supply": "175000000,000000",
           "precision": 6,
           "description": "NIX is a derivative that tracks the real value of 1 NIX - https://nixplatform.io. It is 100% decentralized asset, backed 1:1 by real NIX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -15453,7 +15453,7 @@
         {
           "symbol": "HORUS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 1200000000,
+          "max_supply": "1200000000,000000",
           "precision": 6,
           "description": "HORUS is a derivative that tracks the real value of 1 HorusPay - https://horuspay.io It is 100% decentralized asset, backed 1:1 by real HORUS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -15563,7 +15563,7 @@
         {
           "symbol": "NBR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 336000000,
+          "max_supply": "336000000,000000",
           "precision": 6,
           "description": "NBR is a derivative that tracks the real value of 1 Niobio Cash - https://niobiocash.org/en. It is 100% decentralized asset, backed 1:1 by real NBR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -15723,7 +15723,7 @@
         {
           "symbol": "SEM",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 100000000,
+          "max_supply": "100000000,000000",
           "precision": 6,
           "description": "SEM is a derivative that tracks the real value of 1 Semux - https://www.semux.org It is 100% decentralized asset, backed 1:1 by real SEM and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -15863,7 +15863,7 @@
         {
           "symbol": "OPCX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 800000000,
+          "max_supply": "800000000,000000",
           "precision": 6,
           "description": "OPCX is a derivative that tracks the real value of 1 OPCoinX - https://overpoweredcoin.com. It is 100% decentralized asset, backed 1:1 by real OPCX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -15913,7 +15913,7 @@
         {
           "symbol": "Bitblocks",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 500000000,
+          "max_supply": "500000000,000000",
           "precision": 6,
           "description": "Bitblocks is a derivative that tracks the real value of 1 Bitblocks - https://bitblocksproject.com. It is 100% decentralized asset, backed 1:1 by real Bitblocks and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -16023,7 +16023,7 @@
         {
           "symbol": "GMCN",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 15600000,
+          "max_supply": "15600000,000000",
           "precision": 6,
           "description": "GMCN is a derivative that tracks the real value of 1 GambleCoin - https://gamblecoin.fun. It is 100% decentralized asset, backed 1:1 by real GMCN and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -16113,7 +16113,7 @@
         {
           "symbol": "EUNO",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 50000000,
+          "max_supply": "50000000,000000",
           "precision": 6,
           "description": "EUNO is a derivative that tracks the real value of 1 EUNO - https://www.euno.co. It is 100% decentralized asset, backed 1:1 by real EUNO and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -16193,7 +16193,7 @@
         {
           "symbol": "CMM",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 210000000,
+          "max_supply": "210000000,000000",
           "precision": 6,
           "description": "CMM is a derivative that tracks the real value of 1 Commercium - https://www.commercium.net. It is 100% decentralized asset, backed 1:1 by real CMM and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -16383,7 +16383,7 @@
         {
           "symbol": "LYNX",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 92000000000,
+          "max_supply": "92000000000,000000",
           "precision": 6,
           "description": "LYNX is a derivative that tracks the real value of 1 Lynx - https://getlynx.io It is 100% decentralized asset, backed 1:1 by real LYNX and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -16663,7 +16663,7 @@
         {
           "symbol": "FORK",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "FORK is a derivative that tracks the real value of 1 Forkcoin - https://forkcoin.io. It is 100% decentralized asset, backed 1:1 by real FORK and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -16933,7 +16933,7 @@
         {
           "symbol": "ZCR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 18000000,
+          "max_supply": "18000000,000000",
           "precision": 6,
           "description": "ZCR is a derivative that tracks the real value of 1 ZCore - https://zcore.cash It is 100% decentralized asset, backed 1:1 by real ZCR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -16943,7 +16943,7 @@
         {
           "symbol": "XAP",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 250000000,
+          "max_supply": "250000000,000000",
           "precision": 6,
           "description": "XAP is a derivative that tracks the real value of 1 Apollon - https://apollon.one It is 100% decentralized asset, backed 1:1 by real XAP and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -17073,7 +17073,7 @@
         {
           "symbol": "LGS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 21000000,
+          "max_supply": "21000000,000000",
           "precision": 6,
           "description": "LGS is a derivative that tracks the real value of 1 LogisCoin - https://logiscoin.cc. It is 100% decentralized asset, backed 1:1 by real LGS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -17193,7 +17193,7 @@
         {
           "symbol": "GPKR",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 33333333,
+          "max_supply": "33333333,000000",
           "precision": 6,
           "description": "GPKR is a derivative that tracks the real value of 1 Gold Poker - https://gold-poker.com. It is 100% decentralized asset, backed 1:1 by real GPKR and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -17383,7 +17383,7 @@
         {
           "symbol": "LOBS",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 78600000,
+          "max_supply": "78600000,000000",
           "precision": 6,
           "description": "LOBS is a derivative that tracks the real value of 1 Lobstex - http://www.lobstex.com. It is 100% decentralized asset, backed 1:1 by real LOBS and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
@@ -17393,7 +17393,7 @@
         {
           "symbol": "RBMC",
           "issuer_name": "localcoin-wallet",
-          "max_supply": 80000000,
+          "max_supply": "80000000,000000",
           "precision": 6,
           "description": "RBMC is a derivative that tracks the real value of 1 Rubex Money - https://www.rubexmoney.com. It is 100% decentralized asset, backed 1:1 by real RBMC and can be deposited or withdrawn using bridge or gateway services.",
           "is_bitasset": false,
