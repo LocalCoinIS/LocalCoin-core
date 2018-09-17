@@ -44,6 +44,7 @@
 #include <graphene/chain/vesting_balance_object.hpp>
 #include <graphene/chain/vote_count.hpp>
 #include <graphene/chain/witness_object.hpp>
+#include <graphene/chain/activenode_object.hpp>
 #include <graphene/chain/worker_object.hpp>
 
 namespace graphene { namespace chain {
@@ -74,9 +75,6 @@ vector<std::reference_wrapper<const typename Index::object_type>> database::sort
 
 bool database::witness_can_be_active(const witness_object& witness) const
 {
-   const account_balance_index& balance_index = get_index_type<account_balance_index>();
-   auto range = balance_index.indices().get<by_account_asset>().equal_range(boost::make_tuple(witness.witness_account));
-
    auto& account = witness.witness_account(*this);
    const auto& stats = account.statistics(*this);
    share_type total_balance = stats.total_core_in_orders.value
@@ -204,6 +202,23 @@ void database::pay_workers( share_type& budget )
       budget -= actual_pay;
    }
 }
+
+void database::update_current_activenodes()
+{ try {
+   const global_property_object& gpo = get_global_properties();
+
+   const auto& anodes = get_index_type<activenode_index>().indices();
+
+   modify(gpo, [&]( global_property_object& gp ){
+      gp.current_activenodes.clear();
+      gp.current_activenodes.reserve(anodes.size());
+      std::transform(anodes.begin(), anodes.end(),
+         std::inserter(gp.current_activenodes, gp.current_activenodes.end()),
+            [](const activenode_object& anode) {
+               return anode.id;
+         });
+   });
+} FC_CAPTURE_AND_RETHROW() }
 
 void database::update_active_witnesses()
 { try {
@@ -918,6 +933,7 @@ void database::perform_chain_maintenance(const signed_block& next_block, const g
 
    update_top_n_authorities(*this);
    update_active_witnesses();
+   update_current_activenodes();
    update_active_committee_members();
    update_worker_votes();
 

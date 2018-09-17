@@ -146,11 +146,13 @@ void witness_plugin::schedule_production_loop()
    //Schedule for the next second's tick regardless of chain state
    // If we would wait less than 50ms, wait for the whole second.
    fc::time_point now = fc::time_point::now();
+//    ilog("!witness_plugin::schedule_production_loop now=${now}", ("now", now));
    int64_t time_to_next_second = 1000000 - (now.time_since_epoch().count() % 1000000);
    if( time_to_next_second < 50000 )      // we must sleep for at least 50ms
        time_to_next_second += 1000000;
 
    fc::time_point next_wakeup( now + fc::microseconds( time_to_next_second ) );
+//    ilog("!witness_plugin::schedule_production_loop next_wakeup=${next_wakeup}", ("next_wakeup", next_wakeup));
 
    _block_production_task = fc::schedule([this]{block_production_loop();},
                                          next_wakeup, "Witness Block Production");
@@ -213,6 +215,7 @@ block_production_condition::block_production_condition_enum witness_plugin::mayb
    chain::database& db = database();
    fc::time_point now_fine = fc::time_point::now();
    fc::time_point_sec now = now_fine + fc::microseconds( 500000 );
+//    ilog("!witness_plugin::maybe_produce_block now_fine=${now_fine} now=${now}", ("now_fine", now_fine)("now", now));
 
    // If the next block production opportunity is in the present or future, we're synced.
    if( !_production_enabled )
@@ -225,6 +228,8 @@ block_production_condition::block_production_condition_enum witness_plugin::mayb
 
    // is anyone scheduled to produce now or one second in the future?
    uint32_t slot = db.get_slot_at_time( now );
+//    ilog("!witness_plugin::maybe_produce_block slot=${slow} db.head_block_time()=${db_head_time}", ("slot", slot)("db_head_time", db.head_block_time()));
+
    if( slot == 0 )
    {
       capture("next_time", db.get_slot_time(1));

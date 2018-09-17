@@ -63,6 +63,7 @@
 #include <graphene/chain/worker_evaluator.hpp>
 
 #include <graphene/chain/protocol/fee_schedule.hpp>
+#include <graphene/chain/activenode_schedule_object.hpp>
 
 #include <fc/smart_ref_impl.hpp>
 #include <fc/uint128.hpp>
@@ -218,6 +219,7 @@ void database::initialize_indexes()
    add_index< primary_index<collateral_bid_index                          > >();
 
    add_index< primary_index< simple_index< fba_accumulator_object       > > >();
+    add_index< primary_index<simple_index<activenode_schedule_object        > > >();
 }
 
 void database::init_genesis(const genesis_state_type& genesis_state)
@@ -661,6 +663,14 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    {
       for( const witness_id_type& wid : get_global_properties().active_witnesses )
          wso.current_shuffled_witnesses.push_back( wid );
+   });
+
+   // Create activenode scheduler
+   create<activenode_schedule_object>([&]( activenode_schedule_object& aso )
+   {
+       // TODO: should I
+    //   for( const activenode_id_type& aid : get_global_properties().active_nodes )
+    //      aso.current_shuffled_activenodes.push_back( aid );
    });
 
    // Create FBA counters

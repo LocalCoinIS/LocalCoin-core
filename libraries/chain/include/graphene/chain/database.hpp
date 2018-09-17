@@ -248,6 +248,46 @@ namespace graphene { namespace chain {
 
          void update_witness_schedule();
 
+         //////////////////// db_activenode_schedule.cpp ////////////////////
+
+         /**
+          * @brief Get the activenode scheduled for sending activity in a slot.
+          *
+          * slot_num always corresponds to a time in the future.
+          *
+          * If slot_num == 1, returns the next scheduled activenode.
+          * If slot_num == 2, returns the next scheduled activenode after
+          * 1 block gap.
+          *
+          * Use the get_slot_time() and get_slot_at_time() functions
+          * to convert between slot_num and timestamp.
+          *
+          * Passing slot_num == 0 returns GRAPHENE_NULL_ACTIVENODE
+          */
+         activenode_id_type get_scheduled_activenode(uint32_t slot_num)const;
+
+         /**
+          * Get the time at which the given slot occurs.
+          *
+          * If slot_num == 0, return time_point_sec().
+          *
+          * If slot_num == N for N > 0, return the Nth next
+          * block-interval-aligned time greater than head_block_time().
+          */
+         fc::time_point_sec get_activenode_slot_time(uint32_t slot_num)const;
+
+         /**
+          * Get the last slot which occurs AT or BEFORE the given time.
+          *
+          * The return value is the greatest value N such that
+          * get_slot_time( N ) <= when.
+          *
+          * If no such N exists, return 0.
+          */
+         uint32_t get_activenode_slot_at_time(fc::time_point_sec when)const;
+
+         void update_activenode_schedule();
+
          //////////////////// db_getter.cpp ////////////////////
 
          const chain_id_type&                   get_chain_id()const;
@@ -326,6 +366,9 @@ namespace graphene { namespace chain {
          void deposit_cashback(const account_object& acct, share_type amount, bool require_vesting = true);
          // helper to handle witness pay
          void deposit_witness_pay(const witness_object& wit, share_type amount);
+         // helper to handle witness pay
+         void database::deposit_activenode_pay(const activenode_object& ano, share_type amount);
+
 
          //////////////////// db_debug.cpp ////////////////////
 
@@ -448,6 +491,7 @@ namespace graphene { namespace chain {
          //////////////////// db_update.cpp ////////////////////
          void update_global_dynamic_data( const signed_block& b );
          void update_signing_witness(const witness_object& signing_witness, const signed_block& new_block);
+         void reward_activenode(const signed_block& new_block);
          void update_last_irreversible_block();
          void clear_expired_transactions();
          void clear_expired_proposals();
@@ -467,6 +511,7 @@ namespace graphene { namespace chain {
          void pay_workers( share_type& budget );
          void perform_chain_maintenance(const signed_block& next_block, const global_property_object& global_props);
          void update_active_witnesses();
+         void update_current_activenodes();
          void update_active_committee_members();
          void update_worker_votes();
          void process_bids( const asset_bitasset_data_object& bad );

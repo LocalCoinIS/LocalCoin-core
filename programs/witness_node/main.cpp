@@ -24,6 +24,7 @@
 #include <graphene/app/application.hpp>
 
 #include <graphene/witness/witness.hpp>
+#include <graphene/activenode/activenode.hpp>
 #include <graphene/debug_witness/debug_witness.hpp>
 #include <graphene/account_history/account_history_plugin.hpp>
 #include <graphene/elasticsearch/elasticsearch_plugin.hpp>
@@ -192,6 +193,8 @@ int main(int argc, char** argv) {
       bpo::variables_map options;
 
       auto witness_plug = node->register_plugin<witness_plugin::witness_plugin>();
+      auto activenode_plug = node->register_plugin<activenode_plugin::activenode_plugin>();
+
       auto debug_witness_plug = node->register_plugin<debug_witness_plugin::debug_witness_plugin>();
       auto history_plug = node->register_plugin<account_history::account_history_plugin>();
       auto elasticsearch_plug = node->register_plugin<elasticsearch::elasticsearch_plugin>();

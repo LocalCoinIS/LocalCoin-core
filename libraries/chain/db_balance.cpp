@@ -186,4 +186,27 @@ void database::deposit_witness_pay(const witness_object& wit, share_type amount)
    return;
 }
 
+void database::deposit_activenode_pay(const activenode_object& ano, share_type amount)
+{
+   if( amount == 0 )
+      return;
+
+   optional< vesting_balance_id_type > new_vbid = deposit_lazy_vesting(
+      ano.pay_vb,
+      amount,
+      get_global_properties().parameters.activenode_pay_vesting_seconds,
+      ano.activenode_account,
+      true );
+
+   if( new_vbid.valid() )
+   {
+      modify( ano, [&]( activenode_object& _ano )
+      {
+         _ano.pay_vb = *new_vbid;
+      } );
+   }
+
+   return;
+}
+
 } }

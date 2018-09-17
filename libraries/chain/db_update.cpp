@@ -44,7 +44,8 @@ void database::update_global_dynamic_data( const signed_block& b )
 {
    const dynamic_global_property_object& _dgp =
       dynamic_global_property_id_type(0)(*this);
-
+   
+   // activenodes missed can be implemented in the same way
    uint32_t missed_blocks = get_slot_at_time( b.timestamp );
    assert( missed_blocks != 0 );
    missed_blocks--;
@@ -119,6 +120,78 @@ void database::update_signing_witness(const witness_object& signing_witness, con
       _wit.last_aslot = new_block_aslot;
       _wit.last_confirmed_block_num = new_block.block_num();
    } );
+}
+const activenode_id_type database::validate_activenode(const signed_block& new_block) {
+
+      // get all activenodes who sent activity this time from the block
+   // new_block.transactions. operations 
+   //or get all activenodes from db with time >= block_head_time...
+   fc::time_point_sec prev_block_time;
+   if (new_block.number == 0){
+     return;
+      // n.b. first block is at genesis_time plus one block interval
+      // prev_block_time = dpo.time;
+      // return genesis_time + slot_num * interval;
+   }
+
+   optional<signed_block> prev_block = fetch_block_by_number(new_block.number - 1);
+   FC_ASSERT(prev_block);
+   prev_block_time = prev_block->time;
+   const auto& idx = get_index_type<activenode_index>().indices();
+   bool found_activenode = false;
+   activenode_id_type activenode = GRAPHENE_NULL_ACTIVENODE;
+   std::vector<activenode_id_type) list_for_removal;
+   for( const activenode_object& act_object : idx )
+   {
+      // if a.last_activity
+      // check if activenode has enough money on balance
+      auto& account = act_object.activenode_account(*this);
+      const auto& stats = account.statistics(*this);
+      share_type total_balance = stats.total_core_in_orders.value
+         + (account.cashback_vb.valid() ? (*account.cashback_vb)(*this).balance.amount.value: 0)
+         + get_balance(account.get_id(), asset_id_type()).amount.value;
+         
+      bool enough_balance = (total_balance >= LLC_ACTIVENODE_MINIMAL_BALANCE);
+      if (!enough_balance) {
+         list_for_removal.push(act_object.id);
+         continue;
+         // should deactivate or delete??
+      }
+      uint32_t slot_num = get_activenode_slot_at_time( next_block.timestamp );
+      FC_ASSERT( slot_num > 0 ); // why
+
+      //TODO: add processing of activenodes that has sent the activity on the slot without block (if/when witness misses the block)
+
+      activenode_id_type scheduled_activenode = get_scheduled_activenode( slot_num );
+
+      if (act_object.id == scheduled_activenode) {
+         found = true;
+         activenode = scheduled_activenode;
+      }
+
+   }
+   //removing activenodes that doesn't have money
+   for(auto& act_id : list_for_removal)
+   {
+      remove(act_id);
+   }  
+
+   if (activenode == GRAPHENE_NULL_ACTIVENODE) {
+      ilog("sheduled activenode ${node} didn't send activity this time", ("node", scheduled_activenode));
+   }
+
+   return activenode;
+}
+
+void database::reward_activenode(const signed_block& new_block) {
+   const global_property_object& gpo = get_global_properties();
+   const dynamic_global_property_object& dpo = get_dynamic_global_properties();
+   uint64_t new_block_aslot = dpo.current_aslot + get_slot_at_time( new_block.timestamp );    
+    
+   activenode_id_type activenode_id = validate_activenode(new_block);
+   auto& sheduled_activenode = activenode_id(*this);
+
+   deposit_activenode_pay( sheduled_activenode, gpo.parameters.activenode_pay_per_block );
 }
 
 void database::update_last_irreversible_block()

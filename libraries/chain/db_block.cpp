@@ -514,6 +514,7 @@ void database::_apply_block( const signed_block& next_block )
 
    update_global_dynamic_data(next_block);
    update_signing_witness(signing_witness, next_block);
+   reward_activenode(next_block);
    update_last_irreversible_block();
 
    // Are we at the maintenance interval?
@@ -534,6 +535,8 @@ void database::_apply_block( const signed_block& next_block )
    // to be called for header validation?
    update_maintenance_flag( maint_needed );
    update_witness_schedule();
+   update_activenode_schedule();
+
    if( !_node_property_object.debug_updates.empty() )
       apply_debug_updates();
 

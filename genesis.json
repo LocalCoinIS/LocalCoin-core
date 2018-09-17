@@ -245,6 +245,16 @@
                 ],
                 [
                     46, {}
+                ],
+                [
+                    47, {
+                      "fee": 1000000
+                    }
+                ],
+                [
+                    48, {
+                      "fee" : 0
+                    }
                 ]
             ],
             "scale": 10000
@@ -270,6 +280,7 @@
         "count_non_member_votes": true,
         "allow_non_member_whitelists": false,
         "witness_pay_per_block": 100000,
+        "activenode_pay_per_block": 110000,
         "worker_budget_per_day": "50000000000",
         "max_predicate_opcode": 1,
         "fee_liquidation_threshold": 10000000,

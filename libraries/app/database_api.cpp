@@ -122,6 +122,10 @@ class database_api_impl : public std::enable_shared_from_this<database_api_impl>
       map<string, witness_id_type> lookup_witness_accounts(const string& lower_bound_name, uint32_t limit)const;
       uint64_t get_witness_count()const;
 
+      // Activenodes
+      fc::optional<activenode_object> get_activenode_by_account(account_id_type account)const;
+
+
       // Committee members
       vector<optional<committee_member_object>> get_committee_members(const vector<committee_member_id_type>& committee_member_ids)const;
       fc::optional<committee_member_object> get_committee_member_by_account(account_id_type account)const;
@@ -1558,6 +1562,20 @@ vector<optional<witness_object>> database_api_impl::get_witnesses(const vector<w
    return result;
 }
 
+fc::optional<activenode_object> database_api::get_activenode_by_account(account_id_type account)const
+{
+   return my->get_activenode_by_account( account );
+}
+
+fc::optional<activenode_object> database_api_impl::get_activenode_by_account(account_id_type account) const
+{
+   const auto& idx = _db.get_index_type<activenode_index>().indices().get<by_account>();
+   auto itr = idx.find(account);
+   if( itr != idx.end() )
+      return *itr;
+   return {};
+}
+
 fc::optional<witness_object> database_api::get_witness_by_account(account_id_type account)const
 {
    return my->get_witness_by_account( account );
@@ -1598,6 +1616,16 @@ map<string, witness_id_type> database_api_impl::lookup_witness_accounts(const st
        ++end_iter;
    witnesses_by_account_name.erase(end_iter, witnesses_by_account_name.end());
    return witnesses_by_account_name;
+}
+
+uint64_t database_api::get_activenode_count()const
+{
+   return my->get_activenode_count();
+}
+
+uint64_t database_api_impl::get_activenode_count()const
+{
+   return _db.get_index_type<activenode_index>().indices().size();
 }
 
 uint64_t database_api::get_witness_count()const

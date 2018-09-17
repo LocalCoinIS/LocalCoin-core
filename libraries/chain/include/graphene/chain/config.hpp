@@ -137,6 +137,8 @@
 #define GRAPHENE_DEFAULT_WITNESS_PAY_VESTING_SECONDS      (60*60*24)
 #define GRAPHENE_DEFAULT_WORKER_BUDGET_PER_DAY            (GRAPHENE_BLOCKCHAIN_PRECISION * int64_t(500) * 1000 )
 
+#define GRAPHENE_DEFAULT_ACTIVENODE_PAY_PER_BLOCK            int64_t(GRAPHENE_BLOCKCHAIN_PRECISION * double( 1.1) )
+
 #define GRAPHENE_DEFAULT_MINIMUM_FEEDS                       7
 
 #define GRAPHENE_MAX_INTEREST_APR                            uint16_t( 10000 )
@@ -167,8 +169,13 @@
 /// Sentinel value used in the scheduler.
 #define GRAPHENE_NULL_WITNESS (graphene::chain::witness_id_type(0))
 ///@}
+/// Sentinel value used in the activenode_scheduler.
+#define GRAPHENE_NULL_ACTIVENODE (graphene::chain::activenode_id_type(0))
+///@}
 
 #define GRAPHENE_FBA_STEALTH_DESIGNATED_ASSET (asset_id_type(743))
 
 #define GRAPHENE_MAX_NESTED_OBJECTS (200)
 #define LLC_WITNESS_MINIMAL_BALANCE (100000 * GRAPHENE_BLOCKCHAIN_PRECISION)
+
+#define LLC_ACTIVENODE_MINIMAL_BALANCE (501 * GRAPHENE_BLOCKCHAIN_PRECISION)

@@ -516,6 +516,27 @@ class database_api
        */
       uint64_t get_witness_count()const;
 
+
+      /////////////////
+      // Activenodes //
+      /////////////////
+
+      vector<optional<witness_object>> get_activenodes(const vector<witness_id_type>& witness_ids)const;
+
+
+      map<string, activenode_id_type> lookup_activenode_accounts(const string& lower_bound_name, uint32_t limit)const;
+
+
+      /**
+       * @brief Get the activenode owned by a given account
+       * @param account The ID of the account whose activenode should be retrieved
+       * @return The activenode object, or null if the account does not have a activenode
+       */
+      fc::optional<activenode_object> get_activenode_by_account(account_id_type account)const;
+
+
+      uint64_t get_activenodes_count()const;
+
       ///////////////////////
       // Committee members //
       ///////////////////////
@@ -753,6 +774,10 @@ FC_API(graphene::app::database_api,
    (get_witness_by_account)
    (lookup_witness_accounts)
    (get_witness_count)
+
+   // Activenodes
+   (get_activenode_by_account)
+
 
    // Committee members
    (get_committee_members)
