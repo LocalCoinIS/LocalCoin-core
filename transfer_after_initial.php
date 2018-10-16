@@ -168,6 +168,14 @@ $returnValue = json_decode('[
       "amount": 1000000000000
     }
 ]');
+
+// <?php return [
+//     "account"        => "localcoin",
+//     "brain_priv_key" => "",
+//     "wif_priv_key"   => "",
+//     "pub_key"        => "",
+//     "key_addr"       => ""
+// ];
 $localcoin = require("localcoin-data.php");
 
 foreach($genesis["transfer_after_initial"] as $id => $item) {
@@ -175,7 +183,7 @@ foreach($genesis["transfer_after_initial"] as $id => $item) {
         "jsonrpc" => "2.0",
         "method"  => "reserve_asset",
         "params"  => [            
-            $item["symbol"],            
+            $item["symbol"],
         ],
         "id" => 1
     ]);

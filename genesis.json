@@ -19549,116 +19549,73 @@
       {
         "owner_name": "ratamahatta",
         "block_signing_key":"LLC5As5Lds81xuPevHswM1qDjYYyLBJgDcWXHLa16mZFtznHnYTL5"
-        }, {
+      },
+      {
         "owner_name": "adamgottie",
         "block_signing_key":"LLC7DotXzjTBA4XDB4s7LFVdX8ZLMm8XxpTLi8CT1fRDCgKyRt4ER"
-        },
-        {
+      },
+      {
         "owner_name": "winstonsmith",
         "block_signing_key":"LLC595e6H6GsdqUn59hduKesEbTQxwrKqmGrLBNujrAbnngU1V6f5"
-        },
-        {
+      },
+      {
         "owner_name": "sentriusfounders",
         "block_signing_key":"LLC86jRVcZaDpiwenz6vBQsuouQg2LGNTda2uXTX7wzk3YSqcbKDW"
-        },
-        {
+      },
+      {
         "owner_name": "julia",
         "block_signing_key":"LLC7zAhy5Q2vGAUmyBdrWPD47PWdPYAiGphagH4sUoAgeS38giYQd"
-        },
-        {
+      },
+      {
         "owner_name": "obrien",
         "block_signing_key":"LLC7aUQU9HTU2VgxCSWAgjjaKQUnWcutrfCB86Qcbizfv9cCNKjoY"
-        },
-        {
+      },
+      {
         "owner_name": "aaronson",
         "block_signing_key":"LLC5MGJfzVmu7dtiqPTAmn1a2tcBEKsi4aVz4nhsv36TghjtbqU2i"
-        },
-        {
+      },
+      {
         "owner_name": "ampleforth",
         "block_signing_key":"LLC5Cq5CVy8KSp82ykEkyUVehqCKcD3VdHNo6EpcWRs7zjr27pGQF"
-        },
-        {
+      },
+      {
         "owner_name": "charrington",
         "block_signing_key":"LLC5XiP9XkRzYTkDfBL1yVGTkTrVqyuyh18TNL3vGwPcLMvDJYFyQ"
-        },
-        {
+      },
+      {
         "owner_name": "katharine_smith",
         "block_signing_key":"LLC7R2Kem1GeVCSBhMFC3Kaur5SxBcHStw1TfeKDybX9chh9KCHZ7"
-        }
+      }
 		],
     "initial_committee_candidates": [
-		  {
-			"owner_name": "obrien"
-		  },
-		  {
-			"owner_name": "aaronson"
-		  },
-		  {
-			"owner_name": "ampleforth"
-		  },
-		  {
-			"owner_name": "charrington"
-		  },
-		  {
-			"owner_name": "ingsoc"
-		  },
-		  {
-			"owner_name": "newspeak"
-		  },
-		  {
-			"owner_name": "oceania"
-		  },
-		  {
-			"owner_name": "ministries"
-		  },
-		  {
-			"owner_name": "atlant"
-		  },
-		  {
-			"owner_name": "felix"
-		  },
-		  {
-			"owner_name": "integral"
-		  },
-		  {
-			"owner_name": "d503"
-		  },
-		  {
-			"owner_name": "i303"
-		  },
-		  {
-			"owner_name": "murphy"
-		  },
-		  {
-			"owner_name": "millie"
-		  },
-		  {
-			"owner_name": "stoneman"
-		  },
-		  {
-			"owner_name": "faber"
-		  },
-		  {
-			"owner_name": "granger"
-		  },
-		  {
-			"owner_name": "montag"
-		  },
-		  {
-			"owner_name": "sirius"
-		  },
-		  {
-			"owner_name": "germut"
-		  },
-		  {
-			"owner_name": "notteler"
-		  }
+		  { "owner_name": "obrien"      },
+		  { "owner_name": "aaronson"    },
+		  { "owner_name": "ampleforth"  },
+		  { "owner_name": "charrington" },
+		  { "owner_name": "ingsoc"      },
+		  { "owner_name": "newspeak"    },
+		  { "owner_name": "oceania"     },
+		  { "owner_name": "ministries"  },
+		  { "owner_name": "atlant"      },
+		  { "owner_name": "felix"       },
+		  { "owner_name": "integral"    },
+		  { "owner_name": "d503"        },
+		  { "owner_name": "i303"        },
+		  { "owner_name": "murphy"      },
+		  { "owner_name": "millie"      },
+		  { "owner_name": "stoneman"    },
+		  { "owner_name": "faber"       },
+		  { "owner_name": "granger"     },
+		  { "owner_name": "montag"      },
+		  { "owner_name": "sirius"      },
+		  { "owner_name": "germut"      },
+		  { "owner_name": "notteler"    }
 		],
     "initial_worker_candidates": [],
     "initial_chain_id": "aa34045518f1469a28fa4578240d5f039afa9959c0b95ce3b39674efa691fb21",
     "immutable_parameters": {
-        "min_committee_member_count": 7,
-        "min_witness_count": 7,
+        "min_committee_member_count": 22,
+        "min_witness_count": 10,
         "num_special_accounts": 0,
         "num_special_assets": 0
     }
