@@ -19543,12 +19543,207 @@
       }
     ],
     "initial_balances": [
-      {
-        "owner": "LLCHNJEg6exCxUR1GdgC8jthkWdYv2vFQvwf",
-        "asset_symbol": "LLC",
-        "amount": "112359000000000"
-      }
-    ],    
+		  {
+			"owner": "LLC8ZQVHc5iVBGQUemvYDt9XeN9yNVS3pXDu",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCDKJvz496NwfFwhoDzHzw7SmBx2TTinz3v",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCHQ76r6BeZwpcX9sno9AvtcPYf1q5Czk1t",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCPpjbF6dGremKqLEQ4pbyhaidVGKC5Qsk5",
+			"asset_symbol": "LLC",
+			"amount": 9000000000
+		  },
+		  {
+			"owner": "LLC8xJ9GJye8biN2umfQhiNQB36gVADmMoC2",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLC8NdNXYR5ouUoksDWTgMnbgiLMQosAuM1Q",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCNTM1kVGh9nW7o5QyrUEkmSWVNPhtxDP1n",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCA3oUGSptvCGeTFzXsCrjJMV6Z3FfgUZWD",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLC9WUFBFaGeqQSWN4kCmqHHBCs29G3R4Jwu",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCAkTRKokxyWTcs75WptLSWzxjWPqXCN7SM",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLC91TrXaP8EuTTraCn9kXc6nArbRX5KnaSP",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCBK72R2E3rm2tXH2bJpNWf7hhAuu7DfPtY",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCGa6nS7Z9G25N3Zo822Qm81oW8zToRgDix",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCJAWHaBpdmVrSBSWCkBLiD1VMsED5qxh1H",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLC9dDWQ2QjaGuEreMZeLL7JK3MU4r6Txodi",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLC4mqGTnXAiP3DfFS3KrekoWeKaLbZ38sFs",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLC5C3xiiMzCitiL3QaxhunJKBXEnSw3xWxf",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCDDXfzWhgFcF14ca3GTuZUtb2tFPSSh6WL",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCKqwfMGBajLRS4EPtwkU31chRZz5X2gVjx",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCKaJk5ZN3BQCgoxTAfTJ37bSmgxETUCKwd",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLC5dhEHXRCJR6d1LmFoDNCErvV9S7DzjkB9",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCHF2HqtyVWTbcbXuxKrXfChsXop1tMcER8",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCJo6HakiFrtbj2eQmkUTPFALCZ4qAy4ozf",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCGBQLntZsr6tvdD2bNykVLCTXBgd17Hoxa",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCFSw5BxENqDmAmC3fgAaMXTXMpwWqshbEb",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLC8E5B4ofj8ZPvh2CRvyfTkMXRN3EA9s9eW",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCHcUbjiFhGZxjB7o6SqgkSQ3UpxWky7zGz",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLC2CHSyiR4yb9eKxY6MjWPRWMLq9Jd4AYtV",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLC3Ge9uMbvFsei6gcREEV31Wt3jugbXPyqX",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCLwonPU5AghVpmsQc5g6H32BjoYMjPVKjd",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCMBDJWiz71nL4eqgxvErqRMBhF8q6R1kWE",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLC4tzxqe4tvLrW7AwLYD5m5a1TA46XHy52k",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLC63cMn6UttNpkn1Kx1U57hL38eAggKiczr",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLC4Rx9d7nxj72f5n2XeN8DMDQ98YfmzwaVL",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCJ3LAZAmWFCUd2BmAZehoDva9JaTASS3Nv",
+			"asset_symbol": "LLC",
+			"amount": 10000000000
+		  },
+		  {
+			"owner": "LLCGqr6pDBjAfrYmmvEJxwKnZEU4hCbqgA1r",
+			"asset_symbol": "LLC",
+			"amount": 80000000000000
+		  },
+		  {
+			"owner": "LLC2ZuwBaZickSkQNaJyftEkGbpvqo7XPDUd",
+			"asset_symbol": "LLC",
+			"amount": 20000000000000
+		  },
+		  {
+			"owner": "LLCDjg1REMTnDEnrbksWeA8GyWquc6EKrkS5",
+			"asset_symbol": "LLC",
+			"amount": 10000000000000
+		  },
+		  {
+			"owner": "LLCDWdExFSSWh32t8Uxs6tuc1chevYSQdcg4",
+			"asset_symbol": "LLC",
+			"amount": 1000000000000
+		  },
+		  {
+			"owner": "LLC6GktQgoZmgSP87xrGatt69tsMDX58oss7",
+			"asset_symbol": "LLC",
+			"amount": 1000000000000
+		  }
+		], 
     "initial_vesting_balances": [],
     "initial_active_witnesses": 9,
     "initial_witness_candidates": [
