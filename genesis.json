@@ -542,6 +542,12 @@
 			"owner_key": "LLC8jjVcCPZW8FydXBVhTU9cjrRSvaAy9oqFUXQ9TVAyWZMwydBLp",
 			"active_key": "LLC8jjVcCPZW8FydXBVhTU9cjrRSvaAy9oqFUXQ9TVAyWZMwydBLp",
 			"is_lifetime_member": true
+		  },
+		  {
+			"name": "localcoin-fiat",
+			"owner_key": "LLC6onaviRoNUtgoeivzcd1LYszeJkMo4hWrVDjPvxKtquemE7VB1",
+			"active_key": "LLC6onaviRoNUtgoeivzcd1LYszeJkMo4hWrVDjPvxKtquemE7VB1",
+			"is_lifetime_member": true
 		  }
 		],
     "initial_assets": [
