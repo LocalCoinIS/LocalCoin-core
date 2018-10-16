@@ -66,3 +66,5 @@ wallet_quickstart.md
 .idea
 .project
 nbproject
+
+localcoin-data.php
