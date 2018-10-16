@@ -33,6 +33,7 @@
 #include <graphene/chain/transaction_object.hpp>
 #include <graphene/chain/withdraw_permission_object.hpp>
 #include <graphene/chain/witness_object.hpp>
+#include <graphene/chain/activenode_object.hpp>
 
 #include <graphene/chain/protocol/fee_schedule.hpp>
 
@@ -127,20 +128,21 @@ const activenode_id_type database::validate_activenode(const signed_block& new_b
    // new_block.transactions. operations 
    //or get all activenodes from db with time >= block_head_time...
    fc::time_point_sec prev_block_time;
-   if (new_block.number == 0){
-     return;
+   activenode_id_type activenode = GRAPHENE_NULL_ACTIVENODE;
+
+   if (new_block.block_num() == 0){
+     return activenode;
       // n.b. first block is at genesis_time plus one block interval
       // prev_block_time = dpo.time;
       // return genesis_time + slot_num * interval;
    }
 
-   optional<signed_block> prev_block = fetch_block_by_number(new_block.number - 1);
+   optional<signed_block> prev_block = fetch_block_by_number(new_block.block_num() - 1);
    FC_ASSERT(prev_block);
-   prev_block_time = prev_block->time;
+   prev_block_time = prev_block->timestamp;
    const auto& idx = get_index_type<activenode_index>().indices();
    bool found_activenode = false;
-   activenode_id_type activenode = GRAPHENE_NULL_ACTIVENODE;
-   std::vector<activenode_id_type) list_for_removal;
+   std::vector<activenode_object> list_for_removal;
    for( const activenode_object& act_object : idx )
    {
       // if a.last_activity
@@ -153,11 +155,11 @@ const activenode_id_type database::validate_activenode(const signed_block& new_b
          
       bool enough_balance = (total_balance >= LLC_ACTIVENODE_MINIMAL_BALANCE);
       if (!enough_balance) {
-         list_for_removal.push(act_object.id);
+         list_for_removal.push_back(act_object);
          continue;
          // should deactivate or delete??
       }
-      uint32_t slot_num = get_activenode_slot_at_time( next_block.timestamp );
+      uint32_t slot_num = get_activenode_slot_at_time( new_block.timestamp );
       FC_ASSERT( slot_num > 0 ); // why
 
       //TODO: add processing of activenodes that has sent the activity on the slot without block (if/when witness misses the block)
@@ -165,19 +167,19 @@ const activenode_id_type database::validate_activenode(const signed_block& new_b
       activenode_id_type scheduled_activenode = get_scheduled_activenode( slot_num );
 
       if (act_object.id == scheduled_activenode) {
-         found = true;
+         found_activenode = true;
          activenode = scheduled_activenode;
       }
-
    }
+   
    //removing activenodes that doesn't have money
-   for(auto& act_id : list_for_removal)
+   for(auto& account : list_for_removal)
    {
-      remove(act_id);
+      remove(account);
    }  
 
    if (activenode == GRAPHENE_NULL_ACTIVENODE) {
-      ilog("sheduled activenode ${node} didn't send activity this time", ("node", scheduled_activenode));
+      ilog("sheduled activenode ${node} didn't send activity this time", ("node", activenode));
    }
 
    return activenode;

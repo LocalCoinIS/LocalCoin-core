@@ -76,7 +76,7 @@ private:
    activenode_condition::activenode_condition_enum maybe_send_activity( fc::limited_mutable_variant_object& capture );
 
    boost::program_options::variables_map _options;
-   bool _activenode_plugin_enabled = false;
+   bool _activenode_plugin_enabled = true;
 
    std::pair<chain::public_key_type, fc::ecc::private_key> _private_key;
    chain::activenode_id_type _activenode;

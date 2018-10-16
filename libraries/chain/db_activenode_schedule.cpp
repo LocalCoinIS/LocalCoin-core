@@ -85,14 +85,14 @@ void database::update_activenode_schedule()
    const activenode_schedule_object& wso = activenode_schedule_id_type()(*this);
    const global_property_object& gpo = get_global_properties();
 
-   if( head_block_num() % gpo.active_activenodes.size() == 0 )
+   if( head_block_num() % gpo.current_activenodes.size() == 0 )
    {
       modify( wso, [&]( activenode_schedule_object& _wso )
       {
          _wso.current_shuffled_activenodes.clear();
-         _wso.current_shuffled_activenodes.reserve( gpo.active_activenodes.size() );
+         _wso.current_shuffled_activenodes.reserve( gpo.current_activenodes.size() );
 
-         for( const activenode_id_type& w : gpo.active_activenodes )
+         for( const activenode_id_type& w : gpo.current_activenodes )
             _wso.current_shuffled_activenodes.push_back( w );
 
          auto now_hi = uint64_t(head_block_time().sec_since_epoch()) << 32;

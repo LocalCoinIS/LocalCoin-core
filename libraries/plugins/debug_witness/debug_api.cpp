@@ -9,6 +9,7 @@
 #include <graphene/chain/block_database.hpp>
 #include <graphene/chain/database.hpp>
 #include <graphene/chain/witness_object.hpp>
+#include <graphene/chain/activenode_object.hpp>
 
 #include <graphene/utilities/key_conversion.hpp>
 

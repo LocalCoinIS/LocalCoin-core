@@ -59,7 +59,7 @@ void_result activenode_activity_evaluator::do_evaluate( const activenode_send_ac
    return void_result();
 } FC_CAPTURE_AND_RETHROW( (op) ) }
 
-object_id_type activenode_activity_evaluator::do_apply( const activenode_send_activity_operation& op )
+void_result activenode_activity_evaluator::do_apply( const activenode_send_activity_operation& op )
 { try {
 
    // DONT validate balance & remove 

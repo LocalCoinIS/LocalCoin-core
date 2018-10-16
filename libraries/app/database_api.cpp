@@ -124,7 +124,9 @@ class database_api_impl : public std::enable_shared_from_this<database_api_impl>
 
       // Activenodes
       fc::optional<activenode_object> get_activenode_by_account(account_id_type account)const;
-
+      vector<optional<activenode_object>> get_activenodes(const vector<activenode_id_type>& activenode_ids)const;
+      map<string, activenode_id_type> lookup_activenode_accounts(const string& lower_bound_name, uint32_t limit)const;
+      uint64_t get_activenode_count()const;
 
       // Committee members
       vector<optional<committee_member_object>> get_committee_members(const vector<committee_member_id_type>& committee_member_ids)const;
@@ -1562,20 +1564,6 @@ vector<optional<witness_object>> database_api_impl::get_witnesses(const vector<w
    return result;
 }
 
-fc::optional<activenode_object> database_api::get_activenode_by_account(account_id_type account)const
-{
-   return my->get_activenode_by_account( account );
-}
-
-fc::optional<activenode_object> database_api_impl::get_activenode_by_account(account_id_type account) const
-{
-   const auto& idx = _db.get_index_type<activenode_index>().indices().get<by_account>();
-   auto itr = idx.find(account);
-   if( itr != idx.end() )
-      return *itr;
-   return {};
-}
-
 fc::optional<witness_object> database_api::get_witness_by_account(account_id_type account)const
 {
    return my->get_witness_by_account( account );
@@ -1618,16 +1606,6 @@ map<string, witness_id_type> database_api_impl::lookup_witness_accounts(const st
    return witnesses_by_account_name;
 }
 
-uint64_t database_api::get_activenode_count()const
-{
-   return my->get_activenode_count();
-}
-
-uint64_t database_api_impl::get_activenode_count()const
-{
-   return _db.get_index_type<activenode_index>().indices().size();
-}
-
 uint64_t database_api::get_witness_count()const
 {
    return my->get_witness_count();
@@ -1638,6 +1616,80 @@ uint64_t database_api_impl::get_witness_count()const
    return _db.get_index_type<witness_index>().indices().size();
 }
 
+//////////////////////////////////////////////////////////////////////
+//                                                                  //
+// Activenodes                                                      //
+//                                                                  //
+//////////////////////////////////////////////////////////////////////
+
+vector<optional<activenode_object>> database_api::get_activenodes(const vector<activenode_id_type>& activenode_ids)const
+{
+   return my->get_activenodes( activenode_ids );
+}
+
+vector<optional<activenode_object>> database_api_impl::get_activenodes(const vector<activenode_id_type>& activenode_ids)const
+{
+   vector<optional<activenode_object>> result; result.reserve(activenode_ids.size());
+   std::transform(activenode_ids.begin(), activenode_ids.end(), std::back_inserter(result),
+                  [this](activenode_id_type id) -> optional<activenode_object> {
+      if(auto o = _db.find(id))
+         return *o;
+      return {};
+   });
+   return result;
+}
+
+map<string, activenode_id_type> database_api::lookup_activenode_accounts(const string& lower_bound_name, uint32_t limit)const
+{
+   return my->lookup_activenode_accounts( lower_bound_name, limit );
+}
+
+map<string, activenode_id_type> database_api_impl::lookup_activenode_accounts(const string& lower_bound_name, uint32_t limit)const
+{
+   FC_ASSERT( limit <= 1000 );
+   const auto& activenodes_by_id = _db.get_index_type<activenode_index>().indices().get<by_id>();
+
+   // we want to order activenodes by account name, but that name is in the account object
+   // so the activenode_index doesn't have a quick way to access it.
+   // get all the names and look them all up, sort them, then figure out what
+   // records to return.  This could be optimized, but we expect the
+   // number of activenodes to be few and the frequency of calls to be rare
+   std::map<std::string, activenode_id_type> activenodes_by_account_name;
+   for (const activenode_object& activenode : activenodes_by_id)
+       if (auto account_iter = _db.find(activenode.activenode_account))
+           if (account_iter->name >= lower_bound_name) // we can ignore anything below lower_bound_name
+               activenodes_by_account_name.insert(std::make_pair(account_iter->name, activenode.id));
+
+   auto end_iter = activenodes_by_account_name.begin();
+   while (end_iter != activenodes_by_account_name.end() && limit--)
+       ++end_iter;
+   activenodes_by_account_name.erase(end_iter, activenodes_by_account_name.end());
+   return activenodes_by_account_name;
+}
+
+uint64_t database_api::get_activenode_count()const
+{
+   return my->get_activenode_count();
+}
+
+uint64_t database_api_impl::get_activenode_count()const
+{
+   return _db.get_index_type<activenode_index>().indices().size();
+}
+
+fc::optional<activenode_object> database_api::get_activenode_by_account(account_id_type account)const
+{
+   return my->get_activenode_by_account( account );
+}
+
+fc::optional<activenode_object> database_api_impl::get_activenode_by_account(account_id_type account) const
+{
+   const auto& idx = _db.get_index_type<activenode_index>().indices().get<by_account>();
+   auto itr = idx.find(account);
+   if( itr != idx.end() )
+      return *itr;
+   return {};
+}
 //////////////////////////////////////////////////////////////////////
 //                                                                  //
 // Committee members                                                //

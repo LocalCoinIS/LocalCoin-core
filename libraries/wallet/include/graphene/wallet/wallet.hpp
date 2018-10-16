@@ -1282,7 +1282,7 @@ class wallet_api
        */
       witness_object get_witness(string owner_account);
 
-      activenode_object get_activenodes(string owner_account);
+      activenode_object get_activenode(string owner_account);
 
 
       /** Returns information about the given committee_member.
@@ -1306,7 +1306,7 @@ class wallet_api
                                         bool broadcast = false);
 
       signed_transaction create_activenode(string owner_account,
-                                              bool broadcast /* = false */)
+                                              bool broadcast /* = false */);
 
       /**
        * Update a witness object owned by the given account.
@@ -1698,7 +1698,7 @@ FC_API( graphene::wallet::wallet_api,
         (whitelist_account)
         (create_committee_member)
         (get_witness)
-        (get_activenodes)
+        (get_activenode)
         (get_committee_member)
         (list_witnesses)
         (list_activenodes)

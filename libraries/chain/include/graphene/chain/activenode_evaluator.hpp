@@ -19,6 +19,6 @@ namespace graphene { namespace chain {
          typedef activenode_send_activity_operation operation_type;
 
          void_result do_evaluate( const activenode_send_activity_operation& o );
-         object_id_type do_apply( const activenode_send_activity_operation& o );
+         void_result do_apply( const activenode_send_activity_operation& o );
    };
 } } // graphene::chain

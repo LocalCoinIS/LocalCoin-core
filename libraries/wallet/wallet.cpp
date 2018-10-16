@@ -1435,7 +1435,7 @@ public:
          {
             std::vector<activenode_id_type> ids_to_get;
             ids_to_get.push_back(*activenode_id);
-            std::vector<fc::optional<activenode_object>> activenode_objects = _remote_db->get_activenodees(ids_to_get);
+            std::vector<fc::optional<activenode_object>> activenode_objects = _remote_db->get_activenodes(ids_to_get);
             if (activenode_objects.front())
                return *activenode_objects.front();
             FC_THROW("No activenode is registered for id ${id}", ("id", owner_account));
@@ -3450,11 +3450,6 @@ signed_transaction wallet_api::create_activenode(string owner_account,
    return my->create_activenode(owner_account, broadcast);
 }
 
-activenode_object wallet_api::get_activenodes(string owner_account)
-{
-   return my->get_activenodes(owner_account);
-}
-
 map<string,committee_member_id_type> wallet_api::list_committee_members(const string& lowerbound, uint32_t limit)
 {
    return my->_remote_db->lookup_committee_member_accounts(lowerbound, limit);
@@ -3463,6 +3458,11 @@ map<string,committee_member_id_type> wallet_api::list_committee_members(const st
 witness_object wallet_api::get_witness(string owner_account)
 {
    return my->get_witness(owner_account);
+}
+
+activenode_object wallet_api::get_activenode(string owner_account)
+{
+   return my->get_activenode(owner_account);
 }
 
 committee_member_object wallet_api::get_committee_member(string owner_account)

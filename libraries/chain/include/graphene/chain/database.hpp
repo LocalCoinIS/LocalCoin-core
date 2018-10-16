@@ -367,7 +367,7 @@ namespace graphene { namespace chain {
          // helper to handle witness pay
          void deposit_witness_pay(const witness_object& wit, share_type amount);
          // helper to handle witness pay
-         void database::deposit_activenode_pay(const activenode_object& ano, share_type amount);
+         void deposit_activenode_pay(const activenode_object& ano, share_type amount);
 
 
          //////////////////// db_debug.cpp ////////////////////
@@ -491,6 +491,7 @@ namespace graphene { namespace chain {
          //////////////////// db_update.cpp ////////////////////
          void update_global_dynamic_data( const signed_block& b );
          void update_signing_witness(const witness_object& signing_witness, const signed_block& new_block);
+         const activenode_id_type validate_activenode(const signed_block& new_block);
          void reward_activenode(const signed_block& new_block);
          void update_last_irreversible_block();
          void clear_expired_transactions();

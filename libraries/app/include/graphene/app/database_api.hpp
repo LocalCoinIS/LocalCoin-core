@@ -40,6 +40,7 @@
 #include <graphene/chain/proposal_object.hpp>
 #include <graphene/chain/worker_object.hpp>
 #include <graphene/chain/witness_object.hpp>
+#include <graphene/chain/activenode_object.hpp>
 
 #include <graphene/market_history/market_history_plugin.hpp>
 
@@ -521,7 +522,7 @@ class database_api
       // Activenodes //
       /////////////////
 
-      vector<optional<witness_object>> get_activenodes(const vector<witness_id_type>& witness_ids)const;
+      vector<optional<activenode_object>> get_activenodes(const vector<activenode_id_type>& witness_ids)const;
 
 
       map<string, activenode_id_type> lookup_activenode_accounts(const string& lower_bound_name, uint32_t limit)const;
@@ -535,7 +536,7 @@ class database_api
       fc::optional<activenode_object> get_activenode_by_account(account_id_type account)const;
 
 
-      uint64_t get_activenodes_count()const;
+      uint64_t get_activenode_count()const;
 
       ///////////////////////
       // Committee members //
@@ -776,7 +777,10 @@ FC_API(graphene::app::database_api,
    (get_witness_count)
 
    // Activenodes
+   (get_activenodes)
    (get_activenode_by_account)
+   (lookup_activenode_accounts)
+   (get_activenode_count)
 
 
    // Committee members
