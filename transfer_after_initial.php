@@ -2,7 +2,7 @@
 const HOST = "http://194.63.142.61:8091/";
 $genesis =  json_decode(file_get_contents('genesis.json'), true);
 
-$returnValue = json_decode('[
+$accountForTransfer = json_decode('[
     {
       "login": "ratamahatta",
       "amount": 10000000000
@@ -178,12 +178,20 @@ $returnValue = json_decode('[
 // ];
 $localcoin = require("localcoin-data.php");
 
-foreach($genesis["transfer_after_initial"] as $id => $item) {
+foreach($accountForTransfer as $item) {
+    print_r($item);
+    die();
+    //graphene::wallet::wallet_api::transfer(string from, string to, string amount, string asset_symbol, string memo, bool broadcast = false)
     $json = json_encode([
         "jsonrpc" => "2.0",
-        "method"  => "reserve_asset",
+        "method"  => "transfer",
         "params"  => [            
-            $item["symbol"],
+            $localcoin['account'],
+            $item['login'],
+            $item['amount'],
+            "LLC",
+            "init",
+            false
         ],
         "id" => 1
     ]);
@@ -194,6 +202,5 @@ foreach($genesis["transfer_after_initial"] as $id => $item) {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $result = curl_exec($ch);
 
-    echo count($genesis["initial_assets"]) - $id - 1;
-    echo "\n";
+    return;
 }
