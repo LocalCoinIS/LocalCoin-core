@@ -3,41 +3,20 @@ const HOST = "http://194.63.142.61:8091/";
 const CORE = "LLC";
 $genesis =  json_decode(file_get_contents('genesis.json'), true);
 
+$accounts = require("accounts.php");
 
-// <?php return [
-//     "account"        => "localcoin",
-//     "brain_priv_key" => "",
-//     "wif_priv_key"   => "",
-//     "pub_key"        => "",
-//     "key_addr"       => ""
-// ];
-$localcoin = require("accounts.php");
+foreach($genesis['initial_balances'] as $balance) {
+  $privKey = '';
+  foreach($accounts['all'] as $account)
+    if($account['key_addr'] == $balance['owner'])
+      $privKey = $account['wif_priv_key'];
 
-foreach($accountForTransfer as $item) {
-    if($item['login'] == $item['amount']) continue;
+  $login = $accounts['names'][$balance['owner']];
 
-    $json = json_encode([
-        "jsonrpc" => "2.0",
-        "method"  => "transfer",
-        "params"  => [            
-            $localcoin['account'],
-            $item['login'],
-            intval(intval($item['amount']) / 100000),
-            CORE,
-            "initial amount",
-            true
-        ],
-        "id" => 1
-    ]);
-    
-    $ch = curl_init(HOST);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    $result = curl_exec($ch);
+  echo "\n";
+  echo 'import_key '.$login.' "'.$privKey.'" true';
+  echo "\n";
 
-    print_r($result);
-
-    return;
-}
+  echo 'import_balance '.$login.' ["'.$privKey.'"] true true';
+  echo "\n";
+}    
