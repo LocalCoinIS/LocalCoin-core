@@ -210,8 +210,10 @@ void database::update_current_activenodes()
    const auto& anodes = get_index_type<activenode_index>().indices();
 
    modify(gpo, [&]( global_property_object& gp ){
+         
       gp.current_activenodes.clear();
       gp.current_activenodes.reserve(anodes.size());
+
       std::transform(anodes.begin(), anodes.end(),
          std::inserter(gp.current_activenodes, gp.current_activenodes.end()),
             [](const activenode_object& anode) {

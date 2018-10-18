@@ -192,6 +192,8 @@ void database::initialize_indexes()
 
    add_index< primary_index<committee_member_index> >();
    add_index< primary_index<witness_index> >();
+   add_index< primary_index<activenode_index> >();
+
    add_index< primary_index<limit_order_index > >();
    add_index< primary_index<call_order_index > >();
 

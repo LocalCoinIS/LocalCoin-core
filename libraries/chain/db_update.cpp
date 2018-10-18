@@ -130,7 +130,10 @@ const activenode_id_type database::validate_activenode(const signed_block& new_b
    fc::time_point_sec prev_block_time;
    activenode_id_type activenode = GRAPHENE_NULL_ACTIVENODE;
 
-   if (new_block.block_num() == 0){
+   if (
+     new_block.block_num() == 0
+   || new_block.block_num() == 1 //why we need it ???
+   ){
      return activenode;
       // n.b. first block is at genesis_time plus one block interval
       // prev_block_time = dpo.time;
@@ -138,6 +141,7 @@ const activenode_id_type database::validate_activenode(const signed_block& new_b
    }
 
    optional<signed_block> prev_block = fetch_block_by_number(new_block.block_num() - 1);
+
    FC_ASSERT(prev_block);
    prev_block_time = prev_block->timestamp;
    const auto& idx = get_index_type<activenode_index>().indices();
@@ -191,6 +195,8 @@ void database::reward_activenode(const signed_block& new_block) {
    uint64_t new_block_aslot = dpo.current_aslot + get_slot_at_time( new_block.timestamp );    
     
    activenode_id_type activenode_id = validate_activenode(new_block);
+   if (activenode_id == GRAPHENE_NULL_ACTIVENODE)
+    return;
    auto& sheduled_activenode = activenode_id(*this);
 
    deposit_activenode_pay( sheduled_activenode, gpo.parameters.activenode_pay_per_block );
