@@ -85,7 +85,7 @@ void database::update_activenode_schedule()
    const activenode_schedule_object& wso = activenode_schedule_id_type()(*this);
    const global_property_object& gpo = get_global_properties();
 
-   if( head_block_num() % gpo.current_activenodes.size() == 0 )
+   if( gpo.current_activenodes.size() != 0 && head_block_num() % gpo.current_activenodes.size() == 0 )
    {
       modify( wso, [&]( activenode_schedule_object& _wso )
       {
