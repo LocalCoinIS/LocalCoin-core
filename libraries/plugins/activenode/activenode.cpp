@@ -45,10 +45,9 @@ void activenode_plugin::plugin_set_program_options(
    boost::program_options::options_description& config_file_options)
 {
    auto default_priv_key = fc::ecc::private_key::regenerate(fc::sha256::hash(std::string("nathan")));
-   string activenode_id_example = fc::json::to_string(chain::activenode_id_type(5));
    command_line_options.add_options()
-         ("activenode-id,w", bpo::value<vector<string>>()->composing()->multitoken(),
-          ("ID of activenode controlled by this node (e.g. " + activenode_id_example + ", quotes are required").c_str())
+         ("activenode-account", bpo::value<string>()->composing()->multitoken(),
+          "Name of account that is an activenode")
          ("activenode-private-key", bpo::value<vector<string>>()->composing()->multitoken()->
           DEFAULT_VALUE_VECTOR(std::make_pair(chain::public_key_type(default_priv_key.get_public_key()), graphene::utilities::key_to_wif(default_priv_key))),
           "Tuple of [PublicKey, WIF private key] (for account that will get rewards for being an activenode)")
@@ -65,34 +64,33 @@ void activenode_plugin::plugin_initialize(const boost::program_options::variable
 { try {
    ilog("activenode plugin:  plugin_initialize() begin");
    _options = &options;
-   _activenode = GRAPHENE_NULL_ACTIVENODE;
-   if (options.count("activenode-id"))
-   {
-      std::string activenode_id = options["activenode-id"].as<std::string>();
- 
-      _activenode = graphene::app::dejsonify<chain::activenode_id_type>(activenode_id, 5);
+   chain::database& db = database();
+   if (options.count("activenode-account")) {
+      _activenode_account_name = options["activenode-account"].as<std::string>();
    }
-
    if( options.count("activenode-private-key") )
    {
-      const std::string key_id_to_wif_pair_string = options["activenode-private-key"].as<std::string>();
-      auto key_id_to_wif_pair = graphene::app::dejsonify<std::pair<chain::public_key_type, std::string> >(key_id_to_wif_pair_string, 5);
-      ilog("Public Key: ${public}", ("public", key_id_to_wif_pair.first));
-      fc::optional<fc::ecc::private_key> private_key = graphene::utilities::wif_to_key(key_id_to_wif_pair.second);
-      if (!private_key)
+      const std::vector<std::string> key_id_to_wif_pair_strings = options["activenode-private-key"].as<std::vector<std::string>>();
+      for (const std::string& key_id_to_wif_pair_string : key_id_to_wif_pair_strings)
       {
-         // the key isn't in WIF format; see if they are still passing the old native private key format.  This is
-         // just here to ease the transition, can be removed soon
-         try
+         auto key_id_to_wif_pair = graphene::app::dejsonify<std::pair<chain::public_key_type, std::string> >(key_id_to_wif_pair_string, GRAPHENE_MAX_NESTED_OBJECTS);
+         idump((key_id_to_wif_pair));
+         fc::optional<fc::ecc::private_key> private_key = graphene::utilities::wif_to_key(key_id_to_wif_pair.second);
+         if (!private_key)
          {
-            private_key = fc::variant(key_id_to_wif_pair.second, 2).as<fc::ecc::private_key>(1);
+            // the key isn't in WIF format; see if they are still passing the old native private key format.  This is
+            // just here to ease the transition, can be removed soon
+            try
+            {
+               private_key = fc::variant( key_id_to_wif_pair.second, GRAPHENE_MAX_NESTED_OBJECTS ).as<fc::ecc::private_key>( GRAPHENE_MAX_NESTED_OBJECTS );
+            }
+            catch (const fc::exception&)
+            {
+               FC_THROW("Invalid WIF-format private key ${key_string}", ("key_string", key_id_to_wif_pair.second));
+            }
          }
-         catch (const fc::exception&)
-         {
-            FC_THROW("Invalid WIF-format private key ${key_string}", ("key_string", key_id_to_wif_pair.second));
-         }
+         _private_key = std::make_pair(key_id_to_wif_pair.first, *private_key);
       }
-      _private_key = std::make_pair(key_id_to_wif_pair.first, *private_key);
    }
    ilog("activenode plugin:  plugin_initialize() end");
 } FC_LOG_AND_RETHROW() }
@@ -100,13 +98,27 @@ void activenode_plugin::plugin_initialize(const boost::program_options::variable
 void activenode_plugin::plugin_startup()
 { try {
    ilog("activenode plugin:  plugin_startup() begin");
+   chain::database& db = database();
 
-   if( _activenode != GRAPHENE_NULL_ACTIVENODE)
+   const auto& account_idx = db.get_index_type<account_index>().indices().get<by_name>();
+   const auto anode_account_itr = account_idx.find(_activenode_account_name);
+   if (anode_account_itr != account_idx.end()) {
+      // get activenode from account
+      const auto& anode_idx = db.get_index_type<activenode_index>().indices().get<by_account>();
+      const account_object& acc_obj = *anode_account_itr;
+      const auto& anode_itr = anode_idx.find(acc_obj.id);
+      if (anode_itr != anode_idx.end()) {
+         _activenode = anode_itr->id;
+      } else {
+         ilog("Account ${acc} is not a registered activenode", ("acc", _activenode_account_name));
+      }
+   }
+   if (_activenode)
    {
       ilog("Launching activity for an activenodes.");
       schedule_activity_loop();
    } else
-      elog("No activenodes configured! Please add activenode IDs and private keys to configuration.");
+      elog("No activenodes configured! Please add activenode account and private key to configuration or register an activenode");
    ilog("activenode plugin:  plugin_startup() end");
 } FC_CAPTURE_AND_RETHROW() }
 
@@ -120,13 +132,13 @@ void activenode_plugin::schedule_activity_loop()
    //Schedule for the next second's tick regardless of chain state
    // If we would wait less than 50ms, wait for the whole second.
    fc::time_point now = fc::time_point::now();
-   ilog("!activenode_plugin::schedule_activity_loop now=${now}", ("now", now));
+   // ilog("!activenode_plugin::schedule_activity_loop now=${now}", ("now", now));
    int64_t time_to_next_second = 1000000 - (now.time_since_epoch().count() % 1000000);
    if( time_to_next_second < 50000 )      // we must sleep for at least 50ms
        time_to_next_second += 1000000;
 
    fc::time_point next_wakeup( now + fc::microseconds( time_to_next_second ) );
-   ilog("!activenode_plugin::schedule_activity_loop next_wakeup=${next_wakeup}", ("next_wakeup", next_wakeup));
+   // ilog("!ANODE schedule_activity_loop now = ${now}, time_to_next_second = ${ttns}, nextwakeup = ${nwakeup}", ("now", now.time_since_epoch())("ttns", time_to_next_second)("nwakeup", next_wakeup.time_since_epoch()));
    _activity_task = fc::schedule([this]{activity_loop();},
                                          next_wakeup, "Node activity transaction");
 }
@@ -138,8 +150,10 @@ activenode_condition::activenode_condition_enum activenode_plugin::activity_loop
    try
    {
       chain::database& db = database();
-      if (_activenode(db).is_enabled)
+      if ((*_activenode)(db).is_enabled)
          result = maybe_send_activity(capture);
+      else
+         result = activenode_condition::exception_perform_activity;
    }
    catch( const fc::canceled_exception& )
    {
@@ -155,20 +169,22 @@ activenode_condition::activenode_condition_enum activenode_plugin::activity_loop
    switch( result )
    {
       case activenode_condition::performed_activity:
-         ilog("Sent activity #${n} with timestamp ${t} at time ${c}", (capture));
+         ilog("Sent activity from anode ${activenode}, endpoint ${endpoint} with timestamp ${timestamp}", (capture));
          break;
       case activenode_condition::not_synced:
          ilog("Not sending activity because activity is disabled until we receive a recent block (see: --enable-stale-activity)");
          break;
       case activenode_condition::not_my_turn:
+         ilog("not_my_turn ${scheduled_activenode}", (capture));
          break;
       case activenode_condition::not_time_yet:
+         ilog("not_time_yet ${next_time}", (capture));
          break;
       case activenode_condition::no_private_key:
          ilog("Not sending activity because I don't have the private key for ${scheduled_key}", (capture) );
          break;
       case activenode_condition::lag:
-         elog("Not sending activity because node didn't wake up within 500ms of the slot time.");
+         elog("Not sending activity because node didn't wake up within 500ms of the slot time. scheduled=${scheduled_time} now=${now}", (capture));
          break;
       case activenode_condition::exception_perform_activity:
          elog( "exception sending activity" );
@@ -184,8 +200,8 @@ activenode_plugin::maybe_send_activity( fc::limited_mutable_variant_object& capt
 {
    chain::database& db = database();
    fc::time_point now_fine = fc::time_point::now();
-   fc::time_point_sec now = now_fine + fc::microseconds( 500000 );
-   ilog("!activenode_plugin::maybe_send_activity now_fine=${now_fine} now=${now}", ("now_fine", now_fine)("now", now));
+   fc::time_point_sec now = now_fine;
+   // ilog("!activenode_plugin::maybe_send_activity now_fine=${now_fine} now=${now}", ("now_fine", now_fine)("now", now));
 
    // If the next send activity opportunity is in the present or future, we're synced.
    if( !_activenode_plugin_enabled )
@@ -199,15 +215,17 @@ activenode_plugin::maybe_send_activity( fc::limited_mutable_variant_object& capt
    }
 
    // is anyone scheduled to produce now or one second in the future?
-   uint32_t slot = db.get_slot_at_time( now );
-   ilog("!activenode_plugin::maybe_send_activitys slot=${slow} db.head_block_time()=${db_head_time}", ("slot", slot)("db_head_time", db.head_block_time()));
+
+   //always zero
+   // ilog("!ANODE maybe_send_activity now_fine = ${now_fine}, now = ${now}", ("now_fine", now_fine.time_since_epoch())("now", now.sec_since_epoch()));
+   uint32_t slot = db.get_activenode_slot_at_time( now );
+   // ilog("!ANODE maybe_send_activity slot = ${slot}", ("slot", slot));
 
    if( slot == 0 )
    {
       capture("next_time", db.get_slot_time(1));
       return activenode_condition::not_time_yet;
    }
-
    //
    // this assert should not fail, because now <= db.head_block_time()
    // should have resulted in slot == 0.
@@ -216,88 +234,36 @@ activenode_plugin::maybe_send_activity( fc::limited_mutable_variant_object& capt
    // which would result in allowing a later block to have a timestamp
    // less than or equal to the previous block
    //
-   assert( now > db.head_block_time() );
 
    graphene::chain::activenode_id_type scheduled_activenode = db.get_scheduled_activenode( slot );
-   // we must control the witness scheduled to produce the next block.
-   if( scheduled_activenode == _activenode )
+
+   if( scheduled_activenode != *_activenode )
    {
       capture("scheduled_activenode", scheduled_activenode);
       return activenode_condition::not_my_turn;
    }
 
    fc::time_point_sec scheduled_time = db.get_slot_time( slot );
-//    graphene::chain::public_key_type scheduled_key = scheduled_activenode( db ).signing_key;
+   // TODO: check if we need to change it
+   // if( llabs((scheduled_time - now).count()) > fc::milliseconds( 500 ).count() )
+   // {
+   //    capture("scheduled_time", scheduled_time)("now", now);
+   //    return activenode_condition::lag;
+   // }
 
-//    if( _private_key.first != scheduled_key )
-//    {
-//       capture("scheduled_key", scheduled_key);
-//       return activenode_condition::no_private_key;
-//    }
-
-   if( llabs((scheduled_time - now).count()) > fc::milliseconds( 500 ).count() )
-   {
-      capture("scheduled_time", scheduled_time)("now", now);
-      return activenode_condition::lag;
-   }
-
-
-
-//    auto block = db.generate_block(
-//       scheduled_time,
-//       scheduled_witness,
-//       private_key_itr->second,
-//       _activity_skip_flags
-//       );
-//    capture("n", block.block_num())("t", block.timestamp)("c", now);
-//    fc::async( [this,block](){ p2p_node().broadcast(net::block_message(block)); } );
-
-
-
-   //todo here should send transaction, with spcial operation, 
-   // with ip, ssl enabled status, timestamp, should also check if money is enough
-
-   // account_object issuer_account = get_account( issuer );
-   // FC_ASSERT(!find_asset(symbol).valid(), "Asset with that symbol already exists!");
-
-   // if doesn't have 501 LLC should downgrade here?
-   
-
-   // asset_create_operation create_op;
-   // create_op.issuer = issuer_account.id;
-   // create_op.symbol = symbol;
-   // create_op.precision = precision;
-   // create_op.common_options = common;
-   // create_op.bitasset_opts = bitasset_opts;
-
-//    auto& account = _activenode(db).activenode_account;
-//    const auto& stats = account.statistics(*this);
-
-//    share_type total_activenode_balance = stats.total_core_in_orders.value
-//       + (account.cashback_vb.valid() ? (*account.cashback_vb)(*this).balance.amount.value: 0) + get_balance(account.get_id(), asset_id_type()).amount.value;
-         
-//    bool enough_balance = (total_activenode_balance >= LLC_ACTIVENODE_MINIMAL_BALANCE);
-//    if (!enough_balance) {
-
-//    }
    fc::variant_object network_info = app().p2p_node()->network_get_info();
-   //fc::ip::endpoint
-   //fc::from_variant
-   //ip::endpoint::from_string
+
    fc::ip::endpoint endpoint = fc::ip::endpoint::from_string(network_info["listening_on"].as_string());
-   //firewalled_state - uint8_t - unknown,firewalled, not firewalled
    graphene::net::firewalled_state node_firewalled_state;
    fc::from_variant(network_info["firewalled"], node_firewalled_state, 1);
-   // network_info['firewalled']
-   FC_ASSERT(endpoint.get_address().is_public_address() && node_firewalled_state == graphene::net::firewalled_state::not_firewalled);
+   FC_ASSERT(endpoint.get_address().is_public_address() && node_firewalled_state != graphene::net::firewalled_state::firewalled);
 
    chain::activenode_send_activity_operation send_activity_operation;
-   // SHOULD??: send_act_op.timestamp
    now = fc::time_point::now();
    send_activity_operation.timepoint = now;
    send_activity_operation.endpoint = endpoint;
-   send_activity_operation.activenode = _activenode;
-   send_activity_operation.activenode_account = _activenode(db).activenode_account;
+   send_activity_operation.activenode = *_activenode;
+   send_activity_operation.activenode_account = (*_activenode)(db).activenode_account;
 
    graphene::chain::signed_transaction tx;
    tx.operations.push_back( send_activity_operation );
@@ -307,10 +273,18 @@ activenode_plugin::maybe_send_activity( fc::limited_mutable_variant_object& capt
       fee_shed.set_fee(op);
 
    tx.validate();
+   auto dyn_props = db.get_dynamic_global_properties();
+   tx.set_reference_block( dyn_props.head_block_id );
+   tx.set_expiration( dyn_props.time + fc::seconds(30) );
 
    tx.sign( _private_key.second, db.get_chain_id() );
 
-   fc::async( [this, tx](){ p2p_node().broadcast_transaction(tx); } );
+   fc::async( [this, tx](){
+      if( app().p2p_node() != nullptr )
+         app().p2p_node()->broadcast_transaction(tx);
+   } );
+
+   capture("timestamp", now)("endpoint", endpoint)("activenode", *_activenode);
 
    return activenode_condition::performed_activity;
 }

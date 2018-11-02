@@ -27,9 +27,11 @@
 #include <graphene/chain/database.hpp>
 
 #include <fc/thread/future.hpp>
+#include <fc/optional.hpp>
 
 namespace graphene { namespace activenode_plugin {
-
+using namespace fc;
+using namespace chain;
 namespace activenode_condition
 {
    enum activenode_condition_enum
@@ -79,7 +81,8 @@ private:
    bool _activenode_plugin_enabled = true;
 
    std::pair<chain::public_key_type, fc::ecc::private_key> _private_key;
-   chain::activenode_id_type _activenode;
+   optional<chain::activenode_id_type> _activenode = optional<chain::activenode_id_type>();
+   std::string _activenode_account_name;
    fc::future<void> _activity_task;
 };
 

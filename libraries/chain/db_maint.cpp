@@ -219,6 +219,9 @@ void database::update_current_activenodes()
             [](const activenode_object& anode) {
                return anode.id;
          });
+      if (gp.current_activenodes.size() > 0) {
+         activenode_id_type aid = *(gp.current_activenodes.begin());
+      }
    });
 } FC_CAPTURE_AND_RETHROW() }
 

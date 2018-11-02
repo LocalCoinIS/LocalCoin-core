@@ -28,7 +28,6 @@
 
 namespace graphene { namespace chain {
    using namespace graphene::db;
-
    class activenode_object;
 
    class activenode_object : public abstract_object<activenode_object>
@@ -63,5 +62,8 @@ namespace graphene { namespace chain {
 
 FC_REFLECT_DERIVED( graphene::chain::activenode_object, (graphene::db::object),
                     (activenode_account)
+                    (last_activity)
+                    (endpoint)
                     (pay_vb)
+                    (is_enabled)
                   )

@@ -491,7 +491,9 @@ namespace graphene { namespace chain {
          //////////////////// db_update.cpp ////////////////////
          void update_global_dynamic_data( const signed_block& b );
          void update_signing_witness(const witness_object& signing_witness, const signed_block& new_block);
-         const activenode_id_type validate_activenode(const signed_block& new_block);
+         const optional<activenode_id_type> validate_activenode(const signed_block& new_block);
+         void clean_poor_activenodes();
+         share_type get_total_account_balance(const account_object& account);
          void reward_activenode(const signed_block& new_block);
          void update_last_irreversible_block();
          void clear_expired_transactions();

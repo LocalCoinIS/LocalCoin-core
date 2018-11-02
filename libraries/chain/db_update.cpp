@@ -122,13 +122,35 @@ void database::update_signing_witness(const witness_object& signing_witness, con
       _wit.last_confirmed_block_num = new_block.block_num();
    } );
 }
-const activenode_id_type database::validate_activenode(const signed_block& new_block) {
+
+share_type database::get_total_account_balance(const account_object& account) {
+   const auto& stats = account.statistics(*this);
+   share_type total_balance = stats.total_core_in_orders.value
+      + (account.cashback_vb.valid() ? (*account.cashback_vb)(*this).balance.amount.value: 0)
+      + get_balance(account.get_id(), asset_id_type()).amount.value;
+      return total_balance;
+}
+
+//we can also disable instead
+void database::clean_poor_activenodes() {
+   const auto& idx = get_index_type<activenode_index>().indices();
+   std::vector<activenode_object> list_for_removal;
+
+   for( const activenode_object& act_object : idx ) {
+
+   //removing activenodes that doesn't have money
+      share_type total_balance = get_total_account_balance(act_object.activenode_account(*this));
+      if (total_balance < LLC_ACTIVENODE_MINIMAL_BALANCE)
+         remove(act_object);
+   }
+}
+
+const fc::optional<activenode_id_type> database::validate_activenode(const signed_block& new_block) {
 
       // get all activenodes who sent activity this time from the block
    // new_block.transactions. operations 
    //or get all activenodes from db with time >= block_head_time...
-   fc::time_point_sec prev_block_time;
-   activenode_id_type activenode = GRAPHENE_NULL_ACTIVENODE;
+   fc::optional<activenode_id_type> activenode = optional< activenode_id_type >();
 
    if (
      new_block.block_num() == 0
@@ -143,47 +165,30 @@ const activenode_id_type database::validate_activenode(const signed_block& new_b
    optional<signed_block> prev_block = fetch_block_by_number(new_block.block_num() - 1);
 
    FC_ASSERT(prev_block);
-   prev_block_time = prev_block->timestamp;
+   fc::time_point_sec prev_block_time = prev_block->timestamp;
+   fc::time_point_sec new_block_time = new_block.timestamp;
    const auto& idx = get_index_type<activenode_index>().indices();
-   bool found_activenode = false;
-   std::vector<activenode_object> list_for_removal;
+
+   // remove activenodes that doesn't have enough money
+   clean_poor_activenodes();
+   uint32_t slot_num = get_activenode_slot_at_time( prev_block_time );
+
+   //TODO: add processing of activenodes that has sent the activity on the slot without block (if/when witness misses the block)
+
+   activenode_id_type scheduled_activenode = get_scheduled_activenode( slot_num );
    for( const activenode_object& act_object : idx )
    {
-      // if a.last_activity
-      // check if activenode has enough money on balance
-      auto& account = act_object.activenode_account(*this);
-      const auto& stats = account.statistics(*this);
-      share_type total_balance = stats.total_core_in_orders.value
-         + (account.cashback_vb.valid() ? (*account.cashback_vb)(*this).balance.amount.value: 0)
-         + get_balance(account.get_id(), asset_id_type()).amount.value;
-         
-      bool enough_balance = (total_balance >= LLC_ACTIVENODE_MINIMAL_BALANCE);
-      if (!enough_balance) {
-         list_for_removal.push_back(act_object);
-         continue;
-         // should deactivate or delete??
-      }
-      uint32_t slot_num = get_activenode_slot_at_time( new_block.timestamp );
-      FC_ASSERT( slot_num > 0 ); // why
-
-      //TODO: add processing of activenodes that has sent the activity on the slot without block (if/when witness misses the block)
-
-      activenode_id_type scheduled_activenode = get_scheduled_activenode( slot_num );
-
-      if (act_object.id == scheduled_activenode) {
-         found_activenode = true;
-         activenode = scheduled_activenode;
+      if (act_object.last_activity > fc::time_point(new_block_time)) {
+         int a = 0;
+         if ( act_object.id == object_id_type(scheduled_activenode)) {
+            activenode = scheduled_activenode;
+            break;
+         }
       }
    }
-   
-   //removing activenodes that doesn't have money
-   for(auto& account : list_for_removal)
-   {
-      remove(account);
-   }  
 
-   if (activenode == GRAPHENE_NULL_ACTIVENODE) {
-      ilog("sheduled activenode ${node} didn't send activity this time", ("node", activenode));
+   if (!activenode) {
+      ilog("sheduled activenode ${node} didn't send activity this time", ("node", scheduled_activenode));
    }
 
    return activenode;
@@ -192,14 +197,21 @@ const activenode_id_type database::validate_activenode(const signed_block& new_b
 void database::reward_activenode(const signed_block& new_block) {
    const global_property_object& gpo = get_global_properties();
    const dynamic_global_property_object& dpo = get_dynamic_global_properties();
-   uint64_t new_block_aslot = dpo.current_aslot + get_slot_at_time( new_block.timestamp );    
-    
-   activenode_id_type activenode_id = validate_activenode(new_block);
-   if (activenode_id == GRAPHENE_NULL_ACTIVENODE)
-    return;
-   auto& sheduled_activenode = activenode_id(*this);
+    //get current_activenodes - if empty - return
+   const auto& anodes = get_index_type<activenode_index>().indices();
+   // check scheduled
+   if (anodes.size() == 0) return;
+   const activenode_schedule_object& aso = activenode_schedule_id_type()(*this);
+   if (aso.current_shuffled_activenodes.size() == 0) {
+      return;
+   }
+   auto& activenode_id = validate_activenode(new_block);
+   if (!activenode_id) {
+     return;
+   }
+   auto& scheduled_activenode = (*activenode_id)(*this);
 
-   deposit_activenode_pay( sheduled_activenode, gpo.parameters.activenode_pay_per_block );
+   deposit_activenode_pay( scheduled_activenode, gpo.parameters.activenode_pay_per_block );
 }
 
 void database::update_last_irreversible_block()

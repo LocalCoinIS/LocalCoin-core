@@ -36,6 +36,8 @@ activenode_id_type database::get_scheduled_activenode( uint32_t slot_num )const
    const dynamic_global_property_object& dpo = get_dynamic_global_properties();
    const activenode_schedule_object& aso = activenode_schedule_id_type()(*this);
    uint64_t current_aslot = dpo.current_aslot + slot_num;
+   FC_ASSERT(aso.current_shuffled_activenodes.size() > 0);
+
    return aso.current_shuffled_activenodes[ current_aslot % aso.current_shuffled_activenodes.size() ];
 }
 
@@ -56,7 +58,7 @@ fc::time_point_sec database::get_activenode_slot_time(uint32_t slot_num)const
 
    int64_t head_block_abs_slot = head_block_time().sec_since_epoch() / interval;
    fc::time_point_sec head_slot_time(head_block_abs_slot * interval);
-//    ilog("!#dbg database::get_activenode_slot_time slot_num=${slot_num} head_block_abs_slot=${head_block_abs_slot} head_slot_time=${head_slot_time}, return_val=${return_val}", ("slot_num", slot_num)("head_block_abs_slot",head_block_abs_slot)("head_slot_time", head_slot_time)("return_val", head_slot_time + (slot_num * interval)));
+   // ilog("!#dbg database::get_activenode_slot_time slot_num=${slot_num} head_block_abs_slot=${head_block_abs_slot} head_slot_time=${head_slot_time}, return_val=${return_val}", ("slot_num", slot_num)("head_block_abs_slot",head_block_abs_slot)("head_slot_time", head_slot_time)("return_val", head_slot_time + (slot_num * interval)));
 
    const global_property_object& gpo = get_global_properties();
 
@@ -67,13 +69,16 @@ fc::time_point_sec database::get_activenode_slot_time(uint32_t slot_num)const
    // "slot 1" is head_slot_time,
    //   plus maint interval if head block is a maint block
    //   plus block interval if head block is not a maint block
+   // ilog("!ANODE get_activenode_slot_time head_block_time = ${hbt}, head_slot_time = ${hst}, hbt + slot*interval = ${hbtplus}", ("hbt", head_block_time().sec_since_epoch())("hst", head_slot_time.sec_since_epoch())("hbtplus", (head_slot_time + (slot_num * interval)).sec_since_epoch()));
+
+
    return head_slot_time + (slot_num * interval);
 }
 
 uint32_t database::get_activenode_slot_at_time(fc::time_point_sec when)const
 {
-   fc::time_point_sec first_slot_time = get_activenode_slot_time( 1 );
-//    ilog("!#dbg database::get_slot_at_time when=${when} first_slot_time=${first_slot_time} return_val=${return_val}", ("when", when)("first_slot_time", first_slot_time)("return_val", (when - first_slot_time).to_seconds() / block_interval() + 1));
+   fc::time_point_sec first_slot_time = get_activenode_slot_time( 0 );
+   // ilog("!ANODE get_activenode_slot_at_time when = ${when}, first_slot_time = ${fst}", ("when", when.sec_since_epoch())("fst", first_slot_time.sec_since_epoch()));
 
    if( when < first_slot_time )
       return 0;
