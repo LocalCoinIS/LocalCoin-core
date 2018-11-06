@@ -42,6 +42,7 @@ namespace graphene { namespace chain {
       account_id_type   witness_account;
       string            url;
       public_key_type   block_signing_key;
+      bool initial = false;
 
       account_id_type fee_payer()const { return witness_account; }
       void            validate()const;
