@@ -175,20 +175,16 @@ const fc::optional<activenode_id_type> database::validate_activenode(const signe
 
    //TODO: add processing of activenodes that has sent the activity on the slot without block (if/when witness misses the block)
 
-   activenode_id_type scheduled_activenode = get_scheduled_activenode( slot_num );
+   fc::optional<activenode_id_type> scheduled_activenode = get_scheduled_activenode( slot_num );
    for( const activenode_object& act_object : idx )
    {
-      if (act_object.last_activity > fc::time_point(new_block_time)) {
+      if (act_object.last_activity == fc::time_point(prev_block_time)) {
          int a = 0;
-         if ( act_object.id == object_id_type(scheduled_activenode)) {
+         if ( act_object.id == object_id_type(*scheduled_activenode)) {
             activenode = scheduled_activenode;
             break;
          }
       }
-   }
-
-   if (!activenode) {
-      ilog("sheduled activenode ${node} didn't send activity this time", ("node", scheduled_activenode));
    }
 
    return activenode;

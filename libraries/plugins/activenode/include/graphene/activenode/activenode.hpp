@@ -42,7 +42,9 @@ namespace activenode_condition
       not_time_yet = 3,
       no_private_key = 4,
       lag = 5,
-      exception_perform_activity = 6
+      no_scheduled_activenodes = 6,
+      deleted = 7,
+      exception_perform_activity = 8
    };
 }
 

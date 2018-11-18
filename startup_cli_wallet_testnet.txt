@@ -27,3 +27,5 @@ import_balance localcoin-feed ["5JjKPDzqw9DWPPhatkM7jo3PBoAMYDnUrCcLJQXYdw9eHRLa
 
 import_key llc-igorbiliba "5KAPZxRBf3pQTHSNVEQUyH4gncUu82TMT3mFXTr9G3wpFNAu8Zn" true
 import_balance llc-igorbiliba ["5KAPZxRBf3pQTHSNVEQUyH4gncUu82TMT3mFXTr9G3wpFNAu8Zn"] true true
+
+create_activenode localcoin-ico true

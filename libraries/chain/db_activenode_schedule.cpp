@@ -31,12 +31,15 @@ namespace graphene { namespace chain {
 
 using boost::container::flat_set;
 
-activenode_id_type database::get_scheduled_activenode( uint32_t slot_num )const
+fc::optional<activenode_id_type> database::get_scheduled_activenode( uint32_t slot_num )const
 {
    const dynamic_global_property_object& dpo = get_dynamic_global_properties();
    const activenode_schedule_object& aso = activenode_schedule_id_type()(*this);
    uint64_t current_aslot = dpo.current_aslot + slot_num;
-   FC_ASSERT(aso.current_shuffled_activenodes.size() > 0);
+
+   if (aso.current_shuffled_activenodes.size() == 0) {
+      return fc::optional<activenode_id_type>();
+   }
 
    return aso.current_shuffled_activenodes[ current_aslot % aso.current_shuffled_activenodes.size() ];
 }

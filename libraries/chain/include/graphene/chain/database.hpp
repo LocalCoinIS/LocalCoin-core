@@ -264,7 +264,7 @@ namespace graphene { namespace chain {
           *
           * Passing slot_num == 0 returns GRAPHENE_NULL_ACTIVENODE
           */
-         activenode_id_type get_scheduled_activenode(uint32_t slot_num)const;
+         fc::optional<activenode_id_type> get_scheduled_activenode(uint32_t slot_num)const;
 
          /**
           * Get the time at which the given slot occurs.

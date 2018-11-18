@@ -23,6 +23,7 @@
  */
 #include <graphene/activenode/activenode.hpp>
 #include <graphene/chain/protocol/transaction.hpp>
+#include <graphene/chain/protocol/types.hpp>
 
 #include <graphene/chain/database.hpp>
 #include <graphene/chain/activenode_object.hpp>
@@ -33,6 +34,8 @@
 #include <fc/thread/thread.hpp>
 
 #include <iostream>
+#include <algorithm>
+
 
 using namespace graphene::activenode_plugin;
 using std::string;
@@ -65,8 +68,11 @@ void activenode_plugin::plugin_initialize(const boost::program_options::variable
    ilog("activenode plugin:  plugin_initialize() begin");
    _options = &options;
    chain::database& db = database();
+
    if (options.count("activenode-account")) {
       _activenode_account_name = options["activenode-account"].as<std::string>();
+   } else {
+      elog("activenode-account field is empty! Please add activenode account to configuration");
    }
    if( options.count("activenode-private-key") )
    {
@@ -91,6 +97,8 @@ void activenode_plugin::plugin_initialize(const boost::program_options::variable
          }
          _private_key = std::make_pair(key_id_to_wif_pair.first, *private_key);
       }
+   } else {
+      elog("activenode-private-key field is empty! Please add activenode private key to configuration");
    }
    ilog("activenode plugin:  plugin_initialize() end");
 } FC_LOG_AND_RETHROW() }
@@ -99,7 +107,6 @@ void activenode_plugin::plugin_startup()
 { try {
    ilog("activenode plugin:  plugin_startup() begin");
    chain::database& db = database();
-
    const auto& account_idx = db.get_index_type<account_index>().indices().get<by_name>();
    const auto anode_account_itr = account_idx.find(_activenode_account_name);
    if (anode_account_itr != account_idx.end()) {
@@ -110,7 +117,20 @@ void activenode_plugin::plugin_startup()
       if (anode_itr != anode_idx.end()) {
          _activenode = anode_itr->id;
       } else {
-         ilog("Account ${acc} is not a registered activenode", ("acc", _activenode_account_name));
+         database().new_objects.connect([&]( const vector<object_id_type>& ids, const flat_set<account_id_type>& impacted_accounts ){
+            const auto impacted_account = impacted_accounts.find(acc_obj.id);
+            if (impacted_account != impacted_accounts.end()) {
+               // check if we have corresponding activenode
+               const auto& anode_idx = db.get_index_type<activenode_index>().indices().get<by_account>();
+               const auto& acc_obj = *impacted_account;
+               const auto& anode_itr = anode_idx.find(acc_obj);
+               if (anode_itr != anode_idx.end() && std::find(ids.begin(), ids.end(), anode_itr->id) != ids.end()) {
+                  _activenode = anode_itr->id;
+                  schedule_activity_loop();
+               }
+            }
+         });
+         ilog("Account ${acc} is not a registered activenode, can't start sending activity", ("acc", _activenode_account_name));
       }
    }
    if (_activenode)
@@ -150,10 +170,17 @@ activenode_condition::activenode_condition_enum activenode_plugin::activity_loop
    try
    {
       chain::database& db = database();
-      if ((*_activenode)(db).is_enabled)
-         result = maybe_send_activity(capture);
-      else
-         result = activenode_condition::exception_perform_activity;
+
+      auto maybe_found = db.find(*_activenode);
+      if ( maybe_found == nullptr ) {
+         _activenode.reset();
+         result = activenode_condition::deleted;
+      } else {
+         if ((*_activenode)(db).is_enabled)
+            result = maybe_send_activity(capture);
+         else
+            result = activenode_condition::exception_perform_activity;
+      }
    }
    catch( const fc::canceled_exception& )
    {
@@ -175,16 +202,19 @@ activenode_condition::activenode_condition_enum activenode_plugin::activity_loop
          ilog("Not sending activity because activity is disabled until we receive a recent block (see: --enable-stale-activity)");
          break;
       case activenode_condition::not_my_turn:
-         ilog("not_my_turn ${scheduled_activenode}", (capture));
          break;
+      case activenode_condition::deleted:
+         return result;
       case activenode_condition::not_time_yet:
-         ilog("not_time_yet ${next_time}", (capture));
          break;
       case activenode_condition::no_private_key:
          ilog("Not sending activity because I don't have the private key for ${scheduled_key}", (capture) );
          break;
       case activenode_condition::lag:
          elog("Not sending activity because node didn't wake up within 500ms of the slot time. scheduled=${scheduled_time} now=${now}", (capture));
+         break;
+      case activenode_condition::no_scheduled_activenodes:
+         ilog("No scheduled activenodes");
          break;
       case activenode_condition::exception_perform_activity:
          elog( "exception sending activity" );
@@ -199,6 +229,12 @@ activenode_condition::activenode_condition_enum
 activenode_plugin::maybe_send_activity( fc::limited_mutable_variant_object& capture )
 {
    chain::database& db = database();
+
+   const dynamic_global_property_object& dpo = db.get_dynamic_global_properties();
+
+   if( dpo.dynamic_flags & dynamic_global_property_object::maintenance_flag )
+      return activenode_condition::not_time_yet;
+
    fc::time_point now_fine = fc::time_point::now();
    fc::time_point_sec now = now_fine;
    // ilog("!activenode_plugin::maybe_send_activity now_fine=${now_fine} now=${now}", ("now_fine", now_fine)("now", now));
@@ -223,7 +259,7 @@ activenode_plugin::maybe_send_activity( fc::limited_mutable_variant_object& capt
 
    if( slot == 0 )
    {
-      capture("next_time", db.get_slot_time(1));
+      capture("next_time", db.get_activenode_slot_time(1));
       return activenode_condition::not_time_yet;
    }
    //
@@ -235,11 +271,13 @@ activenode_plugin::maybe_send_activity( fc::limited_mutable_variant_object& capt
    // less than or equal to the previous block
    //
 
-   graphene::chain::activenode_id_type scheduled_activenode = db.get_scheduled_activenode( slot );
-
-   if( scheduled_activenode != *_activenode )
+   fc::optional<activenode_id_type> scheduled_activenode = db.get_scheduled_activenode( slot );
+   if (!scheduled_activenode) {
+      return activenode_condition::no_scheduled_activenodes;
+   }
+   if( *scheduled_activenode != *_activenode )
    {
-      capture("scheduled_activenode", scheduled_activenode);
+      capture("scheduled_activenode", *scheduled_activenode);
       return activenode_condition::not_my_turn;
    }
 
@@ -278,11 +316,13 @@ activenode_plugin::maybe_send_activity( fc::limited_mutable_variant_object& capt
    tx.set_expiration( dyn_props.time + fc::seconds(30) );
 
    tx.sign( _private_key.second, db.get_chain_id() );
+   ilog("maybe_send_activity");
+   app().chain_database()->push_transaction(tx);
 
-   fc::async( [this, tx](){
-      if( app().p2p_node() != nullptr )
-         app().p2p_node()->broadcast_transaction(tx);
-   } );
+   // fc::async( [this, tx](){
+   //    if( app().p2p_node() != nullptr )
+   //       app().p2p_node()->broadcast_transaction(tx);
+   // } );
 
    capture("timestamp", now)("endpoint", endpoint)("activenode", *_activenode);
 
