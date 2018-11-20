@@ -476,6 +476,8 @@ namespace graphene { namespace chain {
          void                  apply_block( const signed_block& next_block, uint32_t skip = skip_nothing );
          processed_transaction apply_transaction( const signed_transaction& trx, uint32_t skip = skip_nothing );
          operation_result      apply_operation( transaction_evaluation_state& eval_state, const operation& op );
+         share_type get_total_account_balance(const account_object& account);
+
       private:
          void                  _apply_block( const signed_block& next_block );
          processed_transaction _apply_transaction( const signed_transaction& trx );
@@ -493,7 +495,6 @@ namespace graphene { namespace chain {
          void update_signing_witness(const witness_object& signing_witness, const signed_block& new_block);
          const optional<activenode_id_type> validate_activenode(const signed_block& new_block);
          void clean_poor_activenodes();
-         share_type get_total_account_balance(const account_object& account);
          void reward_activenode(const signed_block& new_block);
          void update_last_irreversible_block();
          void clear_expired_transactions();

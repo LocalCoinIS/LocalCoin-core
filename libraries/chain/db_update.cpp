@@ -140,7 +140,7 @@ void database::clean_poor_activenodes() {
 
    //removing activenodes that doesn't have money
       share_type total_balance = get_total_account_balance(act_object.activenode_account(*this));
-      if (total_balance < LLC_ACTIVENODE_MINIMAL_BALANCE)
+      if (total_balance < LLC_ACTIVENODE_MINIMAL_BALANCE_AFTER_SEND)
          remove(act_object);
    }
 }

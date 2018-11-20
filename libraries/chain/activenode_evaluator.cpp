@@ -28,13 +28,20 @@
 #include <graphene/chain/database.hpp>
 #include <graphene/chain/protocol/vote.hpp>
 #include <graphene/chain/protocol/activenode.hpp>
+#include <graphene/chain/vesting_balance_object.hpp>
 
 
 namespace graphene { namespace chain {
 
 void_result activenode_create_evaluator::do_evaluate( const activenode_create_operation& op )
 { try {
-   FC_ASSERT(db().get(op.activenode_account).is_lifetime_member());
+
+   database& d = db();
+   auto& account_obj = d.get(op.activenode_account);
+   FC_ASSERT(d.get(op.activenode_account).is_lifetime_member());
+
+   share_type total_balance = d.get_total_account_balance(account_obj);
+   FC_ASSERT(total_balance >= LLC_ACTIVENODE_MINIMAL_BALANCE_CREATE);
    return void_result();
 } FC_CAPTURE_AND_RETHROW( (op) ) }
 

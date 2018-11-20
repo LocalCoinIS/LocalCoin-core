@@ -25,7 +25,4 @@ import_balance localcoin-otc ["5Hz2oKGJKbmDC5Bp7ARFHdS8tFL2o4wm8DybFtmr3w97pAX4K
 import_key localcoin-feed "5JjKPDzqw9DWPPhatkM7jo3PBoAMYDnUrCcLJQXYdw9eHRLad6k" true
 import_balance localcoin-feed ["5JjKPDzqw9DWPPhatkM7jo3PBoAMYDnUrCcLJQXYdw9eHRLad6k"] true true
 
-import_key llc-igorbiliba "5KAPZxRBf3pQTHSNVEQUyH4gncUu82TMT3mFXTr9G3wpFNAu8Zn" true
-import_balance llc-igorbiliba ["5KAPZxRBf3pQTHSNVEQUyH4gncUu82TMT3mFXTr9G3wpFNAu8Zn"] true true
-
 create_activenode localcoin-ico true
