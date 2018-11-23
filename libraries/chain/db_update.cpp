@@ -107,14 +107,28 @@ void database::update_signing_witness(const witness_object& signing_witness, con
    const dynamic_global_property_object& dpo = get_dynamic_global_properties();
    uint64_t new_block_aslot = dpo.current_aslot + get_slot_at_time( new_block.timestamp );
 
-   share_type witness_pay = std::min( gpo.parameters.witness_pay_per_block, dpo.witness_budget );
+   const account_balance_index& balance_index = get_index_type<account_balance_index>();
+   auto range = balance_index.indices().get<by_account_asset>().equal_range(boost::make_tuple(signing_witness.witness_account));
 
-   modify( dpo, [&]( dynamic_global_property_object& _dpo )
-   {
-      _dpo.witness_budget -= witness_pay;
-   } );
+   auto& account = signing_witness.witness_account(*this);
+   const auto& stats = account.statistics(*this);
+   share_type total_balance = stats.total_core_in_orders.value
+         + (account.cashback_vb.valid() ? (*account.cashback_vb)(*this).balance.amount.value: 0)
+         + get_balance(account.get_id(), asset_id_type()).amount.value;
+         
+   bool enough_balance = (total_balance >= LLC_WITNESS_MINIMAL_BALANCE);
 
-   deposit_witness_pay( signing_witness, witness_pay );
+   if (enough_balance) {
+      ilog("update_signing_witness enough_balance");
+      share_type witness_pay = std::min( gpo.parameters.witness_pay_per_block, dpo.witness_budget );
+
+      modify( dpo, [&]( dynamic_global_property_object& _dpo )
+      {
+         _dpo.witness_budget -= witness_pay;
+      } );
+
+      deposit_witness_pay( signing_witness, witness_pay );
+   }
 
    modify( signing_witness, [&]( witness_object& _wit )
    {
