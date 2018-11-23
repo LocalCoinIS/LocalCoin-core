@@ -67,3 +67,5 @@ wallet_quickstart.md
 .idea
 .project
 nbproject
+
+accounts.php
