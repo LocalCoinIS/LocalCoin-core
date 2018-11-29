@@ -14,7 +14,7 @@ The `Dockerfile` performs the following steps:
 5. Perform `cmake` with build type `Release`
 6. Run `make` and `make_install` (this will install binaries into `/usr/local/bin`
 7. Purge source code off the container
-8. Add a local bitshares user and set `$HOME` to `/var/lib/bitshares`
+8. Add a local LocalCoin user and set `$HOME` to `/var/lib/bitshares`
 9. Make `/var/lib/bitshares` and `/etc/bitshares` a docker *volume*
 10. Expose ports `8090` and `2001`
 11. Add default config from `docker/default_config.ini` and entry point script
@@ -60,7 +60,7 @@ With docker compose, multiple nodes can be managed with a single
      main:
       # Image to run
       image: bitshares/bitshares-core:latest
-      # 
+      #
       volumes:
        - ./docker/conf/:/etc/bitshares/
       # Optional parameters
@@ -117,7 +117,7 @@ services:
    - "0.0.0.0:8091:8090"
   volumes:
   - "bitshares-delayed_node:/var/lib/bitshares"
-  links: 
+  links:
   - fullnode
 
 volumes:

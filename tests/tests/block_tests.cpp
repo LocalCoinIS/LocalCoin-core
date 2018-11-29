@@ -299,7 +299,7 @@ BOOST_AUTO_TEST_CASE( fork_blocks )
 
 /**
  *  These test has been disabled, out of order blocks should result in the node getting disconnected.
- *  
+ *
 BOOST_AUTO_TEST_CASE( fork_db_tests )
 {
    try {
@@ -322,7 +322,7 @@ BOOST_AUTO_TEST_CASE( fork_db_tests )
      fdb.push_block(skipped_block);
      head = fdb.head();
      FC_ASSERT( head && head->data.block_num() == 2001, "", ("head",head->data.block_num()) );
-  } FC_LOG_AND_RETHROW() 
+  } FC_LOG_AND_RETHROW()
 }
 BOOST_AUTO_TEST_CASE( out_of_order_blocks )
 {
@@ -1217,7 +1217,7 @@ BOOST_AUTO_TEST_CASE( genesis_reserve_ids )
          usd.max_supply = GRAPHENE_MAX_SHARE_SUPPLY;
          usd.accumulated_fees = 0;
          usd.is_bitasset = true;
-         
+
          genesis_state.immutable_parameters.num_special_accounts = num_special_accounts;
          genesis_state.immutable_parameters.num_special_assets = num_special_assets;
          genesis_state.initial_assets.push_back( usd );
@@ -1229,7 +1229,7 @@ BOOST_AUTO_TEST_CASE( genesis_reserve_ids )
       auto acct_itr = acct_idx.find("init0");
       BOOST_REQUIRE( acct_itr != acct_idx.end() );
       BOOST_CHECK( acct_itr->id == account_id_type( num_special_accounts ) );
-      
+
       const auto& asset_idx = db.get_index_type<asset_index>().indices().get<by_symbol>();
       auto asset_itr = asset_idx.find("USD");
       BOOST_REQUIRE( asset_itr != asset_idx.end() );
@@ -1464,7 +1464,7 @@ BOOST_FIXTURE_TEST_CASE( update_account_keys, database_fixture )
    }
 }
 
-// The next test is commented out as it will fail in current bitshares implementaton
+// The next test is commented out as it will fail in current LocalCoin implementaton
 // where "witnesses should never sign 2 consecutive blocks" is not enforced.
 // https://github.com/bitshares/bitshares-core/issues/565
 // Leaving it here to use it if we implement.later

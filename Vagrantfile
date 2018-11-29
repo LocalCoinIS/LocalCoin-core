@@ -1,4 +1,4 @@
-# Configures Ubuntu 14.04 VM to be used with BitShares 2.0 (Graphene)
+# Configures Ubuntu 14.04 VM to be used with LocalCoin 2.0 (Graphene)
 # Downloads and builds all necessary software to run witness node and web GUI
 # Use with Vagrant (http://docs.vagrantup.com/v2/getting-started/index.html)
 # or just execute the shell script below.
@@ -37,10 +37,10 @@ if [ ! -d "tmp/boost_1_57_0" ]; then
     ./bootstrap.sh --prefix=/usr/local/ > /dev/null
     sudo ./b2 install > /dev/null
     cd ~/bts
-fi 
-  
+fi
+
 if [ ! -d "graphene" ]; then
-  echo_msg "building bitshares graphene toolkit.."  
+  echo_msg "building LocalCoin graphene toolkit.."
   git clone https://github.com/cryptonomex/graphene.git
   cd graphene
   git submodule update --init --recursive
@@ -50,7 +50,7 @@ if [ ! -d "graphene" ]; then
 fi
 
 if [ ! -d "graphene-ui" ]; then
-  echo_msg "installing ui dependencies.."  
+  echo_msg "installing ui dependencies.."
   git clone https://github.com/cryptonomex/graphene-ui.git
   cd graphene-ui/dl
   npm install --silent

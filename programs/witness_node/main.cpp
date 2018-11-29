@@ -59,18 +59,18 @@
 #include <fstream>
 
 #ifdef WIN32
-# include <signal.h> 
+# include <signal.h>
 #else
 # include <csignal>
 #endif
 
 using namespace graphene;
 namespace bpo = boost::program_options;
-         
+
 void write_default_logging_config_to_stream(std::ostream& out);
 fc::optional<fc::logging_config> load_logging_config_from_ini_file(const fc::path& config_ini_filename);
 
-class deduplicator 
+class deduplicator
 {
    public:
       deduplicator() : modifier(nullptr) {}
@@ -263,7 +263,7 @@ int main(int argc, char** argv) {
          exit_promise->set_value(signal);
       }, SIGTERM);
 
-      ilog("Started BitShares node on a chain with ${h} blocks.", ("h", node->chain_database()->head_block_num()));
+      ilog("Started LocalCoin node on a chain with ${h} blocks.", ("h", node->chain_database()->head_block_num()));
       ilog("Chain ID is ${id}", ("id", node->chain_database()->get_chain_id()) );
 
       int signal = exit_promise->wait();
@@ -286,7 +286,7 @@ int main(int argc, char** argv) {
    }
 }
 
-// logging config is too complicated to be parsed by boost::program_options, 
+// logging config is too complicated to be parsed by boost::program_options,
 // so we do it by hand
 //
 // Currently, you can only specify the filenames and logging levels, which
@@ -344,13 +344,13 @@ fc::optional<fc::logging_config> load_logging_config_from_ini_file(const fc::pat
             // stdout/stderr will be taken from ini file, everything else hard-coded here
             fc::console_appender::config console_appender_config;
             console_appender_config.level_colors.emplace_back(
-               fc::console_appender::level_color(fc::log_level::debug, 
+               fc::console_appender::level_color(fc::log_level::debug,
                                                  fc::console_appender::color::green));
             console_appender_config.level_colors.emplace_back(
-               fc::console_appender::level_color(fc::log_level::warn, 
+               fc::console_appender::level_color(fc::log_level::warn,
                                                  fc::console_appender::color::brown));
             console_appender_config.level_colors.emplace_back(
-               fc::console_appender::level_color(fc::log_level::error, 
+               fc::console_appender::level_color(fc::log_level::error,
                                                  fc::console_appender::color::cyan));
             console_appender_config.stream = fc::variant(stream_name).as<fc::console_appender::stream::type>(GRAPHENE_MAX_NESTED_OBJECTS);
             logging_config.appenders.push_back(fc::appender_config(console_appender_name, "console", fc::variant(console_appender_config, GRAPHENE_MAX_NESTED_OBJECTS)));
@@ -384,8 +384,8 @@ fc::optional<fc::logging_config> load_logging_config_from_ini_file(const fc::pat
             std::string appenders_string = section_tree.get<std::string>("appenders");
             fc::logger_config logger_config(logger_name);
             logger_config.level = fc::variant(level_string).as<fc::log_level>(5);
-            boost::split(logger_config.appenders, appenders_string, 
-                         boost::is_any_of(" ,"), 
+            boost::split(logger_config.appenders, appenders_string,
+                         boost::is_any_of(" ,"),
                          boost::token_compress_on);
             logging_config.loggers.push_back(logger_config);
             found_logging_config = true;
