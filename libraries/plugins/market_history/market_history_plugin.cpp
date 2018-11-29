@@ -83,7 +83,6 @@ struct operation_process_fill_order
 
    void operator()( const fill_order_operation& o )const 
    {
-      //ilog( "processing ${o}", ("o",o) );
       auto& db         = _plugin.database();
       const auto& order_his_idx = db.get_index_type<history_index>().indices();
       const auto& history_idx = order_his_idx.get<by_key>();

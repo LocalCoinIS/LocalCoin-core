@@ -119,7 +119,6 @@ void database::update_signing_witness(const witness_object& signing_witness, con
    bool enough_balance = (total_balance >= LLC_WITNESS_MINIMAL_BALANCE);
 
    if (enough_balance) {
-      ilog("update_signing_witness enough_balance");
       share_type witness_pay = std::min( gpo.parameters.witness_pay_per_block, dpo.witness_budget );
 
       modify( dpo, [&]( dynamic_global_property_object& _dpo )

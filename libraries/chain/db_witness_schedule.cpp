@@ -68,7 +68,6 @@ fc::time_point_sec database::get_slot_time(uint32_t slot_num)const
    // "slot 1" is head_slot_time,
    //   plus maint interval if head block is a maint block
    //   plus block interval if head block is not a maint block
-   // ilog("!@#$ get_slot_time head_block_time = ${hbt}, head_slot_time = ${hst}, hbt + slot*interval = ${hbtplus}", ("hbt", head_block_time().sec_since_epoch())("hst", head_slot_time.sec_since_epoch())("hbtplus", (head_slot_time + (slot_num * interval)).sec_since_epoch()));
 
    return head_slot_time + (slot_num * interval);
 }
@@ -76,7 +75,6 @@ fc::time_point_sec database::get_slot_time(uint32_t slot_num)const
 uint32_t database::get_slot_at_time(fc::time_point_sec when)const
 {
    fc::time_point_sec first_slot_time = get_slot_time( 1 );
-   // ilog("!@#$ get_slot_at_time when = ${when}, first_slot_time = ${fst}", ("when", when.sec_since_epoch())("fst", first_slot_time.sec_since_epoch()));
 
    if( when < first_slot_time )
       return 0;

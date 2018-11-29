@@ -152,13 +152,11 @@ void activenode_plugin::schedule_activity_loop()
    //Schedule for the next second's tick regardless of chain state
    // If we would wait less than 50ms, wait for the whole second.
    fc::time_point now = fc::time_point::now();
-   // ilog("!activenode_plugin::schedule_activity_loop now=${now}", ("now", now));
    int64_t time_to_next_second = 1000000 - (now.time_since_epoch().count() % 1000000);
    if( time_to_next_second < 50000 )      // we must sleep for at least 50ms
        time_to_next_second += 1000000;
 
    fc::time_point next_wakeup( now + fc::microseconds( time_to_next_second ) );
-   // ilog("!ANODE schedule_activity_loop now = ${now}, time_to_next_second = ${ttns}, nextwakeup = ${nwakeup}", ("now", now.time_since_epoch())("ttns", time_to_next_second)("nwakeup", next_wakeup.time_since_epoch()));
    _activity_task = fc::schedule([this]{activity_loop();},
                                          next_wakeup, "Node activity transaction");
 }
@@ -237,7 +235,6 @@ activenode_plugin::maybe_send_activity( fc::limited_mutable_variant_object& capt
 
    fc::time_point now_fine = fc::time_point::now();
    fc::time_point_sec now = now_fine;
-   // ilog("!activenode_plugin::maybe_send_activity now_fine=${now_fine} now=${now}", ("now_fine", now_fine)("now", now));
 
    // If the next send activity opportunity is in the present or future, we're synced.
    if( !_activenode_plugin_enabled )
@@ -253,9 +250,7 @@ activenode_plugin::maybe_send_activity( fc::limited_mutable_variant_object& capt
    // is anyone scheduled to produce now or one second in the future?
 
    //always zero
-   // ilog("!ANODE maybe_send_activity now_fine = ${now_fine}, now = ${now}", ("now_fine", now_fine.time_since_epoch())("now", now.sec_since_epoch()));
    uint32_t slot = db.get_activenode_slot_at_time( now );
-   // ilog("!ANODE maybe_send_activity slot = ${slot}", ("slot", slot));
 
    if( slot == 0 )
    {

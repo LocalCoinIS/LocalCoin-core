@@ -317,7 +317,6 @@ void elasticsearch_plugin_impl::sendBulk(std::string _elasticsearch_node_url, bo
       curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *) &readBuffer_logs);
       curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcrp/0.1");
       //curl_easy_setopt(curl, CURLOPT_VERBOSE, true);
-      //ilog("log here curl: ${output}", ("output", readBuffer_logs));
       curl_easy_perform(curl);
 
       http_code = 0;

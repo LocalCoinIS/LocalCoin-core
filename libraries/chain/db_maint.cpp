@@ -194,7 +194,6 @@ void database::pay_workers( share_type& budget )
       }
 
       share_type actual_pay = std::min(budget, requested_pay);
-      //ilog(" ==> Paying ${a} to worker ${w}", ("w", active_worker.id)("a", actual_pay));
       modify(active_worker, [&](worker_object& w) {
          w.worker.visit(worker_pay_visitor(actual_pay, *this));
       });

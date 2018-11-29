@@ -61,19 +61,11 @@ fc::time_point_sec database::get_activenode_slot_time(uint32_t slot_num)const
 
    int64_t head_block_abs_slot = head_block_time().sec_since_epoch() / interval;
    fc::time_point_sec head_slot_time(head_block_abs_slot * interval);
-   // ilog("!#dbg database::get_activenode_slot_time slot_num=${slot_num} head_block_abs_slot=${head_block_abs_slot} head_slot_time=${head_slot_time}, return_val=${return_val}", ("slot_num", slot_num)("head_block_abs_slot",head_block_abs_slot)("head_slot_time", head_slot_time)("return_val", head_slot_time + (slot_num * interval)));
 
    const global_property_object& gpo = get_global_properties();
 
    if( dpo.dynamic_flags & dynamic_global_property_object::maintenance_flag )
       slot_num += gpo.parameters.maintenance_skip_slots;
-
-   // "slot 0" is head_slot_time
-   // "slot 1" is head_slot_time,
-   //   plus maint interval if head block is a maint block
-   //   plus block interval if head block is not a maint block
-   // ilog("!ANODE get_activenode_slot_time head_block_time = ${hbt}, head_slot_time = ${hst}, hbt + slot*interval = ${hbtplus}", ("hbt", head_block_time().sec_since_epoch())("hst", head_slot_time.sec_since_epoch())("hbtplus", (head_slot_time + (slot_num * interval)).sec_since_epoch()));
-
 
    return head_slot_time + (slot_num * interval);
 }
@@ -81,7 +73,6 @@ fc::time_point_sec database::get_activenode_slot_time(uint32_t slot_num)const
 uint32_t database::get_activenode_slot_at_time(fc::time_point_sec when)const
 {
    fc::time_point_sec first_slot_time = get_activenode_slot_time( 0 );
-   // ilog("!ANODE get_activenode_slot_at_time when = ${when}, first_slot_time = ${fst}", ("when", when.sec_since_epoch())("fst", first_slot_time.sec_since_epoch()));
 
    if( when < first_slot_time )
       return 0;
