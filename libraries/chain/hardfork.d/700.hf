@@ -1,0 +1,4 @@
+// #700 Masternode update
+#ifndef HARDFORK_700_TIME
+#define HARDFORK_700_TIME (fc::time_point_sec( 1543253000 ))
+#endif
