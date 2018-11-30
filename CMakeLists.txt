@@ -103,6 +103,7 @@ if( WIN32 )
     SET(TCL_LIBRARY ${TCL_LIBS})
 
     find_package( CURL )
+    set(CURL_STATICLIB ON) 
     include_directories( ${CURL_INCLUDE_DIRS} )
     link_directories( ${CURL_LIBRARIES} )
 
