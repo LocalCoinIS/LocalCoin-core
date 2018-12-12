@@ -74,4 +74,4 @@ FC_REFLECT( graphene::chain::activenode_create_operation, (fee)(activenode_accou
 
 
 FC_REFLECT( graphene::chain::activenode_send_activity_operation::fee_parameters_type, (fee) )
-FC_REFLECT( graphene::chain::activenode_send_activity_operation, (fee)(activenode_account) )
+FC_REFLECT( graphene::chain::activenode_send_activity_operation, (fee)(activenode_account)(activenode)(timepoint)(endpoint) )

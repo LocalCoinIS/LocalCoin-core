@@ -212,7 +212,7 @@ activenode_condition::activenode_condition_enum activenode_plugin::activity_loop
          elog("Not sending activity because node didn't wake up within 500ms of the slot time. scheduled=${scheduled_time} now=${now}", (capture));
          break;
       case activenode_condition::no_scheduled_activenodes:
-         ilog("No scheduled activenodes");
+         dlog("No scheduled activenodes");
          break;
       case activenode_condition::exception_perform_activity:
          elog( "exception sending activity" );
@@ -311,13 +311,8 @@ activenode_plugin::maybe_send_activity( fc::limited_mutable_variant_object& capt
    tx.set_expiration( dyn_props.time + fc::seconds(30) );
 
    tx.sign( _private_key.second, db.get_chain_id() );
-   ilog("maybe_send_activity");
+   dlog("maybe_send_activity");
    app().chain_database()->push_transaction(tx);
-
-   // fc::async( [this, tx](){
-   //    if( app().p2p_node() != nullptr )
-   //       app().p2p_node()->broadcast_transaction(tx);
-   // } );
 
    capture("timestamp", now)("endpoint", endpoint)("activenode", *_activenode);
 
