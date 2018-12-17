@@ -67,8 +67,6 @@ void activenode_plugin::plugin_initialize(const boost::program_options::variable
 { try {
    ilog("activenode plugin:  plugin_initialize() begin");
    _options = &options;
-   chain::database& db = database();
-
    if (options.count("activenode-account")) {
       _activenode_account_name = options["activenode-account"].as<std::string>();
    } else {
@@ -290,6 +288,11 @@ activenode_plugin::maybe_send_activity( fc::limited_mutable_variant_object& capt
    graphene::net::firewalled_state node_firewalled_state;
    fc::from_variant(network_info["firewalled"], node_firewalled_state, 1);
    FC_ASSERT(endpoint.get_address().is_public_address() && node_firewalled_state != graphene::net::firewalled_state::firewalled);
+   // FC_ASSERT(endpoint.get_address().is_public_address());
+   if (!endpoint.get_address().is_public_address())
+      elog("ERROR: node's ip is local ${endpoint}", ("endpoint", endpoint.get_address()));
+   if (node_firewalled_state == graphene::net::firewalled_state::firewalled)
+      elog("ERROR: node is firewalled ${endpoint}", ("endpoint", endpoint.get_address()));
 
    chain::activenode_send_activity_operation send_activity_operation;
    now = fc::time_point::now();

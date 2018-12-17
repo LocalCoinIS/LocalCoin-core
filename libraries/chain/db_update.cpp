@@ -38,6 +38,7 @@
 #include <graphene/chain/protocol/fee_schedule.hpp>
 
 #include <fc/uint128.hpp>
+#include <algorithm>
 
 namespace graphene { namespace chain {
 
@@ -107,9 +108,6 @@ void database::update_signing_witness(const witness_object& signing_witness, con
    const dynamic_global_property_object& dpo = get_dynamic_global_properties();
    uint64_t new_block_aslot = dpo.current_aslot + get_slot_at_time( new_block.timestamp );
 
-   const account_balance_index& balance_index = get_index_type<account_balance_index>();
-   auto range = balance_index.indices().get<by_account_asset>().equal_range(boost::make_tuple(signing_witness.witness_account));
-
    auto& account = signing_witness.witness_account(*this);
    const auto& stats = account.statistics(*this);
    share_type total_balance = stats.total_core_in_orders.value
@@ -158,18 +156,13 @@ void database::clean_poor_activenodes() {
    }
 }
 
-const fc::optional<activenode_id_type> database::validate_activenode(const signed_block& new_block) {
-
-      // get all activenodes who sent activity this time from the block
-   // new_block.transactions. operations 
-   //or get all activenodes from db with time >= block_head_time...
-   fc::optional<activenode_id_type> activenode = optional< activenode_id_type >();
-
+const vector<activenode_id_type> database::validate_activenode(const signed_block& new_block) {
+   vector<activenode_id_type> nodes_to_reward;
    if (
      new_block.block_num() == 0
    || new_block.block_num() == 1 //why we need it ???
    ){
-     return activenode;
+     return nodes_to_reward;
       // n.b. first block is at genesis_time plus one block interval
       // prev_block_time = dpo.time;
       // return genesis_time + slot_num * interval;
@@ -178,34 +171,52 @@ const fc::optional<activenode_id_type> database::validate_activenode(const signe
    optional<signed_block> prev_block = fetch_block_by_number(new_block.block_num() - 1);
 
    FC_ASSERT(prev_block);
-   fc::time_point_sec prev_block_time = prev_block->timestamp;
-   fc::time_point_sec new_block_time = new_block.timestamp;
+   fc::time_point prev_block_time = fc::time_point(prev_block->timestamp);
    const auto& idx = get_index_type<activenode_index>().indices();
 
-   // remove activenodes that doesn't have enough money
+   // removing activenodes that doesn't have enough money
    clean_poor_activenodes();
-   uint32_t slot_num = get_activenode_slot_at_time( prev_block_time );
 
-   //TODO: add processing of activenodes that has sent the activity on the slot without block (if/when witness misses the block)
 
-   fc::optional<activenode_id_type> scheduled_activenode = get_scheduled_activenode( slot_num );
-   for( const activenode_object& act_object : idx )
-   {
-      if (act_object.last_activity == fc::time_point(prev_block_time)) {
-         int a = 0;
-         if ( act_object.id == object_id_type(*scheduled_activenode)) {
-            activenode = scheduled_activenode;
+   fc::time_point new_block_time = fc::time_point(new_block.timestamp);
+   for (fc::time_point tp = prev_block_time; tp < new_block_time; tp+=fc::seconds(1)) {
+
+      
+      uint32_t slot_num = get_activenode_slot_at_time( tp );
+
+      fc::optional<activenode_id_type> scheduled_activenode = get_scheduled_activenode( slot_num );
+      
+      if (!scheduled_activenode) {
+         // no scheduled activenodes
+         continue;
+      }
+
+      // dlog("validate_activenode: scheduled node ${scheduled_node} prev_block_time ${prev_block_time}",
+      // ("scheduled_node", *scheduled_activenode)
+      // ("prev_block_time", prev_block_time));
+
+      for( const activenode_object& act_object : idx )
+      {
+         if (act_object.id != object_id_type(*scheduled_activenode))
+            continue;
+
+         auto activity_it = std::find(act_object.activity_since_last_block.begin(),
+            act_object.activity_since_last_block.end(),
+            tp);
+         if (activity_it != act_object.activity_since_last_block.end()) {
+            elog("nodes_to_reward push: for time ${time} ${act_id} was scheduled", ("time", tp)("act_id",act_object.id));
+
+            nodes_to_reward.push_back(act_object.id);
             break;
          }
       }
    }
 
-   return activenode;
+   return nodes_to_reward;
 }
 
 void database::reward_activenode(const signed_block& new_block) {
    const global_property_object& gpo = get_global_properties();
-   const dynamic_global_property_object& dpo = get_dynamic_global_properties();
     //get current_activenodes - if empty - return
    const auto& anodes = get_index_type<activenode_index>().indices();
    // check scheduled
@@ -214,13 +225,17 @@ void database::reward_activenode(const signed_block& new_block) {
    if (aso.current_shuffled_activenodes.size() == 0) {
       return;
    }
-   auto& activenode_id = validate_activenode(new_block);
-   if (!activenode_id) {
+   vector<activenode_id_type> activenodes_ids = validate_activenode(new_block);
+   if (activenodes_ids.empty()) {
+     ilog("no activenodes to reward");
      return;
    }
-   auto& scheduled_activenode = (*activenode_id)(*this);
+   for (auto& an_id : activenodes_ids) {
+      auto& scheduled_activenode = an_id(*this);
+      ilog("deposit_activenode_pay ${an_id}", ("an_id", an_id));
 
-   deposit_activenode_pay( scheduled_activenode, gpo.parameters.activenode_pay_per_block );
+      deposit_activenode_pay( scheduled_activenode, gpo.parameters.activenode_pay_per_block );
+   }
 }
 
 void database::update_last_irreversible_block()

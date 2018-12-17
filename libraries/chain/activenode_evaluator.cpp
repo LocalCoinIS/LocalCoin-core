@@ -41,7 +41,11 @@ void_result activenode_create_evaluator::do_evaluate( const activenode_create_op
    FC_ASSERT(d.get(op.activenode_account).is_lifetime_member());
 
    share_type total_balance = d.get_total_account_balance(account_obj);
-   FC_ASSERT(total_balance >= LLC_ACTIVENODE_MINIMAL_BALANCE_CREATE);
+   FC_ASSERT(total_balance >= LLC_ACTIVENODE_MINIMAL_BALANCE_CREATE, "Insufficient Balance: ${a}'s balance of ${b} is less than minimal activenode balance required ${r}", 
+                 ("a",account_obj.name)
+                 ("b",d.to_pretty_string(asset(total_balance)))
+                 ("r",d.to_pretty_string(asset(LLC_ACTIVENODE_MINIMAL_BALANCE_CREATE))));
+                 
    return void_result();
 } FC_CAPTURE_AND_RETHROW( (op) ) }
 
@@ -68,20 +72,17 @@ void_result activenode_activity_evaluator::do_evaluate( const activenode_send_ac
 
 void_result activenode_activity_evaluator::do_apply( const activenode_send_activity_operation& op )
 { try {
-
-   // DONT validate balance & remove 
-
-   // get timestamp from ...
-   fc::time_point now = fc::time_point::now();
-
-   // modify activenode with new data
-
    database& _db = db();
    _db.modify(
       _db.get(op.activenode),
       [&]( activenode_object& activenode_object )
       {
-         activenode_object.last_activity = op.timepoint;
+         // if head_block_time == op.timepoint --> remove all old activities
+         if (_db.head_block_time() == fc::time_point_sec(op.timepoint)) {
+            activenode_object.activity_since_last_block.clear();
+         }
+         
+         activenode_object.activity_since_last_block.push_back(op.timepoint);
          activenode_object.endpoint = op.endpoint;
       });
       return void_result();
