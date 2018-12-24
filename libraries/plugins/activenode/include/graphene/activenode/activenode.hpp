@@ -44,7 +44,8 @@ namespace activenode_condition
       lag = 5,
       no_scheduled_activenodes = 6,
       deleted = 7,
-      exception_perform_activity = 8
+      not_sending = 8,
+      exception_perform_activity = 9
    };
 }
 
@@ -76,8 +77,12 @@ public:
 
 private:
    void schedule_activity_loop();
+   void on_new_block_applied(const signed_block& new_block);
+
    activenode_condition::activenode_condition_enum activity_loop();
    activenode_condition::activenode_condition_enum maybe_send_activity( fc::limited_mutable_variant_object& capture );
+
+   activenode_condition::activenode_condition_enum send_activity( fc::limited_mutable_variant_object& capture );
 
    boost::program_options::variables_map _options;
    bool _activenode_plugin_enabled = true;
@@ -85,6 +90,7 @@ private:
    std::pair<chain::public_key_type, fc::ecc::private_key> _private_key;
    optional<chain::activenode_id_type> _activenode = optional<chain::activenode_id_type>();
    std::string _activenode_account_name;
+   chain::account_id_type _activenode_account_id;
    fc::future<void> _activity_task;
 };
 

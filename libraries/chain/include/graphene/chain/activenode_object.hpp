@@ -39,8 +39,7 @@ namespace graphene { namespace chain {
          static const uint8_t type_id = activenode_object_type;
 
          account_id_type  activenode_account;
-         vector<fc::time_point> activity_since_last_block;
-         // fc::time_point last_activity;
+         fc::time_point_sec last_activity;
 
          fc::ip::endpoint endpoint;
          optional< vesting_balance_id_type > pay_vb;
@@ -65,7 +64,7 @@ namespace graphene { namespace chain {
 
 FC_REFLECT_DERIVED( graphene::chain::activenode_object, (graphene::db::object),
                     (activenode_account)
-                    (activity_since_last_block)
+                    (last_activity)
                     (endpoint)
                     (pay_vb)
                     (is_enabled)

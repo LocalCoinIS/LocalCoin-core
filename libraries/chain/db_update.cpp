@@ -148,93 +148,41 @@ void database::clean_poor_activenodes() {
    std::vector<activenode_object> list_for_removal;
 
    for( const activenode_object& act_object : idx ) {
-
-   //removing activenodes that doesn't have money
+      //removing activenodes that doesn't have money
       share_type total_balance = get_total_account_balance(act_object.activenode_account(*this));
-      if (total_balance < LLC_ACTIVENODE_MINIMAL_BALANCE_AFTER_SEND)
+      if (total_balance < LLC_ACTIVENODE_MINIMAL_BALANCE_AFTER_SEND) {
+         dlog("activenode ${node} was deleted", ("node", act_object.id));
          remove(act_object);
+      }
    }
 }
 
-const vector<activenode_id_type> database::validate_activenode(const signed_block& new_block) {
-   vector<activenode_id_type> nodes_to_reward;
-   if (
-     new_block.block_num() == 0
-   || new_block.block_num() == 1 //why we need it ???
-   ){
-     return nodes_to_reward;
-      // n.b. first block is at genesis_time plus one block interval
-      // prev_block_time = dpo.time;
-      // return genesis_time + slot_num * interval;
-   }
-
-   optional<signed_block> prev_block = fetch_block_by_number(new_block.block_num() - 1);
-
-   FC_ASSERT(prev_block);
-   fc::time_point prev_block_time = fc::time_point(prev_block->timestamp);
-   const auto& idx = get_index_type<activenode_index>().indices();
-
-   // removing activenodes that doesn't have enough money
-   clean_poor_activenodes();
-
-
-   fc::time_point new_block_time = fc::time_point(new_block.timestamp);
-   for (fc::time_point tp = prev_block_time; tp < new_block_time; tp+=fc::seconds(1)) {
-
-      
-      uint32_t slot_num = get_activenode_slot_at_time( tp );
-
-      fc::optional<activenode_id_type> scheduled_activenode = get_scheduled_activenode( slot_num );
-      
-      if (!scheduled_activenode) {
-         // no scheduled activenodes
-         continue;
-      }
-
-      // dlog("validate_activenode: scheduled node ${scheduled_node} prev_block_time ${prev_block_time}",
-      // ("scheduled_node", *scheduled_activenode)
-      // ("prev_block_time", prev_block_time));
-
-      for( const activenode_object& act_object : idx )
-      {
-         if (act_object.id != object_id_type(*scheduled_activenode))
-            continue;
-
-         auto activity_it = std::find(act_object.activity_since_last_block.begin(),
-            act_object.activity_since_last_block.end(),
-            tp);
-         if (activity_it != act_object.activity_since_last_block.end()) {
-            elog("nodes_to_reward push: for time ${time} ${act_id} was scheduled", ("time", tp)("act_id",act_object.id));
-
-            nodes_to_reward.push_back(act_object.id);
-            break;
-         }
-      }
-   }
-
-   return nodes_to_reward;
-}
 
 void database::reward_activenode(const signed_block& new_block) {
    const global_property_object& gpo = get_global_properties();
-    //get current_activenodes - if empty - return
    const auto& anodes = get_index_type<activenode_index>().indices();
+
    // check scheduled
    if (anodes.size() == 0) return;
+   if (head_block_num() == 0 || head_block_num() == 1) return; //GENESIS
+
    const activenode_schedule_object& aso = activenode_schedule_id_type()(*this);
    if (aso.current_shuffled_activenodes.size() == 0) {
       return;
    }
-   vector<activenode_id_type> activenodes_ids = validate_activenode(new_block);
-   if (activenodes_ids.empty()) {
-     ilog("no activenodes to reward");
-     return;
-   }
-   for (auto& an_id : activenodes_ids) {
-      auto& scheduled_activenode = an_id(*this);
-      ilog("deposit_activenode_pay ${an_id}", ("an_id", an_id));
+   fc::optional<activenode_id_type> scheduled_activenode = get_scheduled_activenode(head_block_num() - 1);
+   if (!scheduled_activenode)
+      return;
 
-      deposit_activenode_pay( scheduled_activenode, gpo.parameters.activenode_pay_per_block );
+   if (find(*scheduled_activenode) == nullptr ) {
+      // was deleted
+      return;
+   }
+   auto& activenode_object = (*scheduled_activenode)(*this);
+   signed_block prev_block = *fetch_block_by_number(new_block.block_num() - 1);
+   fc::time_point_sec prev_block_time = prev_block.timestamp;
+   if (activenode_object.last_activity == prev_block_time) {
+      deposit_activenode_pay( activenode_object, gpo.parameters.activenode_pay_per_block );
    }
 }
 

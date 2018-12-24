@@ -836,6 +836,7 @@ void database::process_bids( const asset_bitasset_data_object& bad )
 
 void database::perform_chain_maintenance(const signed_block& next_block, const global_property_object& global_props)
 {
+   dlog("chain_maintenance");
    const auto& gpo = get_global_properties();
 
    distribute_fba_balances(*this);

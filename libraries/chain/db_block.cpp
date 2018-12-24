@@ -513,9 +513,11 @@ void database::_apply_block( const signed_block& next_block )
       apply_transaction( trx, skip );
       ++_current_trx_in_block;
    }
-   reward_activenode(next_block);
 
    update_global_dynamic_data(next_block);
+
+   reward_activenode(next_block);
+
    update_signing_witness(signing_witness, next_block);
    update_last_irreversible_block();
 
@@ -538,6 +540,7 @@ void database::_apply_block( const signed_block& next_block )
    update_maintenance_flag( maint_needed );
    update_witness_schedule();
    update_activenode_schedule();
+   clean_poor_activenodes();
 
    if( !_node_property_object.debug_updates.empty() )
       apply_debug_updates();

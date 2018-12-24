@@ -77,12 +77,7 @@ void_result activenode_activity_evaluator::do_apply( const activenode_send_activ
       _db.get(op.activenode),
       [&]( activenode_object& activenode_object )
       {
-         // if head_block_time == op.timepoint --> remove all old activities
-         if (_db.head_block_time() == fc::time_point_sec(op.timepoint)) {
-            activenode_object.activity_since_last_block.clear();
-         }
-         
-         activenode_object.activity_since_last_block.push_back(op.timepoint);
+         activenode_object.last_activity = op.timepoint;
          activenode_object.endpoint = op.endpoint;
       });
       return void_result();

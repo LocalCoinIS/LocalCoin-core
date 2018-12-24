@@ -186,6 +186,10 @@ namespace graphene { namespace chain {
          fc::signal<void(const signed_block&)>           applied_block;
 
          /**
+          */
+         fc::signal<void(const signed_block&)>           new_block_applied;
+
+         /**
           * This signal is emitted any time a new transaction is added to the pending
           * block state.
           */
@@ -249,42 +253,7 @@ namespace graphene { namespace chain {
          void update_witness_schedule();
 
          //////////////////// db_activenode_schedule.cpp ////////////////////
-
-         /**
-          * @brief Get the activenode scheduled for sending activity in a slot.
-          *
-          * slot_num always corresponds to a time in the future.
-          *
-          * If slot_num == 1, returns the next scheduled activenode.
-          * If slot_num == 2, returns the next scheduled activenode after
-          * 1 block gap.
-          *
-          * Use the get_slot_time() and get_slot_at_time() functions
-          * to convert between slot_num and timestamp.
-          *
-          * Passing slot_num == 0 returns GRAPHENE_NULL_ACTIVENODE
-          */
-         fc::optional<activenode_id_type> get_scheduled_activenode(uint32_t slot_num)const;
-
-         /**
-          * Get the time at which the given slot occurs.
-          *
-          * If slot_num == 0, return time_point_sec().
-          *
-          * If slot_num == N for N > 0, return the Nth next
-          * block-interval-aligned time greater than head_block_time().
-          */
-         fc::time_point_sec get_activenode_slot_time(uint32_t slot_num)const;
-
-         /**
-          * Get the last slot which occurs AT or BEFORE the given time.
-          *
-          * The return value is the greatest value N such that
-          * get_slot_time( N ) <= when.
-          *
-          * If no such N exists, return 0.
-          */
-         uint32_t get_activenode_slot_at_time(fc::time_point_sec when)const;
+         fc::optional<activenode_id_type> get_scheduled_activenode(uint32_t block_num)const;
 
          void update_activenode_schedule();
 
@@ -449,6 +418,8 @@ namespace graphene { namespace chain {
           * can be reapplied at the proper time */
          std::deque< signed_transaction >       _popped_tx;
 
+         void notify_new_block_applied( const signed_block& block );
+
          /**
           * @}
           */
@@ -493,7 +464,6 @@ namespace graphene { namespace chain {
          //////////////////// db_update.cpp ////////////////////
          void update_global_dynamic_data( const signed_block& b );
          void update_signing_witness(const witness_object& signing_witness, const signed_block& new_block);
-         const vector<activenode_id_type> validate_activenode(const signed_block& new_block);
          void clean_poor_activenodes();
          void reward_activenode(const signed_block& new_block);
          void update_last_irreversible_block();
