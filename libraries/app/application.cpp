@@ -501,6 +501,9 @@ bool application_impl::handle_block(const graphene::net::block_message& blk_msg,
       // the block was accepted, so we now know all of the transactions contained in the block
       if (!sync_mode)
       {
+         _chain_db->notify_new_block_applied( blk_msg.block ); //emit
+
+
          // if we're not in sync mode, there's a chance we will be seeing some transactions
          // included in blocks before we see the free-floating transaction itself.  If that
          // happens, there's no reason to fetch the transactions, so  construct a list of the

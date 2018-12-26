@@ -379,6 +379,11 @@ void database::notify_applied_block( const signed_block& block )
    GRAPHENE_TRY_NOTIFY( applied_block, block )
 }
 
+void database::notify_new_block_applied( const signed_block& block )
+{
+   GRAPHENE_TRY_NOTIFY( new_block_applied, block )
+}
+
 void database::notify_on_pending_transaction( const signed_transaction& tx )
 {
    GRAPHENE_TRY_NOTIFY( on_pending_transaction, tx )

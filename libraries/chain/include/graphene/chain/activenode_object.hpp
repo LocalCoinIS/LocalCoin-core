@@ -25,6 +25,8 @@
 #include <graphene/chain/protocol/asset.hpp>
 #include <graphene/db/object.hpp>
 #include <graphene/db/generic_index.hpp>
+#include <graphene/chain/protocol/types.hpp>
+
 
 namespace graphene { namespace chain {
    using namespace graphene::db;
@@ -37,7 +39,7 @@ namespace graphene { namespace chain {
          static const uint8_t type_id = activenode_object_type;
 
          account_id_type  activenode_account;
-         fc::time_point last_activity;
+         fc::time_point_sec last_activity;
 
          fc::ip::endpoint endpoint;
          optional< vesting_balance_id_type > pay_vb;

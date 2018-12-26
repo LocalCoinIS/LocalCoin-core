@@ -60,7 +60,7 @@ namespace graphene { namespace chain {
       /// The account which owns the activenode. This account pays the fee for this operation.
       account_id_type   activenode_account;
       activenode_id_type   activenode;
-      fc::time_point timepoint;
+      fc::time_point_sec timepoint;
       fc::ip::endpoint endpoint;
 
       account_id_type fee_payer()const { return activenode_account; }
@@ -74,4 +74,4 @@ FC_REFLECT( graphene::chain::activenode_create_operation, (fee)(activenode_accou
 
 
 FC_REFLECT( graphene::chain::activenode_send_activity_operation::fee_parameters_type, (fee) )
-FC_REFLECT( graphene::chain::activenode_send_activity_operation, (fee)(activenode_account) )
+FC_REFLECT( graphene::chain::activenode_send_activity_operation, (fee)(activenode_account)(activenode)(timepoint)(endpoint) )
