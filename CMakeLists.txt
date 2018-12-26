@@ -102,13 +102,8 @@ if( WIN32 )
     SET(TCL_LIBS "${TCL_LIBS}${TCL_LIB_PATH}/${TCL_LIB_NAME}g${TCL_LIB_EXT}")
     SET(TCL_LIBRARY ${TCL_LIBS})
 
-	add_definitions( -DCURL_STATICLIB )
-
-	SET(CURL_ROOT $ENV{PROGRAMFILES}/Curl)
-	SET(CURL_LIBRARY ${CURL_ROOT}/lib)
-	SET(CURL_INCLUDE_DIR ${CURL_ROOT}/include)
 	find_package( CURL )
-
+	set(CURL_STATICLIB ON) 
 	include_directories( ${CURL_INCLUDE_DIRS} )
 	link_directories( ${CURL_LIBRARIES} )
 
