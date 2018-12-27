@@ -182,7 +182,12 @@ void database::reward_activenode(const signed_block& new_block) {
    signed_block prev_block = *fetch_block_by_number(new_block.block_num() - 1);
    fc::time_point_sec prev_block_time = prev_block.timestamp;
    if (activenode_object.last_activity == prev_block_time) {
-      deposit_activenode_pay( activenode_object, gpo.parameters.activenode_pay_per_block );
+
+      chain::activenode_send_activity_operation send_activity_operation;
+
+      share_type fee = current_fee_schedule().calculate_fee( send_activity_operation ).amount;
+      share_type to_deposit = fee.value * 0.2 + gpo.parameters.activenode_pay_per_block;
+      deposit_activenode_pay( activenode_object, to_deposit );
    }
 }
 

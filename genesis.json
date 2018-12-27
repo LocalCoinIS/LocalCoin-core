@@ -279,7 +279,7 @@
         "cashback_vesting_threshold": 10000000,
         "count_non_member_votes": true,
         "allow_non_member_whitelists": false,
-        "activenode_pay_per_block": 110000,
+        "activenode_pay_per_block": 6500,
         "witness_pay_per_block": 65000,
         "worker_budget_per_day": "30000000000",
         "max_predicate_opcode": 1,
