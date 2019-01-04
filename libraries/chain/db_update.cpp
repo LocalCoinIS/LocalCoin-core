@@ -178,16 +178,20 @@ void database::reward_activenode(const signed_block& new_block) {
       // was deleted
       return;
    }
-   auto& activenode_object = (*scheduled_activenode)(*this);
+   auto& activenode = (*scheduled_activenode)(*this);
    signed_block prev_block = *fetch_block_by_number(new_block.block_num() - 1);
    fc::time_point_sec prev_block_time = prev_block.timestamp;
-   if (activenode_object.last_activity == prev_block_time) {
+   if (activenode.last_activity == prev_block_time) {
+      modify( activenode, [&]( activenode_object& _ano )
+      {
+         _ano.activities_sent++;
+      } );
 
       chain::activenode_send_activity_operation send_activity_operation;
 
       share_type fee = current_fee_schedule().calculate_fee( send_activity_operation ).amount;
       share_type to_deposit = fee.value * 0.2 + gpo.parameters.activenode_pay_per_block;
-      deposit_activenode_pay( activenode_object, to_deposit );
+      deposit_activenode_pay( activenode, to_deposit );
    }
 }
 

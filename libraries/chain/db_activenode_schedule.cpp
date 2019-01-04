@@ -45,7 +45,7 @@ fc::optional<activenode_id_type> database::get_scheduled_activenode(uint32_t blo
       return fc::optional<activenode_id_type>();
 
    FC_ASSERT(block_num == head_block_num() || block_num == head_block_num() - 1);   
-   return aso.current_shuffled_activenodes[block_num - dpo.last_scheduling_block_num];
+   return aso.current_shuffled_activenodes[block_num - dpo.current_scheduling_block_num];
 }
 
 void database::update_activenode_schedule()
@@ -83,7 +83,7 @@ void database::update_activenode_schedule()
       });
       modify( dpo, [&]( dynamic_global_property_object& _dpo )
       {
-         _dpo.last_scheduling_block_num = head_block_num();
+         _dpo.current_scheduling_block_num = head_block_num();
       } );
    }
 }

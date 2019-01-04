@@ -104,15 +104,17 @@ void activenode_plugin::plugin_initialize(const boost::program_options::variable
 void activenode_plugin::plugin_startup()
 { try {
    ilog("activenode plugin:  plugin_startup() begin");
-   chain::database& db = database();
-   const auto& account_idx = db.get_index_type<account_index>().indices().get<by_name>();
-   const auto anode_account_itr = account_idx.find(_activenode_account_name);
-   if (anode_account_itr != account_idx.end()) {
-      _activenode_account_id = anode_account_itr->id;
-      db.new_block_applied.connect( [&]( const signed_block& b){ on_new_block_applied(b); } );
-   }
-   else {
-      elog("activenode plugin: invalid activenode-account provided - no activenode associated with account with name ${activenode_account}", ("activenode_account", _activenode_account_name));
+   if (_activenode_account_name.size()) {
+      chain::database& db = database();
+      const auto& account_idx = db.get_index_type<account_index>().indices().get<by_name>();
+      const auto anode_account_itr = account_idx.find(_activenode_account_name);
+      if (anode_account_itr != account_idx.end()) {
+         _activenode_account_id = anode_account_itr->id;
+         db.new_block_applied.connect( [&]( const signed_block& b){ on_new_block_applied(b); } );
+      }
+      else {
+         elog("activenode plugin: invalid activenode-account provided - no activenode associated with account with name ${activenode_account}", ("activenode_account", _activenode_account_name));
+      }
    }
    ilog("activenode plugin:  plugin_startup() end");
 } FC_CAPTURE_AND_RETHROW() }
@@ -155,7 +157,9 @@ void activenode_plugin::on_new_block_applied(const signed_block& new_block)
 
    if (_activenode != scheduled_activenode)
       return;
-
+   if ((*_activenode)(db).last_activity == fc::time_point::now())
+      //double block appied
+      return;
    try
    {
       result = send_activity(capture);

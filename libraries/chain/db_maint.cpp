@@ -202,23 +202,123 @@ void database::pay_workers( share_type& budget )
    }
 }
 
+void database::burn_account_coins(account_id_type account, asset amount) {
+
+   const asset_dynamic_data_object& core =
+      asset_id_type(0)(*this).dynamic_asset_data_id(*this);
+
+   wlog("before reduce supply ${supply} and account ${acc} by ${amount}",("supply", core.current_supply)("acc", account)("amount", amount.amount) );
+
+
+   modify(core, [&]( asset_dynamic_data_object& _core )
+   {
+      _core.current_supply = _core.current_supply - amount.amount;
+   });
+
+   adjust_balance( account, -amount );
+   wlog("reduced current supply ${supply} and account ${acc} by ${amount}",("supply", core.current_supply)("acc", account)("amount", amount.amount) );
+}
+
 void database::update_current_activenodes()
 { try {
    const global_property_object& gpo = get_global_properties();
+   const dynamic_global_property_object& dpo = get_dynamic_global_properties();
 
    const auto& anodes = get_index_type<activenode_index>().indices();
+
+   uint32_t blocks_since_maintenance = head_block_num() - dpo.previous_maintenance_block_num;
+   dlog("blocks_since_maintenance ${blocks}", ("blocks", blocks_since_maintenance));
+   uint32_t min_blocks_per_node = 0;
+   if (gpo.current_activenodes.size()) 
+      min_blocks_per_node = blocks_since_maintenance / gpo.current_activenodes.size() / 2;
+
+   if (gpo.current_activenodes.size() > blocks_since_maintenance /2) {
+      wlog("Not every node will get reward - there is more than blocks_since_maintenance/2 activenodes (${nodes}/${blocks}", ("nodes", gpo.current_activenodes.size())("blocks", blocks_since_maintenance /2));
+   }
+
+   std::vector<activenode_id_type> new_activenodes;
+
+   for( const activenode_object& anode : anodes ) {
+      ilog("list nodes ${node}", ("node", anode.id));
+      // node is still having penalty
+      if (anode.penalty_left > 0) {
+
+         modify(anode, [&]( activenode_object& anode_obj ){
+            anode_obj.penalty_left--;
+         });
+         
+         if (anode.penalty_left != 0) {
+            dlog("node ${node} penalty ${penalty}", ("node", anode.id)("penalty", anode.penalty_left));
+            continue;
+         }
+         share_type account_balance = get_balance(anode.activenode_account, asset_id_type()).amount.value;
+         chain::activenode_create_operation create_op;
+
+         asset create_anode_fee = current_fee_schedule().calculate_fee( create_op );
+         if (account_balance < LLC_ACTIVENODE_MINIMAL_BALANCE_AFTER_SEND + create_anode_fee.amount) {
+            // если balance < min_balance + create_anode.fee, то не возвращаем к жизни, т.к. сразу удалим
+            continue;
+         }
+         wlog("fine node ${node} coins ${amount} for returning to active", ("node", anode.id)("amount", create_anode_fee));
+         burn_account_coins(anode.activenode_account, create_anode_fee);
+         new_activenodes.push_back(anode.id);
+      }
+      else {
+         elog("node ${node} activity ${sent}/${min_blocks}", ("node", anode.id)("sent", anode.activities_sent)("min_blocks", min_blocks_per_node));
+         uint32_t activities_num = anode.activities_sent;
+         if (anode.activities_sent >= min_blocks_per_node) {
+            new_activenodes.push_back(anode.id);
+            modify(anode, [&]( activenode_object& anode_obj ){
+               anode_obj.activities_sent = 0;
+            });
+            continue;
+         }
+
+         // if node didn't exist and it is here - we should add it
+         if (anode.is_new) {
+            new_activenodes.push_back(anode.id);
+            modify(anode, [&]( activenode_object& anode_obj ){
+               anode_obj.is_new = false;
+            });
+            continue;
+         }
+
+         modify(anode, [&]( activenode_object& anode_obj ){
+            anode_obj.activities_sent = 0;
+         });
+         
+         if (anode.max_penalty == LLC_ACTIVENODE_MAX_MISS_PENALTY) {
+            elog("removing inactive node ${anode}", ("anode", anode.id));
+            remove(anode);
+            continue;
+         }
+         modify(anode, [&]( activenode_object& anode_obj ){
+            if (!anode_obj.max_penalty) {
+               anode_obj.max_penalty = 1;
+            }
+            else 
+               anode_obj.max_penalty *= 2;
+            anode_obj.penalty_left = anode_obj.max_penalty;
+         });
+         dlog("update node ${node} penalty to ${penalty}", ("node", anode.id)("penalty", anode.penalty_left));
+      }
+   }
 
    modify(gpo, [&]( global_property_object& gp ){
          
       gp.current_activenodes.clear();
-      gp.current_activenodes.reserve(anodes.size());
+      gp.current_activenodes.reserve(new_activenodes.size());
 
-      std::transform(anodes.begin(), anodes.end(),
+      std::transform(new_activenodes.begin(), new_activenodes.end(),
          std::inserter(gp.current_activenodes, gp.current_activenodes.end()),
-            [](const activenode_object& anode) {
-               return anode.id;
+            [](const activenode_id_type& anode_id) {
+               return anode_id;
          });
    });
+
+   for (auto& node: gpo.current_activenodes) {
+      ilog("update_current_activenodes node: ${node}", ("node", node));
+   }
 } FC_CAPTURE_AND_RETHROW() }
 
 void database::update_active_witnesses()
@@ -838,6 +938,7 @@ void database::perform_chain_maintenance(const signed_block& next_block, const g
 {
    dlog("chain_maintenance");
    const auto& gpo = get_global_properties();
+   const auto& dpo = get_dynamic_global_properties();
 
    distribute_fba_balances(*this);
    create_buyback_orders(*this);
@@ -935,7 +1036,13 @@ void database::perform_chain_maintenance(const signed_block& next_block, const g
 
    update_top_n_authorities(*this);
    update_active_witnesses();
+   //here we need to calc how many blocks each activenode has missed and throw them away if < 50%
+   // but if there more than blocks_in_interval/2 activenodes, then not every node will be granted with at least 2 blocks
    update_current_activenodes();
+   modify( dpo, [&]( dynamic_global_property_object& _dpo )
+   {
+      _dpo.previous_maintenance_block_num = head_block_num();
+   } );
    update_active_committee_members();
    update_worker_votes();
 

@@ -110,7 +110,8 @@ namespace graphene { namespace chain {
 
          uint32_t last_irreversible_block_num = 0;
 
-         uint32_t last_scheduling_block_num = 0;
+         uint32_t current_scheduling_block_num = 0;
+         uint32_t previous_maintenance_block_num = 0;
 
          enum dynamic_flag_bits
          {
@@ -142,7 +143,7 @@ FC_REFLECT_DERIVED( graphene::chain::dynamic_global_property_object, (graphene::
                     (recent_slots_filled)
                     (dynamic_flags)
                     (last_irreversible_block_num)
-                    (last_scheduling_block_num)
+                    (current_scheduling_block_num)
                   )
 
 FC_REFLECT_DERIVED( graphene::chain::global_property_object, (graphene::db::object),

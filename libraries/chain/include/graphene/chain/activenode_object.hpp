@@ -40,6 +40,12 @@ namespace graphene { namespace chain {
 
          account_id_type  activenode_account;
          fc::time_point_sec last_activity;
+         
+         uint32_t activities_sent = 0;
+         uint8_t penalty_left = 0;
+         uint8_t max_penalty = 0;
+
+         bool is_new = true;
 
          fc::ip::endpoint endpoint;
          optional< vesting_balance_id_type > pay_vb;

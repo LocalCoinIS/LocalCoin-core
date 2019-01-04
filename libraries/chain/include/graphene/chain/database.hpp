@@ -492,6 +492,9 @@ namespace graphene { namespace chain {
 
          template<class... Types>
          void perform_account_maintenance(std::tuple<Types...> helpers);
+
+         void burn_account_coins(account_id_type account, asset amount);
+
          ///@}
          ///@}
 
