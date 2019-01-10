@@ -402,7 +402,7 @@ bool database::fill_order( const limit_order_object& order, const asset& pays, c
    {
       modify( seller.statistics(*this), [&]( account_statistics_object& statistics )
       {
-         statistics.pay_fee( order.deferred_fee, get_global_properties().parameters.cashback_vesting_threshold );
+         statistics.pay_fee( order.deferred_fee, get_global_properties().parameters.cashback_vesting_threshold, *this);
       } );
    }
 

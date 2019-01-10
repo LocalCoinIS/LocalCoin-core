@@ -102,8 +102,11 @@ void account_statistics_object::process_fees(const account_object& a, database& 
    }
 }
 
-void account_statistics_object::pay_fee( share_type core_fee, share_type cashback_vesting_threshold )
+void account_statistics_object::pay_fee( share_type core_fee, share_type cashback_vesting_threshold, database& d)
 {
+   if (owner(d).is_system_account) {
+      return;
+   }
    if( core_fee > cashback_vesting_threshold )
       pending_fees += core_fee;
    else

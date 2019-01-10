@@ -435,6 +435,12 @@ void database::init_genesis(const genesis_state_type& genesis_state)
       }
       account_id_type account_id(apply_operation(genesis_eval_state, cop).get<object_id_type>());
 
+      if( account.is_system_account )
+      {
+         modify( account_id(*this), [&]( account_object& a ) {
+            a.is_system_account = true;
+         });
+      }
       if( account.is_lifetime_member )
       {
           account_upgrade_operation op;
