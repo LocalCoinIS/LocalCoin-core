@@ -99,7 +99,7 @@ database& generic_evaluator::db()const { return trx_state->db(); }
          /// TODO: db().pay_fee( account_id, core_fee );
          d.modify(*fee_paying_account_statistics, [&](account_statistics_object& s)
          {
-            s.pay_fee( core_fee_paid, d.get_global_properties().parameters.cashback_vesting_threshold );
+            s.pay_fee( core_fee_paid, d.get_global_properties().parameters.cashback_vesting_threshold, db());
          });
       }
    } FC_CAPTURE_AND_RETHROW() }
