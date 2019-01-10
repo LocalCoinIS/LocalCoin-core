@@ -207,16 +207,12 @@ void database::burn_account_coins(account_id_type account, asset amount) {
    const asset_dynamic_data_object& core =
       asset_id_type(0)(*this).dynamic_asset_data_id(*this);
 
-   wlog("before reduce supply ${supply} and account ${acc} by ${amount}",("supply", core.current_supply)("acc", account)("amount", amount.amount) );
-
-
    modify(core, [&]( asset_dynamic_data_object& _core )
    {
       _core.current_supply = _core.current_supply - amount.amount;
    });
 
    adjust_balance( account, -amount );
-   wlog("reduced current supply ${supply} and account ${acc} by ${amount}",("supply", core.current_supply)("acc", account)("amount", amount.amount) );
 }
 
 void database::update_current_activenodes()
@@ -227,7 +223,6 @@ void database::update_current_activenodes()
    const auto& anodes = get_index_type<activenode_index>().indices();
 
    uint32_t blocks_since_maintenance = head_block_num() - dpo.previous_maintenance_block_num;
-   dlog("blocks_since_maintenance ${blocks}", ("blocks", blocks_since_maintenance));
    uint32_t min_blocks_per_node = 0;
    if (gpo.current_activenodes.size()) 
       min_blocks_per_node = blocks_since_maintenance / gpo.current_activenodes.size() / 2;
@@ -239,7 +234,6 @@ void database::update_current_activenodes()
    std::vector<activenode_id_type> new_activenodes;
 
    for( const activenode_object& anode : anodes ) {
-      ilog("list nodes ${node}", ("node", anode.id));
       // node is still having penalty
       if (anode.penalty_left > 0) {
 
@@ -248,7 +242,6 @@ void database::update_current_activenodes()
          });
          
          if (anode.penalty_left != 0) {
-            dlog("node ${node} penalty ${penalty}", ("node", anode.id)("penalty", anode.penalty_left));
             continue;
          }
          share_type account_balance = get_balance(anode.activenode_account, asset_id_type()).amount.value;
@@ -259,12 +252,10 @@ void database::update_current_activenodes()
             // если balance < min_balance + create_anode.fee, то не возвращаем к жизни, т.к. сразу удалим
             continue;
          }
-         wlog("fine node ${node} coins ${amount} for returning to active", ("node", anode.id)("amount", create_anode_fee));
          burn_account_coins(anode.activenode_account, create_anode_fee);
          new_activenodes.push_back(anode.id);
       }
       else {
-         elog("node ${node} activity ${sent}/${min_blocks}", ("node", anode.id)("sent", anode.activities_sent)("min_blocks", min_blocks_per_node));
          uint32_t activities_num = anode.activities_sent;
          if (anode.activities_sent >= min_blocks_per_node) {
             new_activenodes.push_back(anode.id);
@@ -288,7 +279,6 @@ void database::update_current_activenodes()
          });
          
          if (anode.max_penalty == LLC_ACTIVENODE_MAX_MISS_PENALTY) {
-            elog("removing inactive node ${anode}", ("anode", anode.id));
             remove(anode);
             continue;
          }
@@ -300,7 +290,6 @@ void database::update_current_activenodes()
                anode_obj.max_penalty *= 2;
             anode_obj.penalty_left = anode_obj.max_penalty;
          });
-         dlog("update node ${node} penalty to ${penalty}", ("node", anode.id)("penalty", anode.penalty_left));
       }
    }
 
@@ -315,10 +304,6 @@ void database::update_current_activenodes()
                return anode_id;
          });
    });
-
-   for (auto& node: gpo.current_activenodes) {
-      ilog("update_current_activenodes node: ${node}", ("node", node));
-   }
 } FC_CAPTURE_AND_RETHROW() }
 
 void database::update_active_witnesses()
