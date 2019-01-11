@@ -168,8 +168,8 @@ namespace graphene { namespace chain {
          pay_fee();
 
          auto result = eval->do_apply(op);
-
-         db_adjust_balance(op.fee_payer(), -fee_from_account);
+         if (!op.fee_payer()(db()).is_system_account)
+            db_adjust_balance(op.fee_payer(), -fee_from_account);
 
          return result;
       }
