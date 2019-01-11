@@ -41,15 +41,14 @@ namespace graphene { namespace chain {
          account_id_type  activenode_account;
          fc::time_point_sec last_activity;
          
-         uint32_t activities_sent = 0;
-         uint8_t penalty_left = 0;
-         uint8_t max_penalty = 0;
+         uint32_t activities_sent = 0; // amount of activities sent in this interval
+         uint8_t penalty_left = 0; // how many maintenance intervals do we need to wait before we'll become active
+         uint8_t max_penalty = 0; // max penalty that we've got
 
-         bool is_new = true;
+         bool is_new = true; // have the activenode already participated in scheduling
 
          fc::ip::endpoint endpoint;
          optional< vesting_balance_id_type > pay_vb;
-         bool is_enabled;
          activenode_object() {}
    };
 
@@ -73,5 +72,8 @@ FC_REFLECT_DERIVED( graphene::chain::activenode_object, (graphene::db::object),
                     (last_activity)
                     (endpoint)
                     (pay_vb)
-                    (is_enabled)
+                    (activities_sent)
+                    (penalty_left)
+                    (max_penalty)
+                    (is_new)
                   )
