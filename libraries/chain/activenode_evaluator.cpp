@@ -53,7 +53,6 @@ object_id_type activenode_create_evaluator::do_apply( const activenode_create_op
 { try {
    const auto& new_activenode_object = db().create<activenode_object>( [&]( activenode_object& obj ){
          obj.activenode_account  = op.activenode_account;
-         obj.is_enabled = true;
    });
    return new_activenode_object.id;
 } FC_CAPTURE_AND_RETHROW( (op) ) }

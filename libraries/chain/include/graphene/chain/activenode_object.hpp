@@ -49,7 +49,6 @@ namespace graphene { namespace chain {
 
          fc::ip::endpoint endpoint;
          optional< vesting_balance_id_type > pay_vb;
-         bool is_enabled;
          activenode_object() {}
    };
 
@@ -73,5 +72,8 @@ FC_REFLECT_DERIVED( graphene::chain::activenode_object, (graphene::db::object),
                     (last_activity)
                     (endpoint)
                     (pay_vb)
-                    (is_enabled)
+                    (activities_sent)
+                    (penalty_left)
+                    (max_penalty)
+                    (is_new)
                   )

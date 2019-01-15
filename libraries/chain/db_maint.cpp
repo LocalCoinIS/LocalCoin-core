@@ -226,8 +226,8 @@ void database::update_current_activenodes()
 
    const auto& anodes = get_index_type<activenode_index>().indices();
 
-   uint32_t blocks_since_maintenance = head_block_num() - dpo.previous_maintenance_block_num;
-   dlog("blocks_since_maintenance ${blocks}", ("blocks", blocks_since_maintenance));
+   uint32_t blocks_since_maintenance = head_block_num() - gpo.previous_maintenance_block_num;
+   dlog("blocks_since_maintenance ${blocks} (head block ${head_block}; prev_maint_block ${prev_maint}", ("blocks", blocks_since_maintenance)("head_block", head_block_num())("prev_maint",gpo.previous_maintenance_block_num));
    uint32_t min_blocks_per_node = 0;
    if (gpo.current_activenodes.size()) 
       min_blocks_per_node = blocks_since_maintenance / gpo.current_activenodes.size() / 2;
@@ -939,6 +939,7 @@ void database::perform_chain_maintenance(const signed_block& next_block, const g
    dlog("chain_maintenance");
    const auto& gpo = get_global_properties();
    const auto& dpo = get_dynamic_global_properties();
+   dlog("dynamic global properties ${dyn_glob_props}", ("dyn_glob_props", dpo));
 
    distribute_fba_balances(*this);
    create_buyback_orders(*this);
@@ -1039,9 +1040,10 @@ void database::perform_chain_maintenance(const signed_block& next_block, const g
    //here we need to calc how many blocks each activenode has missed and throw them away if < 50%
    // but if there more than blocks_in_interval/2 activenodes, then not every node will be granted with at least 2 blocks
    update_current_activenodes();
-   modify( dpo, [&]( dynamic_global_property_object& _dpo )
+   modify( gpo, [&]( global_property_object& _gpo )
    {
-      _dpo.previous_maintenance_block_num = head_block_num();
+      ilog("modify gpo head_block_num ${num}", ("num", head_block_num()));
+      _gpo.previous_maintenance_block_num = head_block_num();
    } );
    update_active_committee_members();
    update_worker_votes();
