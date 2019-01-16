@@ -171,11 +171,14 @@ void database::reward_activenode(const signed_block& new_block) {
       return;
    }
    fc::optional<activenode_id_type> scheduled_activenode = get_scheduled_activenode(head_block_num() - 1);
-   if (!scheduled_activenode)
+   if (!scheduled_activenode) {
+      ilog("no scheduled node this time");
       return;
+   }
 
    if (find(*scheduled_activenode) == nullptr ) {
       // was deleted
+      ilog("scheduled node was deleted");
       return;
    }
    auto& activenode = (*scheduled_activenode)(*this);
@@ -193,6 +196,9 @@ void database::reward_activenode(const signed_block& new_block) {
       share_type fee = current_fee_schedule().calculate_fee( send_activity_operation ).amount;
       share_type to_deposit = fee.value * 0.2 + gpo.parameters.activenode_pay_per_block;
       deposit_activenode_pay( activenode, to_deposit );
+   }
+   else {
+      ilog("reward: activenode.last_activity(${activity}) != prev_block_time(${block_time})", ("activity", activenode.last_activity)("block_time", prev_block_time));
    }
 }
 

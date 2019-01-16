@@ -76,7 +76,7 @@ void_result activenode_activity_evaluator::do_apply( const activenode_send_activ
       _db.get(op.activenode),
       [&]( activenode_object& activenode_object )
       {
-         activenode_object.last_activity = op.timepoint;
+         activenode_object.last_activity = db().head_block_time();
          activenode_object.endpoint = op.endpoint;
       });
       return void_result();
