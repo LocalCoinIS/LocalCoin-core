@@ -270,6 +270,10 @@ void database::update_current_activenodes()
             new_activenodes.push_back(anode.id);
             modify(anode, [&]( activenode_object& anode_obj ){
                anode_obj.activities_sent = 0;
+               //for cases when min_blocks_per_node = 0 (can happen because of integer division)
+               if (anode.is_new) {
+                  anode_obj.is_new = false;
+               }
             });
             continue;
          }
@@ -279,6 +283,7 @@ void database::update_current_activenodes()
             new_activenodes.push_back(anode.id);
             modify(anode, [&]( activenode_object& anode_obj ){
                anode_obj.is_new = false;
+               anode_obj.activities_sent = 0;
             });
             continue;
          }
@@ -939,7 +944,6 @@ void database::perform_chain_maintenance(const signed_block& next_block, const g
    dlog("chain_maintenance");
    const auto& gpo = get_global_properties();
    const auto& dpo = get_dynamic_global_properties();
-   dlog("dynamic global properties ${dyn_glob_props}", ("dyn_glob_props", dpo));
 
    distribute_fba_balances(*this);
    create_buyback_orders(*this);
