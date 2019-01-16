@@ -54,7 +54,11 @@ void database::update_activenode_schedule()
    const global_property_object& gpo = get_global_properties();
    const dynamic_global_property_object& dpo = get_dynamic_global_properties();
 
-   if( gpo.current_activenodes.size() != 0 && head_block_num() % gpo.current_activenodes.size() == 0 )
+   // what happens if/and when there is only one activenode and it's removed from current_activenodes
+
+   // we should update it on maintanance 
+   if ( dpo.dynamic_flags & dynamic_global_property_object::maintenance_flag  ||
+       (gpo.current_activenodes.size() != 0 && head_block_num() % gpo.current_activenodes.size() == 0) )
    {
       modify( aso, [&]( activenode_schedule_object& _aso )
       {
@@ -81,6 +85,11 @@ void database::update_activenode_schedule()
                        _aso.current_shuffled_activenodes[j] );
          }
       });
+      wlog("scheduled nodes:");
+      for( auto& node : aso.current_shuffled_activenodes) {
+         wlog("${node}", ("node", node));
+      }
+
       modify( dpo, [&]( dynamic_global_property_object& _dpo )
       {
          _dpo.current_scheduling_block_num = head_block_num();

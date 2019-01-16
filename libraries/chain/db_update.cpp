@@ -182,6 +182,7 @@ void database::reward_activenode(const signed_block& new_block) {
    signed_block prev_block = *fetch_block_by_number(new_block.block_num() - 1);
    fc::time_point_sec prev_block_time = prev_block.timestamp;
    if (activenode.last_activity == prev_block_time) {
+      dlog("reward activenode ${activenode}", ("activenode", activenode.id));
       modify( activenode, [&]( activenode_object& _ano )
       {
          _ano.activities_sent++;
