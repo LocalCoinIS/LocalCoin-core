@@ -261,6 +261,10 @@ void database::update_current_activenodes()
             new_activenodes.push_back(anode.id);
             modify(anode, [&]( activenode_object& anode_obj ){
                anode_obj.activities_sent = 0;
+               //for cases when min_blocks_per_node = 0 (can happen because of integer division)
+               if (anode.is_new) {
+                  anode_obj.is_new = false;
+               }
             });
             continue;
          }
@@ -270,6 +274,7 @@ void database::update_current_activenodes()
             new_activenodes.push_back(anode.id);
             modify(anode, [&]( activenode_object& anode_obj ){
                anode_obj.is_new = false;
+               anode_obj.activities_sent = 0;
             });
             continue;
          }

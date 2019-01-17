@@ -229,7 +229,7 @@ activenode_plugin::send_activity( fc::limited_mutable_variant_object& capture )
    }
 
    chain::activenode_send_activity_operation send_activity_operation;
-   fc::time_point_sec now = fc::time_point::now();
+   fc::time_point_sec now = db.head_block_time();
    send_activity_operation.timepoint = now;
    send_activity_operation.endpoint = endpoint;
    send_activity_operation.activenode = *_activenode;

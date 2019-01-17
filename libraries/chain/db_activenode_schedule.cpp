@@ -54,7 +54,8 @@ void database::update_activenode_schedule()
    const global_property_object& gpo = get_global_properties();
    const dynamic_global_property_object& dpo = get_dynamic_global_properties();
 
-   if( gpo.current_activenodes.size() != 0 && head_block_num() % gpo.current_activenodes.size() == 0 )
+   if ( dpo.dynamic_flags & dynamic_global_property_object::maintenance_flag  ||
+       (gpo.current_activenodes.size() != 0 && head_block_num() % gpo.current_activenodes.size() == 0) )
    {
       modify( aso, [&]( activenode_schedule_object& _aso )
       {

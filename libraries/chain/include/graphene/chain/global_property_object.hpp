@@ -144,6 +144,7 @@ FC_REFLECT_DERIVED( graphene::chain::dynamic_global_property_object, (graphene::
                     (dynamic_flags)
                     (last_irreversible_block_num)
                     (current_scheduling_block_num)
+                    (previous_maintenance_block_num)
                   )
 
 FC_REFLECT_DERIVED( graphene::chain::global_property_object, (graphene::db::object),
