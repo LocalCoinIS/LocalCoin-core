@@ -88,7 +88,7 @@ namespace graphene { namespace chain {
          /**
           * Core fees are paid into the account_statistics_object by this method
           */
-         void pay_fee( share_type core_fee, share_type cashback_vesting_threshold );
+         void pay_fee( share_type core_fee, share_type cashback_vesting_threshold, database& d );
    };
 
    /**
@@ -143,6 +143,8 @@ namespace graphene { namespace chain {
          account_id_type referrer;
          /// The lifetime member at the top of the referral tree. Receives a percentage of referral rewards.
          account_id_type lifetime_referrer;
+
+         bool is_system_account = false;
 
          /// Percentage of fee which should go to network.
          uint16_t network_fee_percentage = GRAPHENE_DEFAULT_NETWORK_PERCENT_OF_FEE;
@@ -379,6 +381,7 @@ FC_REFLECT_DERIVED( graphene::chain::account_object,
                     (owner_special_authority)(active_special_authority)
                     (top_n_control_flags)
                     (allowed_assets)
+                    (is_system_account)
                     )
 
 FC_REFLECT_DERIVED( graphene::chain::account_balance_object,

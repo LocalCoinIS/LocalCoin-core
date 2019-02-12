@@ -39,6 +39,7 @@ witness_id_type database::get_scheduled_witness( uint32_t slot_num )const
    return wso.current_shuffled_witnesses[ current_aslot % wso.current_shuffled_witnesses.size() ];
 }
 
+// returns the time of the next witness producal
 fc::time_point_sec database::get_slot_time(uint32_t slot_num)const
 {
    if( slot_num == 0 )
@@ -59,6 +60,7 @@ fc::time_point_sec database::get_slot_time(uint32_t slot_num)const
 
    const global_property_object& gpo = get_global_properties();
 
+   // if maitenance - add several blocks (that are missed)
    if( dpo.dynamic_flags & dynamic_global_property_object::maintenance_flag )
       slot_num += gpo.parameters.maintenance_skip_slots;
 
@@ -66,12 +68,14 @@ fc::time_point_sec database::get_slot_time(uint32_t slot_num)const
    // "slot 1" is head_slot_time,
    //   plus maint interval if head block is a maint block
    //   plus block interval if head block is not a maint block
+
    return head_slot_time + (slot_num * interval);
 }
 
 uint32_t database::get_slot_at_time(fc::time_point_sec when)const
 {
    fc::time_point_sec first_slot_time = get_slot_time( 1 );
+
    if( when < first_slot_time )
       return 0;
    return (when - first_slot_time).to_seconds() / block_interval() + 1;

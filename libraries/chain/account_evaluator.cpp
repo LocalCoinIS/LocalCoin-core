@@ -35,6 +35,8 @@
 #include <graphene/chain/special_authority.hpp>
 #include <graphene/chain/special_authority_object.hpp>
 #include <graphene/chain/witness_object.hpp>
+#include <graphene/chain/activenode_object.hpp>
+
 #include <graphene/chain/worker_object.hpp>
 
 #include <algorithm>

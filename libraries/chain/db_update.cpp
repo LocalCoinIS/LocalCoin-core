@@ -33,10 +33,12 @@
 #include <graphene/chain/transaction_object.hpp>
 #include <graphene/chain/withdraw_permission_object.hpp>
 #include <graphene/chain/witness_object.hpp>
+#include <graphene/chain/activenode_object.hpp>
 
 #include <graphene/chain/protocol/fee_schedule.hpp>
 
 #include <fc/uint128.hpp>
+#include <algorithm>
 
 namespace graphene { namespace chain {
 
@@ -44,7 +46,8 @@ void database::update_global_dynamic_data( const signed_block& b )
 {
    const dynamic_global_property_object& _dgp =
       dynamic_global_property_id_type(0)(*this);
-
+   
+   // activenodes missed can be implemented in the same way
    uint32_t missed_blocks = get_slot_at_time( b.timestamp );
    assert( missed_blocks != 0 );
    missed_blocks--;
@@ -105,20 +108,90 @@ void database::update_signing_witness(const witness_object& signing_witness, con
    const dynamic_global_property_object& dpo = get_dynamic_global_properties();
    uint64_t new_block_aslot = dpo.current_aslot + get_slot_at_time( new_block.timestamp );
 
-   share_type witness_pay = std::min( gpo.parameters.witness_pay_per_block, dpo.witness_budget );
+   auto& account = signing_witness.witness_account(*this);
+   const auto& stats = account.statistics(*this);
+   share_type total_balance = stats.total_core_in_orders.value
+         + (account.cashback_vb.valid() ? (*account.cashback_vb)(*this).balance.amount.value: 0)
+         + get_balance(account.get_id(), asset_id_type()).amount.value;
+         
+   bool enough_balance = (total_balance >= LLC_WITNESS_MINIMAL_BALANCE);
 
-   modify( dpo, [&]( dynamic_global_property_object& _dpo )
-   {
-      _dpo.witness_budget -= witness_pay;
-   } );
+   if (enough_balance) {
+      share_type witness_pay = std::min( gpo.parameters.witness_pay_per_block, dpo.witness_budget );
 
-   deposit_witness_pay( signing_witness, witness_pay );
+      modify( dpo, [&]( dynamic_global_property_object& _dpo )
+      {
+         _dpo.witness_budget -= witness_pay;
+      } );
+
+      deposit_witness_pay( signing_witness, witness_pay );
+   }
 
    modify( signing_witness, [&]( witness_object& _wit )
    {
       _wit.last_aslot = new_block_aslot;
       _wit.last_confirmed_block_num = new_block.block_num();
    } );
+}
+
+share_type database::get_total_account_balance(const account_object& account) {
+   const auto& stats = account.statistics(*this);
+   share_type total_balance = stats.total_core_in_orders.value
+      + (account.cashback_vb.valid() ? (*account.cashback_vb)(*this).balance.amount.value: 0)
+      + get_balance(account.get_id(), asset_id_type()).amount.value;
+      return total_balance;
+}
+
+//we can also disable instead
+void database::clean_poor_activenodes() {
+   const auto& idx = get_index_type<activenode_index>().indices();
+   std::vector<activenode_object> list_for_removal;
+
+   for( const activenode_object& act_object : idx ) {
+      //removing activenodes that doesn't have money
+      share_type total_balance = get_total_account_balance(act_object.activenode_account(*this));
+      if (total_balance < LLC_ACTIVENODE_MINIMAL_BALANCE_AFTER_SEND) {
+         remove(act_object);
+      }
+   }
+}
+
+
+void database::reward_activenode(const signed_block& new_block) {
+   const global_property_object& gpo = get_global_properties();
+   const auto& anodes = get_index_type<activenode_index>().indices();
+
+   // check scheduled
+   if (anodes.size() == 0) return;
+   if (head_block_num() == 0 || head_block_num() == 1) return; //GENESIS
+
+   const activenode_schedule_object& aso = activenode_schedule_id_type()(*this);
+   if (aso.current_shuffled_activenodes.size() == 0) {
+      return;
+   }
+   fc::optional<activenode_id_type> scheduled_activenode = get_scheduled_activenode(head_block_num() - 1);
+   if (!scheduled_activenode)
+      return;
+
+   if (find(*scheduled_activenode) == nullptr ) {
+      // was deleted
+      return;
+   }
+   auto& activenode = (*scheduled_activenode)(*this);
+   signed_block prev_block = *fetch_block_by_number(new_block.block_num() - 1);
+   fc::time_point_sec prev_block_time = prev_block.timestamp;
+   if (activenode.last_activity == prev_block_time) {
+      modify( activenode, [&]( activenode_object& _ano )
+      {
+         _ano.activities_sent++;
+      } );
+
+      chain::activenode_send_activity_operation send_activity_operation;
+
+      share_type fee = current_fee_schedule().calculate_fee( send_activity_operation ).amount;
+      share_type to_deposit = fee.value * 0.2 + gpo.parameters.activenode_pay_per_block;
+      deposit_activenode_pay( activenode, to_deposit );
+   }
 }
 
 void database::update_last_irreversible_block()

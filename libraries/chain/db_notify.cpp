@@ -10,6 +10,7 @@
 #include <graphene/chain/market_object.hpp>
 #include <graphene/chain/committee_member_object.hpp>
 #include <graphene/chain/witness_object.hpp>
+#include <graphene/chain/activenode_object.hpp>
 #include <graphene/chain/proposal_object.hpp>
 #include <graphene/chain/operation_history_object.hpp>
 #include <graphene/chain/vesting_balance_object.hpp>
@@ -199,6 +200,16 @@ struct get_impacted_account_visitor
       _impacted.insert( op.account_id );
    }
 
+   void operator()( const activenode_create_operation& op )
+   {
+      _impacted.insert( op.activenode_account );
+   }
+
+   void operator()( const activenode_send_activity_operation& op )
+   {
+      _impacted.insert( op.activenode_account );
+   }
+
 };
 
 static void operation_get_impacted_accounts( const operation& op, flat_set<account_id_type>& result )
@@ -287,6 +298,11 @@ static void get_relevant_accounts( const object* obj, flat_set<account_id_type>&
         } case balance_object_type:{
            /** these are free from any accounts */
            break;
+        } case activenode_object_type: {
+           const auto& aobj = dynamic_cast<const activenode_object*>(obj);
+           FC_ASSERT( aobj != nullptr );
+           accounts.insert( aobj->activenode_account );
+           break;
         }
       }
    }
@@ -350,6 +366,8 @@ static void get_relevant_accounts( const object* obj, flat_set<account_id_type>&
               accounts.insert( aobj->bidder );
               break;
            }
+             case impl_activenode_schedule_object_type:
+              break;
       }
    }
 } // end get_relevant_accounts( const object* obj, flat_set<account_id_type>& accounts )
@@ -359,6 +377,11 @@ namespace graphene { namespace chain {
 void database::notify_applied_block( const signed_block& block )
 {
    GRAPHENE_TRY_NOTIFY( applied_block, block )
+}
+
+void database::notify_new_block_applied( const signed_block& block )
+{
+   GRAPHENE_TRY_NOTIFY( new_block_applied, block )
 }
 
 void database::notify_on_pending_transaction( const signed_transaction& tx )

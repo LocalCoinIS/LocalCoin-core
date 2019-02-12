@@ -27,12 +27,23 @@
 #include <graphene/chain/account_object.hpp>
 #include <graphene/chain/database.hpp>
 #include <graphene/chain/protocol/vote.hpp>
+#include <graphene/chain/vesting_balance_object.hpp>
+
 
 namespace graphene { namespace chain {
 
 void_result witness_create_evaluator::do_evaluate( const witness_create_operation& op )
 { try {
    FC_ASSERT(db().get(op.witness_account).is_lifetime_member());
+   if (!op.initial) {
+      auto& account = op.witness_account(db());
+      const auto& stats = account.statistics(db());
+      share_type total_balance = stats.total_core_in_orders.value
+            + (account.cashback_vb.valid() ? ((*account.cashback_vb)(db())).balance.amount.value: 0)
+            + db().get_balance(account.get_id(), asset_id_type()).amount.value;
+            
+      FC_ASSERT(total_balance >= LLC_WITNESS_MINIMAL_BALANCE);
+   }
    return void_result();
 } FC_CAPTURE_AND_RETHROW( (op) ) }
 

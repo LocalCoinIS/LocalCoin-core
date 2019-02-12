@@ -186,6 +186,10 @@ namespace graphene { namespace chain {
          fc::signal<void(const signed_block&)>           applied_block;
 
          /**
+          */
+         fc::signal<void(const signed_block&)>           new_block_applied;
+
+         /**
           * This signal is emitted any time a new transaction is added to the pending
           * block state.
           */
@@ -247,6 +251,11 @@ namespace graphene { namespace chain {
          uint32_t get_slot_at_time(fc::time_point_sec when)const;
 
          void update_witness_schedule();
+
+         //////////////////// db_activenode_schedule.cpp ////////////////////
+         fc::optional<activenode_id_type> get_scheduled_activenode(uint32_t block_num)const;
+
+         void update_activenode_schedule();
 
          //////////////////// db_getter.cpp ////////////////////
 
@@ -326,6 +335,9 @@ namespace graphene { namespace chain {
          void deposit_cashback(const account_object& acct, share_type amount, bool require_vesting = true);
          // helper to handle witness pay
          void deposit_witness_pay(const witness_object& wit, share_type amount);
+         // helper to handle witness pay
+         void deposit_activenode_pay(const activenode_object& ano, share_type amount);
+
 
          //////////////////// db_debug.cpp ////////////////////
 
@@ -406,6 +418,8 @@ namespace graphene { namespace chain {
           * can be reapplied at the proper time */
          std::deque< signed_transaction >       _popped_tx;
 
+         void notify_new_block_applied( const signed_block& block );
+
          /**
           * @}
           */
@@ -433,6 +447,8 @@ namespace graphene { namespace chain {
          void                  apply_block( const signed_block& next_block, uint32_t skip = skip_nothing );
          processed_transaction apply_transaction( const signed_transaction& trx, uint32_t skip = skip_nothing );
          operation_result      apply_operation( transaction_evaluation_state& eval_state, const operation& op );
+         share_type get_total_account_balance(const account_object& account);
+
       private:
          void                  _apply_block( const signed_block& next_block );
          processed_transaction _apply_transaction( const signed_transaction& trx );
@@ -448,6 +464,8 @@ namespace graphene { namespace chain {
          //////////////////// db_update.cpp ////////////////////
          void update_global_dynamic_data( const signed_block& b );
          void update_signing_witness(const witness_object& signing_witness, const signed_block& new_block);
+         void clean_poor_activenodes();
+         void reward_activenode(const signed_block& new_block);
          void update_last_irreversible_block();
          void clear_expired_transactions();
          void clear_expired_proposals();
@@ -467,12 +485,16 @@ namespace graphene { namespace chain {
          void pay_workers( share_type& budget );
          void perform_chain_maintenance(const signed_block& next_block, const global_property_object& global_props);
          void update_active_witnesses();
+         void update_current_activenodes();
          void update_active_committee_members();
          void update_worker_votes();
          void process_bids( const asset_bitasset_data_object& bad );
 
          template<class... Types>
          void perform_account_maintenance(std::tuple<Types...> helpers);
+
+         void burn_account_coins(account_id_type account, asset amount);
+
          ///@}
          ///@}
 

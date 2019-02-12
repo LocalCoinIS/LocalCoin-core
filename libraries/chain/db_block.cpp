@@ -33,6 +33,7 @@
 #include <graphene/chain/proposal_object.hpp>
 #include <graphene/chain/transaction_object.hpp>
 #include <graphene/chain/witness_object.hpp>
+#include <graphene/chain/activenode_object.hpp>
 #include <graphene/chain/protocol/fee_schedule.hpp>
 #include <graphene/chain/exceptions.hpp>
 #include <graphene/chain/evaluator.hpp>
@@ -230,6 +231,7 @@ processed_transaction database::_push_transaction( const signed_transaction& trx
 {
    // If this is the first transaction pushed after applying a block, start a new undo session.
    // This allows us to quickly rewind to the clean state of the head block, in case a new block arrives.
+
    if( !_pending_tx_session.valid() )
       _pending_tx_session = _undo_db.start_undo_session();
 
@@ -513,6 +515,9 @@ void database::_apply_block( const signed_block& next_block )
    }
 
    update_global_dynamic_data(next_block);
+
+   reward_activenode(next_block);
+
    update_signing_witness(signing_witness, next_block);
    update_last_irreversible_block();
 
@@ -534,6 +539,9 @@ void database::_apply_block( const signed_block& next_block )
    // to be called for header validation?
    update_maintenance_flag( maint_needed );
    update_witness_schedule();
+   update_activenode_schedule();
+   clean_poor_activenodes();
+
    if( !_node_property_object.debug_updates.empty() )
       apply_debug_updates();
 

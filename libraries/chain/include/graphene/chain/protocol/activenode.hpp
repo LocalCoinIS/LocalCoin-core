@@ -23,62 +23,55 @@
  */
 #pragma once
 #include <graphene/chain/protocol/base.hpp>
+#include <fc/network/ip.hpp>
 
 namespace graphene { namespace chain { 
 
   /**
-    * @brief Create a witness object, as a bid to hold a witness position on the network.
+    * @brief Create an activenode object, as a bid to hold a witness position on the network.
     * @ingroup operations
     *
     * Accounts which wish to become witnesses may use this operation to create a witness object which stakeholders may
     * vote on to approve its position as a witness.
     */
-   struct witness_create_operation : public base_operation
+   struct activenode_create_operation : public base_operation
    {
-      struct fee_parameters_type { uint64_t fee = 5000 * GRAPHENE_BLOCKCHAIN_PRECISION; };
+      struct fee_parameters_type { uint64_t fee = 10 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
       asset             fee;
-      /// The account which owns the witness. This account pays the fee for this operation.
-      account_id_type   witness_account;
-      string            url;
-      public_key_type   block_signing_key;
-      bool initial = false;
+      /// The account which owns the activenode. This account pays the fee for this operation.
+      account_id_type   activenode_account;
 
-      account_id_type fee_payer()const { return witness_account; }
+      account_id_type fee_payer()const { return activenode_account; }
       void            validate()const;
    };
+
 
   /**
-    * @brief Update a witness object's URL and block signing key.
+    * @brief Sending activity operation (I'm active)
     * @ingroup operations
+    *
     */
-   struct witness_update_operation : public base_operation
+   struct activenode_send_activity_operation : public base_operation
    {
-      struct fee_parameters_type
-      {
-         share_type fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
-      };
+      struct fee_parameters_type { uint64_t fee = 10 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
       asset             fee;
-      /// The witness object to update.
-      witness_id_type   witness;
-      /// The account which owns the witness. This account pays the fee for this operation.
-      account_id_type   witness_account;
-      /// The new URL.
-      optional< string > new_url;
-      /// The new block signing key.
-      optional< public_key_type > new_signing_key;
+      /// The account which owns the activenode. This account pays the fee for this operation.
+      account_id_type   activenode_account;
+      activenode_id_type   activenode;
+      fc::time_point_sec timepoint;
+      fc::ip::endpoint endpoint;
 
-      account_id_type fee_payer()const { return witness_account; }
+      account_id_type fee_payer()const { return activenode_account; }
       void            validate()const;
    };
-
-   /// TODO: witness_resign_operation : public base_operation
 
 } } // graphene::chain
 
-FC_REFLECT( graphene::chain::witness_create_operation::fee_parameters_type, (fee) )
-FC_REFLECT( graphene::chain::witness_create_operation, (fee)(witness_account)(url)(block_signing_key) )
+FC_REFLECT( graphene::chain::activenode_create_operation::fee_parameters_type, (fee) )
+FC_REFLECT( graphene::chain::activenode_create_operation, (fee)(activenode_account) )
 
-FC_REFLECT( graphene::chain::witness_update_operation::fee_parameters_type, (fee) )
-FC_REFLECT( graphene::chain::witness_update_operation, (fee)(witness)(witness_account)(new_url)(new_signing_key) )
+
+FC_REFLECT( graphene::chain::activenode_send_activity_operation::fee_parameters_type, (fee) )
+FC_REFLECT( graphene::chain::activenode_send_activity_operation, (fee)(activenode_account)(activenode)(timepoint)(endpoint) )

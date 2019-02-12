@@ -1123,7 +1123,6 @@ public:
       return create_account_with_private_key(owner_privkey, account_name, registrar_account, referrer_account, broadcast, save_wallet);
    } FC_CAPTURE_AND_RETHROW( (account_name)(registrar_account)(referrer_account) ) }
 
-
    signed_transaction create_asset(string issuer,
                                    string symbol,
                                    uint8_t precision,
@@ -1427,6 +1426,41 @@ public:
       FC_CAPTURE_AND_RETHROW( (owner_account) )
    }
 
+   activenode_object get_activenode(string owner_account)
+   {
+      try
+      {
+         fc::optional<activenode_id_type> activenode_id = maybe_id<activenode_id_type>(owner_account);
+         if (activenode_id)
+         {
+            std::vector<activenode_id_type> ids_to_get;
+            ids_to_get.push_back(*activenode_id);
+            std::vector<fc::optional<activenode_object>> activenode_objects = _remote_db->get_activenodes(ids_to_get);
+            if (activenode_objects.front())
+               return *activenode_objects.front();
+            FC_THROW("No activenode is registered for id ${id}", ("id", owner_account));
+         }
+         else
+         {
+            // then maybe it's the owner account
+            try
+            {
+               account_id_type owner_account_id = get_account_id(owner_account);
+               fc::optional<activenode_object> activenode = _remote_db->get_activenode_by_account(owner_account_id);
+               if (activenode)
+                  return *activenode;
+               else
+                  FC_THROW("No activenode is registered for account ${account}", ("account", owner_account));
+            }
+            catch (const fc::exception&)
+            {
+               FC_THROW("No account or activenode named ${account}", ("account", owner_account));
+            }
+         }
+      }
+      FC_CAPTURE_AND_RETHROW( (owner_account) )
+   }
+
    committee_member_object get_committee_member(string owner_account)
    {
       try
@@ -1486,6 +1520,25 @@ public:
       tx.validate();
 
       _wallet.pending_witness_registrations[owner_account] = key_to_wif(witness_private_key);
+
+      return sign_transaction( tx, broadcast );
+   } FC_CAPTURE_AND_RETHROW( (owner_account)(broadcast) ) }
+
+    signed_transaction create_activenode(string owner_account,
+                                     bool broadcast /* = false */)
+   { try {
+      account_object activenode_account = get_account(owner_account);
+
+      activenode_create_operation activenode_create_op;
+      activenode_create_op.activenode_account = activenode_account.id;
+
+      if (_remote_db->get_activenode_by_account(activenode_create_op.activenode_account))
+         FC_THROW("Account ${owner_account} is already an activenode", ("owner_account", owner_account));
+
+      signed_transaction tx;
+      tx.operations.push_back( activenode_create_op );
+      set_operation_fees( tx, _remote_db->get_global_properties().parameters.current_fees);
+      tx.validate();
 
       return sign_transaction( tx, broadcast );
    } FC_CAPTURE_AND_RETHROW( (owner_account)(broadcast) ) }
@@ -3386,6 +3439,17 @@ map<string,witness_id_type> wallet_api::list_witnesses(const string& lowerbound,
    return my->_remote_db->lookup_witness_accounts(lowerbound, limit);
 }
 
+map<string,activenode_id_type> wallet_api::list_activenodes(const string& lowerbound, uint32_t limit)
+{
+   return my->_remote_db->lookup_activenode_accounts(lowerbound, limit);
+}
+
+signed_transaction wallet_api::create_activenode(string owner_account,
+                                              bool broadcast /* = false */)
+{
+   return my->create_activenode(owner_account, broadcast);
+}
+
 map<string,committee_member_id_type> wallet_api::list_committee_members(const string& lowerbound, uint32_t limit)
 {
    return my->_remote_db->lookup_committee_member_accounts(lowerbound, limit);
@@ -3394,6 +3458,11 @@ map<string,committee_member_id_type> wallet_api::list_committee_members(const st
 witness_object wallet_api::get_witness(string owner_account)
 {
    return my->get_witness(owner_account);
+}
+
+activenode_object wallet_api::get_activenode(string owner_account)
+{
+   return my->get_activenode(owner_account);
 }
 
 committee_member_object wallet_api::get_committee_member(string owner_account)

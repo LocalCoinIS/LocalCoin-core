@@ -347,9 +347,7 @@ void es_objects_plugin::plugin_set_program_options(
          ("es-objects-assets", boost::program_options::value<bool>(), "Store asset objects")
          ("es-objects-balances", boost::program_options::value<bool>(), "Store balances objects")
          ("es-objects-limit-orders", boost::program_options::value<bool>(), "Store limit order objects")
-         ("es-objects-asset-bitasset", boost::program_options::value<bool>(), "Store feed data")
-
-         ;
+         ("es-objects-asset-bitasset", boost::program_options::value<bool>(), "Store feed data");
    cfg.add(cli);
 }
 

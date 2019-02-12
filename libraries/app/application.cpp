@@ -117,7 +117,7 @@ namespace graphene { namespace app { namespace detail {
 
 void application_impl::reset_p2p_node(const fc::path& data_dir)
 { try {
-   _p2p_network = std::make_shared<net::node>("BitShares Reference Implementation");
+   _p2p_network = std::make_shared<net::node>("LocalCoin Reference Implementation");
 
    _p2p_network->load_configuration(data_dir / "p2p");
    _p2p_network->set_node_delegate(this);
@@ -164,8 +164,11 @@ void application_impl::reset_p2p_node(const fc::path& data_dir)
    else
    {
       // https://bitsharestalk.org/index.php/topic,23715.0.html
-      vector<string> seeds = {
-      };
+	   vector<string> seeds = {
+		   "moscow.localcoin.is:11010"               // Moscow (Russia)
+		   "ru.localcoin.is:11010"               // Russia
+		   "helsinki.localcoin.is:11010"               // Helsinki (Finland)
+	   };
       for( const string& endpoint_string : seeds )
       {
          try {
@@ -500,6 +503,9 @@ bool application_impl::handle_block(const graphene::net::block_message& blk_msg,
       // the block was accepted, so we now know all of the transactions contained in the block
       if (!sync_mode)
       {
+         _chain_db->notify_new_block_applied( blk_msg.block ); //emit
+
+
          // if we're not in sync mode, there's a chance we will be seeing some transactions
          // included in blocks before we see the free-floating transaction itself.  If that
          // happens, there's no reason to fetch the transactions, so  construct a list of the
@@ -542,7 +548,6 @@ void application_impl::handle_transaction(const graphene::net::trx_message& tran
       last_call = now;
       trx_count = 0;
    }
-
    _chain_db->push_transaction( transaction_message.trx );
 } FC_CAPTURE_AND_RETHROW( (transaction_message) ) }
 
@@ -976,6 +981,7 @@ void application::initialize(const fc::path& data_dir, const boost::program_opti
    else
    {
       wanted.push_back("witness");
+      wanted.push_back("activenode");
       wanted.push_back("account_history");
       wanted.push_back("market_history");
       wanted.push_back("grouped_orders");

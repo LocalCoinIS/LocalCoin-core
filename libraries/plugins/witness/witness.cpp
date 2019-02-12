@@ -146,7 +146,10 @@ void witness_plugin::schedule_production_loop()
    //Schedule for the next second's tick regardless of chain state
    // If we would wait less than 50ms, wait for the whole second.
    fc::time_point now = fc::time_point::now();
+
+   //in microseconds
    int64_t time_to_next_second = 1000000 - (now.time_since_epoch().count() % 1000000);
+   // next second in less than 50ms, we'll wait for the next one
    if( time_to_next_second < 50000 )      // we must sleep for at least 50ms
        time_to_next_second += 1000000;
 
@@ -212,7 +215,7 @@ block_production_condition::block_production_condition_enum witness_plugin::mayb
 {
    chain::database& db = database();
    fc::time_point now_fine = fc::time_point::now();
-   fc::time_point_sec now = now_fine + fc::microseconds( 500000 );
+   fc::time_point_sec now = now_fine;
 
    // If the next block production opportunity is in the present or future, we're synced.
    if( !_production_enabled )
@@ -225,6 +228,7 @@ block_production_condition::block_production_condition_enum witness_plugin::mayb
 
    // is anyone scheduled to produce now or one second in the future?
    uint32_t slot = db.get_slot_at_time( now );
+
    if( slot == 0 )
    {
       capture("next_time", db.get_slot_time(1));
@@ -279,7 +283,11 @@ block_production_condition::block_production_condition_enum witness_plugin::mayb
       _production_skip_flags
       );
    capture("n", block.block_num())("t", block.timestamp)("c", now);
-   fc::async( [this,block](){ p2p_node().broadcast(net::block_message(block)); } );
+   fc::async( [this,block](){
+      p2p_node().broadcast(net::block_message(block));
+      database().notify_new_block_applied( block ); //emit
+
+   } );
 
    return block_production_condition::produced;
 }

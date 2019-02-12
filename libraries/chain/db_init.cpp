@@ -44,6 +44,8 @@
 #include <graphene/chain/vesting_balance_object.hpp>
 #include <graphene/chain/withdraw_permission_object.hpp>
 #include <graphene/chain/witness_object.hpp>
+#include <graphene/chain/activenode_object.hpp>
+
 #include <graphene/chain/witness_schedule_object.hpp>
 #include <graphene/chain/worker_object.hpp>
 
@@ -61,8 +63,10 @@
 #include <graphene/chain/withdraw_permission_evaluator.hpp>
 #include <graphene/chain/witness_evaluator.hpp>
 #include <graphene/chain/worker_evaluator.hpp>
+#include <graphene/chain/activenode_evaluator.hpp>
 
 #include <graphene/chain/protocol/fee_schedule.hpp>
+#include <graphene/chain/activenode_schedule_object.hpp>
 
 #include <fc/smart_ref_impl.hpp>
 #include <fc/uint128.hpp>
@@ -172,6 +176,9 @@ void database::initialize_evaluators()
    register_evaluator<transfer_from_blind_evaluator>();
    register_evaluator<blind_transfer_evaluator>();
    register_evaluator<asset_claim_fees_evaluator>();
+   register_evaluator<activenode_create_evaluator>();
+   register_evaluator<activenode_activity_evaluator>();
+   
 }
 
 void database::initialize_indexes()
@@ -189,6 +196,8 @@ void database::initialize_indexes()
 
    add_index< primary_index<committee_member_index> >();
    add_index< primary_index<witness_index> >();
+   add_index< primary_index<activenode_index> >();
+
    add_index< primary_index<limit_order_index > >();
    add_index< primary_index<call_order_index > >();
 
@@ -218,6 +227,7 @@ void database::initialize_indexes()
    add_index< primary_index<collateral_bid_index                          > >();
 
    add_index< primary_index< simple_index< fba_accumulator_object       > > >();
+    add_index< primary_index<simple_index<activenode_schedule_object        > > >();
 }
 
 void database::init_genesis(const genesis_state_type& genesis_state)
@@ -425,6 +435,12 @@ void database::init_genesis(const genesis_state_type& genesis_state)
       }
       account_id_type account_id(apply_operation(genesis_eval_state, cop).get<object_id_type>());
 
+      if( account.is_system_account )
+      {
+         modify( account_id(*this), [&]( account_object& a ) {
+            a.is_system_account = true;
+         });
+      }
       if( account.is_lifetime_member )
       {
           account_upgrade_operation op;
@@ -615,6 +631,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    std::for_each(genesis_state.initial_witness_candidates.begin(), genesis_state.initial_witness_candidates.end(),
                  [&](const genesis_state_type::initial_witness_type& witness) {
       witness_create_operation op;
+      op.initial = true;
       op.witness_account = get_account_id(witness.owner_name);
       op.block_signing_key = witness.block_signing_key;
       apply_operation(genesis_eval_state, op);
@@ -661,6 +678,14 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    {
       for( const witness_id_type& wid : get_global_properties().active_witnesses )
          wso.current_shuffled_witnesses.push_back( wid );
+   });
+
+   // Create activenode scheduler
+   create<activenode_schedule_object>([&]( activenode_schedule_object& aso )
+   {
+       // TODO: should I
+    //   for( const activenode_id_type& aid : get_global_properties().active_nodes )
+    //      aso.current_shuffled_activenodes.push_back( aid );
    });
 
    // Create FBA counters

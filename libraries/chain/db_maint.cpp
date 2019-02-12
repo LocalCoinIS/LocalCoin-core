@@ -44,6 +44,7 @@
 #include <graphene/chain/vesting_balance_object.hpp>
 #include <graphene/chain/vote_count.hpp>
 #include <graphene/chain/witness_object.hpp>
+#include <graphene/chain/activenode_object.hpp>
 #include <graphene/chain/worker_object.hpp>
 
 namespace graphene { namespace chain {
@@ -74,9 +75,6 @@ vector<std::reference_wrapper<const typename Index::object_type>> database::sort
 
 bool database::witness_can_be_active(const witness_object& witness) const
 {
-   const account_balance_index& balance_index = get_index_type<account_balance_index>();
-   auto range = balance_index.indices().get<by_account_asset>().equal_range(boost::make_tuple(witness.witness_account));
-
    auto& account = witness.witness_account(*this);
    const auto& stats = account.statistics(*this);
    share_type total_balance = stats.total_core_in_orders.value
@@ -196,7 +194,6 @@ void database::pay_workers( share_type& budget )
       }
 
       share_type actual_pay = std::min(budget, requested_pay);
-      //ilog(" ==> Paying ${a} to worker ${w}", ("w", active_worker.id)("a", actual_pay));
       modify(active_worker, [&](worker_object& w) {
          w.worker.visit(worker_pay_visitor(actual_pay, *this));
       });
@@ -204,6 +201,115 @@ void database::pay_workers( share_type& budget )
       budget -= actual_pay;
    }
 }
+
+void database::burn_account_coins(account_id_type account, asset amount) {
+
+   const asset_dynamic_data_object& core =
+      asset_id_type(0)(*this).dynamic_asset_data_id(*this);
+
+   modify(core, [&]( asset_dynamic_data_object& _core )
+   {
+      _core.current_supply = _core.current_supply - amount.amount;
+   });
+
+   adjust_balance( account, -amount );
+}
+
+void database::update_current_activenodes()
+{ try {
+   const global_property_object& gpo = get_global_properties();
+   const dynamic_global_property_object& dpo = get_dynamic_global_properties();
+
+   const auto& anodes = get_index_type<activenode_index>().indices();
+
+   uint32_t blocks_since_maintenance = head_block_num() - dpo.previous_maintenance_block_num;
+   uint32_t min_blocks_per_node = 0;
+   if (gpo.current_activenodes.size()) 
+      min_blocks_per_node = blocks_since_maintenance / gpo.current_activenodes.size() / 2;
+
+   if (gpo.current_activenodes.size() > blocks_since_maintenance /2) {
+      wlog("Not every node will get reward - there is more than blocks_since_maintenance/2 activenodes (${nodes}/${blocks}", ("nodes", gpo.current_activenodes.size())("blocks", blocks_since_maintenance /2));
+   }
+
+   std::vector<activenode_id_type> new_activenodes;
+
+   for( const activenode_object& anode : anodes ) {
+      // node is still having penalty
+      if (anode.penalty_left > 0) {
+
+         modify(anode, [&]( activenode_object& anode_obj ){
+            anode_obj.penalty_left--;
+         });
+         
+         if (anode.penalty_left != 0) {
+            continue;
+         }
+         share_type account_balance = get_balance(anode.activenode_account, asset_id_type()).amount.value;
+         chain::activenode_create_operation create_op;
+
+         asset create_anode_fee = current_fee_schedule().calculate_fee( create_op );
+         if (account_balance < LLC_ACTIVENODE_MINIMAL_BALANCE_AFTER_SEND + create_anode_fee.amount) {
+            // если balance < min_balance + create_anode.fee, то не возвращаем к жизни, т.к. сразу удалим
+            continue;
+         }
+         burn_account_coins(anode.activenode_account, create_anode_fee);
+         new_activenodes.push_back(anode.id);
+      }
+      else {
+         uint32_t activities_num = anode.activities_sent;
+         if (anode.activities_sent >= min_blocks_per_node) {
+            new_activenodes.push_back(anode.id);
+            modify(anode, [&]( activenode_object& anode_obj ){
+               anode_obj.activities_sent = 0;
+               //for cases when min_blocks_per_node = 0 (can happen because of integer division)
+               if (anode.is_new) {
+                  anode_obj.is_new = false;
+               }
+            });
+            continue;
+         }
+
+         // if node didn't exist and it is here - we should add it
+         if (anode.is_new) {
+            new_activenodes.push_back(anode.id);
+            modify(anode, [&]( activenode_object& anode_obj ){
+               anode_obj.is_new = false;
+               anode_obj.activities_sent = 0;
+            });
+            continue;
+         }
+
+         modify(anode, [&]( activenode_object& anode_obj ){
+            anode_obj.activities_sent = 0;
+         });
+         
+         if (anode.max_penalty == LLC_ACTIVENODE_MAX_MISS_PENALTY) {
+            remove(anode);
+            continue;
+         }
+         modify(anode, [&]( activenode_object& anode_obj ){
+            if (!anode_obj.max_penalty) {
+               anode_obj.max_penalty = 1;
+            }
+            else 
+               anode_obj.max_penalty *= 2;
+            anode_obj.penalty_left = anode_obj.max_penalty;
+         });
+      }
+   }
+
+   modify(gpo, [&]( global_property_object& gp ){
+         
+      gp.current_activenodes.clear();
+      gp.current_activenodes.reserve(new_activenodes.size());
+
+      std::transform(new_activenodes.begin(), new_activenodes.end(),
+         std::inserter(gp.current_activenodes, gp.current_activenodes.end()),
+            [](const activenode_id_type& anode_id) {
+               return anode_id;
+         });
+   });
+} FC_CAPTURE_AND_RETHROW() }
 
 void database::update_active_witnesses()
 { try {
@@ -820,7 +926,9 @@ void database::process_bids( const asset_bitasset_data_object& bad )
 
 void database::perform_chain_maintenance(const signed_block& next_block, const global_property_object& global_props)
 {
+   dlog("chain_maintenance");
    const auto& gpo = get_global_properties();
+   const auto& dpo = get_dynamic_global_properties();
 
    distribute_fba_balances(*this);
    create_buyback_orders(*this);
@@ -918,6 +1026,13 @@ void database::perform_chain_maintenance(const signed_block& next_block, const g
 
    update_top_n_authorities(*this);
    update_active_witnesses();
+   //here we need to calc how many blocks each activenode has missed and throw them away if < 50%
+   // but if there more than blocks_in_interval/2 activenodes, then not every node will be granted with at least 2 blocks
+   update_current_activenodes();
+   modify( dpo, [&]( dynamic_global_property_object& _dpo )
+   {
+      _dpo.previous_maintenance_block_num = head_block_num();
+   } );
    update_active_committee_members();
    update_worker_votes();
 

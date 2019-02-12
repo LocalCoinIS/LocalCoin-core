@@ -37,6 +37,7 @@
 #include <graphene/chain/protocol/vesting.hpp>
 #include <graphene/chain/protocol/withdraw_permission.hpp>
 #include <graphene/chain/protocol/witness.hpp>
+#include <graphene/chain/protocol/activenode.hpp>
 #include <graphene/chain/protocol/worker.hpp>
 
 namespace graphene { namespace chain {
@@ -93,7 +94,9 @@ namespace graphene { namespace chain {
             asset_claim_fees_operation,
             fba_distribute_operation,       // VIRTUAL
             bid_collateral_operation,
-            execute_bid_operation           // VIRTUAL
+            execute_bid_operation,           // VIRTUAL
+            activenode_create_operation,
+            activenode_send_activity_operation
          > operation;
 
    /// @} // operations group

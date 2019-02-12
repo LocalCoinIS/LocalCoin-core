@@ -1259,6 +1259,8 @@ class wallet_api
        */
       map<string,witness_id_type>       list_witnesses(const string& lowerbound, uint32_t limit);
 
+      map<string,activenode_id_type>       list_activenodes(const string& lowerbound, uint32_t limit);
+
       /** Lists all committee_members registered in the blockchain.
        * This returns a list of all account names that own committee_members, and the associated committee_member id,
        * sorted by name.  This lists committee_members whether they are currently voted in or not.
@@ -1280,6 +1282,9 @@ class wallet_api
        */
       witness_object get_witness(string owner_account);
 
+      activenode_object get_activenode(string owner_account);
+
+
       /** Returns information about the given committee_member.
        * @param owner_account the name or id of the committee_member account owner, or the id of the committee_member
        * @returns the information about the committee_member stored in the block chain
@@ -1299,6 +1304,9 @@ class wallet_api
       signed_transaction create_witness(string owner_account,
                                         string url,
                                         bool broadcast = false);
+
+      signed_transaction create_activenode(string owner_account,
+                                              bool broadcast /* = false */);
 
       /**
        * Update a witness object owned by the given account.
@@ -1690,10 +1698,13 @@ FC_API( graphene::wallet::wallet_api,
         (whitelist_account)
         (create_committee_member)
         (get_witness)
+        (get_activenode)
         (get_committee_member)
         (list_witnesses)
+        (list_activenodes)
         (list_committee_members)
         (create_witness)
+        (create_activenode)
         (update_witness)
         (create_worker)
         (update_worker_votes)

@@ -1,0 +1,12 @@
+# we can become activenode +
+# we can become activenode with only 511 LLC +
+# we can't become activenode with 510 LLC +
+
+# we send send_activity operation and operation is included in block +
+
+# AN gets reward +
+
+# first we send activity, then we delete nodes and give out rewards +
+# if AN doesn't have 500 LLC after sending activity  - we delete account + 
+
+# we can get AN info +
