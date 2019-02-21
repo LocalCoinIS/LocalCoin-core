@@ -1,5 +1,5 @@
 {
-    "initial_timestamp": "2018-05-15T10:23:20",
+    "initial_timestamp": "2019-02-19T17:15:00",
     "max_core_supply": "360000000000000",
     "initial_parameters": {
         "current_fees": {
@@ -248,14 +248,14 @@
                 ],
                 [
                     47, {
-                      "fee": 1000000
+                        "fee": 1000000
                     }
                 ],
                 [
                     48, {
-                      "fee" : 100000
-                    }
-                ]
+						"fee": 100000
+					}
+                ]		
             ],
             "scale": 10000
         },
@@ -279,8 +279,8 @@
         "cashback_vesting_threshold": 10000000,
         "count_non_member_votes": true,
         "allow_non_member_whitelists": false,
-        "activenode_pay_per_block": 6500,
         "witness_pay_per_block": 65000,
+		"activenode_pay_per_block": 6500,
         "worker_budget_per_day": "30000000000",
         "max_predicate_opcode": 1,
         "fee_liquidation_threshold": 10000000,
@@ -290,277 +290,287 @@
         "extensions": []
     },
     "initial_accounts": [
-		  {
-			"name": "ratamahatta",
-			"owner_key": "LLC5As5Lds81xuPevHswM1qDjYYyLBJgDcWXHLa16mZFtznHnYTL5",
-			"active_key": "LLC5As5Lds81xuPevHswM1qDjYYyLBJgDcWXHLa16mZFtznHnYTL5",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "adamgottie",
-			"owner_key": "LLC7DotXzjTBA4XDB4s7LFVdX8ZLMm8XxpTLi8CT1fRDCgKyRt4ER",
-			"active_key": "LLC7DotXzjTBA4XDB4s7LFVdX8ZLMm8XxpTLi8CT1fRDCgKyRt4ER",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "winstonsmith",
-			"owner_key": "LLC595e6H6GsdqUn59hduKesEbTQxwrKqmGrLBNujrAbnngU1V6f5",
-			"active_key": "LLC595e6H6GsdqUn59hduKesEbTQxwrKqmGrLBNujrAbnngU1V6f5",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "sentriusfounders",
-			"owner_key": "LLC86jRVcZaDpiwenz6vBQsuouQg2LGNTda2uXTX7wzk3YSqcbKDW",
-			"active_key": "LLC86jRVcZaDpiwenz6vBQsuouQg2LGNTda2uXTX7wzk3YSqcbKDW",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "julia",
-			"owner_key": "LLC7zAhy5Q2vGAUmyBdrWPD47PWdPYAiGphagH4sUoAgeS38giYQd",
-			"active_key": "LLC7zAhy5Q2vGAUmyBdrWPD47PWdPYAiGphagH4sUoAgeS38giYQd",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "obrien",
-			"owner_key": "LLC7aUQU9HTU2VgxCSWAgjjaKQUnWcutrfCB86Qcbizfv9cCNKjoY",
-			"active_key": "LLC7aUQU9HTU2VgxCSWAgjjaKQUnWcutrfCB86Qcbizfv9cCNKjoY",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "aaronson",
-			"owner_key": "LLC5MGJfzVmu7dtiqPTAmn1a2tcBEKsi4aVz4nhsv36TghjtbqU2i",
-			"active_key": "LLC5MGJfzVmu7dtiqPTAmn1a2tcBEKsi4aVz4nhsv36TghjtbqU2i",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "ampleforth",
-			"owner_key": "LLC5Cq5CVy8KSp82ykEkyUVehqCKcD3VdHNo6EpcWRs7zjr27pGQF",
-			"active_key": "LLC5Cq5CVy8KSp82ykEkyUVehqCKcD3VdHNo6EpcWRs7zjr27pGQF",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "charrington",
-			"owner_key": "LLC5XiP9XkRzYTkDfBL1yVGTkTrVqyuyh18TNL3vGwPcLMvDJYFyQ",
-			"active_key": "LLC5XiP9XkRzYTkDfBL1yVGTkTrVqyuyh18TNL3vGwPcLMvDJYFyQ",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "katharine_smith",
-			"owner_key": "LLC7R2Kem1GeVCSBhMFC3Kaur5SxBcHStw1TfeKDybX9chh9KCHZ7",
-			"active_key": "LLC7R2Kem1GeVCSBhMFC3Kaur5SxBcHStw1TfeKDybX9chh9KCHZ7",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "tom_parsons",
-			"owner_key": "LLC5Viu4Vz4ir8SvnoHeXqJtVTxRRxriGxTAnU59rjQLXnaRrCSUv",
-			"active_key": "LLC5Viu4Vz4ir8SvnoHeXqJtVTxRRxriGxTAnU59rjQLXnaRrCSUv",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "syme",
-			"owner_key": "LLC7u2PcwZekAf8t6mWXdRp4YDEoTTKQ2wayiQUSvhAcHbgKZrxDh",
-			"active_key": "LLC7u2PcwZekAf8t6mWXdRp4YDEoTTKQ2wayiQUSvhAcHbgKZrxDh",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "emmanuelgoldstein",
-			"owner_key": "LLC5Cmwvstt15ToMYVPyKrkSqAHzKFeGdGvtgZ1mA4HdCvA7qAUUe",
-			"active_key": "LLC5Cmwvstt15ToMYVPyKrkSqAHzKFeGdGvtgZ1mA4HdCvA7qAUUe",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "ingsoc",
-			"owner_key": "LLC58d3SWqyhAMeuXntZtMqKhfQxac4UXvBN93UrJe5L5Q1wVQeeB",
-			"active_key": "LLC58d3SWqyhAMeuXntZtMqKhfQxac4UXvBN93UrJe5L5Q1wVQeeB",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "newspeak",
-			"owner_key": "LLC7DYg1o4YvMKDy2iBUHGJa46tEpoYHkx7Sqd4iGSipZib7F1GcL",
-			"active_key": "LLC7DYg1o4YvMKDy2iBUHGJa46tEpoYHkx7Sqd4iGSipZib7F1GcL",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "oceania",
-			"owner_key": "LLC84NdBxDTbmjUC1mhnihV2UkYv3CcJLK1qygzMyWf1upyyKi8GC",
-			"active_key": "LLC84NdBxDTbmjUC1mhnihV2UkYv3CcJLK1qygzMyWf1upyyKi8GC",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "mrbig",
-			"owner_key": "LLC59tMYLrkcj36MkKQRkgRvifghr6teZGUAem6YZCqtAmSAvKvjS",
-			"active_key": "LLC59tMYLrkcj36MkKQRkgRvifghr6teZGUAem6YZCqtAmSAvKvjS",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "ministries",
-			"owner_key": "LLC5tTZys6mHckT3vqHo3WnePYXo4vcEDftvd2dPk8X9Dc9WKS6G8",
-			"active_key": "LLC5tTZys6mHckT3vqHo3WnePYXo4vcEDftvd2dPk8X9Dc9WKS6G8",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "atlant",
-			"owner_key": "LLC8Q89BcLjdNmQqdsL9j7hCEjndQJAhEdKqtsY9xB1SmsihM7qHd",
-			"active_key": "LLC8Q89BcLjdNmQqdsL9j7hCEjndQJAhEdKqtsY9xB1SmsihM7qHd",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "felix",
-			"owner_key": "LLC8FP61MS5UFGzjeTxmQRTahBqqMsR4qwi45M8vPQJr6ky9RnMdS",
-			"active_key": "LLC8FP61MS5UFGzjeTxmQRTahBqqMsR4qwi45M8vPQJr6ky9RnMdS",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "spikemilligan",
-			"owner_key": "LLC8PTioee2Ko7EBqdXKHYi7VWZPd53t8iK4TJN74xoj5bbtCpHqt",
-			"active_key": "LLC8PTioee2Ko7EBqdXKHYi7VWZPd53t8iK4TJN74xoj5bbtCpHqt",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "ericsykes",
-			"owner_key": "LLC5QNW98eFz3WfDLtWnbygyWYKrakJctBg3sFRAgJemefk3LAMAs",
-			"active_key": "LLC5QNW98eFz3WfDLtWnbygyWYKrakJctBg3sFRAgJemefk3LAMAs",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "davidsilveria",
-			"owner_key": "LLC7Nm3ZXRLnmDSJMkQp7iR54XD6hxWUS1ad8xpRVsjUMV5fVJCCP",
-			"active_key": "LLC7Nm3ZXRLnmDSJMkQp7iR54XD6hxWUS1ad8xpRVsjUMV5fVJCCP",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "integral",
-			"owner_key": "LLC619Ho8BeJisdxfTGd9mQQkkNg6jzjPdzNpMGwMz1RKqUySTbZv",
-			"active_key": "LLC619Ho8BeJisdxfTGd9mQQkkNg6jzjPdzNpMGwMz1RKqUySTbZv",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "d503",
-			"owner_key": "LLC6BFFX3k3FPyBPe2gF5ThgvxEWvr2TGyePivfNaZ4s9e1UFptjB",
-			"active_key": "LLC6BFFX3k3FPyBPe2gF5ThgvxEWvr2TGyePivfNaZ4s9e1UFptjB",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "i303",
-			"owner_key": "LLC7kFQDPq6wvYJQKfcjUKufDpZebhYuAq6xH1Fh2n3D1XmJ8nemf",
-			"active_key": "LLC7kFQDPq6wvYJQKfcjUKufDpZebhYuAq6xH1Fh2n3D1XmJ8nemf",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "murphy",
-			"owner_key": "LLC7eBbqQQMirEbFP6uN1RStgJznua2r56UKyucQK9huvbdbWFyCv",
-			"active_key": "LLC7eBbqQQMirEbFP6uN1RStgJznua2r56UKyucQK9huvbdbWFyCv",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "millie",
-			"owner_key": "LLC7DC94xVc98RxSCBetXe11rkm1mvLWWmHcVkLNsVonf5FTgaX3m",
-			"active_key": "LLC7DC94xVc98RxSCBetXe11rkm1mvLWWmHcVkLNsVonf5FTgaX3m",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "stoneman",
-			"owner_key": "LLC7LP1UA7Fhn9xxSj2rt8vrErDTVMFwFZ6ECbZzzWuVYdxABUmAj",
-			"active_key": "LLC7LP1UA7Fhn9xxSj2rt8vrErDTVMFwFZ6ECbZzzWuVYdxABUmAj",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "faber",
-			"owner_key": "LLC4vMGqRGVTGLMtU5DLZZhLLMTVcNzemGRg1Hsi16cn1akbC2GXF",
-			"active_key": "LLC4vMGqRGVTGLMtU5DLZZhLLMTVcNzemGRg1Hsi16cn1akbC2GXF",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "granger",
-			"owner_key": "LLC5eHrwcdkHx2d5DqHxka4ibsbY5A3oY5eJvio7S9u8U1nkDSJF7",
-			"active_key": "LLC5eHrwcdkHx2d5DqHxka4ibsbY5A3oY5eJvio7S9u8U1nkDSJF7",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "montag",
-			"owner_key": "LLC5jXn6tniyKdr4Jh1J8L4tBo8UtUmcdk7jxiYLV4JChAG35QCbU",
-			"active_key": "LLC5jXn6tniyKdr4Jh1J8L4tBo8UtUmcdk7jxiYLV4JChAG35QCbU",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "sirius",
-			"owner_key": "LLC8A2uXacycgZpczmCMLWBA1zhBQhZFuQKGRUekBi1CMnCk6T6Ht",
-			"active_key": "LLC8A2uXacycgZpczmCMLWBA1zhBQhZFuQKGRUekBi1CMnCk6T6Ht",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "hades",
-			"owner_key": "LLC7CrSgFPaVYVMF5uD8yFtkkUCUcgubegiTkhmHQ42uNZ77mDPst",
-			"active_key": "LLC7CrSgFPaVYVMF5uD8yFtkkUCUcgubegiTkhmHQ42uNZ77mDPst",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "aphaea",
-			"owner_key": "LLC8ei9eSuDpT786kwiWe1vnaHf11R64Xh6mVnbHApWdZXuRUMhkL",
-			"active_key": "LLC8ei9eSuDpT786kwiWe1vnaHf11R64Xh6mVnbHApWdZXuRUMhkL",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "germut",
-			"owner_key": "LLC6mTiS4utRzXdxtspZiskEB92n6bBJaQVQVgEQ9rrCghhcCujVZ",
-			"active_key": "LLC6mTiS4utRzXdxtspZiskEB92n6bBJaQVQVgEQ9rrCghhcCujVZ",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "notteler",
-			"owner_key": "LLC5LgdSKUsFJfubfpvbeYDA8ZsA9vb5q2eTxDHVt3oZ976TJsori",
-			"active_key": "LLC5LgdSKUsFJfubfpvbeYDA8ZsA9vb5q2eTxDHVt3oZ976TJsori",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "localcoin",
-			"owner_key": "LLC5SPGKGxeTRALniENvEErebutnoAK14Yj3DxyFsixyijG5mmtMb",
-			"active_key": "LLC5SPGKGxeTRALniENvEErebutnoAK14Yj3DxyFsixyijG5mmtMb",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "localcoin-ico",
-			"owner_key": "LLC6gjeAMUwBrAvruaEke2ts7i5Y4HPqWSva7dwh9qrrWbateDYKL",
-			"active_key": "LLC6gjeAMUwBrAvruaEke2ts7i5Y4HPqWSva7dwh9qrrWbateDYKL",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "localcoin-airdrop",
-			"owner_key": "LLC5XwDDRhAYZT8iysgwmk1fDiSG9RBxLUsV1CSxLeajgTymrDoZk",
-			"active_key": "LLC5XwDDRhAYZT8iysgwmk1fDiSG9RBxLUsV1CSxLeajgTymrDoZk",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "localcoin-bounty",
-			"owner_key": "LLC63sLBejkzamXBzLm9kuAoWvdSf9TgwAL5iSVZqsCa3c9ojZ61e",
-			"active_key": "LLC63sLBejkzamXBzLm9kuAoWvdSf9TgwAL5iSVZqsCa3c9ojZ61e",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "localcoin-bridge",
-			"owner_key": "LLC5QczRGc3PizgjEGsUr4QaPqUSxDsxpXLRTyLqg1NGC6p4W42As",
-			"active_key": "LLC5QczRGc3PizgjEGsUr4QaPqUSxDsxpXLRTyLqg1NGC6p4W42As",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "localcoin-wallet",
-			"owner_key": "LLC8HMfxokYUQHZN8FtGvdQSvFD8PfiGqsus9QxA1uE8nukhS6Sd8",
-			"active_key": "LLC8HMfxokYUQHZN8FtGvdQSvFD8PfiGqsus9QxA1uE8nukhS6Sd8",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "localcoin-otc",
-			"owner_key": "LLC8jjVcCPZW8FydXBVhTU9cjrRSvaAy9oqFUXQ9TVAyWZMwydBLp",
-			"active_key": "LLC8jjVcCPZW8FydXBVhTU9cjrRSvaAy9oqFUXQ9TVAyWZMwydBLp",
-			"is_lifetime_member": true
-		  },
-		  {
-			"name": "localcoin-fiat",
-			"owner_key": "LLC6onaviRoNUtgoeivzcd1LYszeJkMo4hWrVDjPvxKtquemE7VB1",
-			"active_key": "LLC6onaviRoNUtgoeivzcd1LYszeJkMo4hWrVDjPvxKtquemE7VB1",
-			"is_lifetime_member": true
-		  }
-		],
+	  {
+		"name": "ratamahatta",
+		"owner_key": "LLC5X6Gyae4tq49uJ3LeVDymRnNDbWFwpVZqzkmk9ZzBQFEDGgabY",
+		"active_key": "LLC5X6Gyae4tq49uJ3LeVDymRnNDbWFwpVZqzkmk9ZzBQFEDGgabY",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "adamgottie",
+		"owner_key": "LLC8hVi9DP17ctdfTG8zPDNmLSWD6CYmKa9Sfj22edfA3ges9hBq9",
+		"active_key": "LLC8hVi9DP17ctdfTG8zPDNmLSWD6CYmKa9Sfj22edfA3ges9hBq9",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "winstonsmith",
+		"owner_key": "LLC816R4zNkroH66rMXdrwcGUySEctRUVMj5XzAGSpmy7upoTPGBK",
+		"active_key": "LLC816R4zNkroH66rMXdrwcGUySEctRUVMj5XzAGSpmy7upoTPGBK",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "sentriusfounders",
+		"owner_key": "LLC7sNuuTwCfg66J3WfcrW6qvs85wKxfwYpWuJX3DVdEx45GTD9GH",
+		"active_key": "LLC7sNuuTwCfg66J3WfcrW6qvs85wKxfwYpWuJX3DVdEx45GTD9GH",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "julia",
+		"owner_key": "LLC7d9NC2zoPX7zpvS3XbrZba8vu7LxihVPxSwnuDohfUYVvgRLKy",
+		"active_key": "LLC7d9NC2zoPX7zpvS3XbrZba8vu7LxihVPxSwnuDohfUYVvgRLKy",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "obrien",
+		"owner_key": "LLC8S3q6334wRthZRnR31cbUiJ1PfVESTvGT9uCkjud9pFFYRpB5E",
+		"active_key": "LLC8S3q6334wRthZRnR31cbUiJ1PfVESTvGT9uCkjud9pFFYRpB5E",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "aaronson",
+		"owner_key": "LLC5SV5jZKp6pLv1MFdtyo5edLfaRvg3uCR1m3r8tVtMbBDFPwoQA",
+		"active_key": "LLC5SV5jZKp6pLv1MFdtyo5edLfaRvg3uCR1m3r8tVtMbBDFPwoQA",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "ampleforth",
+		"owner_key": "LLC8ZJTY1YRbkjFxmv5EzvAHwgDifDkGiuYYCbyYede89jw25abW8",
+		"active_key": "LLC8ZJTY1YRbkjFxmv5EzvAHwgDifDkGiuYYCbyYede89jw25abW8",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "charrington",
+		"owner_key": "LLC7VmmoqLA9zMW6mzMSuV8TCQ7C1jGFsnDrEx5HUvBuqWqRjs7P5",
+		"active_key": "LLC7VmmoqLA9zMW6mzMSuV8TCQ7C1jGFsnDrEx5HUvBuqWqRjs7P5",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "katharinesmith",
+		"owner_key": "LLC64JV4zBR2jgdf48sH3WBzR7LM8ALPJ91byq7fsSbGjE4KYn4ZU",
+		"active_key": "LLC64JV4zBR2jgdf48sH3WBzR7LM8ALPJ91byq7fsSbGjE4KYn4ZU",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "tomparsons",
+		"owner_key": "LLC5ZKh65SXMGhaV1K4A8c93pjbgtdWQMPSc8GkXk1bmAz7NZSQKK",
+		"active_key": "LLC5ZKh65SXMGhaV1K4A8c93pjbgtdWQMPSc8GkXk1bmAz7NZSQKK",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "syme",
+		"owner_key": "LLC7gvpkneBXTnj4rKwe9agA1MLvbwqDpe6MXYo4eRoombukeQuEE",
+		"active_key": "LLC7gvpkneBXTnj4rKwe9agA1MLvbwqDpe6MXYo4eRoombukeQuEE",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "emmanuelgoldstein",
+		"owner_key": "LLC8bzKsnkWE6ia4BxE4wy1m9atps5ybj4Yv39UotBBcTwAPp4vos",
+		"active_key": "LLC8bzKsnkWE6ia4BxE4wy1m9atps5ybj4Yv39UotBBcTwAPp4vos",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "ingsoc",
+		"owner_key": "LLC6HhawS5mJAWXsLh1wDHEGFwt91QkszHJZx6Hwyq8QwgNLFi3cW",
+		"active_key": "LLC6HhawS5mJAWXsLh1wDHEGFwt91QkszHJZx6Hwyq8QwgNLFi3cW",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "newspeak",
+		"owner_key": "LLC6Nj4v7q3wG8gmJxaxhazzi22i3dQ6hWXtJPCrTzZxBUKbUB2Zv",
+		"active_key": "LLC6Nj4v7q3wG8gmJxaxhazzi22i3dQ6hWXtJPCrTzZxBUKbUB2Zv",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "oceania",
+		"owner_key": "LLC5z37hpk5TezLFq6PtvfwfaLLFtEdw8imhXv74izGjBXigLJk4i",
+		"active_key": "LLC5z37hpk5TezLFq6PtvfwfaLLFtEdw8imhXv74izGjBXigLJk4i",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "mrbig",
+		"owner_key": "LLC8AWYsa1kkA7hU1RDzMqJHBK4gD1T3LnEChqmccJeaiyBokeCMY",
+		"active_key": "LLC8AWYsa1kkA7hU1RDzMqJHBK4gD1T3LnEChqmccJeaiyBokeCMY",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "ministries",
+		"owner_key": "LLC7LxFEsF9CkLUNRLV8MXjCDVmD1b7dC7YSJfw6rGGQkPeaFC4vp",
+		"active_key": "LLC7LxFEsF9CkLUNRLV8MXjCDVmD1b7dC7YSJfw6rGGQkPeaFC4vp",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "atlant",
+		"owner_key": "LLC51JH9GLerioj3MeQYytkKV4i6r1FfK8rChb3jkDNhEsKrUS27X",
+		"active_key": "LLC51JH9GLerioj3MeQYytkKV4i6r1FfK8rChb3jkDNhEsKrUS27X",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "felix",
+		"owner_key": "LLC7VTgFhNjkxxQGXRCTTmnitsttZ2AsuuzguHJjiDAtHB7LANw6C",
+		"active_key": "LLC7VTgFhNjkxxQGXRCTTmnitsttZ2AsuuzguHJjiDAtHB7LANw6C",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "spikemilligan",
+		"owner_key": "LLC7xxE64MyDipc84jutQbX66Z4MJPujrxX6PpzqGWwEBcNhPsDy7",
+		"active_key": "LLC7xxE64MyDipc84jutQbX66Z4MJPujrxX6PpzqGWwEBcNhPsDy7",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "ericsykes",
+		"owner_key": "LLC7R5LvHMLPofxVjDVEyfxbD1GT9m1cyoCyjrFeijvVmtF5wKyeK",
+		"active_key": "LLC7R5LvHMLPofxVjDVEyfxbD1GT9m1cyoCyjrFeijvVmtF5wKyeK",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "davidsilveria",
+		"owner_key": "LLC7Pcrak7boqWi8jNErUiECQerSdEwDbqNeDnzNTMNmg4DZqByS1",
+		"active_key": "LLC7Pcrak7boqWi8jNErUiECQerSdEwDbqNeDnzNTMNmg4DZqByS1",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "integral",
+		"owner_key": "LLC8hp2ei3wfugApW3gsNzY8hYefLKF32YiufG6iRKHwk7W95BJ6A",
+		"active_key": "LLC8hp2ei3wfugApW3gsNzY8hYefLKF32YiufG6iRKHwk7W95BJ6A",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "d503",
+		"owner_key": "LLC4zkfWa7Ku1vTPuWHSXR9g1Xe1T37NSKNbMhCrnFaZPPR1V79pj",
+		"active_key": "LLC4zkfWa7Ku1vTPuWHSXR9g1Xe1T37NSKNbMhCrnFaZPPR1V79pj",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "i303",
+		"owner_key": "LLC6gHrZnRWpRS2HmGkC275pbybjwwjDEJLvxfkUon3nyMTXiPkDs",
+		"active_key": "LLC6gHrZnRWpRS2HmGkC275pbybjwwjDEJLvxfkUon3nyMTXiPkDs",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "murphy",
+		"owner_key": "LLC7NuNRbeFqQheKPCAAcANwSBjNL5UZcnEpU8jPvDozshSrXntwa",
+		"active_key": "LLC7NuNRbeFqQheKPCAAcANwSBjNL5UZcnEpU8jPvDozshSrXntwa",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "millie",
+		"owner_key": "LLC8i2CQqg1CG3mxdAGDciDbbUfjynzueLMwJwV4kcChfTCAFSiQd",
+		"active_key": "LLC8i2CQqg1CG3mxdAGDciDbbUfjynzueLMwJwV4kcChfTCAFSiQd",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "stoneman",
+		"owner_key": "LLC8hroPyg37hgFudRwzv7u8fU2265Eio7TpimxHpCabka93rnn7z",
+		"active_key": "LLC8hroPyg37hgFudRwzv7u8fU2265Eio7TpimxHpCabka93rnn7z",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "faber",
+		"owner_key": "LLC86h9p1a9TZ1wDvY5QS62g3h2sf72Mq1fy7BNcEctTPnUACNZnX",
+		"active_key": "LLC86h9p1a9TZ1wDvY5QS62g3h2sf72Mq1fy7BNcEctTPnUACNZnX",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "granger",
+		"owner_key": "LLC4xZHKyeQqo6GkCFzqTSLNqpuALGRtoxMBuU3b6aipy1uqMWeJv",
+		"active_key": "LLC4xZHKyeQqo6GkCFzqTSLNqpuALGRtoxMBuU3b6aipy1uqMWeJv",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "montag",
+		"owner_key": "LLC6qrK6Yju6w44JFcPdH5DMAs92xKANcEWvmMbR3Xm6vPnyx5f6f",
+		"active_key": "LLC6qrK6Yju6w44JFcPdH5DMAs92xKANcEWvmMbR3Xm6vPnyx5f6f",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "sirius",
+		"owner_key": "LLC67JoBwoKrVvnyW8v8F4zfdsevdkNtswGMiSf5K3uYAV3DHG5Lt",
+		"active_key": "LLC67JoBwoKrVvnyW8v8F4zfdsevdkNtswGMiSf5K3uYAV3DHG5Lt",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "hades",
+		"owner_key": "LLC838VtdE6YEsH5BcDak3dmh5dfMLQCb98BtszKdwyCVyFqCbSS6",
+		"active_key": "LLC838VtdE6YEsH5BcDak3dmh5dfMLQCb98BtszKdwyCVyFqCbSS6",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "aphaea",
+		"owner_key": "LLC5vwFwueDtjfVs8p5o6HFM8CXL2DCfGfPpmUZNHv1hVtY3RFHiw",
+		"active_key": "LLC5vwFwueDtjfVs8p5o6HFM8CXL2DCfGfPpmUZNHv1hVtY3RFHiw",
+		"is_lifetime_member": true
+	  },
+	  {
+		"name": "germut",
+		"owner_key": "LLC7UQHEFcxgCQGSCFZCTJ6HzgBusWQbJKhgk51tkS837gFtJXR1d",
+		"active_key": "LLC7UQHEFcxgCQGSCFZCTJ6HzgBusWQbJKhgk51tkS837gFtJXR1d",
+		"is_lifetime_member": true,
+		"is_system_account": true
+	  },
+	  {
+		"name": "notteler",
+		"owner_key": "LLC5Mn9MfNLFjWmSSUPz2LRriWA3SRBx8kC4iz7jjTzUow4GFAZbw",
+		"active_key": "LLC5Mn9MfNLFjWmSSUPz2LRriWA3SRBx8kC4iz7jjTzUow4GFAZbw",
+		"is_lifetime_member": true,
+		"is_system_account": true
+	  },
+	  {
+		"name": "localcoin",
+		"owner_key": "LLC8XxNQ9BKSe9V7kbNKvn5Kqsp1WwjXJLvuFKjNQ3pkSfGPmKBpr",
+		"active_key": "LLC8XxNQ9BKSe9V7kbNKvn5Kqsp1WwjXJLvuFKjNQ3pkSfGPmKBpr",
+		"is_lifetime_member": true,
+		"is_system_account": true
+	  },
+	  {
+		"name": "localcoin-ico",
+		"owner_key": "LLC6wBPcbqW8NWNo2aL61vetkxEe31qGQU6He3Gnc8chVgBop4GJp",
+		"active_key": "LLC6wBPcbqW8NWNo2aL61vetkxEe31qGQU6He3Gnc8chVgBop4GJp",
+		"is_lifetime_member": true,
+		"is_system_account": true
+	  },
+	  {
+		"name": "localcoin-airdrop",
+		"owner_key": "LLC51Qd8cXGxV12o6aHWdivPLst2VT23cnSr61wcov9qbR2KPy9nQ",
+		"active_key": "LLC51Qd8cXGxV12o6aHWdivPLst2VT23cnSr61wcov9qbR2KPy9nQ",
+		"is_lifetime_member": true,
+		"is_system_account": true
+	  },
+	  {
+		"name": "localcoin-bounty",
+		"owner_key": "LLC7qwEQtfjGZgUqRX5CmjZwxo7Qr5CboaqqmowjWWEVHx7Vb8Xmo",
+		"active_key": "LLC7qwEQtfjGZgUqRX5CmjZwxo7Qr5CboaqqmowjWWEVHx7Vb8Xmo",
+		"is_lifetime_member": true,
+		"is_system_account": true
+	  },
+	  {
+		"name": "localcoin-bridge",
+		"owner_key": "LLC6uGYmw7kQLNK3KHYE8yT175N16sFvURatR9gZw9KuVpbNHycYK",
+		"active_key": "LLC6uGYmw7kQLNK3KHYE8yT175N16sFvURatR9gZw9KuVpbNHycYK",
+		"is_lifetime_member": true,
+		"is_system_account": true
+	  },
+	  {
+		"name": "localcoin-wallet",
+		"owner_key": "LLC6A8G4GGL9aEjkdxieRkDXn2DAJKykHwGMivzSdRuMmReTsEfvk",
+		"active_key": "LLC6A8G4GGL9aEjkdxieRkDXn2DAJKykHwGMivzSdRuMmReTsEfvk",
+		"is_lifetime_member": true,
+		"is_system_account": true
+	  },
+	  {
+		"name": "localcoin-otc",
+		"owner_key": "LLC6PvWCF3WQ2YzvKA4EQDjwxH4zoLKd5hE3KiTvFJY1pVb9DKM1L",
+		"active_key": "LLC6PvWCF3WQ2YzvKA4EQDjwxH4zoLKd5hE3KiTvFJY1pVb9DKM1L",
+		"is_lifetime_member": true,
+		"is_system_account": true
+	  },
+	  {
+		"name": "localcoin-fiat",
+		"owner_key": "LLC4z6Zca32qnWjqjsQf69WswCgGYKEQm9BiBN68DZQmmcicr9pHK",
+		"active_key": "LLC4z6Zca32qnWjqjsQf69WswCgGYKEQm9BiBN68DZQmmcicr9pHK",
+		"is_lifetime_member": true,
+		"is_system_account": true
+	  }
+	],
     "initial_assets": [
       {
         "symbol": "BTC",
@@ -2642,6 +2652,36 @@
         "collateral_records": [],
         "accumulated_fees": 0
       },
+      {
+        "symbol": "EURT",
+        "issuer_name": "localcoin-wallet",
+        "max_supply": 100000000000000000,
+        "precision": 6,
+        "description": "EURT is a derivative that tracks the real value of 1 Tether EUR - https://tether.to It is 100% decentralized asset, backed 1:1 by real EURT and can be deposited or withdrawn using bridge or gateway services.",
+        "is_bitasset": false,
+        "collateral_records": [],
+        "accumulated_fees": 0
+      },	
+      {
+        "symbol": "USDC",
+        "issuer_name": "localcoin-wallet",
+        "max_supply": 100000000000000000,
+        "precision": 6,
+        "description": "USDC is a derivative that tracks the real value of 1 USD stablecoin from Circle and Coinbase - https://www.centre.io/usdc It is 100% decentralized asset, backed 1:1 by real USDC and can be deposited or withdrawn using bridge or gateway services.",
+        "is_bitasset": false,
+        "collateral_records": [],
+        "accumulated_fees": 0
+      },	
+      {
+        "symbol": "USDS",
+        "issuer_name": "localcoin-wallet",
+        "max_supply": 100000000000000000,
+        "precision": 6,
+        "description": "USDS is a derivative that tracks the real value of 1 StableUSD - https://www.stably.io/ It is 100% decentralized asset, backed 1:1 by real USDS and can be deposited or withdrawn using bridge or gateway services.",
+        "is_bitasset": false,
+        "collateral_records": [],
+        "accumulated_fees": 0
+      },		  
       {
         "symbol": "WBB",
         "issuer_name": "localcoin-wallet",
@@ -18023,11 +18063,11 @@
         "accumulated_fees": 0
       },
       {
-        "symbol": "AngolanKwanza",
+        "symbol": "AOAK",
         "issuer_name": "localcoin-fiat",
         "max_supply": 100000000000000000,
         "precision": 6,
-        "description": "AngolanKwanza is a derivative that tracks the real value of 1 Kwanza - The official currency of ANGOLA. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
+        "description": "AOAK is a derivative that tracks the real value of 1 Kwanza - The official currency of ANGOLA. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
         "is_bitasset": true,
         "collateral_records": [],
         "accumulated_fees": 0
@@ -18047,7 +18087,7 @@
         "issuer_name": "localcoin-fiat",
         "max_supply": 100000000000000000,
         "precision": 6,
-        "description": "AUD is a derivative that tracks the real value of 1 Australian Dollar - The official currency of AUSTRALIA, CHRISTMAS ISLAND, COCOS (KEELING) ISLANDS (THE), HEARD ISLAND AND McDONALD ISLANDS, KIRIBATI, NAURU, NORFOLK ISLAND, TUVALU. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
+        "description": "AUD is a derivative that tracks the real value of 1 Australian Dollar. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
         "is_bitasset": true,
         "collateral_records": [],
         "accumulated_fees": 0
@@ -18377,7 +18417,7 @@
         "issuer_name": "localcoin-fiat",
         "max_supply": 100000000000000000,
         "precision": 6,
-        "description": "EUR is a derivative that tracks the real value of 1 Euro - The official currency of ÅLAND ISLANDS, ANDORRA, AUSTRIA, BELGIUM, CYPRUS, ESTONIA, EUROPEAN UNION, FINLAND, FRANCE, FRENCH GUIANA, FRENCH SOUTHERN TERRITORIES (THE), GERMANY, GREECE, GUADELOUPE, HOLY SEE (THE), IRELAND, ITALY, LATVIA, LITHUANIA, LUXEMBOURG, MALTA, MARTINIQUE, MAYOTTE, MONACO, MONTENEGRO, NETHERLANDS (THE), PORTUGAL, RÉUNION, SAINT BARTHÉLEMY, SAINT MARTIN (FRENCH PART), SAINT PIERRE AND MIQUELON, SAN MARINO, SLOVAKIA, SLOVENIA, SPAIN. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
+        "description": "EUR is a derivative that tracks the real value of 1 Euro - The official currency of The European Union. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
         "is_bitasset": true,
         "collateral_records": [],
         "accumulated_fees": 0
@@ -18397,7 +18437,7 @@
         "issuer_name": "localcoin-fiat",
         "max_supply": 100000000000000000,
         "precision": 6,
-        "description": "FKP is a derivative that tracks the real value of 1 Falkland Islands Pound - The official currency of FALKLAND ISLANDS (THE) [MALVINAS]. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
+        "description": "FKP is a derivative that tracks the real value of 1 Falkland Islands Pound - The official currency of FALKLAND ISLANDS. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
         "is_bitasset": true,
         "collateral_records": [],
         "accumulated_fees": 0
@@ -18407,7 +18447,7 @@
         "issuer_name": "localcoin-fiat",
         "max_supply": 100000000000000000,
         "precision": 6,
-        "description": "GBP is a derivative that tracks the real value of 1 Pound Sterling - The official currency of GUERNSEY, ISLE OF MAN, JERSEY, UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND (THE), SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
+        "description": "GBP is a derivative that tracks the real value of 1 Pound Sterling - The official currency of The UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
         "is_bitasset": true,
         "collateral_records": [],
         "accumulated_fees": 0
@@ -19243,11 +19283,11 @@
         "accumulated_fees": 0
       },
       {
-        "symbol": "TurkmenManat",
+        "symbol": "TMTU",
         "issuer_name": "localcoin-fiat",
         "max_supply": 100000000000000000,
         "precision": 6,
-        "description": "TurkmenManat is a derivative that tracks the real value of 1 Turkmenistan New Manat - The official currency of TURKMENISTAN. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
+        "description": "TMTU is a derivative that tracks the real value of 1 Turkmenistan New Manat - The official currency of TURKMENISTAN. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
         "is_bitasset": true,
         "collateral_records": [],
         "accumulated_fees": 0
@@ -19337,7 +19377,7 @@
         "issuer_name": "localcoin-fiat",
         "max_supply": 100000000000000000,
         "precision": 6,
-        "description": "USD is a derivative that tracks the real value of 1 US Dollar - The official currency of AMERICAN SAMOA, BONAIRE, BAHAMAS (THE), SINT EUSTATIUS AND SABA, BRITISH INDIAN OCEAN TERRITORY (THE), ECUADOR, EL SALVADOR, GUAM, HAITI, MARSHALL ISLANDS (THE), MICRONESIA (FEDERATED STATES OF), NORTHERN MARIANA ISLANDS (THE), PALAU, PANAMA, PUERTO RICO, TIMOR-LESTE, TURKS AND CAICOS ISLANDS (THE), UNITED STATES MINOR OUTLYING ISLANDS (THE), UNITED STATES OF AMERICA (THE), VIRGIN ISLANDS (BRITISH), VIRGIN ISLANDS (U.S.). It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
+        "description": "USD is a derivative that tracks the real value of 1 US Dollar. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
         "is_bitasset": true,
         "collateral_records": [],
         "accumulated_fees": 0
@@ -19437,7 +19477,7 @@
         "issuer_name": "localcoin-fiat",
         "max_supply": 100000000000000000,
         "precision": 6,
-        "description": "XCD is a derivative that tracks the real value of 1 East Caribbean Dollar - The official currency of ANGUILLA, ANTIGUA AND BARBUDA, DOMINICA, GRENADA, MONTSERRAT, SAINT KITTS AND NEVIS, SAINT LUCIA, SAINT VINCENT AND THE GRENADINES. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
+        "description": "XCD is a derivative that tracks the real value of 1 East Caribbean Dollar. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
         "is_bitasset": true,
         "collateral_records": [],
         "accumulated_fees": 0
@@ -19531,297 +19571,425 @@
         "is_bitasset": true,
         "collateral_records": [],
         "accumulated_fees": 0
-      },
-      {
-        "symbol": "ZWL",
-        "issuer_name": "localcoin-fiat",
-        "max_supply": 100000000000000000,
-        "precision": 6,
-        "description": "ZWL is a derivative that tracks the real value of 1 Zimbabwe Dollar - The official currency of ZIMBABWE. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
-        "is_bitasset": true,
-        "collateral_records": [],
-        "accumulated_fees": 0
-      },
-      {
-        "symbol": "ZMK",
-        "issuer_name": "localcoin-fiat",
-        "max_supply": 100000000000000000,
-        "precision": 6,
-        "description": "ZMK is a derivative that tracks the real value of 1 Zambian kwacha - The official currency of Zambia. It is 100% decentralized and backed by the collateral held by the blockchain in smart contract",
-        "is_bitasset": true,
-        "collateral_records": [],
-        "accumulated_fees": 0
       }
     ],
     "initial_balances": [
-		  {
-			"owner": "LLC8ZQVHc5iVBGQUemvYDt9XeN9yNVS3pXDu",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCDKJvz496NwfFwhoDzHzw7SmBx2TTinz3v",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCHQ76r6BeZwpcX9sno9AvtcPYf1q5Czk1t",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCPpjbF6dGremKqLEQ4pbyhaidVGKC5Qsk5",
-			"asset_symbol": "LLC",
-			"amount": 9000000000
-		  },
-		  {
-			"owner": "LLC8xJ9GJye8biN2umfQhiNQB36gVADmMoC2",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLC8NdNXYR5ouUoksDWTgMnbgiLMQosAuM1Q",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCNTM1kVGh9nW7o5QyrUEkmSWVNPhtxDP1n",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCA3oUGSptvCGeTFzXsCrjJMV6Z3FfgUZWD",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLC9WUFBFaGeqQSWN4kCmqHHBCs29G3R4Jwu",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCAkTRKokxyWTcs75WptLSWzxjWPqXCN7SM",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLC91TrXaP8EuTTraCn9kXc6nArbRX5KnaSP",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCBK72R2E3rm2tXH2bJpNWf7hhAuu7DfPtY",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCGa6nS7Z9G25N3Zo822Qm81oW8zToRgDix",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCJAWHaBpdmVrSBSWCkBLiD1VMsED5qxh1H",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLC9dDWQ2QjaGuEreMZeLL7JK3MU4r6Txodi",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLC4mqGTnXAiP3DfFS3KrekoWeKaLbZ38sFs",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLC5C3xiiMzCitiL3QaxhunJKBXEnSw3xWxf",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCDDXfzWhgFcF14ca3GTuZUtb2tFPSSh6WL",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCKqwfMGBajLRS4EPtwkU31chRZz5X2gVjx",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCKaJk5ZN3BQCgoxTAfTJ37bSmgxETUCKwd",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLC5dhEHXRCJR6d1LmFoDNCErvV9S7DzjkB9",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCHF2HqtyVWTbcbXuxKrXfChsXop1tMcER8",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCJo6HakiFrtbj2eQmkUTPFALCZ4qAy4ozf",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCGBQLntZsr6tvdD2bNykVLCTXBgd17Hoxa",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCFSw5BxENqDmAmC3fgAaMXTXMpwWqshbEb",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLC8E5B4ofj8ZPvh2CRvyfTkMXRN3EA9s9eW",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCHcUbjiFhGZxjB7o6SqgkSQ3UpxWky7zGz",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLC2CHSyiR4yb9eKxY6MjWPRWMLq9Jd4AYtV",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLC3Ge9uMbvFsei6gcREEV31Wt3jugbXPyqX",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCLwonPU5AghVpmsQc5g6H32BjoYMjPVKjd",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCMBDJWiz71nL4eqgxvErqRMBhF8q6R1kWE",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLC4tzxqe4tvLrW7AwLYD5m5a1TA46XHy52k",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLC63cMn6UttNpkn1Kx1U57hL38eAggKiczr",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLC4Rx9d7nxj72f5n2XeN8DMDQ98YfmzwaVL",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCJ3LAZAmWFCUd2BmAZehoDva9JaTASS3Nv",
-			"asset_symbol": "LLC",
-			"amount": 10000000000
-		  },
-		  {
-			"owner": "LLCGqr6pDBjAfrYmmvEJxwKnZEU4hCbqgA1r",
-			"asset_symbol": "LLC",
-			"amount": 80000000000000
-		  },
-		  {
-			"owner": "LLC2ZuwBaZickSkQNaJyftEkGbpvqo7XPDUd",
-			"asset_symbol": "LLC",
-			"amount": 20000000000000
-		  },
-		  {
-			"owner": "LLCDjg1REMTnDEnrbksWeA8GyWquc6EKrkS5",
-			"asset_symbol": "LLC",
-			"amount": 10000000000000
-		  },
-		  {
-			"owner": "LLCDWdExFSSWh32t8Uxs6tuc1chevYSQdcg4",
-			"asset_symbol": "LLC",
-			"amount": 1000000000000
-		  },
-		  {
-			"owner": "LLC6GktQgoZmgSP87xrGatt69tsMDX58oss7",
-			"asset_symbol": "LLC",
-			"amount": 1000000000000
-		  }
-		], 
+	  {
+		"owner": "LLCGK4biamsaJrprdgBEod7ngzUDnW5ty8Jp",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCBMhKKPgjGNAdezzXjhdjJ6ZztwHr2jmHd",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCE8HW9MBXEDE6SHrhL7nHQqW9N1B6AzZHY",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCBYvzz98okkZZ832W9WSw44zbE7ea3qxtA",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCBduzgNW4kSP5SS8UtC96LF9MEY4tNp1sG",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLC2EbXJ8aBnWbhmZXBvsPpExCKm4Y2w2uuT",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCD13umxgnSwF9V5P9Zhyuk1afAdEA1NtLY",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCDMhG6ayLdpcHuG8Gkb8PcU6EStEZUsYp3",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLC6M7CFxK4HgzhTf4xWaNThZ7DjV3vKVApT",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCMHVrxuNA3skpG6s4Cjf4UqHmDUcDRXp78",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLC73Uc3VE9oJgcBgyP7Y4WmSskK6qSRKAAo",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCCLPkgbW78iMomHnR5xADYYhQWSbYRYdYP",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCPMjqtMvGKdrCzUDMs24ehtR9oeLrfb2SG",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLC5BQN12PLQLBkPouaTnZRVjB38seNq5r86",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCQHVpSSYfFtFBZ9foQKhcBgA42DLgm3ie3",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCJNZjhbGX1xCeoSzMmcbqnSQMCCx5vf41H",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCL6HRX6hvNBenvrA8TJzcjMFgbwaoUpnRP",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCCXCXvAyYe7DVNuj1fq6nq3TjGVzkRRs9h",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCPbCF3GkfeG82BVw8R237cLT6TUcqfr7cU",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCQJJYjJVfRMeS2DZLfrba2dXk4LsDpzxqQ",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLC94C8S43CZPEs5KYbsdNGm4c84TwBxxtZv",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLC5zyoRP17USNgzB7uacAZhDAXwpvcA7wAf",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLC68Y8MpPg5NKXmhGhZbgGq1Dvk14DNVoy1",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCDoV5HDjA6Jw2igBi39No7Ft8YrjhZJRvT",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCChn3JBB2tpCSHc5XUXxco6YMfiubWrHKF",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLC3dXwKwPL64MRXJR3TztDPSr7iNcnpFXSu",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCFLEmUsjfqc8BPvoCtr2pfL3oe7J5y7Fkt",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCAhP7TUnZJ3QbNnVavkeuPQ8ohZyGUo6dv",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCGfXxhbFo8BUfzwGNqsH21VjrbYR2D6pLe",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLC2JMmBKsxSwsqN4zSFqjFFLw7rJ5rNAmhq",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCGAxQWYmWxTxnvKwcGiete6i2NppKdC2WD",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLC3vqF3sFf2yixZNSBNYpYcrLjkiadhekg9",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCQJXnryjuYGdNyWnvN3UhZQB1hnYaLGboL",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLC2RJuU8DX5K8fTMXGf66FsuW2oLeBGzDF5",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLC2m9Q6oqiQxQpNirKJW6bySdbrzBeVsn4b",
+		"asset_symbol": "LLC",
+		"amount": 10000000000
+	  },
+	  {
+		"owner": "LLCCGZ7ZrcUX415ewWcGTtzHGtHd37S1Y9GM",
+		"asset_symbol": "LLC",
+		"amount": 80000000000000
+	  },
+	  {
+		"owner": "LLC2ne17iots51CvppVWkVWr5b57yW1gNZmz",
+		"asset_symbol": "LLC",
+		"amount": 20000000000000
+	  },
+	  {
+		"owner": "LLC2JY2P1gvgtQbQnNViYatCCAFP5xWTpHxr",
+		"asset_symbol": "LLC",
+		"amount": 8000000000000
+	  },
+	  {
+		"owner": "LLCJ7188T3QE9GNx7szf991RTKyym7UMaSD6",
+		"asset_symbol": "LLC",
+		"amount": 1000000000000
+	  },
+	  {
+		"owner": "LLC51wP13E1oBEHuyVQeByFeM2cP97FCmsc2",
+		"asset_symbol": "LLC",
+		"amount": 1000000000000
+	  }
+	], 
     "initial_vesting_balances": [],
     "initial_active_witnesses": 9,
     "initial_witness_candidates": [
-      {
-        "owner_name": "ratamahatta",
-        "block_signing_key":"LLC5As5Lds81xuPevHswM1qDjYYyLBJgDcWXHLa16mZFtznHnYTL5"
-      },
-      {
-        "owner_name": "adamgottie",
-        "block_signing_key":"LLC7DotXzjTBA4XDB4s7LFVdX8ZLMm8XxpTLi8CT1fRDCgKyRt4ER"
-      },
-      {
-        "owner_name": "winstonsmith",
-        "block_signing_key":"LLC595e6H6GsdqUn59hduKesEbTQxwrKqmGrLBNujrAbnngU1V6f5"
-      },
-      {
-        "owner_name": "sentriusfounders",
-        "block_signing_key":"LLC86jRVcZaDpiwenz6vBQsuouQg2LGNTda2uXTX7wzk3YSqcbKDW"
-      },
-      {
-        "owner_name": "julia",
-        "block_signing_key":"LLC7zAhy5Q2vGAUmyBdrWPD47PWdPYAiGphagH4sUoAgeS38giYQd"
-      },
-      {
-        "owner_name": "obrien",
-        "block_signing_key":"LLC7aUQU9HTU2VgxCSWAgjjaKQUnWcutrfCB86Qcbizfv9cCNKjoY"
-      },
-      {
-        "owner_name": "aaronson",
-        "block_signing_key":"LLC5MGJfzVmu7dtiqPTAmn1a2tcBEKsi4aVz4nhsv36TghjtbqU2i"
-      },
-      {
-        "owner_name": "ampleforth",
-        "block_signing_key":"LLC5Cq5CVy8KSp82ykEkyUVehqCKcD3VdHNo6EpcWRs7zjr27pGQF"
-      },
-      {
-        "owner_name": "charrington",
-        "block_signing_key":"LLC5XiP9XkRzYTkDfBL1yVGTkTrVqyuyh18TNL3vGwPcLMvDJYFyQ"
-      }
-		],
+	  {
+		"owner_name": "ratamahatta",
+		"block_signing_key": "LLC5X6Gyae4tq49uJ3LeVDymRnNDbWFwpVZqzkmk9ZzBQFEDGgabY"
+	  },
+	  {
+		"owner_name": "adamgottie",
+		"block_signing_key": "LLC8hVi9DP17ctdfTG8zPDNmLSWD6CYmKa9Sfj22edfA3ges9hBq9"
+	  },
+	  {
+		"owner_name": "winstonsmith",
+		"block_signing_key": "LLC816R4zNkroH66rMXdrwcGUySEctRUVMj5XzAGSpmy7upoTPGBK"
+	  },
+	  {
+		"owner_name": "sentriusfounders",
+		"block_signing_key": "LLC7sNuuTwCfg66J3WfcrW6qvs85wKxfwYpWuJX3DVdEx45GTD9GH"
+	  },
+	  {
+		"owner_name": "julia",
+		"block_signing_key": "LLC7d9NC2zoPX7zpvS3XbrZba8vu7LxihVPxSwnuDohfUYVvgRLKy"
+	  },
+	  {
+		"owner_name": "obrien",
+		"block_signing_key": "LLC8S3q6334wRthZRnR31cbUiJ1PfVESTvGT9uCkjud9pFFYRpB5E"
+	  },
+	  {
+		"owner_name": "aaronson",
+		"block_signing_key": "LLC5SV5jZKp6pLv1MFdtyo5edLfaRvg3uCR1m3r8tVtMbBDFPwoQA"
+	  },
+	  {
+		"owner_name": "ampleforth",
+		"block_signing_key": "LLC8ZJTY1YRbkjFxmv5EzvAHwgDifDkGiuYYCbyYede89jw25abW8"
+	  },
+	  {
+		"owner_name": "charrington",
+		"block_signing_key": "LLC7VmmoqLA9zMW6mzMSuV8TCQ7C1jGFsnDrEx5HUvBuqWqRjs7P5"
+	  },
+	  {
+		"owner_name": "katharinesmith",
+		"block_signing_key": "LLC64JV4zBR2jgdf48sH3WBzR7LM8ALPJ91byq7fsSbGjE4KYn4ZU"
+	  },
+	  {
+		"owner_name": "tomparsons",
+		"block_signing_key": "LLC5ZKh65SXMGhaV1K4A8c93pjbgtdWQMPSc8GkXk1bmAz7NZSQKK"
+	  },
+	  {
+		"owner_name": "syme",
+		"block_signing_key": "LLC7gvpkneBXTnj4rKwe9agA1MLvbwqDpe6MXYo4eRoombukeQuEE"
+	  },
+	  {
+		"owner_name": "emmanuelgoldstein",
+		"block_signing_key": "LLC8bzKsnkWE6ia4BxE4wy1m9atps5ybj4Yv39UotBBcTwAPp4vos"
+	  },
+	  {
+		"owner_name": "ingsoc",
+		"block_signing_key": "LLC6HhawS5mJAWXsLh1wDHEGFwt91QkszHJZx6Hwyq8QwgNLFi3cW"
+	  },
+	  {
+		"owner_name": "newspeak",
+		"block_signing_key": "LLC6Nj4v7q3wG8gmJxaxhazzi22i3dQ6hWXtJPCrTzZxBUKbUB2Zv"
+	  },
+	  {
+		"owner_name": "oceania",
+		"block_signing_key": "LLC5z37hpk5TezLFq6PtvfwfaLLFtEdw8imhXv74izGjBXigLJk4i"
+	  },
+	  {
+		"owner_name": "mrbig",
+		"block_signing_key": "LLC8AWYsa1kkA7hU1RDzMqJHBK4gD1T3LnEChqmccJeaiyBokeCMY"
+	  },
+	  {
+		"owner_name": "ministries",
+		"block_signing_key": "LLC7LxFEsF9CkLUNRLV8MXjCDVmD1b7dC7YSJfw6rGGQkPeaFC4vp"
+	  },
+	  {
+		"owner_name": "atlant",
+		"block_signing_key": "LLC51JH9GLerioj3MeQYytkKV4i6r1FfK8rChb3jkDNhEsKrUS27X"
+	  },
+	  {
+		"owner_name": "felix",
+		"block_signing_key": "LLC7VTgFhNjkxxQGXRCTTmnitsttZ2AsuuzguHJjiDAtHB7LANw6C"
+	  },
+	  {
+		"owner_name": "spikemilligan",
+		"block_signing_key": "LLC7xxE64MyDipc84jutQbX66Z4MJPujrxX6PpzqGWwEBcNhPsDy7"
+	  },
+	  {
+		"owner_name": "ericsykes",
+		"block_signing_key": "LLC7R5LvHMLPofxVjDVEyfxbD1GT9m1cyoCyjrFeijvVmtF5wKyeK"
+	  },
+	  {
+		"owner_name": "davidsilveria",
+		"block_signing_key": "LLC7Pcrak7boqWi8jNErUiECQerSdEwDbqNeDnzNTMNmg4DZqByS1"
+	  },
+	  {
+		"owner_name": "integral",
+		"block_signing_key": "LLC8hp2ei3wfugApW3gsNzY8hYefLKF32YiufG6iRKHwk7W95BJ6A"
+	  },
+	  {
+		"owner_name": "d503",
+		"block_signing_key": "LLC4zkfWa7Ku1vTPuWHSXR9g1Xe1T37NSKNbMhCrnFaZPPR1V79pj"
+	  },
+	  {
+		"owner_name": "i303",
+		"block_signing_key": "LLC6gHrZnRWpRS2HmGkC275pbybjwwjDEJLvxfkUon3nyMTXiPkDs"
+	  },
+	  {
+		"owner_name": "murphy",
+		"block_signing_key": "LLC7NuNRbeFqQheKPCAAcANwSBjNL5UZcnEpU8jPvDozshSrXntwa"
+	  },
+	  {
+		"owner_name": "millie",
+		"block_signing_key": "LLC8i2CQqg1CG3mxdAGDciDbbUfjynzueLMwJwV4kcChfTCAFSiQd"
+	  },
+	  {
+		"owner_name": "stoneman",
+		"block_signing_key": "LLC8hroPyg37hgFudRwzv7u8fU2265Eio7TpimxHpCabka93rnn7z"
+	  },
+	  {
+		"owner_name": "faber",
+		"block_signing_key": "LLC86h9p1a9TZ1wDvY5QS62g3h2sf72Mq1fy7BNcEctTPnUACNZnX"
+	  },
+	  {
+		"owner_name": "granger",
+		"block_signing_key": "LLC4xZHKyeQqo6GkCFzqTSLNqpuALGRtoxMBuU3b6aipy1uqMWeJv"
+	  },
+	  {
+		"owner_name": "montag",
+		"block_signing_key": "LLC6qrK6Yju6w44JFcPdH5DMAs92xKANcEWvmMbR3Xm6vPnyx5f6f"
+	  },
+	  {
+		"owner_name": "sirius",
+		"block_signing_key": "LLC67JoBwoKrVvnyW8v8F4zfdsevdkNtswGMiSf5K3uYAV3DHG5Lt"
+	  },
+	  {
+		"owner_name": "hades",
+		"block_signing_key": "LLC838VtdE6YEsH5BcDak3dmh5dfMLQCb98BtszKdwyCVyFqCbSS6"
+	  },
+	  {
+		"owner_name": "aphaea",
+		"block_signing_key": "LLC5vwFwueDtjfVs8p5o6HFM8CXL2DCfGfPpmUZNHv1hVtY3RFHiw"
+	  }
+	],
     "initial_committee_candidates": [
-		  { "owner_name": "obrien"      },
-		  { "owner_name": "aaronson"    },
-		  { "owner_name": "ampleforth"  },
-		  { "owner_name": "charrington" },
-		  { "owner_name": "ingsoc"      },
-		  { "owner_name": "newspeak"    },
-		  { "owner_name": "oceania"     },
-		  { "owner_name": "ministries"  },
-		  { "owner_name": "atlant"      },
-		  { "owner_name": "felix"       },
-		  { "owner_name": "integral"    },
-		  { "owner_name": "d503"        },
-		  { "owner_name": "i303"        },
-		  { "owner_name": "murphy"      },
-		  { "owner_name": "millie"      },
-		  { "owner_name": "stoneman"    },
-		  { "owner_name": "faber"       },
-		  { "owner_name": "granger"     },
-		  { "owner_name": "montag"      },
-		  { "owner_name": "sirius"      },
-		  { "owner_name": "germut"      }
-		],
+	  {
+		"owner_name": "obrien"
+	  },
+	  {
+		"owner_name": "aaronson"
+	  },
+	  {
+		"owner_name": "ampleforth"
+	  },
+	  {
+		"owner_name": "charrington"
+	  },
+	  {
+		"owner_name": "ingsoc"
+	  },
+	  {
+		"owner_name": "newspeak"
+	  },
+	  {
+		"owner_name": "oceania"
+	  },
+	  {
+		"owner_name": "ministries"
+	  },
+	  {
+		"owner_name": "atlant"
+	  },
+	  {
+		"owner_name": "felix"
+	  },
+	  {
+		"owner_name": "integral"
+	  },
+	  {
+		"owner_name": "d503"
+	  },
+	  {
+		"owner_name": "i303"
+	  },
+	  {
+		"owner_name": "murphy"
+	  },
+	  {
+		"owner_name": "millie"
+	  },
+	  {
+		"owner_name": "stoneman"
+	  },
+	  {
+		"owner_name": "faber"
+	  },
+	  {
+		"owner_name": "granger"
+	  },
+	  {
+		"owner_name": "montag"
+	  },
+	  {
+		"owner_name": "sirius"
+	  },
+	  {
+		"owner_name": "germut"
+	  },
+	  {
+		"owner_name": "notteler"
+	  }
+	],
     "initial_worker_candidates": [],
-    "initial_chain_id": "aa34045518f1469a28fa4578240d5f039afa9959c0b95ce3b39674efa691fb21",
     "immutable_parameters": {
-        "min_committee_member_count": 21,
+        "min_committee_member_count": 9,
         "min_witness_count": 9,
         "num_special_accounts": 0,
         "num_special_assets": 0

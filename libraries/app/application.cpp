@@ -165,9 +165,9 @@ void application_impl::reset_p2p_node(const fc::path& data_dir)
    {
       // https://bitsharestalk.org/index.php/topic,23715.0.html
 	   vector<string> seeds = {
-		   "moscow.localcoin.is:11010"               // Moscow (Russia)
-		   "ru.localcoin.is:11010"               // Russia
-		   "helsinki.localcoin.is:11010"               // Helsinki (Finland)
+		   "moscow.localcoin.is:11010",              // Moscow (Russia)
+		   "ru.localcoin.is:11010",            // Russia
+		   "helsinki.localcoin.is:11010",               // Helsinki (Finland)
 	   };
       for( const string& endpoint_string : seeds )
       {
