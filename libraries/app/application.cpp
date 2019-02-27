@@ -165,9 +165,9 @@ void application_impl::reset_p2p_node(const fc::path& data_dir)
    {
       // https://bitsharestalk.org/index.php/topic,23715.0.html
 	   vector<string> seeds = {
-		   "moscow.localcoin.is:11011",              // Moscow (Russia)
-		   "ru.localcoin.is:11011",            // Russia
-		   "helsinki.localcoin.is:11011",               // Helsinki (Finland)
+		   "moscow.localcoin.is:11020",              // Moscow (Russia)
+		   "ru.localcoin.is:11020",            // Russia
+		   "helsinki.localcoin.is:11020",               // Helsinki (Finland)
 	   };
       for( const string& endpoint_string : seeds )
       {
@@ -913,7 +913,7 @@ void application::set_program_options(boost::program_options::options_descriptio
           "JSON array of P2P nodes to connect to on startup")
          ("checkpoint,c", bpo::value<vector<string>>()->composing(),
           "Pairs of [BLOCK_NUM,BLOCK_ID] that should be enforced as checkpoints.")
-         ("rpc-endpoint", bpo::value<string>()->implicit_value("127.0.0.1:8095"),
+         ("rpc-endpoint", bpo::value<string>()->implicit_value("127.0.0.1:8090"),
           "Endpoint for websocket RPC to listen on")
          ("rpc-tls-endpoint", bpo::value<string>()->implicit_value("127.0.0.1:8089"),
           "Endpoint for TLS websocket RPC to listen on")
