@@ -1,0 +1,13 @@
+set_password testpass
+unlock testpass
+
+import_key ratamahatta "5J1RfESiSGKpLYfSZG7oaVHGS4wtPAH3U2J9L6jqQJH5dVZTjA9" true
+import_balance ratamahatta ["5J1RfESiSGKpLYfSZG7oaVHGS4wtPAH3U2J9L6jqQJH5dVZTjA9"] true true
+
+import_key adamgottie "5KE6eZe24XDGrAPkfZro97DzUXQHEiSYtEPZaGzPDgJw5uibEik" true
+import_balance adamgottie ["5KE6eZe24XDGrAPkfZro97DzUXQHEiSYtEPZaGzPDgJw5uibEik"] true true
+
+import_key winstonsmith "5K1s4ru4TEoAePvhYFYGeE51LpagkFPXdVroMZqwM5Ae6695uQR" true
+import_balance winstonsmith ["5K1s4ru4TEoAePvhYFYGeE51LpagkFPXdVroMZqwM5Ae6695uQR"] true true
+
+create_activenode ratamahatta true

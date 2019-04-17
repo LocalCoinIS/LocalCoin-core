@@ -1,0 +1,32 @@
+set_password testpass
+unlock testpass
+
+import_key ratamahatta "5J1RfESiSGKpLYfSZG7oaVHGS4wtPAH3U2J9L6jqQJH5dVZTjA9" true
+import_balance ratamahatta ["5J1RfESiSGKpLYfSZG7oaVHGS4wtPAH3U2J9L6jqQJH5dVZTjA9"] true true
+
+create_account_with_brain_key "TOLE ZAMAN VIREO ATUNE ODIST VITTA DIMORPH SEEDILY TURFDOM IMPLING WISP PAGAN OVERFEE CIVILLY ACOMOUS AEOLINE" anode-alpha ratamahatta ratamahatta true
+transfer "ratamahatta" anode-alpha 1300 LLC "" true
+import_key anode-alpha "5JjQxwmo9WnuuSfcFKJiQCo9EBjzcJNyrCK3Kgn8N8T8iSQJe73" true
+upgrade_account anode-alpha true
+create_activenode anode-alpha true
+
+create_account_with_brain_key "HOSTIE PROVECT AOGIRI ZAPUPE TOPASS OVATION RERUB THINK DOMINE BISQUE DISMAN AMONG OVERTLY FIFE BRUSHY GREAVE" anode-bravo ratamahatta ratamahatta true
+transfer "ratamahatta" anode-bravo 1300 LLC "" true
+import_key anode-bravo "5KPmbeAhxuHdzaDtEn4dRfhqykxHdkZax6UXFNS1ycTmaPBJj8X" true
+upgrade_account anode-bravo true
+create_activenode anode-bravo true
+
+create_account_with_brain_key "MACUCA GUSTFUL PARISIS PICO CARSHOP SUTTLE HOOFROT MELTAGE BUSHEL HOVER ECANDA EMBER THINGY LEGATE FRITH CRUSADO" anode-charlie ratamahatta ratamahatta true
+transfer "ratamahatta" anode-charlie 1300 LLC "" true
+import_key anode-charlie "5KcHEtE3KbXQUuMUhRT4Vf4B9erLjZdfrjBS4KH9AaAy1VdUpCY" true
+upgrade_account anode-charlie true
+create_activenode anode-charlie true
+
+create_account_with_brain_key "STURINE JASPIS STUBBLY IRIDITE PABBLE BUTEIN UNHELE RETIA CHALQUE HARICOT GAP DAMMER MARGIN REFLUX LOWER FORGIVE" anode-delta ratamahatta ratamahatta true
+transfer "ratamahatta" anode-delta 1300 LLC "" true
+import_key anode-delta "5JxuifpxnTuMDCFeb9rwHSe6rUQD3JmVfB6QtJ6GyHa7KSsNDTQ" true
+upgrade_account anode-delta true
+create_activenode anode-delta true
+
+
+
