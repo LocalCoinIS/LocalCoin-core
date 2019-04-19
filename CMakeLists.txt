@@ -41,17 +41,17 @@ get_git_head_revision( GIT_REFSPEC GIT_SHA2 )
 
 SET(BOOST_COMPONENTS)
 LIST(APPEND BOOST_COMPONENTS thread
-                             iostreams
-                             date_time
-                             system
-                             filesystem
-                             program_options
-                             signals
-                             serialization
-                             chrono
-                             unit_test_framework
-                             context
-                             locale)
+                            iostreams
+                            date_time
+                            system
+                            filesystem
+                            program_options
+                            signals
+                            serialization
+                            chrono
+                            unit_test_framework
+                            context
+                            locale)
 SET( Boost_USE_STATIC_LIBS ON CACHE STRING "ON or OFF" )
 
 IF( WIN32 )
@@ -63,10 +63,10 @@ ENDIF(WIN32)
 FIND_PACKAGE(Boost 1.57 REQUIRED COMPONENTS ${BOOST_COMPONENTS})
 # For Boost 1.53 on windows, coroutine was not in BOOST_LIBRARYDIR and do not need it to build,  but if boost versin >= 1.54, find coroutine otherwise will cause link errors
 IF(NOT "${Boost_VERSION}" MATCHES "1.53(.*)")
-   SET(BOOST_LIBRARIES_TEMP ${Boost_LIBRARIES})
-   FIND_PACKAGE(Boost 1.54 REQUIRED COMPONENTS coroutine)
-   LIST(APPEND BOOST_COMPONENTS coroutine)
-   SET(Boost_LIBRARIES ${BOOST_LIBRARIES_TEMP} ${Boost_LIBRARIES})
+  SET(BOOST_LIBRARIES_TEMP ${Boost_LIBRARIES})
+  FIND_PACKAGE(Boost 1.54 REQUIRED COMPONENTS coroutine)
+  LIST(APPEND BOOST_COMPONENTS coroutine)
+  SET(Boost_LIBRARIES ${BOOST_LIBRARIES_TEMP} ${Boost_LIBRARIES})
 ENDIF()
 
 if( WIN32 )
@@ -80,13 +80,15 @@ if( WIN32 )
 
     set(CRYPTO_LIB)
 
-    #looks like this flag can have different default on some machines.
-    SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /SAFESEH:NO")
-    SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SAFESEH:NO")
+    if( MSVC )
+      #looks like this flag can have different default on some machines.
+      SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /SAFESEH:NO")
+      SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SAFESEH:NO")
 
-    # Probably cmake has a bug and vcxproj generated for executable in Debug conf. has disabled debug info
-    set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} /DEBUG")
+      # Probably cmake has a bug and vcxproj generated for executable in Debug conf. has disabled debug info
+      set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} /DEBUG")
 
+    endif ( MSVC )
     # On windows tcl should be installed to the directory pointed by setenv.bat script
     SET(TCL_INCLUDE_PATH $ENV{TCL_ROOT}/include)
     MESSAGE(STATUS "tcl INCLUDE PATH: ${TCL_INCLUDE_PATH}")
@@ -101,11 +103,6 @@ if( WIN32 )
 
     SET(TCL_LIBS "${TCL_LIBS}${TCL_LIB_PATH}/${TCL_LIB_NAME}g${TCL_LIB_EXT}")
     SET(TCL_LIBRARY ${TCL_LIBS})
-
-	find_package( CURL )
-	set(CURL_STATICLIB ON) 
-	include_directories( ${CURL_INCLUDE_DIRS} )
-	link_directories( ${CURL_LIBRARIES} )
 
 else( WIN32 ) # Apple AND Linux
 
