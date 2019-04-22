@@ -1,11 +1,11 @@
-# Defines LocalCoin library target.
-project( LocalCoin )
+# Defines BitShares library target.
+project( BitShares )
 cmake_minimum_required( VERSION 2.8.12 )
 
-set( BLOCKCHAIN_NAME "LocalCoin" )
+set( BLOCKCHAIN_NAME "BitShares" )
 
 set( CLI_CLIENT_EXECUTABLE_NAME graphene_client )
-set( GUI_CLIENT_EXECUTABLE_NAME LocalCoin )
+set( GUI_CLIENT_EXECUTABLE_NAME BitShares )
 set( CUSTOM_URL_SCHEME "gcs" )
 set( INSTALLER_APP_ID "68ad7005-8eee-49c9-95ce-9eed97e5b347" )
 
@@ -32,6 +32,8 @@ if (USE_PCH)
   include (cotire)
 endif(USE_PCH)
 
+option(USE_PROFILER "Build with GPROF support(Linux)." OFF)
+
 IF( NOT WIN32 )
   list( APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/libraries/fc/CMakeModules" )
 ENDIF( NOT WIN32 )
@@ -41,17 +43,14 @@ get_git_head_revision( GIT_REFSPEC GIT_SHA2 )
 
 SET(BOOST_COMPONENTS)
 LIST(APPEND BOOST_COMPONENTS thread
-                            iostreams
-                            date_time
-                            system
-                            filesystem
-                            program_options
-                            signals
-                            serialization
-                            chrono
-                            unit_test_framework
-                            context
-                            locale)
+                             iostreams
+                             date_time
+                             system
+                             filesystem
+                             program_options
+                             chrono
+                             unit_test_framework
+                             context)
 SET( Boost_USE_STATIC_LIBS ON CACHE STRING "ON or OFF" )
 
 IF( WIN32 )
@@ -63,15 +62,15 @@ ENDIF(WIN32)
 FIND_PACKAGE(Boost 1.57 REQUIRED COMPONENTS ${BOOST_COMPONENTS})
 # For Boost 1.53 on windows, coroutine was not in BOOST_LIBRARYDIR and do not need it to build,  but if boost versin >= 1.54, find coroutine otherwise will cause link errors
 IF(NOT "${Boost_VERSION}" MATCHES "1.53(.*)")
-  SET(BOOST_LIBRARIES_TEMP ${Boost_LIBRARIES})
-  FIND_PACKAGE(Boost 1.54 REQUIRED COMPONENTS coroutine)
-  LIST(APPEND BOOST_COMPONENTS coroutine)
-  SET(Boost_LIBRARIES ${BOOST_LIBRARIES_TEMP} ${Boost_LIBRARIES})
+   SET(BOOST_LIBRARIES_TEMP ${Boost_LIBRARIES})
+   FIND_PACKAGE(Boost 1.54 REQUIRED COMPONENTS coroutine)
+   LIST(APPEND BOOST_COMPONENTS coroutine)
+   SET(Boost_LIBRARIES ${BOOST_LIBRARIES_TEMP} ${Boost_LIBRARIES})
 ENDIF()
 
 if( WIN32 )
 
-    message( STATUS "Configuring LocalCoin on WIN32")
+    message( STATUS "Configuring BitShares on WIN32")
     set( DB_VERSION 60 )
     set( BDB_STATIC_LIBS 1 )
 
@@ -81,14 +80,14 @@ if( WIN32 )
     set(CRYPTO_LIB)
 
     if( MSVC )
-      #looks like this flag can have different default on some machines.
-      SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /SAFESEH:NO")
-      SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SAFESEH:NO")
+        #looks like this flag can have different default on some machines.
+        SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /SAFESEH:NO")
+        SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SAFESEH:NO")
 
-      # Probably cmake has a bug and vcxproj generated for executable in Debug conf. has disabled debug info
-      set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} /DEBUG")
-
+        # Probably cmake has a bug and vcxproj generated for executable in Debug conf. has disabled debug info
+        set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} /DEBUG")
     endif ( MSVC )
+
     # On windows tcl should be installed to the directory pointed by setenv.bat script
     SET(TCL_INCLUDE_PATH $ENV{TCL_ROOT}/include)
     MESSAGE(STATUS "tcl INCLUDE PATH: ${TCL_INCLUDE_PATH}")
@@ -108,12 +107,15 @@ else( WIN32 ) # Apple AND Linux
 
     if( APPLE )
         # Apple Specific Options Here
-        message( STATUS "Configuring LocalCoin on OS X" )
+        message( STATUS "Configuring BitShares on OS X" )
         set( CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -std=c++11 -stdlib=libc++ -Wall" )
     else( APPLE )
         # Linux Specific Options Here
-        message( STATUS "Configuring LocalCoin on Linux" )
+        message( STATUS "Configuring BitShares on Linux" )
         set( CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -std=c++11 -Wall" )
+        if(USE_PROFILER)
+            set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg" )
+        endif( USE_PROFILER )
         set( rt_library rt )
         set( pthread_library pthread)
         if ( NOT DEFINED crypto_library )
@@ -146,7 +148,7 @@ else( WIN32 ) # Apple AND Linux
 
 endif( WIN32 )
 
-set(ENABLE_COVERAGE_TESTING FALSE CACHE BOOL "Build LocalCoin for code coverage analysis")
+set(ENABLE_COVERAGE_TESTING FALSE CACHE BOOL "Build BitShares for code coverage analysis")
 
 if(ENABLE_COVERAGE_TESTING)
     SET(CMAKE_CXX_FLAGS "--coverage ${CMAKE_CXX_FLAGS}")
@@ -176,18 +178,18 @@ set(CPACK_PACKAGE_VERSION_MAJOR "${VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${VERSION_MINOR}")
 set(CPACK_PACKAGE_VERSION_PATCH "${VERSION_PATCH}")
 set(CPACK_PACKAGE_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}")
-set(CPACK_PACKAGE_DESCRIPTION "A client for the LocalCoin network")
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "A client for the LocalCoin network")
+set(CPACK_PACKAGE_DESCRIPTION "A client for the BitShares network")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "A client for the BitShares network")
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE.md")
-set(CPACK_PACKAGE_INSTALL_DIRECTORY "LocalCoin ${CPACK_PACKAGE_VERSION}")
+set(CPACK_PACKAGE_INSTALL_DIRECTORY "BitShares ${CPACK_PACKAGE_VERSION}")
 
 if(WIN32)
  SET(CPACK_GENERATOR "ZIP;NSIS")
- set(CPACK_PACKAGE_NAME "LocalCoin") # override above
+ set(CPACK_PACKAGE_NAME "BitShares") # override above
  set(CPACK_NSIS_EXECUTABLES_DIRECTORY .)
- set(CPACK_NSIS_PACKAGE_NAME "LocalCoin v${CPACK_PACKAGE_VERSION}")
+ set(CPACK_NSIS_PACKAGE_NAME "BitShares v${CPACK_PACKAGE_VERSION}")
  set(CPACK_NSIS_DISPLAY_NAME "${CPACK_NSIS_PACKAGE_NAME}")
- set(CPACK_NSIS_DEFINES "  !define MUI_STARTMENUPAGE_DEFAULTFOLDER \\\"LocalCoin\\\"")
+ set(CPACK_NSIS_DEFINES "  !define MUI_STARTMENUPAGE_DEFAULTFOLDER \\\"BitShares\\\"")
  # it seems like windows zip files usually don't have a single directory inside them, unix tgz frequently do
  SET(CPACK_INCLUDE_TOPLEVEL_DIRECTORY 0)
 
@@ -205,3 +207,7 @@ endif(LINUX)
 
  include(CPack)
 endif(ENABLE_INSTALLER)
+
+MESSAGE( STATUS "" )
+MESSAGE( STATUS "PROFILER: ${USE_PROFILER}" )
+MESSAGE( STATUS "" )
