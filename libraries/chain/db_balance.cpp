@@ -198,7 +198,7 @@ void database::deposit_activenode_pay(const activenode_object& ano, share_type a
       amount,
       get_global_properties().parameters.activenode_pay_vesting_seconds,
       ano.activenode_account,
-      false );
+      true );
 
    if( new_vbid.valid() )
    {
