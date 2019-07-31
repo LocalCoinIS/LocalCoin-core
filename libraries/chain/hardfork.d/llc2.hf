@@ -1,0 +1,4 @@
+// #2 Require coindays for activenode vesting balance
+#ifndef HARDFORK_LLC_2_TIME
+#define HARDFORK_LLC_2_TIME (fc::time_point_sec( 1564481855 ))
+#endif

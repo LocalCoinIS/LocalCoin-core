@@ -26,6 +26,7 @@
 #include <graphene/chain/database.hpp>
 #include <graphene/chain/vesting_balance_evaluator.hpp>
 #include <graphene/chain/vesting_balance_object.hpp>
+#include <graphene/chain/hardfork.hpp>
 
 namespace graphene { namespace chain {
 
@@ -106,7 +107,8 @@ void_result vesting_balance_withdraw_evaluator::do_evaluate( const vesting_balan
 
    const vesting_balance_object& vbo = op.vesting_balance( d );
    FC_ASSERT( op.owner == vbo.owner, "", ("op.owner", op.owner)("vbo.owner", vbo.owner) );
-   FC_ASSERT( vbo.is_withdraw_allowed( now, op.amount ), "", ("now", now)("op", op)("vbo", vbo) );
+   //if (d.head_block_time() >= HARDFORK_LLC_2_TIME)
+	//	FC_ASSERT( vbo.is_withdraw_allowed( now, op.amount ), "", ("now", now)("op", op)("vbo", vbo) );
    assert( op.amount <= vbo.balance );      // is_withdraw_allowed should fail before this check is reached
 
    /* const account_object& owner_account = */ op.owner( d );
