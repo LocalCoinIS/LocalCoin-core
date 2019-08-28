@@ -113,6 +113,18 @@ struct market_trade
    account_id_type            side2_account_id = GRAPHENE_NULL_ACCOUNT;
 };
 
+struct market_trade_full
+{
+   int64_t                    sequence = 0;
+   fc::time_point_sec         date;
+   string                     price;
+   string                     amount;
+   string                     value;
+   account_id_type            side1_account_id = GRAPHENE_NULL_ACCOUNT;
+   account_id_type            side2_account_id = GRAPHENE_NULL_ACCOUNT;
+   bool                       is_maker;
+};
+
 /**
  * @brief The database_api class implements the RPC API for the chain database.
  *
@@ -471,6 +483,18 @@ class database_api
       vector<market_trade> get_trade_history( const string& base, const string& quote, fc::time_point_sec start, fc::time_point_sec stop, unsigned limit = 100 )const;
 
       /**
+       * @brief Returns recent trades for the market assetA:assetB, ordered by time, most recent first. The range is [stop, start)
+       * Note: Currently, timezone offsets are not supported. The time must be UTC.
+       * @param a String name of the first asset
+       * @param b String name of the second asset
+       * @param stop Stop time as a UNIX timestamp, the earliest trade to retrieve
+       * @param limit Number of trasactions to retrieve, capped at 100
+       * @param start Start time as a UNIX timestamp, the latest trade to retrieve
+       * @return Recent transactions in the market
+       */
+      vector<market_trade_full> get_trade_history_full( const string& base, const string& quote, fc::time_point_sec start, fc::time_point_sec stop, unsigned limit = 100 )const;
+
+      /**
        * @brief Returns trades for the market assetA:assetB, ordered by time, most recent first. The range is [stop, start)
        * Note: Currently, timezone offsets are not supported. The time must be UTC.
        * @param a String name of the first asset
@@ -705,6 +729,7 @@ FC_REFLECT( graphene::app::market_ticker,
             (time)(base)(quote)(latest)(lowest_ask)(highest_bid)(percent_change)(base_volume)(quote_volume) );
 FC_REFLECT( graphene::app::market_volume, (time)(base)(quote)(base_volume)(quote_volume) );
 FC_REFLECT( graphene::app::market_trade, (sequence)(date)(price)(amount)(value)(side1_account_id)(side2_account_id) );
+FC_REFLECT( graphene::app::market_trade_full, (sequence)(date)(price)(amount)(value)(side1_account_id)(side2_account_id)(is_maker) );
 
 FC_API(graphene::app::database_api,
    // Objects
@@ -817,4 +842,6 @@ FC_API(graphene::app::database_api,
    (get_withdraw_permissions_by_giver)
    (get_withdraw_permissions_by_recipient)
 
+   //coinmarketcap methods
+   (get_trade_history_full)
 )

@@ -114,6 +114,7 @@ class database_api_impl : public std::enable_shared_from_this<database_api_impl>
       order_book                         get_order_book( const string& base, const string& quote, unsigned limit = 50 )const;
       vector<market_volume>              get_top_markets(uint32_t limit)const;
       vector<market_trade>               get_trade_history( const string& base, const string& quote, fc::time_point_sec start, fc::time_point_sec stop, unsigned limit = 100 )const;
+      vector<market_trade_full>          get_trade_history_full( const string& base, const string& quote, fc::time_point_sec start, fc::time_point_sec stop, unsigned limit = 100 )const;
       vector<market_trade>               get_trade_history_by_sequence( const string& base, const string& quote, int64_t start, fc::time_point_sec stop, unsigned limit = 100 )const;
 
       // Witnesses
@@ -1409,6 +1410,97 @@ vector<market_trade> database_api_impl::get_trade_history( const string& base,
          }
          else
             trade.side2_account_id = itr->op.account_id;
+
+         auto next_itr = std::next(itr);
+         // Trades are usually tracked in each direction, exception: for global settlement only one side is recorded
+         if( next_itr != history_idx.end() && next_itr->key.base == base_id && next_itr->key.quote == quote_id
+             && next_itr->time == itr->time && next_itr->op.is_maker != itr->op.is_maker )
+         {  // next_itr now could be the other direction // FIXME not 100% sure
+            if( next_itr->op.is_maker )
+            {
+               trade.sequence = -next_itr->key.sequence;
+               trade.side1_account_id = next_itr->op.account_id;
+            }
+            else
+               trade.side2_account_id = next_itr->op.account_id;
+            // skip the other direction
+            itr = next_itr;
+         }
+
+         result.push_back( trade );
+         ++count;
+      }
+
+      ++itr;
+   }
+
+   return result;
+}
+
+vector<market_trade_full> database_api::get_trade_history_full( const string& base,
+                                                      const string& quote,
+                                                      fc::time_point_sec start,
+                                                      fc::time_point_sec stop,
+                                                      unsigned limit )const
+{
+   return my->get_trade_history_full( base, quote, start, stop, limit );
+}
+
+vector<market_trade_full> database_api_impl::get_trade_history_full( const string& base,
+                                                           const string& quote,
+                                                           fc::time_point_sec start,
+                                                           fc::time_point_sec stop,
+                                                           unsigned limit )const
+{
+   FC_ASSERT( _app_options && _app_options->has_market_history_plugin, "Market history plugin is not enabled." );
+
+   FC_ASSERT( limit <= 100 );
+
+   auto assets = lookup_asset_symbols( {base, quote} );
+   FC_ASSERT( assets[0], "Invalid base asset symbol: ${s}", ("s",base) );
+   FC_ASSERT( assets[1], "Invalid quote asset symbol: ${s}", ("s",quote) );
+
+   auto base_id = assets[0]->id;
+   auto quote_id = assets[1]->id;
+
+   if( base_id > quote_id ) std::swap( base_id, quote_id );
+
+   if ( start.sec_since_epoch() == 0 )
+      start = fc::time_point_sec( fc::time_point::now() );
+
+   uint32_t count = 0;
+   const auto& history_idx = _db.get_index_type<graphene::market_history::history_index>().indices().get<by_market_time>();
+   auto itr = history_idx.lower_bound( std::make_tuple( base_id, quote_id, start ) );
+   vector<market_trade_full> result;
+
+   while( itr != history_idx.end() && count < limit && !( itr->key.base != base_id || itr->key.quote != quote_id || itr->time < stop ) )
+   {
+      {
+         market_trade_full trade;
+
+         if( assets[0]->id == itr->op.receives.asset_id )
+         {
+            trade.amount = assets[1]->amount_to_string( itr->op.pays );
+            trade.value = assets[0]->amount_to_string( itr->op.receives );
+         }
+         else
+         {
+            trade.amount = assets[1]->amount_to_string( itr->op.receives );
+            trade.value = assets[0]->amount_to_string( itr->op.pays );
+         }
+
+         trade.date = itr->time;
+         trade.price = price_to_string( itr->op.fill_price, *assets[0], *assets[1] );
+
+         if( itr->op.is_maker )
+         {
+            trade.sequence = -itr->key.sequence;
+            trade.side1_account_id = itr->op.account_id;
+         }
+         else
+            trade.side2_account_id = itr->op.account_id;
+
+         trade.is_maker = itr->op.is_maker;
 
          auto next_itr = std::next(itr);
          // Trades are usually tracked in each direction, exception: for global settlement only one side is recorded
