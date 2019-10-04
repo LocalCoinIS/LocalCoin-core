@@ -308,7 +308,7 @@ void write_default_logging_config_to_stream(std::ostream& out)
           "# Rotate log every ? minutes, if leave out default to 60\n"
           "rotation_interval=60\n"
           "# how long will logs be kept (in days), if leave out default to 7\n"
-          "rotation_limit=7\n\n"
+          "rotation_limit=1\n\n"
           "# route any messages logged to the default logger to the \"stderr\" logger we\n"
           "# declared above, if they are info level are higher\n"
           "[logger.default]\n"
